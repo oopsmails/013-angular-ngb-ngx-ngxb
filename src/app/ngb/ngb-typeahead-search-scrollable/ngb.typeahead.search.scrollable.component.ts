@@ -11,7 +11,7 @@ import {
   tap,
 } from 'rxjs';
 import { UsState } from 'src/app/shared/models/shared.model';
-import { StateService } from './../../../shared/services/state.service';
+import { StateService } from 'src/app/shared/services/state.service';
 
 @Component({
   selector: 'ngb-typeahead-search',

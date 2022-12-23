@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgxSelectModule } from 'ngx-select-ex';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './home/home.module';
-import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
 import { HomeMadeModule } from './homemade/homemade.module';
-import { NgxbModule } from './ngxb/ngxb.module';
+import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
+import { NgxbModule } from './ngxb/ngxb.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { NgxModule } from './ngx/ngx.module';
     SharedModule,
     HomeModule,
     HomeMadeModule,
+    NgbTestModule,
     NgxModule,
     NgxbModule,
     BrowserAnimationsModule,
