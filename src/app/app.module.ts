@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeMadeModule } from './homemade/homemade.module';
 import { NgxbModule } from './ngxb/ngxb.module';
+import { NgxModule } from './ngx/ngx.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { NgxbModule } from './ngxb/ngxb.module';
     SharedModule,
     HomeModule,
     HomeMadeModule,
+    NgxModule,
     NgxbModule,
     BrowserAnimationsModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front

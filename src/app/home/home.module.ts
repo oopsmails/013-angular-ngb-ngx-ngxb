@@ -14,19 +14,12 @@ import { NgbModalComponent } from './pages/ngb-modal/ngb.modal.component';
 import { NgbTypeaheadFilterComponent } from './pages/ngb-typeahead-filter/ngb.typeahead.filter.component';
 import { NgbTypeaheadSearchScrollableComponent } from './pages/ngb-typeahead-search-scrollable/ngb.typeahead.search.scrollable.component';
 import { NgbTypeaheadSearchComponent } from './pages/ngb-typeahead-search/ngb.typeahead.search.component';
-import { NgxSelect1Component } from './pages/ngx-select-1/ngx.select.1.component';
-import { NgxSelect2Component } from './pages/ngx-select-2/ngx.select.2.component';
-import { NgxSelect3Component } from './pages/ngx-select-3/ngx.select.3.component';
-import { NgxTestComponent } from './pages/ngx-test/ngx.test.component';
 import { TestAroundComponent } from './pages/test-around/test.around.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/test-around', component: TestAroundComponent },
-  { path: 'home/ngx-test', component: NgxTestComponent },
-  { path: 'home/ngx-select-1', component: NgxSelect1Component },
-  { path: 'home/ngx-select-2', component: NgxSelect2Component },
-  { path: 'home/ngx-select-3', component: NgxSelect3Component },
+
   { path: 'home/ngb-typeahead-search', component: NgbTypeaheadSearchComponent },
   { path: 'home/ngb-typeahead-filter', component: NgbTypeaheadFilterComponent },
   {
@@ -44,10 +37,7 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     TestAroundComponent,
-    NgxTestComponent,
-    NgxSelect1Component,
-    NgxSelect2Component,
-    NgxSelect3Component,
+
     NgbTypeaheadSearchComponent,
     NgbTypeaheadSearchScrollableComponent,
     NgbModalComponent,
