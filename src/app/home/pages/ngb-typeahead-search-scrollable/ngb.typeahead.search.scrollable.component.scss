@@ -1,0 +1,11 @@
+$form-control-width: 600px;
+
+.form-control {
+    width: $form-control-width;
+}
+
+:host ::ng-deep ngb-typeahead-window {
+    width: $form-control-width;
+    max-height: 200px;
+    overflow-y: auto
+}

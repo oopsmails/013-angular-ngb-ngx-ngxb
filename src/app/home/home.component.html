@@ -1,0 +1,89 @@
+<h1>Home</h1>
+<p>
+  This is in 'div class="mainContainer"''. It is defined in
+  <span class="spanFileBackground">styles.scss</span>, but overriden in
+  <span class="spanFileBackground">home.component.scss</span>.
+</p>
+
+<h2>
+  Home Tab: for testing common components in
+  <i [innerHtml]="'core' | highlighter : 'core' : 'partial'"></i>
+  and
+  <i [innerHtml]="'shared' | highlighter : 'shared' : 'full'"></i>
+</h2>
+<hr />
+
+<h3>Testing Around</h3>
+<p><a routerLink="/home/test-around">/home/ngx-test: Ngx Test</a></p>
+<hr />
+
+<h3>Home Made</h3>
+<p>
+  <a routerLink="/home/hm-dropdown-search">/home/hm-dropdown-search: Home Made Dropdown Search</a>
+</p>
+<p>
+  <a routerLink="/home/hm-dropdown-search-async">
+    /home/hm-dropdown-search-async: Home Made Dropdown Search Async
+  </a>
+</p>
+
+<div class="linkListingDiv">
+  <h3>Ngx Testing Around</h3>
+  <p><a routerLink="/home/ngx-test">/home/ngx-test: Ngx Test</a></p>
+
+  <hr />
+  <h3>ngx-select-1</h3>
+  <p><a routerLink="/home/ngx-select-1">/home/ngx-select-1: ngx-select normal usage</a></p>
+  <h3>ngx-select-2</h3>
+  <p><a routerLink="/home/ngx-select-2">/home/ngx-select-2: ngx-select cache, timer</a></p>
+  <h3>ngx-select-3</h3>
+  <p><a routerLink="/home/ngx-select-3">/home/ngx-select-3: ngx-select, search when keyup</a></p>
+  <hr />
+  <h3>home/ngb-typeahead-search</h3>
+  <p>
+    <a routerLink="/home/ngb-typeahead-search">
+      home/ngb-typeahead-search: ngb-typeahead-search, search when keyup
+    </a>
+  </p>
+
+  <h3>home/ngb-typeahead-search-scrollable</h3>
+  <p>
+    <a routerLink="/home/ngb-typeahead-search-scrollable">
+      home/ngb-typeahead-search-scrollable: ngb-typeahead-search-scrollable
+    </a>
+  </p>
+
+  <h3>home/ngb-typeahead-filter</h3>
+  <p>
+    <a routerLink="/home/ngb-typeahead-filter"> home/ngb-typeahead-filter: ngb-typeahead-filter </a>
+  </p>
+
+  <h3>home/ngb-carousel-cycle</h3>
+  <p>
+    <a routerLink="/home/ngb-carousel-cycle"> home/ngb-carousel-cycle: ngb-carousel-cycle </a>
+  </p>
+
+  <h3>home/ngb-modal</h3>
+  <p>
+    <a routerLink="/home/ngb-modal"> home/ngb-modal: ngb-modal </a>
+  </p>
+
+  <hr />
+  <h3>home/ngxb-typeahead-search-scrollable</h3>
+  <p>
+    <a routerLink="/home/ngxb-typeahead-search">
+      home/ngxb-typeahead-search: ngxb-typeahead-search, search when keyup
+    </a>
+  </p>
+
+  <h3>home/ngxb-typeahead-search-preview</h3>
+  <p>
+    <a routerLink="/home/ngxb-typeahead-search-preview">
+      home/ngxb-typeahead-search-: ngxb-typeahead-search-preview, search when keyup
+    </a>
+  </p>
+</div>
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>

@@ -1,0 +1,31 @@
+<h1>Ngx Test</h1>
+
+<hr />
+<h2>ngx-select: items ready</h2>
+<p>When items are ready, searching will not trigger backend call, highlighted automatically</p>
+<div>
+  <ngx-select
+    [formControl]="formControl1"
+    [items]="items"
+    [noAutoComplete]="false"
+    optionTextField="customKey"
+  ></ngx-select>
+  Selected: {{ formControl1.value }}
+</div>
+
+<hr />
+<h2>ngx-select: items ready, async pipe</h2>
+<p>When items are ready, searching will not trigger backend call, highlighted automatically</p>
+<div>
+  <ngx-select
+    [formControl]="formControl2"
+    [items]="items2$ | async"
+    [noAutoComplete]="false"
+    optionTextField="name"
+  ></ngx-select>
+  Selected: {{ formControl2.value }}
+</div>
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>

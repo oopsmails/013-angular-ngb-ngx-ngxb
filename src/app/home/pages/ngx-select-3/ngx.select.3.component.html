@@ -1,0 +1,20 @@
+<h1>Ngx Test</h1>
+
+<hr />
+<h2>ngx-select: items NOT ready</h2>
+<p>When items are not ready, searching will trigger backend call</p>
+<div>
+  <ngx-select
+    (keyup)="onKeyUpSearch($event)"
+    (click)="onClick($event)"
+    [formControl]="formControl4"
+    [items]="displaying$ | async"
+    [noAutoComplete]="false"
+    optionTextField="name"
+  ></ngx-select>
+  Selected: {{ formControl4.value }}
+</div>
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>

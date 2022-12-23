@@ -1,0 +1,31 @@
+$form-control-width: 600px;
+
+.form-control {
+  width: $form-control-width;
+}
+
+:host ::ng-deep ngb-typeahead-window {
+  width: $form-control-width;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+// second test below ----------------------------------
+
+.statusDropdownContainer,
+.calendarBtnContainer {
+  padding-top: 6px;
+}
+
+.statusFilterDropdown {
+  box-shadow: -2px 2px 4px 0px #888;
+  background-color: #f2f8f9;
+  border: 1px solid #d3d3d3;
+}
+
+.flex-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

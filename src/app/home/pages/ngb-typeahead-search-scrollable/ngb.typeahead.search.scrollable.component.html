@@ -1,0 +1,23 @@
+<h3>Search State: trying scrollable</h3>
+
+<ng-template #rTemplate let-r="result" let-t="term">
+  <img
+    [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r.flag_img"
+    class="mr-1"
+    style="width: 16px"
+  />
+  <ngb-highlight [result]="r.stateName" [term]="t"></ngb-highlight>
+</ng-template>
+
+<label for="typeahead-template">Search for a state:</label>
+<input
+  id="typeahead-template"
+  type="text"
+  class="form-control"
+  [(ngModel)]="model"
+  [ngbTypeahead]="searchState"
+  [resultTemplate]="rTemplate"
+  [inputFormatter]="inputFormatter"
+/>
+<hr />
+<pre>Model: {{ model | json }}</pre>

@@ -1,0 +1,27 @@
+<h3>Search github user: Ngx-bootstrap</h3>
+
+<div>
+  <input
+    [(ngModel)]="searchText"
+    typeaheadOptionField="login"
+    [typeahead]="suggestions$"
+    [typeaheadAsync]="true"
+    [typeaheadScrollable]="true"
+    (typeaheadOnSelect)="onSelect($event)"
+    (typeaheadOnPreview)="onPreview($event)"
+    class="form-control"
+    placeholder="Enter GitHub username"
+  />
+
+  <div style="float: right; width: 160px" class="card card-block card-header mb-3">
+    Preview Avatar:
+    <span *ngIf="previewOption; else noPreviewOption">{{ previewOption?.login }}</span>
+    <ng-template #noPreviewOption><span>N/A: not working in v6.2.0</span></ng-template>
+  </div>
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+<pre class="card card-block card-header">Search Text: {{ searchText | json }}</pre>
+<pre class="card card-block card-header">Selected Option: {{ selectedOption | json }}</pre>

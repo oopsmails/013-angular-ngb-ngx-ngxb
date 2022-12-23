@@ -1,0 +1,18 @@
+<h1>Ngx Test</h1>
+
+<hr />
+<h2>ngx-select: items cached ready, refreshing by Timer</h2>
+<p>When items are not ready, searching will trigger backend call</p>
+<div>
+  <ngx-select
+    [formControl]="formControl3"
+    [items]="items$ | async"
+    [noAutoComplete]="false"
+    optionTextField="name"
+  ></ngx-select>
+  Selected: {{ formControl3.value }}
+</div>
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>
