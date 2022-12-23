@@ -18,8 +18,6 @@ import { NgxSelect1Component } from './pages/ngx-select-1/ngx.select.1.component
 import { NgxSelect2Component } from './pages/ngx-select-2/ngx.select.2.component';
 import { NgxSelect3Component } from './pages/ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './pages/ngx-test/ngx.test.component';
-import { NgxbTypeaheadSearchPreviewComponent } from './pages/ngxb-typeahead-search-preview/ngxb.typeahead.search.preview.component';
-import { NgxbTypeaheadSearchComponent } from './pages/ngxb-typeahead-search/ngxb.typeahead.search.component';
 import { TestAroundComponent } from './pages/test-around/test.around.component';
 
 const routes: Routes = [
@@ -40,8 +38,6 @@ const routes: Routes = [
     component: NgbCarouselCycleComponent,
   },
   { path: 'home/ngb-modal', component: NgbModalComponent },
-  { path: 'home/ngxb-typeahead-search', component: NgxbTypeaheadSearchComponent },
-  { path: 'home/ngxb-typeahead-search-preview', component: NgxbTypeaheadSearchPreviewComponent },
 ];
 
 @NgModule({
@@ -56,8 +52,6 @@ const routes: Routes = [
     NgbTypeaheadSearchScrollableComponent,
     NgbModalComponent,
     NgbTypeaheadFilterComponent,
-    NgxbTypeaheadSearchComponent,
-    NgxbTypeaheadSearchPreviewComponent,
     NgbCarouselCycleComponent,
   ],
   imports: [

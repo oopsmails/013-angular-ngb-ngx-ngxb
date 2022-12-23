@@ -7,11 +7,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
+import { HomeMadeRoutingModule } from './homemade-routing.module';
 
-const routes: Routes = [
-  { path: 'home/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
-  { path: 'home/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
-];
+// const routes: Routes = [
+//   { path: 'home/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
+//   { path: 'home/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
+// ];
 
 @NgModule({
   declarations: [HomeMadeDropdownSearchComponent, HomeMadeDropdownSearchAsyncComponent],
@@ -21,7 +22,8 @@ const routes: Routes = [
     BrowserModule,
     TranslateModule.forRoot(),
     SharedModule,
-    RouterModule.forChild(routes),
+    HomeMadeRoutingModule,
+    // RouterModule.forChild(routes),
   ],
   exports: [],
 })
