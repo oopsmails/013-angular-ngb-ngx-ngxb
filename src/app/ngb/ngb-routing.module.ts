@@ -7,17 +7,17 @@ import { NgbTypeaheadSearchScrollableComponent } from './ngb-typeahead-search-sc
 import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahead.search.component';
 
 const routes: Routes = [
-  { path: 'home/ngb-typeahead-search', component: NgbTypeaheadSearchComponent },
-  { path: 'home/ngb-typeahead-filter', component: NgbTypeaheadFilterComponent },
+  { path: 'ngb/ngb-typeahead-search', component: NgbTypeaheadSearchComponent },
+  { path: 'ngb/ngb-typeahead-filter', component: NgbTypeaheadFilterComponent },
   {
-    path: 'home/ngb-typeahead-search-scrollable',
+    path: 'ngb/ngb-typeahead-search-scrollable',
     component: NgbTypeaheadSearchScrollableComponent,
   },
   {
-    path: 'home/ngb-carousel-cycle',
+    path: 'ngb/ngb-carousel-cycle',
     component: NgbCarouselCycleComponent,
   },
-  { path: 'home/ngb-modal', component: NgbModalComponent },
+  { path: 'ngb/ngb-modal', component: NgbModalComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

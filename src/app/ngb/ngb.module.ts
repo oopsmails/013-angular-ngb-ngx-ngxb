@@ -12,6 +12,7 @@ import { NgbRoutingModule } from './ngb-routing.module';
 import { NgbTypeaheadFilterComponent } from './ngb-typeahead-filter/ngb.typeahead.filter.component';
 import { NgbTypeaheadSearchScrollableComponent } from './ngb-typeahead-search-scrollable/ngb.typeahead.search.scrollable.component';
 import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahead.search.component';
+import { NgbHomeComponent } from './ngb-home/ngb-home.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahea
     NgbModalComponent,
     NgbTypeaheadFilterComponent,
     NgbCarouselCycleComponent,
+    NgbHomeComponent,
   ],
   imports: [
     CommonModule,

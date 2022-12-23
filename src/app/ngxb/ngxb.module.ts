@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NgxbRoutingModule } from './ngxb-routing.module';
 import { NgxbTypeaheadSearchPreviewComponent } from './ngxb-typeahead-search-preview/ngxb.typeahead.search.preview.component';
 import { NgxbTypeaheadSearchComponent } from './ngxb-typeahead-search/ngxb.typeahead.search.component';
+import { NgxbHomeComponent } from './ngxb-home/ngxb-home.component';
 
 // const routes: Routes = [
 //   { path: 'home/ngxb-typeahead-search', component: NgxbTypeaheadSearchComponent },
@@ -18,7 +19,7 @@ import { NgxbTypeaheadSearchComponent } from './ngxb-typeahead-search/ngxb.typea
 // ];
 
 @NgModule({
-  declarations: [NgxbTypeaheadSearchComponent, NgxbTypeaheadSearchPreviewComponent],
+  declarations: [NgxbTypeaheadSearchComponent, NgxbTypeaheadSearchPreviewComponent, NgxbHomeComponent],
   imports: [
     CommonModule,
     HttpClientModule,

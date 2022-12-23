@@ -2,6 +2,7 @@ import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/co
 import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/shared/models';
 import { CarDataService } from 'src/app/shared/services/car.service';
+import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
   selector: 'app-test-around',
@@ -10,6 +11,9 @@ import { CarDataService } from 'src/app/shared/services/car.service';
 })
 export class HomeMadeDropdownSearchComponent implements OnInit, OnDestroy {
   @ViewChild('searchText') searchTextElement: ElementRef;
+
+  linkText = SANDBOX_BACK_TO_HOME;
+  routerLinkInput = SANDBOX_HOME_LINK;
 
   private onDestroy$: Subject<boolean> = new Subject();
 

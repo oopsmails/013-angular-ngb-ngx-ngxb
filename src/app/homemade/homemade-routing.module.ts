@@ -4,8 +4,8 @@ import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
 
 const routes: Routes = [
-  { path: 'home/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
-  { path: 'home/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
+  { path: 'hm/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
+  { path: 'hm/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

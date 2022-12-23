@@ -9,10 +9,10 @@ import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
 
 const routes: Routes = [
-  { path: 'home/ngx-test', component: NgxTestComponent },
-  { path: 'home/ngx-select-1', component: NgxSelect1Component },
-  { path: 'home/ngx-select-2', component: NgxSelect2Component },
-  { path: 'home/ngx-select-3', component: NgxSelect3Component },
+  { path: 'ngx/ngx-test', component: NgxTestComponent },
+  { path: 'ngx/ngx-select-1', component: NgxSelect1Component },
+  { path: 'ngx/ngx-select-2', component: NgxSelect2Component },
+  { path: 'ngx/ngx-select-3', component: NgxSelect3Component },
 ];
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NgxSelectModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
   ],
   exports: [RouterModule],
 })

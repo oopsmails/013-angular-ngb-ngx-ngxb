@@ -6,8 +6,8 @@ import { NgxbTypeaheadSearchPreviewComponent } from './ngxb-typeahead-search-pre
 import { NgxbTypeaheadSearchComponent } from './ngxb-typeahead-search/ngxb.typeahead.search.component';
 
 const routes: Routes = [
-  { path: 'home/ngxb-typeahead-search', component: NgxbTypeaheadSearchComponent },
-  { path: 'home/ngxb-typeahead-search-preview', component: NgxbTypeaheadSearchPreviewComponent },
+  { path: 'ngxb/ngxb-typeahead-search', component: NgxbTypeaheadSearchComponent },
+  { path: 'ngxb/ngxb-typeahead-search-preview', component: NgxbTypeaheadSearchPreviewComponent },
 ];
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes)],

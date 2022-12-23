@@ -10,9 +10,10 @@ import { NgxSelect1Component } from './ngx-select-1/ngx.select.1.component';
 import { NgxSelect2Component } from './ngx-select-2/ngx.select.2.component';
 import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
+import { NgxHomeComponent } from './ngx-home/ngx-home.component';
 
 @NgModule({
-  declarations: [NgxTestComponent, NgxSelect1Component, NgxSelect2Component, NgxSelect3Component],
+  declarations: [NgxTestComponent, NgxSelect1Component, NgxSelect2Component, NgxSelect3Component, NgxHomeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
