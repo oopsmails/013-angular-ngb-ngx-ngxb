@@ -1,17 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {
-  catchError,
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  Observable,
-  of,
-  OperatorFunction,
-  Subject,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs';
+import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { Car } from 'src/app/shared/models';
 import { CarDataService } from 'src/app/shared/services/car.service';
 
