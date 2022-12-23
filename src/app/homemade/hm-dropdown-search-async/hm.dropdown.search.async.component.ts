@@ -2,14 +2,18 @@ import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/co
 import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { Car } from 'src/app/shared/models';
 import { CarDataService } from 'src/app/shared/services/car.service';
+import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
   selector: 'app-test-around',
-  templateUrl: './test.around.component.html',
-  styleUrls: ['./test.around.component.scss'],
+  templateUrl: './hm.dropdown.search.async.component.html',
+  styleUrls: ['./hm.dropdown.search.async.component.scss'],
 })
-export class TestAroundComponent implements OnInit, OnDestroy {
+export class HomeMadeDropdownSearchAsyncComponent implements OnInit, OnDestroy {
   @ViewChild('searchText') searchTextElement: ElementRef;
+
+  linkText = SANDBOX_BACK_TO_HOME;
+  routerLinkInput = SANDBOX_HOME_LINK;
 
   private onDestroy$: Subject<boolean> = new Subject();
 
@@ -72,10 +76,7 @@ export class TestAroundComponent implements OnInit, OnDestroy {
           return resp.filter((item) => item.description.toLowerCase().indexOf(searchString) > -1);
         }),
         tap((resp) =>
-          console.log(
-            'this.filteredList indropdown -------> ',
-            (resp && resp.length) || 'Something goes wrong'
-          )
+          console.log('filterDropdown, this.filteredList.length: ', (resp && resp.length) || '0???')
         )
       );
     }

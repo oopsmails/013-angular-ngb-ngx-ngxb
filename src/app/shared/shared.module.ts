@@ -11,9 +11,17 @@ import { SharedDataService } from './services/shared.data.service';
 import { StateService } from './services/state.service';
 import { UtilsService } from './services/utils.service';
 import { WikipediaService } from './services/wikipedia.service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BackAngleComponent } from './components/back-angle/back.angle.component';
 
 @NgModule({
-  declarations: [HighlighterPipe, NotFoundComponent, FooterComponent],
+  declarations: [
+    HighlighterPipe,
+    NotFoundComponent,
+    FooterComponent,
+    NavBarComponent,
+    BackAngleComponent,
+  ],
   imports: [CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   exports: [
     CommonModule,
@@ -23,7 +31,9 @@ import { WikipediaService } from './services/wikipedia.service';
     HttpClientModule,
     HighlighterPipe,
     NotFoundComponent,
+    NavBarComponent,
     FooterComponent,
+    BackAngleComponent,
   ],
   providers: [UtilsService, SharedDataService, WikipediaService, GithubService, StateService],
 })

@@ -27,7 +27,7 @@ body {
 .mainContainer {
   position: relative;
   padding: 5px;
-  
+
   // top: calc(var(--nav-height) + 10px);
   // top: 20px;
   // padding-top: 20px; // for demo
@@ -35,7 +35,9 @@ body {
   // height: 200vh;
 }
 
-table, th, td {
+table,
+th,
+td {
   text-align: left;
   width: 100%;
   border: 1px solid blue;
@@ -44,19 +46,21 @@ table, th, td {
 
 th,
 td {
-width: 100px;
-overflow: hidden;
+  width: 100px;
+  overflow: hidden;
 }
 
-tr:hover {background-color: coral;}
+tr:hover {
+  background-color: coral;
+}
 
 
 .five {
-width: 5%;
-// background: tomato;
-}
-.ten {
-width: 10%;
-// background: turquoise
+  width: 5%;
+  // background: tomato;
 }
 
+.ten {
+  width: 10%;
+  // background: turquoise
+}
