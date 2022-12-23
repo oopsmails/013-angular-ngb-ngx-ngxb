@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { RandomItem } from 'src/app/shared/models/sample.model';
 import { SharedDataService } from 'src/app/shared/services/shared.data.service';
-import { HomeDataService } from '../../home.data.service';
 
 @Component({
   selector: 'ngx-test',

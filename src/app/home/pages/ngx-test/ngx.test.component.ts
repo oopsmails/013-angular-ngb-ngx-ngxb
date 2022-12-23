@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { SharedDataService } from 'src/app/shared/services/shared.data.service';
-import { HomeDataService } from '../../home.data.service';
 
 @Component({
   selector: 'ngx-test',
@@ -16,7 +14,7 @@ export class NgxTestComponent implements OnInit, OnDestroy {
   public items$: Observable<any[]>;
   public formControl = new FormControl(3);
 
-  constructor(private router: Router, private sharedDataService: SharedDataService) {}
+  constructor(private sharedDataService: SharedDataService) {}
 
   ngOnInit() {
     this.items$ = this.sharedDataService.getRandomItems();

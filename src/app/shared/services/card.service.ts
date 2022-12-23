@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { Card } from './models/home.models';
+import { Card } from '../models/shared.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +17,7 @@ export class HomeDataService implements OnDestroy {
 
   private onDestroy$: Subject<boolean> = new Subject();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
   getCards(): Observable<Card[]> {
     return of(this.cards);

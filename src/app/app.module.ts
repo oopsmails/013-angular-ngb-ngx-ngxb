@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeMadeModule } from './homemade/homemade.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     SharedModule,
     HomeModule,
+    HomeMadeModule,
     BrowserAnimationsModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],

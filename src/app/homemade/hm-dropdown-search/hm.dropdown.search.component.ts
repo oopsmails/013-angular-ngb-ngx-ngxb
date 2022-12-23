@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/shared/models';
-import { CarDataService } from 'src/app/shared/services/car.data.service';
+import { CarDataService } from 'src/app/shared/services/car.service';
 
 @Component({
   selector: 'app-test-around',

@@ -9,8 +9,6 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
-import { HomeMadeDropdownSearchAsyncComponent } from './pages/hm-dropdown-search-async/hm.dropdown.search.async.component';
-import { HomeMadeDropdownSearchComponent } from './pages/hm-dropdown-search/hm.dropdown.search.component';
 import { NgbCarouselCycleComponent } from './pages/ngb-carousel-cycle/ngb.carousel.cycle.component';
 import { NgbModalComponent } from './pages/ngb-modal/ngb.modal.component';
 import { NgbTypeaheadFilterComponent } from './pages/ngb-typeahead-filter/ngb.typeahead.filter.component';
@@ -27,8 +25,6 @@ import { TestAroundComponent } from './pages/test-around/test.around.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/test-around', component: TestAroundComponent },
-  { path: 'home/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
-  { path: 'home/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
   { path: 'home/ngx-test', component: NgxTestComponent },
   { path: 'home/ngx-select-1', component: NgxSelect1Component },
   { path: 'home/ngx-select-2', component: NgxSelect2Component },
@@ -52,8 +48,6 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     TestAroundComponent,
-    HomeMadeDropdownSearchComponent,
-    HomeMadeDropdownSearchAsyncComponent,
     NgxTestComponent,
     NgxSelect1Component,
     NgxSelect2Component,
