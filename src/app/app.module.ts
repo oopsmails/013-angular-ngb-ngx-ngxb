@@ -13,6 +13,7 @@ import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     NgxSelectModule,
     HttpClientModule,
     SharedModule,
+    CoreModule,
     HomeModule,
     HomeMadeModule,
     NgbTestModule,

@@ -2,20 +2,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
 import { HomeMadeRoutingModule } from './homemade-routing.module';
-
-// const routes: Routes = [
-//   { path: 'home/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
-//   { path: 'home/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
-// ];
+import { HomemadeComponent } from './homemade/homemade.component';
 
 @NgModule({
-  declarations: [HomeMadeDropdownSearchComponent, HomeMadeDropdownSearchAsyncComponent],
+  declarations: [
+    HomeMadeDropdownSearchComponent,
+    HomeMadeDropdownSearchAsyncComponent,
+    HomemadeComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -23,7 +22,6 @@ import { HomeMadeRoutingModule } from './homemade-routing.module';
     TranslateModule.forRoot(),
     SharedModule,
     HomeMadeRoutingModule,
-    // RouterModule.forChild(routes),
   ],
   exports: [],
 })
