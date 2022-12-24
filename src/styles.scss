@@ -22,6 +22,9 @@ body {
   --nav-item-margin-bottom: 1em;
   --nav-a-font-size: 1.2rem;
   --nav-height: 4em;
+
+  // page IDs
+  // --ngx-search-git: 'ngx-search-git'
 }
 
 .mainContainer {
@@ -35,32 +38,32 @@ body {
   // height: 200vh;
 }
 
-table,
-th,
-td {
-  text-align: left;
-  width: 100%;
-  border: 1px solid blue;
-  border-collapse: collapse;
-}
+// table,
+// th,
+// td {
+//   text-align: left;
+//   width: 100%;
+//   border: 1px solid blue;
+//   border-collapse: collapse;
+// }
 
-th,
-td {
-  width: 100px;
-  overflow: hidden;
-}
+// th,
+// td {
+//   width: 100px;
+//   overflow: hidden;
+// }
 
-tr:hover {
-  background-color: coral;
-}
+// tr:hover {
+//   background-color: coral;
+// }
 
 
-.five {
-  width: 5%;
-  // background: tomato;
-}
+// .five {
+//   width: 5%;
+//   // background: tomato;
+// }
 
-.ten {
-  width: 10%;
-  // background: turquoise
-}
+// .ten {
+//   width: 10%;
+//   // background: turquoise
+// }

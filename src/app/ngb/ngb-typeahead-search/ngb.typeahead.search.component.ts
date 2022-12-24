@@ -57,7 +57,7 @@ export class NgbTypeaheadSearchComponent implements OnInit, OnDestroy {
       distinctUntilChanged(),
       tap(() => (this.githubSearching = true)),
       switchMap((term) =>
-        this.githubService.search(term).pipe(
+        this.githubService.searchUsers(term).pipe(
           tap(() => (this.searchFailed = false)),
           catchError(() => {
             this.searchFailed = true;
