@@ -3,20 +3,21 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { GitHubUser, GitHubUserSearchResponse } from '../models/shared.model';
 
-const GITHUB_URL = 'https://api.github.com/search/users';
+const GITHUB_URL_USERS = 'https://api.github.com/search/users';
+const GITHUB_URL_REPOS = 'https://api.github.com/search/repositories';
 
 @Injectable()
 export class GithubService {
   errorMessage?: string;
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-  search(term: string): Observable<GitHubUser[]> {
+  searchUsers(term: string): Observable<GitHubUser[]> {
     if (term === '') {
       return of([]);
     }
 
-    return this.http
-      .get<GitHubUserSearchResponse>(GITHUB_URL, {
+    return this.httpClient
+      .get<GitHubUserSearchResponse>(GITHUB_URL_USERS, {
         params: { q: term },
       })
       .pipe(
@@ -27,5 +28,21 @@ export class GithubService {
           return of([]);
         })
       );
+  }
+
+  public searchRepos(term: string): Observable<any> {
+    if (term === '') {
+      console.log('Not defined');
+      return of(null);
+      //return empty();
+    } else {
+      let params = { q: term };
+      return this.httpClient.get(GITHUB_URL_REPOS, { params }).pipe(
+        map((response) => {
+          console.log(response);
+          return response['items'];
+        })
+      );
+    }
   }
 }
