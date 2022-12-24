@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { GitHubUser, GitHubUserSearchResponse } from '../models/shared.model';
+import {
+  GitHubRepo,
+  GitHubRepoSearchResponse,
+  GitHubUser,
+  GitHubUserSearchResponse,
+} from '../models/shared.model';
 
 const GITHUB_URL_USERS = 'https://api.github.com/search/users';
 const GITHUB_URL_REPOS = 'https://api.github.com/search/repositories';
@@ -24,13 +29,13 @@ export class GithubService {
         map((data: GitHubUserSearchResponse) => (data && data.items) || []),
         catchError((err) => {
           this.errorMessage = (err && err.message) || 'Something goes wrong';
-          console.log('GithubService, search: ', term, this.errorMessage);
+          console.log('GithubService, searchUsers: ', term, this.errorMessage);
           return of([]);
         })
       );
   }
 
-  public searchRepos(term: string): Observable<any> {
+  public searchRepos(term: string): Observable<GitHubRepo[]> {
     if (term === '') {
       console.log('Not defined');
       return of(null);
@@ -38,8 +43,9 @@ export class GithubService {
     } else {
       let params = { q: term };
       return this.httpClient.get(GITHUB_URL_REPOS, { params }).pipe(
-        map((response) => {
-          console.log(response);
+        map((response: GitHubRepoSearchResponse) => {
+          console.log('GithubService, searchRepos: ', response);
+          console.log('GithubService, searchRepos, response.items.size: ', response?.items?.length);
           return response['items'];
         })
       );

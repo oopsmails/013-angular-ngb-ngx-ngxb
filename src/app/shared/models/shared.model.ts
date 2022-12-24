@@ -20,6 +20,24 @@ export interface GitHubUser {
   type: string;
   score: number;
 }
+
+export interface GitHubRepoSearchResponse {
+  total_count: number;
+  incomplete_results: boolean;
+  items: GitHubRepo[];
+}
+
+export interface GitHubRepo {
+  id: number;
+  node_id: string;
+  name: string;
+  full_name: string;
+  private: boolean;
+  owner: GitHubUser;
+  clone_url: string;
+  forks_count: number;
+  open_issues_count: number;
+}
 export interface UsState {
   id?: number;
   stateName: string;

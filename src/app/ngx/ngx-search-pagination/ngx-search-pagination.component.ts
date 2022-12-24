@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
-  Subject,
-  map,
+  catchError,
   debounceTime,
   distinctUntilChanged,
+  map,
+  Subject,
   switchMap,
-  catchError,
   throwError,
 } from 'rxjs';
+import { GitHubRepo } from 'src/app/shared/models';
 import { GithubService } from 'src/app/shared/services/github.service';
 
 /**
@@ -24,10 +25,10 @@ export class NgxSearchPaginationComponent implements OnInit {
   public loading: boolean;
   public searchTerm = new Subject<string>();
   // public baseUrl = 'https://api.github.com/search/repositories';
-  public searchResults: any;
-  public paginationElements: any;
-  public errorMessage: any;
-  public page: any;
+  public searchResults: GitHubRepo[];
+  public paginationElements: GitHubRepo[];
+  public errorMessage: string;
+  public page: number;
 
   constructor(private githubService: GithubService) {}
 
@@ -35,7 +36,7 @@ export class NgxSearchPaginationComponent implements OnInit {
     search: new FormControl('', Validators.required),
   });
 
-  public search() {
+  public search(): void {
     this.searchTerm
       .pipe(
         map((e: any) => {
@@ -44,16 +45,16 @@ export class NgxSearchPaginationComponent implements OnInit {
         }),
         debounceTime(400),
         distinctUntilChanged(),
-        switchMap((term) => {
+        switchMap((term: string) => {
           this.loading = true;
           return this.githubService.searchRepos(term);
         }),
         catchError((e) => {
           //handle the error and return it
-          console.log(e);
+          console.log('Get error: ', e.message);
           this.loading = false;
           this.errorMessage = e.message;
-          return throwError(e);
+          return throwError(() => new Error(this.errorMessage));
         })
       )
       .subscribe((v) => {
