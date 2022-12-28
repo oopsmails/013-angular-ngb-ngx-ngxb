@@ -47,6 +47,13 @@ $logo-color: #333;
                 a:hover {
                     background: #333;
                     color: #ffffff;
+
+                    .arrow {
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        display: inline-block;
+                        padding: 3px;
+                    }
                 }
 
                 ul {
