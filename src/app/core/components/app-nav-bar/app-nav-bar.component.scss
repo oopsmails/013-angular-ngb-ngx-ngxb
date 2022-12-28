@@ -134,6 +134,10 @@ $logo-color: #333;
     display: none;
 }
 
+.nav-bar-arrow-down {
+    padding-left: 5px;
+}
+
 // Smaller screen
 @media(max-width: 830px) {
     .header-div {
