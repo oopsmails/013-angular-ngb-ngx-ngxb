@@ -215,3 +215,9 @@ $logo-color: #333;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
+
+
+// https://github.com/ng-bootstrap/ng-bootstrap/issues/2457
+::ng-deep .sr-only {
+    display: none;
+}
