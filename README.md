@@ -1,4 +1,4 @@
-# angular-test
+# angular-ngb-ngx-ngxb
 
 ```
 10% building 3/3 modules 0 active(node:37268) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
@@ -19,6 +19,27 @@ yarn upgrade @prisma/client
 
 
 "prisma": "^4.7.1",
+```
+
+## Issues
+
+### Extra "?? results available" showing on page for NGB typeahead
+
+https://github.com/ng-bootstrap/ng-bootstrap/issues/2457
+
+```
+@valentinabojan it's due to the class="sr-only"; it should be hidden.
+
+I don't think you're adding Bootstrap CSS properly / have a very custom bootstrap CSS build. I suggest you fix this, not try to hide the element.
+
+Otherwise just add display: none; for sr-only. We won't remove it, because it is there for a11y support.
+
+- my fix, since this css MUST be "loaded" once before opening any ngb typeahead page, it is a better choice to put following in app-nav-bar.cpmponent.scss ... or may in in footer.component.scss ...
+
+::ng-deep .sr-only {
+    display: none;
+}
+
 ```
 
 ## index
