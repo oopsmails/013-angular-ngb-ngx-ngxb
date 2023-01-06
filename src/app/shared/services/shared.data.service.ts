@@ -8,7 +8,6 @@ import {
   take,
   switchMap,
   shareReplay,
-  switchMapTo,
   BehaviorSubject,
   timer,
   takeUntil,
