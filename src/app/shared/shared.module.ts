@@ -13,6 +13,8 @@ import { UtilsService } from './services/utils.service';
 import { WikipediaService } from './services/wikipedia.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BackAngleComponent } from './components/back-angle/back.angle.component';
+import { ElementChangingDirective } from './directives/element-changing.directive';
+import { MouseoverColorDirective } from './directives/mouseover-color.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { BackAngleComponent } from './components/back-angle/back.angle.component
     FooterComponent,
     NavBarComponent,
     BackAngleComponent,
+    ElementChangingDirective,
+    MouseoverColorDirective,
   ],
   imports: [CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   exports: [
@@ -34,6 +38,8 @@ import { BackAngleComponent } from './components/back-angle/back.angle.component
     NavBarComponent,
     FooterComponent,
     BackAngleComponent,
+    ElementChangingDirective,
+    MouseoverColorDirective,
   ],
   providers: [UtilsService, SharedDataService, WikipediaService, GithubService, StateService],
 })
