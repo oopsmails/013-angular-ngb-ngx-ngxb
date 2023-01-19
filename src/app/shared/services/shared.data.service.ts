@@ -75,7 +75,14 @@ export class SharedDataService implements OnDestroy {
     );
     const result: RsSearchResult<RandomItem> = { resultList: items };
     return of(result).pipe(
-      tap((resp) => console.log('searchText: ', searchText, 'returning: ', resp.resultList.length)),
+      tap((resp) =>
+        console.log(
+          'searchRandomItems, searchText: ',
+          searchText,
+          'returning: ',
+          resp.resultList.length
+        )
+      ),
       delay(2000)
     );
   }
