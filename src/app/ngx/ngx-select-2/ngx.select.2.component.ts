@@ -25,6 +25,21 @@ export class NgxSelect2Component implements OnInit, OnDestroy {
     this.items$.subscribe((resp) => (this.items = resp));
   }
 
+  // [searchFn]="customSearchFn" not working
+  customSearchFn = (searchText: string, item: any) => {
+    console.log('customSearchFn: searchText = ', searchText);
+    this.sharedDataService.itemReplay$.pipe(takeUntil(this.onDestroy$));
+  };
+
+  //
+  onMouseOver($event) {
+    console.log(`onMouseOver ........... $event.target.value = `, $event.target.value);
+  }
+
+  onKeyUp($event) {
+    console.log(`onKeyUp ........... $event.target.value = `, $event.target.value);
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();

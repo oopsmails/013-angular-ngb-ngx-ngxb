@@ -6,10 +6,19 @@
 <div>
   <ngx-select
     [formControl]="formControl3"
+    (keyup)="onKeyUp($event)"
     [items]="items$ | async"
     [noAutoComplete]="false"
     optionTextField="name"
-  ></ngx-select>
+    optionValueField="id"
+    autoClearSearch="true"
+  >
+    <ng-template let-option let-text="name" ngx-select-option ngx-select-option-selected>
+      <div (mouseover)="onMouseOver($event)" title="{{ option.data.name }}">
+        {{ option.data.id }} - {{ option.data.name }}
+      </div>
+    </ng-template>
+  </ngx-select>
   Selected: {{ formControl3.value }}
 </div>
 
