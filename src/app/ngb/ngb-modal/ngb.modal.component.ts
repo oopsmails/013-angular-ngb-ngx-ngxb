@@ -52,4 +52,8 @@ export class NgbModalComponent {
   openScrollableContent(longContent) {
     this.modalService.open(longContent, { scrollable: true });
   }
+
+  openCustomContent(customContent) {
+    this.modalService.open(customContent, { scrollable: true });
+  }
 }

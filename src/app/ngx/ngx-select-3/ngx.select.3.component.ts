@@ -17,7 +17,7 @@ import { RandomItem } from 'src/app/shared/models/sample.model';
 import { SharedDataService } from 'src/app/shared/services/shared.data.service';
 
 @Component({
-  selector: 'ngx-test',
+  selector: 'ngx-select3',
   templateUrl: './ngx.select.3.component.html',
   styleUrls: ['./ngx.select.3.component.scss'],
 })
