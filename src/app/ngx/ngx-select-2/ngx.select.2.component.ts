@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RandomItem, SharedDataService } from 'oops-lib002';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { RandomItem } from 'src/app/shared/models/sample.model';
-import { SharedDataService } from 'src/app/shared/services/shared.data.service';
 
 @Component({
   selector: 'ngx-select2',

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Car, CarDataService } from 'oops-lib002';
 import {
   catchError,
   debounceTime,
@@ -12,8 +13,6 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { Car } from 'src/app/shared/models';
-import { CarDataService } from 'src/app/shared/services/car.service';
 
 @Component({
   selector: 'app-ngb-typeahead-filter',

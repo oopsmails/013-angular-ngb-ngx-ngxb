@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsState, StateService } from 'oops-lib002';
 import {
   catchError,
   debounceTime,
@@ -10,8 +11,6 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { UsState } from 'src/app/shared/models/shared.model';
-import { StateService } from 'src/app/shared/services/state.service';
 
 @Component({
   selector: 'ngb-typeahead-search',
@@ -31,7 +30,7 @@ export class NgbTypeaheadSearchScrollableComponent {
       distinctUntilChanged(),
       tap(() => (this.searching = true)),
       switchMap((term) =>
-        this.stateService.getStates().pipe(
+        this.stateService.getUsStates().pipe(
           map((items: UsState[]) => {
             return (
               items.filter((item: UsState) => {
@@ -58,7 +57,7 @@ export class NgbTypeaheadSearchScrollableComponent {
       distinctUntilChanged(),
       tap(() => (this.searching = true)),
       switchMap((term) =>
-        this.stateService.searchStates(term).pipe(
+        this.stateService.searchUsStates(term).pipe(
           tap(() => (this.searchFailed = false)),
           catchError(() => {
             this.searchFailed = true;

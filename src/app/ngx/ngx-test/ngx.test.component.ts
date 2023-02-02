@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { SharedDataService } from 'oops-lib002';
 import { Observable, Subject } from 'rxjs';
-import { SharedDataService } from 'src/app/shared/services/shared.data.service';
 
 @Component({
   selector: 'ngx-test',

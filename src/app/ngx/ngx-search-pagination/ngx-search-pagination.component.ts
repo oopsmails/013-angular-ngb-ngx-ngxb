@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GitHubRepo, GithubService } from 'oops-lib002';
 import {
   catchError,
   debounceTime,
@@ -9,8 +10,6 @@ import {
   switchMap,
   throwError,
 } from 'rxjs';
-import { GitHubRepo } from 'src/app/shared/models';
-import { GithubService } from 'src/app/shared/services/github.service';
 
 /**
  * https://www.youtube.com/watch?v=39RkRpFk6dM

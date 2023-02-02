@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { GithubService, GitHubUser, GitHubUserSearchResponse, StateService } from 'oops-lib002';
 import {
   catchError,
   debounceTime,
@@ -15,9 +16,6 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { GitHubUser, GitHubUserSearchResponse } from 'src/app/shared/models/shared.model';
-import { GithubService } from 'src/app/shared/services/github.service';
-import { StateService } from 'src/app/shared/services/state.service';
 
 @Component({
   selector: 'ngb-typeahead-search',

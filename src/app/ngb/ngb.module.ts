@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { SharedModule } from '../shared/shared.module';
 import { NgbCarouselCycleComponent } from './ngb-carousel-cycle/ngb.carousel.cycle.component';
 import { NgbModalComponent } from './ngb-modal/ngb.modal.component';
 import { NgbRoutingModule } from './ngb-routing.module';
@@ -13,6 +12,8 @@ import { NgbTypeaheadFilterComponent } from './ngb-typeahead-filter/ngb.typeahea
 import { NgbTypeaheadSearchScrollableComponent } from './ngb-typeahead-search-scrollable/ngb.typeahead.search.scrollable.component';
 import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahead.search.component';
 import { NgbHomeComponent } from './ngb-home/ngb-home.component';
+import { SharedModule } from 'oops-lib002';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgbHomeComponent } from './ngb-home/ngb-home.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     SharedModule,

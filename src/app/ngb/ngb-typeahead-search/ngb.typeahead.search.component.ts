@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { GithubService, GitHubUser, WikipediaService } from 'oops-lib002';
 import {
   catchError,
   debounceTime,
@@ -11,9 +12,6 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { GitHubUser } from 'src/app/shared/models/shared.model';
-import { GithubService } from 'src/app/shared/services/github.service';
-import { WikipediaService } from 'src/app/shared/services/wikipedia.service';
 
 @Component({
   selector: 'ngb-typeahead-search',
