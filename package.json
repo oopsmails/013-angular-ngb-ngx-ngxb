@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port=4200",
+    "start": "ng serve --port=4300",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -34,6 +34,7 @@
     "ngx-select-ex": "~8.0.1",
     "ngx-pagination": "~6.0.3",
     "oops-lib001": "github:oopsmails/001-oopsmails-angular-lib-test-dist#master-v14",
+    "oops-lib002": "github:oopsmails/002-oopsmails-angular-lib-dist#master-v14",
     "rxjs": "~7.5.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

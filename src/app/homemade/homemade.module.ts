@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from 'oops-lib002';
 import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
 import { HomeMadeRoutingModule } from './homemade-routing.module';
