@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { OopsLib001Module } from 'oops-lib001';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { TestAroundComponent } from './pages/test-around/test.around.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule,
     BrowserModule,
+    OopsLib001Module,
     SharedModule,
     RouterModule.forChild(routes),
   ],
