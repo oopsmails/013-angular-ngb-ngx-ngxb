@@ -35,7 +35,7 @@
     "menu": false,
     "submenu": [
       {
-        "childtext": "Search City Filter",
+        "childtext": "Json: Search City Filter",
         "link": "sandbox/search-city"
       },
       {

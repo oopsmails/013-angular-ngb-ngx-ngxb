@@ -8,14 +8,11 @@ import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { HomeMadeModule } from './homemade/homemade.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
-// import { SharedModule } from './shared/shared.module';
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -26,8 +23,6 @@ import { NgxbModule } from './ngxb/ngxb.module';
     OopsLib001Module,
     OopsLib002Module,
     SharedModule,
-    // SharedModule,
-    CoreModule,
     HomeModule,
     HomeMadeModule,
     NgbTestModule,
