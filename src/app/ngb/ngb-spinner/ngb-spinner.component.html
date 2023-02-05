@@ -1,0 +1,39 @@
+<p>ngb-spinner works!</p>
+
+<hr />
+
+<ng-container *ngIf="isLoading; else content">
+  <ng-template
+    [ngTemplateOutlet]="loadingModal"
+    [ngTemplateOutletContext]="{ $implicit: modal }"
+  ></ng-template>
+</ng-container>
+<ng-template #content>
+  <!-- your content here -->
+</ng-template>
+
+<ng-template #loadingModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Loading...</h4>
+  </div>
+  <div class="modal-body text-center">
+    <ng-bootstrap-spinner [size]="'lg'"></ng-bootstrap-spinner>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="randomItems$ | async as randomItems">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of randomItems">
+        <td>{{ item.id }}</td>
+        <td><div [innerHtml]="item.name | highlightHtml : 'me 1'"></div></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

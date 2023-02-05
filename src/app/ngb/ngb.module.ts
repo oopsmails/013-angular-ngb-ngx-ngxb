@@ -14,6 +14,7 @@ import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahea
 import { NgbHomeComponent } from './ngb-home/ngb-home.component';
 import { SharedModule } from 'oops-lib002';
 import { FormsModule } from '@angular/forms';
+import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     NgbTypeaheadFilterComponent,
     NgbCarouselCycleComponent,
     NgbHomeComponent,
+    NgbSpinnerComponent,
   ],
   imports: [
     CommonModule,

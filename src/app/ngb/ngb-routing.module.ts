@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbCarouselCycleComponent } from './ngb-carousel-cycle/ngb.carousel.cycle.component';
 import { NgbModalComponent } from './ngb-modal/ngb.modal.component';
+import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 import { NgbTypeaheadFilterComponent } from './ngb-typeahead-filter/ngb.typeahead.filter.component';
 import { NgbTypeaheadSearchScrollableComponent } from './ngb-typeahead-search-scrollable/ngb.typeahead.search.scrollable.component';
 import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahead.search.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     component: NgbCarouselCycleComponent,
   },
   { path: 'ngb/ngb-modal', component: NgbModalComponent },
+  { path: 'ngb/ngb-spinner', component: NgbSpinnerComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
