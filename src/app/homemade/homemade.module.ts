@@ -8,12 +8,14 @@ import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
 import { HomeMadeRoutingModule } from './homemade-routing.module';
 import { HomemadeComponent } from './homemade/homemade.component';
+import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
 
 @NgModule({
   declarations: [
     HomeMadeDropdownSearchComponent,
     HomeMadeDropdownSearchAsyncComponent,
     HomemadeComponent,
+    HmSpinnerComponent,
   ],
   imports: [
     CommonModule,

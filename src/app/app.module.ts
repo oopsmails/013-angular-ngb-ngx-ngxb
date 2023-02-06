@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +13,9 @@ import { HomeMadeModule } from './homemade/homemade.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './services/loading.interceptor';
+import { HttpDelayInterceptor } from './services/http-delay.interceptor';
 @NgModule({
   imports: [
     BrowserModule,
@@ -31,7 +34,19 @@ import { NgxbModule } from './ngxb/ngxb.module';
     BrowserAnimationsModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, SpinnerComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpDelayInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
