@@ -36,16 +36,16 @@ import { HttpDelayInterceptor } from './services/http-delay.interceptor';
   ],
   declarations: [AppComponent, SpinnerComponent],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpDelayInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoadingInterceptor,
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpDelayInterceptor,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })

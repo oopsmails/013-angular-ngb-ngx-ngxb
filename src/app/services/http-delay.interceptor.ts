@@ -8,6 +8,6 @@ export class HttpDelayInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log(request);
-    return next.handle(request).pipe(delay(2000));
+    return next.handle(request).pipe(delay(0));
   }
 }
