@@ -18,9 +18,9 @@ export class ChildComponent {
   selectedItem;
 
   constructor(private sharedDataService: SharedDataService, private modalService: NgbModal) {
-    // setTimeout(() => {
-    this.messageEvent.emit(this.message);
-    // }, 1000);
+    setTimeout(() => {
+      this.messageEvent.emit(this.message);
+    }, 1000);
 
     this.randomItems$ = this.sharedDataService.getRandomItems(30, 2000);
   }
