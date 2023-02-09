@@ -59,6 +59,10 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "dev": {
+              "optimization": false,
+              "sourceMap": true
             }
           }
         },
@@ -70,6 +74,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-simple:build:production"
+            },
+            "dev": {
+              "browserTarget": "angular-simple:build:dev"
             }
           }
         },
