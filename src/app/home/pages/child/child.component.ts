@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService } from 'oops-lib002';
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ChildComponent {
   @Input() message: string;
   @Output() messageEvent = new EventEmitter<string>();
+  @ViewChild('content') private content: TemplateRef<any>; // this will also work
 
   randomItems$: Observable<RandomItem[]>;
 
@@ -29,6 +30,7 @@ export class ChildComponent {
     // console.log('content=', content);
     console.log('item=', item);
     this.selectedItem = item;
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    // this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    this.modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title' }); // This will also work!
   }
 }
