@@ -1,11 +1,19 @@
 <p>{{ message }}</p>
 
 <ngx-select
+  #selectComp
   [items]="randomItems$ | async"
   bindLabel="name"
   [(ngModel)]="selectedItem"
   (select)="openModal(content, selectedItem)"
 ></ngx-select>
+
+<!-- <ngx-select
+  #selectComp
+  [items]="randomItems$ | async"
+  bindLabel="name"
+  [(ngModel)]="selectedItem"
+></ngx-select> -->
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -21,3 +29,7 @@
     </button>
   </div>
 </ng-template>
+
+<button class="btn btn-outline-secondary" type="button" (click)="openDropdown($event)">
+  Open dropdown
+</button>
