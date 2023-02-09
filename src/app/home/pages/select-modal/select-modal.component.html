@@ -5,6 +5,7 @@
 <p>ngb modal when ngx select</p>
 <div>
   <ngx-select
+    aria-labelledby="lblSelectModal"
     #selectComp
     (keyup)="onKeyUpSearch($event)"
     (click)="onClick($event)"
@@ -20,14 +21,30 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Modal Test in Child</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <h4
+      class="modal-title"
+      id="select-modal-content-title"
+      aria-labelledby="select-modal-content-title"
+    >
+      Modal Test in Child
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close button"
+      (click)="modal.dismiss('Cross click')"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">{{ selectedItem }}: ngx-select ngModel only bounding id</div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
+    <button
+      type="button"
+      aria-label="Save button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
       Save
     </button>
   </div>
