@@ -1,19 +1,22 @@
-<p>{{ message }}: showing in Child</p>
+<h1>Test Select Modal</h1>
 
-<ngx-select
-  #selectComp
-  [items]="randomItems$ | async"
-  bindLabel="name"
-  [(ngModel)]="selectedItem"
-  (select)="openModal(content, selectedItem)"
-></ngx-select>
-
-<!-- <ngx-select
-  #selectComp
-  [items]="randomItems$ | async"
-  bindLabel="name"
-  [(ngModel)]="selectedItem"
-></ngx-select> -->
+<hr />
+<h2>select-modal</h2>
+<p>ngb modal when ngx select</p>
+<div>
+  <ngx-select
+    #selectComp
+    (keyup)="onKeyUpSearch($event)"
+    (click)="onClick($event)"
+    [formControl]="formControl4"
+    [items]="displaying$ | async"
+    [noAutoComplete]="false"
+    [(ngModel)]="selectedItem"
+    (select)="openModal(content, selectedItem)"
+    optionTextField="name"
+  ></ngx-select>
+  Selected: {{ formControl4.value }}
+</div>
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -30,6 +33,6 @@
   </div>
 </ng-template>
 
-<button class="btn btn-outline-secondary" type="button" (click)="openDropdown($event)">
-  Open dropdown
-</button>
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>

@@ -13,6 +13,8 @@ export class ParentComponent {
   private compmentName: string = 'ParentComponent';
   message = 'Hello from Parent Component!';
 
+  manualSearch: string;
+
   @ViewChild('selectComp', { static: false }) selectComp: NgxSelectComponent;
 
   receivedMessage(event) {
