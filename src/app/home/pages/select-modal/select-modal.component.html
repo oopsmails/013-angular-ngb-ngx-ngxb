@@ -12,6 +12,7 @@
     [formControl]="formControl4"
     [items]="displaying$ | async"
     [noAutoComplete]="false"
+    [allowClear]="false"
     [(ngModel)]="selectedItem"
     (select)="openModal(content, selectedItem)"
     optionTextField="name"
