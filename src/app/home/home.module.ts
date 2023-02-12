@@ -13,12 +13,16 @@ import { TestAroundComponent } from './pages/test-around/test.around.component';
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
 import { ParentComponent } from './pages/parent/parent.component';
 import { ChildComponent } from './pages/child/child.component';
+import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
+import { SelectModalComponent } from './pages/select-modal/select-modal.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/test-around', component: TestAroundComponent },
   { path: 'home/test-modal', component: TestModalComponent },
   { path: 'home/parent', component: ParentComponent },
+  { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
+  { path: 'home/select-modal', component: SelectModalComponent },
 ];
 
 @NgModule({
@@ -28,6 +32,8 @@ const routes: Routes = [
     TestModalComponent,
     ParentComponent,
     ChildComponent,
+    GetNgxSelectComponent,
+    SelectModalComponent,
   ],
   imports: [
     CommonModule,

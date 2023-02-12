@@ -1,0 +1,36 @@
+<div style="height: 100vh" class="align-middle">
+  <div class="container h-100">
+    <div class="justify-content-center align-items-center shadow-sm p-4 mb-4 bg-white">
+      <ngx-select [items]="randomItems$ | async" [(ngModel)]="itemId" #dropdown></ngx-select>
+    </div>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Suche z.B. nach Düsseldorf"
+        [(ngModel)]="manualSearch"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchText($event, manualSearch)"
+        >
+          🔍
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-dark" role="alert" *ngIf="manualSearch">
+      Suchtext: {{ manualSearch }}
+    </div>
+    <button class="btn btn-outline-secondary" type="button" (click)="openDropdown($event)">
+      Open dropdown
+    </button>
+  </div>
+
+  <hr />
+  <div class="alert alert-dark" role="alert">
+    {{ dropDownJSON | json }}
+  </div>
+</div>
