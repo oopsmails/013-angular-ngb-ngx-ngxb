@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbModule, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgbCarouselCycleComponent } from './ngb-carousel-cycle/ngb.carousel.cycle.component';
@@ -15,6 +15,8 @@ import { NgbHomeComponent } from './ngb-home/ngb-home.component';
 import { SharedModule } from 'oops-lib002';
 import { FormsModule } from '@angular/forms';
 import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
+import { NgbTableComponent } from './ngb-table/ngb-table.component';
+import { NgbdSortableHeader } from '../services/sortable.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
     NgbCarouselCycleComponent,
     NgbHomeComponent,
     NgbSpinnerComponent,
+    NgbTableComponent,
+    NgbdSortableHeader,
   ],
   imports: [
     CommonModule,
@@ -33,6 +37,8 @@ import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
     BrowserModule,
     SharedModule,
     NgbTypeaheadModule,
+    NgbPaginationModule,
+    NgbAlertModule,
     NgbModule,
     TypeaheadModule.forRoot(),
     TranslateModule.forRoot(),
