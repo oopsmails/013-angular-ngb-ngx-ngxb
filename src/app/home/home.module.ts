@@ -15,6 +15,7 @@ import { ParentComponent } from './pages/parent/parent.component';
 import { ChildComponent } from './pages/child/child.component';
 import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
 import { SelectModalComponent } from './pages/select-modal/select-modal.component';
+import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
     ChildComponent,
     GetNgxSelectComponent,
     SelectModalComponent,
+    TestModalContentComponent,
   ],
   imports: [
     CommonModule,

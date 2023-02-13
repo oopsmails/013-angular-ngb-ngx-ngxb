@@ -14,14 +14,14 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{ selectedItem.name }}</h4>
+    <h4 class="modal-title" id="modal-basic-title">{{ selectedItem.id }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <!-- {{ selectedItem.name }} -->
-    asdfasd
+    <!-- {{ selectedItem.name }} will not work -->
+    <app-test-modal-content [passingItem]="selectedItem"></app-test-modal-content>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
