@@ -38,11 +38,13 @@
         <tr *ngFor="let country of countries$ | async">
           <th scope="row">{{ country.id }}</th>
           <td>
-            <img
-              [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-              class="mr-2"
-              style="width: 20px"
-            />
+            <div class="img-wrap">
+              <img
+                [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+                class="mr-2"
+                style="width: 20px"
+              />
+            </div>
             <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
           </td>
           <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
