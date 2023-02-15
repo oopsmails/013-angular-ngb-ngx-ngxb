@@ -9,6 +9,7 @@ import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdow
 import { HomeMadeRoutingModule } from './homemade-routing.module';
 import { HomemadeComponent } from './homemade/homemade.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
+import { HmDatatableComponent } from './hm-datatable/hm-datatable.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
     HomeMadeDropdownSearchAsyncComponent,
     HomemadeComponent,
     HmSpinnerComponent,
+    HmDatatableComponent,
   ],
   imports: [
     CommonModule,
