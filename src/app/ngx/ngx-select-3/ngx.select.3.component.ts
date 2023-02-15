@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { INgxSelectOption } from 'ngx-select-ex';
 import { RandomItem, RsSearchResult, SharedDataService } from 'oops-lib002';
 import {
   catchError,
@@ -26,6 +27,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject();
 
   public formControl4 = new FormControl(3);
+  placeholderStr = 'Type to search ...';
 
   displaying$: Observable<RandomItem[]>;
   searchText: string;
@@ -49,9 +51,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
         //   .searchRandomItems(this.searchText)
         //   .pipe(map((data) => data.resultList));
 
-        return this.searchRandomItemsBySearchText(this.searchText).pipe(
-          map((data) => data.resultList)
-        );
+        return this.searchRandomItemsBySearchText(this.searchText).pipe(map((data) => data.resultList));
       }),
       catchError((err) => {
         console.error(err);
@@ -71,7 +71,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
       .makeMockRandomItems(30)
       .filter((item) => item.name.includes(searchText));
     console.log('adding moreItem ......');
-    this.moreItem.name = this.moreItem.name + this.searchText;
+    // this.moreItem.name = this.moreItem.name + this.searchText;
     items.push(this.moreItem);
     const result: RsSearchResult<RandomItem> = { resultList: items };
     return of(result).pipe(
@@ -89,6 +89,16 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
 
   onClick($event) {
     this.displayingLookup$.next('');
+  }
+
+  onSearchCallback(search: string, item: INgxSelectOption): boolean {
+    console.log(`onSearchCallback ........... searcht = `, search);
+    console.log(`onSearchCallback ........... item = `, item);
+    if (item.value === '-1') {
+      return true;
+    }
+
+    return true;
   }
 
   ngOnDestroy() {

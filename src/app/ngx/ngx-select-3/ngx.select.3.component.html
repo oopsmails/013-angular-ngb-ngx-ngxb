@@ -10,6 +10,8 @@
     [formControl]="formControl4"
     [items]="displaying$ | async"
     [noAutoComplete]="false"
+    [placeholder]="placeholderStr"
+    [searchCallback]="onSearchCallback"
     optionTextField="name"
   ></ngx-select>
   Selected: {{ formControl4.value }}
