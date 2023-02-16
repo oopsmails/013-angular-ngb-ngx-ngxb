@@ -27,12 +27,12 @@ Testing around the lib and push to Github.
 
 <div *ngIf="states$ | async as states; else noState">
   <p>There are {{ states.length }} item(s) returning by StateService!</p>
-  <p>asset/mockdata/ is existing!</p>
+  <p>oops-lib002 service loading data is working!</p>
 </div>
 
 <ng-template #noState>
   <p>There is no item returning by StateService!</p>
-  <p>asset/mockdata/ maybe not existing!</p>
+  <p>oops-lib002 error and asset/mockdata/ maybe not existing!</p>
 </ng-template>
 
 <hr />
