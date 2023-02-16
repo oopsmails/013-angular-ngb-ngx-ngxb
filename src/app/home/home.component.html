@@ -25,6 +25,18 @@ Testing around the lib and push to Github.
 
 <hr />
 
+<div *ngIf="states$ | async as states; else noState">
+  <p>There are {{ states.length }} item(s) returning by StateService!</p>
+  <p>oops-lib002 service loading data is working!</p>
+</div>
+
+<ng-template #noState>
+  <p>There is no item returning by StateService!</p>
+  <p>oops-lib002 error and asset/mockdata/ maybe not existing!</p>
+</ng-template>
+
+<hr />
+
 <p><a routerLink="/home/test-around">/home/test-around: Test Arount</a></p>
 <p><a routerLink="/home/test-modal">/home/test-modal: Test Modal</a></p>
 <p><a routerLink="/home/parent">/home/parent: Test Parent/Child</a></p>

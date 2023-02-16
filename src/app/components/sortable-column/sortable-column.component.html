@@ -1,0 +1,4 @@
+<ng-content></ng-content>
+<img src="assets/images/sort-up.svg" class="pl-3" *ngIf="columnToSort.direction === 'asc'">
+<img src="assets/images/sort-down.svg" class="pl-3" *ngIf="columnToSort.direction === 'desc'">
+<img src="assets/images/sort-default.svg" class="pl-3" *ngIf="columnToSort.direction === 'default'">

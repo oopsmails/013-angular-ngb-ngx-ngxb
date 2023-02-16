@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { SharedDataService, StateService, UsState } from 'oops-lib002';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,13 @@ import { Subject } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject();
+  states$: Observable<UsState[]>;
 
-  constructor(private router: Router) {}
+  constructor(private stateService: StateService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.states$ = this.stateService.getUsStateCity();
+  }
 
   navToPage(page) {
     console.log('HomeComponent, navToPage, page = ' + page);
