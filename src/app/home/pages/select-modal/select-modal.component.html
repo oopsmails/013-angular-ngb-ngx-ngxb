@@ -4,7 +4,7 @@
 <h2>select-modal</h2>
 <p>ngb modal when ngx select</p>
 <div>
-  <ngx-select
+  <!-- <ngx-select
     aria-labelledby="lblSelectModal"
     #selectComp
     (keyup)="onKeyUpSearch($event)"
@@ -16,36 +16,42 @@
     [(ngModel)]="selectedItem"
     (select)="openModal(content, selectedItem)"
     optionTextField="name"
+  ></ngx-select> -->
+
+  <ngx-select
+    aria-labelledby="lblSelectModal"
+    #selectComp
+    id="itemSearchSelectId"
+    name="itemSearchSelectName"
+    [items]="displaying$ | async"
+    (click)="onClick($event)"
+    (keyup)="onKeyUpSearch($event)"
+    (select)="openModal(content, selectedItem)"
+    [allowClear]="false"
+    [formControl]="fcItemSearch"
+    [(ngModel)]="selectedItem"
+    [searchCallback]="onSearchCallback"
+    [placeholder]="placeHolderStr"
+    bindLabel="itemSearch"
+    optionValueField="id"
+    optionTextField="name"
   ></ngx-select>
-  Selected: {{ formControl4.value }}
+
+  Selected: {{ fcItemSearch.value }}
 </div>
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4
-      class="modal-title"
-      id="select-modal-content-title"
-      aria-labelledby="select-modal-content-title"
-    >
+    <h4 class="modal-title" id="select-modal-content-title" aria-labelledby="select-modal-content-title">
       Modal Test in Child
     </h4>
-    <button
-      type="button"
-      class="close"
-      aria-label="Close button"
-      (click)="modal.dismiss('Cross click')"
-    >
+    <button type="button" class="close" aria-label="Close button" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">{{ selectedItem }}: ngx-select ngModel only bounding id</div>
   <div class="modal-footer">
-    <button
-      type="button"
-      aria-label="Save button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
+    <button type="button" aria-label="Save button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
       Save
     </button>
   </div>

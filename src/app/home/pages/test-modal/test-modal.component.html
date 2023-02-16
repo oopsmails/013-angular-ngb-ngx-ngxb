@@ -1,15 +1,26 @@
-<!-- <ngx-select
-  [items]="items"
-  bindLabel="name"
-  [(ngModel)]="selectedItem"
-  (change)="openModal(content, selectedItem)"
-></ngx-select> -->
+<h1>Test Modal Page</h1>
+
+<hr />
+<h2>test-modal: Note: (keyup) is blocking default filter!</h2>
+
+<hr />
 
 <ngx-select
+  #itemSearchSelect
+  id="itemSearchSelectId"
+  name="itemSearchSelectName"
   [items]="randomItems$ | async"
-  bindLabel="name"
-  [(ngModel)]="selectedItem"
+  (click)="onClick($event)"
+  (keyup)="onKeyup($event)"
   (select)="openModal(content, selectedItem)"
+  [allowClear]="false"
+  [formControl]="fcItemSearch"
+  [(ngModel)]="selectedItem"
+  [searchCallback]="onSearchCallback"
+  [placeholder]="placeHolderStr"
+  bindLabel="itemSearch"
+  optionValueField="id"
+  optionTextField="name"
 ></ngx-select>
 
 <ng-template #content let-modal>
@@ -24,8 +35,6 @@
     <app-test-modal-content [passingItem]="selectedItem"></app-test-modal-content>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
-      Save
-    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>

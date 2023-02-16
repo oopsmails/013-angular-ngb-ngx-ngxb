@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+import { INgxSelectOption } from 'ngx-select-ex';
 import { Component, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService } from 'oops-lib002';
@@ -10,16 +12,13 @@ import { EventEmitter } from 'stream';
   styleUrls: ['./test-modal.component.scss'],
 })
 export class TestModalComponent implements OnInit {
-  // items = [
-  //   { id: 1, name: 'Item 1', description: 'This is item 1' },
-  //   { id: 2, name: 'Item 2', description: 'This is item 2' },
-  //   { id: 3, name: 'Item 3', description: 'This is item 3' },
-  // ];
+  private COMPONENT_NAME = 'TestModalComponent';
 
-  // @Output() selectItem = new EventEmitter();
+  public fcItemSearch = new FormControl();
 
+  placeHolderStr = 'Type to search ...';
   randomItems$: Observable<RandomItem[]>;
-
+  searchText: string = '';
   selectedItem;
 
   constructor(private sharedDataService: SharedDataService, private modalService: NgbModal) {}
@@ -30,8 +29,25 @@ export class TestModalComponent implements OnInit {
 
   openModal(content, item) {
     // console.log('content=', content);
-    console.log('item=', item);
+    console.log(this.COMPONENT_NAME + ', openModal, item =', item);
     this.selectedItem = item;
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
+  onClick(event) {
+    console.log(this.COMPONENT_NAME + ', openModal, event =', event);
+  }
+
+  onKeyup(event) {
+    this.searchText = event.target.value;
+    console.log(this.COMPONENT_NAME + ', openModal, event.target.value =', event.target.value);
+  }
+
+  onSearchCallback(search: string, item: INgxSelectOption): boolean {
+    if (item.value === '-1') {
+      return true;
+    }
+
+    return true;
   }
 }

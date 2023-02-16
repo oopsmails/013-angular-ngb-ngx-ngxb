@@ -2,21 +2,21 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgxSelectComponent } from 'ngx-select-ex';
-import { RandomItem, SharedDataService, RsSearchResult } from 'oops-lib002';
+import { INgxSelectOption, NgxSelectComponent } from 'ngx-select-ex';
+import { RandomItem, RsSearchResult, SharedDataService } from 'oops-lib002';
 import {
-  Subject,
-  Observable,
-  startWith,
-  map,
-  debounceTime,
-  distinctUntilChanged,
-  switchMap,
   catchError,
+  debounceTime,
+  delay,
+  distinctUntilChanged,
+  map,
+  Observable,
   of,
+  startWith,
+  Subject,
+  switchMap,
   takeUntil,
   tap,
-  delay,
 } from 'rxjs';
 
 @Component({
@@ -28,22 +28,23 @@ export class SelectModalComponent implements OnInit, OnDestroy {
   private compmentName: string = 'SelectModalComponent';
   private onDestroy$: Subject<boolean> = new Subject();
 
-  public formControl4 = new FormControl(3);
+  public fcItemSearch = new FormControl(3);
+  placeHolderStr = 'Type to search ...';
+
+  // public mockItemSearchMore: RandomItem = { id: -1, name: 'Search to view all ...' };
+  public mockItemSearchMore: RandomItem = { id: -1, name: this.placeHolderStr };
 
   @ViewChild('selectComp', { static: false }) selectComp: NgxSelectComponent;
 
   displaying$: Observable<RandomItem[]>;
   searchText: string;
 
-  selectedItem = -1;
+  // selectedItem = -1;
+  selectedItem;
 
   private displayingLookup$: Subject<string> = new Subject();
 
-  constructor(
-    private router: Router,
-    private sharedDataService: SharedDataService,
-    private modalService: NgbModal
-  ) {}
+  constructor(private router: Router, private sharedDataService: SharedDataService, private modalService: NgbModal) {}
 
   ngOnInit() {
     this.displaying$ = this.displayingLookup$.pipe(
@@ -55,12 +56,29 @@ export class SelectModalComponent implements OnInit, OnDestroy {
       switchMap(() => {
         console.log(`switchMap ........... this.searchText = `, this.searchText);
         return this.searchRandomItemsBySearchText(this.searchText).pipe(
-          map((data) => data.resultList)
+          map((data) => {
+            let result = data.resultList;
+            if (result && result.length > 6) {
+              result = result.slice(0, 5);
+              this.mockItemSearchMore.name = 'View more result ...';
+              result.push(this.mockItemSearchMore);
+            }
+
+            if (this.searchText && this.searchText.length > 0 && result.length === 0) {
+              console.log(`No item found with searchText = `, this.searchText);
+              this.mockItemSearchMore.name = 'Search to view all ...';
+              result.push(this.mockItemSearchMore);
+            }
+
+            return result;
+          })
         );
       }),
       catchError((err) => {
         console.error(err);
-        return of(this.sharedDataService.makeMockRandomItems(0));
+        let result = this.sharedDataService.makeMockRandomItems(0);
+        result.push(this.mockItemSearchMore);
+        return of(result);
       }),
       takeUntil(this.onDestroy$)
     );
@@ -68,15 +86,19 @@ export class SelectModalComponent implements OnInit, OnDestroy {
 
   searchRandomItemsBySearchText(searchText: string): Observable<RsSearchResult<RandomItem>> {
     if (!searchText || searchText === '' || searchText.length < 1) {
-      return of(this.sharedDataService.defaultRandomItemSearchRs);
+      // return of(this.sharedDataService.defaultRandomItemSearchRs);
+      // let resultList = this.sharedDataService.makeMockRandomItems(0);
+      let resultList: RandomItem[] = [];
+      const result: RsSearchResult<RandomItem> = { resultList: resultList };
+      return of(result);
     }
 
     const items: RandomItem[] = this.sharedDataService
       .makeMockRandomItems(30)
       .filter((item) => item.name.includes(searchText));
-    console.log('adding moreItem ......');
-    const moreItem: RandomItem = { id: -1, name: 'More items for ... ' + this.searchText };
-    items.push(moreItem);
+    // console.log('adding moreItem ......');
+    // const moreItem: RandomItem = { id: -1, name: 'More items for ... ' + this.searchText };
+    // items.push(moreItem);
     const result: RsSearchResult<RandomItem> = { resultList: items };
     return of(result).pipe(
       tap((resp) => console.log('searchText: ', searchText, 'returning: ', resp.resultList.length)),
@@ -89,6 +111,14 @@ export class SelectModalComponent implements OnInit, OnDestroy {
     // this.sharingService.symbolSearchSharing$.next(this.searchText);
     console.log(`onKeyUpSearch ........... this.searchText = `, this.searchText);
     this.displayingLookup$.next(this.searchText);
+  }
+
+  onSearchCallback(search: string, item: INgxSelectOption): boolean {
+    if (item.value === '-1') {
+      return true;
+    }
+
+    return true;
   }
 
   onClick($event) {
