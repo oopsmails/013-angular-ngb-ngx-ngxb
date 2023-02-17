@@ -81,6 +81,36 @@ Otherwise just add display: none; for sr-only. We won't remove it, because it is
 - demo: https://rslayter.github.io/switchmap-example/
 - github: https://github.com/rslayter/switchmap-example
 
+### Datatables
+
+- 013-angular-ngb-ngx-ngxb\src\app\homemade\hm-datatable1, 2, 3, 4
+
+- for icons src\app\homemade\hm-datatable4\hm-datatable4.component.html, NOT implemented.
+
+```
+in order to use, for example, class="bi bi-caret-up-fill", what additional lib should I include?
+The "bi bi-caret-up-fill" icon classes are part of the Bootstrap Icons library, which is a separate icon library from the Font Awesome library that we used earlier.
+
+To use Bootstrap Icons in your Angular app, you can follow these steps:
+
+Install the Bootstrap Icons package using npm:
+
+Copy code
+npm install bootstrap-icons
+In the angular.json file of your Angular project, add the following entry to the styles array:
+
+python
+Copy code
+"node_modules/bootstrap-icons/font/bootstrap-icons.css"
+This will import the Bootstrap Icons CSS file into your project.
+
+In your Angular component, you can use the Bootstrap Icons classes to display icons, for example:
+
+php
+Copy code
+<i class="bi bi-caret-up-fill"></i>
+```
+
 ## Errors
 
 ### add localize
