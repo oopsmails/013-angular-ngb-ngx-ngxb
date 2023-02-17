@@ -38,6 +38,7 @@ export class SelectModalComponent implements OnInit, OnDestroy {
 
   displaying$: Observable<RandomItem[]>;
   searchText: string;
+  passingSearchText: string;
 
   // selectedItem = -1;
   selectedItem;
@@ -48,11 +49,13 @@ export class SelectModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.displaying$ = this.displayingLookup$.pipe(
-      startWith(''),
+      // startWith(''),
+      tap((searching) => console.log(`tapping 1 ........... search = `, searching)),
       map((searching) => searching && searching.trim()),
       debounceTime(500),
       distinctUntilChanged(),
       map((searching) => (this.searchText = searching)),
+      // tap((searching) => console.log(`tapping 2 ........... search = `, this.searchText)),
       switchMap(() => {
         console.log(`switchMap ........... this.searchText = `, this.searchText);
         return this.searchRandomItemsBySearchText(this.searchText).pipe(
@@ -82,6 +85,7 @@ export class SelectModalComponent implements OnInit, OnDestroy {
       }),
       takeUntil(this.onDestroy$)
     );
+    this.displayingLookup$.next('');
   }
 
   searchRandomItemsBySearchText(searchText: string): Observable<RsSearchResult<RandomItem>> {
@@ -122,19 +126,22 @@ export class SelectModalComponent implements OnInit, OnDestroy {
   }
 
   onClick($event) {
+    console.log(`onClick ........... this.searchText = `, this.searchText);
     this.displayingLookup$.next('');
   }
 
   openModal(content, item) {
     // console.log('content=', content);
-    console.log('item=', item);
+    console.log(`openModal ........... item = `, item);
     this.selectedItem = item;
 
     if (item && item === -1) {
       setTimeout(() => {
-        console.log(this.compmentName, 'receivedMessage, this.selectComp =', this.selectComp);
-        this.selectComp.focusToInput();
-        console.log(this.compmentName, 'receivedMessage, this.selectComp 2 =', this.selectComp);
+        // console.log(this.compmentName, 'receivedMessage, this.selectComp =', this.selectComp);
+        // this.selectComp.focusToInput();
+        // console.log(this.compmentName, 'receivedMessage, this.selectComp 2 =', this.selectComp);
+        this.passingSearchText = this.searchText;
+        this.displayingLookup$.next('');
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
       }, 0);
     }
