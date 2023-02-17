@@ -1,16 +1,32 @@
 <h2>hm-datatable2 works!</h2>
 <hr />
 
-<!-- <div>
+<!-- before apply CSS
+<div>
   <input [(ngModel)]="searchTerm" (input)="sort('name')" type="text" placeholder="Search..." />
   <button (click)="clearFilter()">Clear Filter</button>
-</div> -->
+</div> 
+-->
+
+<!-- some revisions around CSS
+<input type="text" id="filter" name="filter" [(ngModel)]="searchTerm" (input)="sort('name')" class="filter-input" />
+
+<button (click)="clearFilter()" class="filter-clear-button">Clear</button>
+<button (click)="clearFilter()" class="btn btn-secondary">Clear</button>
+-->
 
 <div class="filter-container">
   <label for="filter">Filter:</label>
-  <input type="text" id="filter" name="filter" [(ngModel)]="searchTerm" (input)="sort('name')" class="filter-input" />
-  <!-- <button (click)="clearFilter()" class="filter-clear-button">Clear</button> -->
-  <button (click)="clearFilter()" class="btn btn-secondary">Clear</button>
+  <input
+    type="text"
+    id="filter"
+    name="filter"
+    [(ngModel)]="searchTerm"
+    (input)="sort('name')"
+    class="form-control filter-input"
+  />
+
+  <button (click)="clearFilter()" class="btn btn-primary">Clear</button>
 </div>
 
 <table class="table table-striped">
@@ -21,6 +37,25 @@
       <th (click)="sort('email')">Email</th>
     </tr>
   </thead>
+  <!-- <thead>
+    <tr>
+      <th (click)="sort('name')">
+        Name
+        <span *ngIf="sortField === 'name' && sortOrder === 'asc'">&#9650;</span>
+        <span *ngIf="sortField === 'name' && sortOrder === 'desc'">&#9660;</span>
+      </th>
+      <th (click)="sort('username')">
+        Username
+        <span *ngIf="sortField === 'username' && sortOrder === 'asc'">&#9650;</span>
+        <span *ngIf="sortField === 'username' && sortOrder === 'desc'">&#9660;</span>
+      </th>
+      <th (click)="sort('email')">
+        Email
+        <span *ngIf="sortField === 'email' && sortOrder === 'asc'">&#9650;</span>
+        <span *ngIf="sortField === 'email' && sortOrder === 'desc'">&#9660;</span>
+      </th>
+    </tr>
+  </thead> -->
   <tbody>
     <tr *ngFor="let user of pagedUsers">
       <td>{{ user.name }}</td>
@@ -55,13 +90,13 @@
       <button class="page-link" (click)="goToPage(1)">&lt;&lt; First</button>
     </li>
     <li class="page-item" [class.disabled]="currentPage == 1">
-      <button class="page-link" (click)="goToPage(currentPage - 1)">Previous</button>
+      <button class="page-link" (click)="goToPage(currentPage - 1)">&lt; Previous</button>
     </li>
     <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
       <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
     </li>
     <li class="page-item" [class.disabled]="currentPage == totalPages">
-      <button class="page-link" (click)="goToPage(currentPage + 1)">Next</button>
+      <button class="page-link" (click)="goToPage(currentPage + 1)">Next &gt;</button>
     </li>
     <li class="page-item" [class.disabled]="currentPage == totalPages">
       <button class="page-link" (click)="goToPage(totalPages)">&gt;&gt; Last</button>
