@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface User {
-  name: string;
-  age: number;
-  email: string;
-}
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-hm-datatable2',

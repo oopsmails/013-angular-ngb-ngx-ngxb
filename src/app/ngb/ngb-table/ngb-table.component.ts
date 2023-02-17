@@ -2,14 +2,14 @@ import { DecimalPipe } from '@angular/common';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/country';
-import { CountryService } from 'src/app/services/country.service';
+import { CountryDataService } from 'src/app/services/country.data.service';
 import { NgbdSortableHeader, SortEvent } from 'src/app/services/sortable.directive';
 
 @Component({
   selector: 'app-ngb-table',
   templateUrl: './ngb-table.component.html',
   styleUrls: ['./ngb-table.component.scss'],
-  providers: [CountryService, DecimalPipe],
+  providers: [CountryDataService, DecimalPipe],
 })
 export class NgbTableComponent implements OnInit {
   private COMPONENT_NAME = 'NgbTableComponent';
@@ -18,9 +18,9 @@ export class NgbTableComponent implements OnInit {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: CountryService) {
-    this.countries$ = service.countries$;
-    this.total$ = service.total$;
+  constructor(public countryDataService: CountryDataService) {
+    this.countries$ = countryDataService.countries$;
+    this.total$ = countryDataService.total$;
   }
 
   onSort({ column, direction }: SortEvent) {
@@ -32,8 +32,8 @@ export class NgbTableComponent implements OnInit {
       }
     });
 
-    this.service.sortColumn = column;
-    this.service.sortDirection = direction;
+    this.countryDataService.sortColumn = column;
+    this.countryDataService.sortDirection = direction;
   }
 
   ngOnInit(): void {}
