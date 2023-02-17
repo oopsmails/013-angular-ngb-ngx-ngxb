@@ -14,6 +14,7 @@ import { HmDatatable2Component } from './hm-datatable2/hm-datatable2.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HmDatatable3Component } from './hm-datatable3/hm-datatable3.component';
 import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
+import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
     HmDatatable2Component,
     HmDatatable3Component,
     HmDatatable4Component,
+    HmDatatable5Component,
   ],
   imports: [
     CommonModule,

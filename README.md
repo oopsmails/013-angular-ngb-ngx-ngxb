@@ -84,8 +84,12 @@ Otherwise just add display: none; for sr-only. We won't remove it, because it is
 ### Datatables
 
 - 013-angular-ngb-ngx-ngxb\src\app\homemade\hm-datatable1, 2, 3, 4
-
-- for icons src\app\homemade\hm-datatable4\hm-datatable4.component.html, NOT implemented.
+- 1: basic, sort, pagination with only Prev and Next
+- 2: sort, filter, pagination
+- 3: sort with up, down arrows, only one, big
+- 4: sort with up, down arrows, both are located but showing only one, show depending on sort orders
+- 4: for icons src\app\homemade\hm-datatable4\hm-datatable4.component.html, would show both, one solid and one hollow based on sorting order, NOT implemented ..., prepare for 5
+- 5: would show both arrows, one solid and one hollow based on sorting order ... ready for TODO
 
 ```
 in order to use, for example, class="bi bi-caret-up-fill", what additional lib should I include?

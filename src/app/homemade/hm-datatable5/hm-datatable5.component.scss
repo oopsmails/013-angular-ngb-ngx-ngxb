@@ -1,0 +1,57 @@
+/* Style the filter container */
+.filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    display: inline-block;
+    width: 0.35em;
+    height: 0.35em;
+    margin-left: 0.5rem;
+    position: relative;
+}
+
+.arrow::before,
+.arrow::after {
+    content: "";
+    display: block;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.arrow.up::before {
+    transform: rotate(45deg);
+    border-color: #000 transparent transparent transparent;
+}
+
+.arrow.up::after {
+    transform: rotate(-45deg);
+    border-color: transparent transparent #000 transparent;
+}
+
+.arrow.down::before {
+    transform: rotate(-45deg);
+    border-color: #000 transparent transparent transparent;
+}
+
+.arrow.down::after {
+    transform: rotate(45deg);
+    border-color: transparent transparent #000 transparent;
+}
+
+.arrow.up-solid::before {
+    transform: rotate(45deg);
+    border-color: #000 transparent transparent transparent;
+    border-width: 2px 2px 0 0;
+}
+
+.arrow.down-solid::after {
+    transform: rotate(-45deg);
+    border-color: transparent transparent #000 transparent;
+    border-width: 2px 0 0 2px;
+}
