@@ -1,0 +1,25 @@
+<p>hm-datatable works!</p>
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th (click)="sort('name')">Name</th>
+      <th (click)="sort('age')">Age</th>
+      <th (click)="sort('email')">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pagedUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="pagination">
+  <button class="btn btn-secondary" [disabled]="currentPage == 1" (click)="goToPage(currentPage - 1)">Previous</button>
+  <button class="btn btn-secondary" [disabled]="currentPage == totalPages" (click)="goToPage(currentPage + 1)">
+    Next
+  </button>
+</div>
