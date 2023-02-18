@@ -3,11 +3,11 @@ import { User } from 'src/app/models/user';
 import { UserDataService } from 'src/app/services/user.data.service';
 
 @Component({
-  selector: 'app-hm-datatable3',
-  templateUrl: './hm-datatable3.component.html',
-  styleUrls: ['./hm-datatable3.component.scss'],
+  selector: 'app-hm-datatable5',
+  templateUrl: './hm-datatable5.component.html',
+  styleUrls: ['./hm-datatable5.component.scss'],
 })
-export class HmDatatable3Component implements OnInit {
+export class HmDatatable5Component implements OnInit {
   private COMPONENT_NAME = 'HmDatatable3Component';
 
   users: User[] = [];
@@ -17,7 +17,7 @@ export class HmDatatable3Component implements OnInit {
   // filter = '';
   sortField: string = null;
   sortOrder: 'asc' | 'desc' = 'asc';
-  pageSize = 3;
+  pageSize = 4;
   currentPage = 1;
   searchTerm = '';
 
