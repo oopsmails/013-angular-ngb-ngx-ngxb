@@ -7,6 +7,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { SharedModule } from 'oops-lib002';
+import { NgxForm1Component } from './ngx-form1/ngx.form1.component';
+import { NgxForm1ListComponent } from './ngx-form1/ngx.form1.list.component';
 import { NgxHomeComponent } from './ngx-home/ngx-home.component';
 import { NgxRoutingModule } from './ngx-routing.module';
 import { NgxSearchPaginationComponent } from './ngx-search-pagination/ngx-search-pagination.component';
@@ -23,6 +25,8 @@ import { NgxTestComponent } from './ngx-test/ngx.test.component';
     NgxSelect3Component,
     NgxHomeComponent,
     NgxSearchPaginationComponent,
+    NgxForm1Component,
+    NgxForm1ListComponent,
   ],
   imports: [
     CommonModule,
