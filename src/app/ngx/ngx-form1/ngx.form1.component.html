@@ -10,7 +10,15 @@
         Save
       </button>
       &nbsp;
-      <button type="reset" (click)="revert()" [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
+      <button
+        type="reset"
+        (click)="revert()"
+        [disabled]="heroForm.pristine"
+        class="btn btn-danger"
+        [ngClass]="{ 'not-allowed': heroForm.pristine }"
+      >
+        Revert
+      </button>
     </div>
 
     <!-- Hero Detail Controls -->

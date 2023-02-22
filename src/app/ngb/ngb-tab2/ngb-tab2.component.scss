@@ -1,5 +1,15 @@
-button {
+// button {
+//     position: absolute;
+//     right: 15px;
+//     // top: 0;
+// }
+
+.button-test {
     position: absolute;
     right: 15px;
-    // top: 0;
+}
+
+.not-allowed {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
