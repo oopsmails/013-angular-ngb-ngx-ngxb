@@ -46,6 +46,7 @@ function matches(country: Country, term: string, pipe: PipeTransform) {
 
 @Injectable({ providedIn: 'root' })
 export class CountryDataService {
+  private COMPONENT_NAME = 'CountryDataService';
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
   private _countries$ = new BehaviorSubject<Country[]>([]);
@@ -77,6 +78,7 @@ export class CountryDataService {
   }
 
   get countries$() {
+    console.log(this.COMPONENT_NAME + ', calling get countries$ ..... ');
     return this._countries$.asObservable();
   }
   get total$() {

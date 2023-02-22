@@ -18,6 +18,7 @@ import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 import { NgbTableComponent } from './ngb-table/ngb-table.component';
 import { NgbdSortableHeader } from '../services/sortable.directive';
 import { NgbTabComponent } from './ngb-tab/ngb-tab.component';
+import { NgbTab2Component } from './ngb-tab2/ngb-tab2.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgbTabComponent } from './ngb-tab/ngb-tab.component';
     NgbTableComponent,
     NgbdSortableHeader,
     NgbTabComponent,
+    NgbTab2Component,
   ],
   imports: [
     CommonModule,
