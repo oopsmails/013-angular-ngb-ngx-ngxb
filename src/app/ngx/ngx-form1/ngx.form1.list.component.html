@@ -1,0 +1,24 @@
+<h1>Ngx Form1</h1>
+
+<hr />
+<h2>ngx-fomr1: reactive form</h2>
+<hr />
+
+<h3 *ngIf="isLoading"><i>Loading heroes ... </i></h3>
+<h3 *ngIf="!isLoading">note: Select a Hero, then scroll to the bottom to see ngx-select</h3>
+<br />
+<h3 *ngIf="!isLoading">Select a hero:</h3>
+
+<nav>
+  <div class="ngx-form1-list-refresh">
+    <button (click)="getHeroes()" class="btn btn-primary">Refresh</button>
+  </div>
+  <a *ngFor="let hero of heroes | async" (click)="select(hero)">{{ hero.name }}</a>
+</nav>
+
+<div *ngIf="selectedHero">
+  <hr />
+  <h2>Hero Detail</h2>
+  <h3>Editing: {{ selectedHero.name }}</h3>
+  <ngx-form1 [hero]="selectedHero"></ngx-form1>
+</div>

@@ -1,0 +1,39 @@
+// button {
+//     font-family: Arial;
+//     background-color: #eee;
+//     border: none;
+//     padding: 5px 10px;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     cursor: hand;
+// }
+
+// button:hover {
+//     background-color: #cfd8dc;
+// }
+
+// button:disabled {
+//     background-color: #eee;
+//     color: #aaa;
+//     cursor: auto;
+// }
+
+.btn {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.btn:hover {
+    background-color: #cfd8dc;
+}
+
+.btn:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+}
+
+.not-allowed {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
