@@ -18,22 +18,51 @@
 //     cursor: auto;
 // }
 
-.btn {
-    cursor: pointer;
-    cursor: hand;
-}
+// .btn { // not needed
+//     cursor: pointer;
+//     cursor: hand;
+// }
 
-.btn:hover {
-    background-color: #cfd8dc;
-}
+// .btn:hover { // not needed
+//     background-color: #cfd8dc;
+// }
 
-.btn:disabled {
-    background-color: #eee;
-    color: #aaa;
-    cursor: auto;
-}
+// .btn:disabled,
+// .btn[disabled] {
+//     background-color: #eee;
+//     color: #aaa;
+//     cursor: not-allowed !important;
+// }
 
+// not working by itself if the button is disabled! need to work with css below.
 .not-allowed {
     opacity: 0.5 !important;
     cursor: not-allowed !important;
+}
+
+// the following makes it working, i.e, "cursor: not-allowed;" working fine with disabled button.
+// ref: https://github.com/wet-boew/wet-boew/issues/7644, very last comment.
+/**
+@masterbee 'ghost' are deleted accounts. From reading this my self I concluded that the disabled icon 
+does not appear on the <button> tag (the red circle). This is due to the disabled class setting 
+the <button> with this css pointer-events: none; which is required to disable the button, 
+but if this is set to none a button can't have a mouse icon (the red circle).
+**/
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    pointer-events: auto;
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+    pointer-events: none;
+}
+
+a.btn[disabled] {
+    pointer-events: none;
+}
+
+*.disabled {
+    cursor: not-allowed;
 }

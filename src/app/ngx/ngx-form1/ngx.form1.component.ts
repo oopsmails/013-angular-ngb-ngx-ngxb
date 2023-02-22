@@ -9,6 +9,8 @@ import { HeroService } from 'src/app/services/hero.service';
   styleUrls: ['./ngx.form1.component.scss'],
 })
 export class NgxForm1Component implements OnChanges {
+  private COMPONENT_NAME = 'NgxForm1Component';
+
   @Input() hero: Hero;
 
   public ngxControl = new FormControl();
@@ -99,6 +101,7 @@ export class NgxForm1Component implements OnChanges {
   }
 
   ngOnChanges() {
+    console.log(this.COMPONENT_NAME + ', ngOnChanges');
     this.heroForm.reset({
       name: this.hero.name,
     });
@@ -120,6 +123,7 @@ export class NgxForm1Component implements OnChanges {
   }
 
   onSubmit() {
+    console.log(this.COMPONENT_NAME + ', onSubmit');
     this.hero = this.prepareSaveHero();
     this.heroService.updateHero(this.hero).subscribe(/* error handling */);
     this.ngOnChanges();
@@ -143,6 +147,7 @@ export class NgxForm1Component implements OnChanges {
   }
 
   revert() {
+    console.log(this.COMPONENT_NAME + ', revert');
     this.ngOnChanges();
   }
 
