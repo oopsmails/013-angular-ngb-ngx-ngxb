@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 import { NgbTableComponent } from './ngb-table/ngb-table.component';
 import { NgbdSortableHeader } from '../services/sortable.directive';
+import { NgbTabComponent } from './ngb-tab/ngb-tab.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgbdSortableHeader } from '../services/sortable.directive';
     NgbSpinnerComponent,
     NgbTableComponent,
     NgbdSortableHeader,
+    NgbTabComponent,
   ],
   imports: [
     CommonModule,

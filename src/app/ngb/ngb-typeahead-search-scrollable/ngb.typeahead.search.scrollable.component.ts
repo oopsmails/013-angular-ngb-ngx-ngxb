@@ -13,7 +13,7 @@ import {
 } from 'rxjs';
 
 @Component({
-  selector: 'ngb-typeahead-search',
+  selector: 'ngb-typeahead-search-scrollable',
   templateUrl: './ngb.typeahead.search.scrollable.component.html',
   styleUrls: ['./ngb.typeahead.search.scrollable.component.scss'],
 })
