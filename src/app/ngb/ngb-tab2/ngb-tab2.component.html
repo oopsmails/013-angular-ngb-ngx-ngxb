@@ -1,0 +1,44 @@
+<h2>ngb/ngb-tab2</h2>
+<hr />
+
+<p>ngb-tab2 works!</p>
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs">
+  <li [ngbNavItem]="1" [destroyOnHide]="true">
+    <a ngbNavLink>One</a>
+    <ng-template ngbNavContent>
+      <ngb-alert [dismissible]="false" class="d-block mt-3" type="danger">
+        This tab content DOM will de destroyed when not active
+      </ngb-alert>
+
+      <app-ngb-table></app-ngb-table>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Two</a>
+    <ng-template ngbNavContent>
+      <ngb-alert [dismissible]="false" class="d-block mt-3" type="success">
+        This tab content DOM will always stay in DOM
+      </ngb-alert>
+
+      <app-ngb-table></app-ngb-table>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink>Three</a>
+    <ng-template ngbNavContent let-active>
+      <ngb-alert *ngIf="active" [dismissible]="false" class="d-block mt-3">
+        While tab content DOM is never destroyed, this alert exists only when current tab is active
+      </ngb-alert>
+      <app-ngb-table></app-ngb-table>
+    </ng-template>
+  </li>
+
+  <li style="float: right">
+    <button type="button" class="btn btn-outline-primary">Export to CSV</button>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>
