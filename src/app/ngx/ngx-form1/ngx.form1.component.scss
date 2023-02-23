@@ -66,3 +66,45 @@ a.btn[disabled] {
 *.disabled {
     cursor: not-allowed;
 }
+
+//--------------- radio buttons ----------------
+
+.form-group.radio ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.form-group.radio label {
+    display: block;
+    padding-left: 20px;
+    /* adjust this value to increase or decrease the space between the radio button and the label */
+    position: relative;
+}
+
+.form-group.radio label input[type="radio"] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//--------------- checkbox ----------------
+
+.sidekick {
+    // border: solid red 1px;
+    padding-left: 20px;
+}
+
+.checkbox label {
+    display: block;
+    padding-left: 20px;
+    /* adjust this value to increase or decrease the space between the radio button and the label */
+    position: relative;
+}
+
+.checkbox input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
