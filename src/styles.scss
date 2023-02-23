@@ -4,7 +4,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 5px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   // font-family: Arial, Helvetica, sans-serif;
@@ -22,18 +22,9 @@ body {
   --nav-item-margin-bottom: 1em;
   --nav-a-font-size: 1.2rem;
   --nav-height: 4em;
-
-  // page IDs
-  // --ngx-search-git: 'ngx-search-git'
 }
 
-.mainContainer {
-  position: relative;
-  padding: 5px;
-
-  // top: calc(var(--nav-height) + 10px);
-  // top: 20px;
-  // padding-top: 20px; // for demo
-  // border: 1px solid red;
-  // height: 200vh;
-}
+// .mainContainer {
+//   position: relative;
+//   padding: 5px;
+// }

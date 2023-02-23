@@ -66,23 +66,39 @@
       </div>
       <button (click)="addLair()" type="button">Add a Secret Lair</button>
     </div>
+
+    <hr />
+
     <div class="form-group radio">
       <h4>Super power:</h4>
-      <label class="center-block"><input type="radio" formControlName="power" value="flight" />Flight</label>
-      <label class="center-block"
-        ><input type="radio" formControlName="power" value="x-ray vision" />X-ray vision</label
-      >
-      <label class="center-block"><input type="radio" formControlName="power" value="strength" />Strength</label>
+      <ul>
+        <li>
+          <label class="center-block"><input type="radio" formControlName="power" value="flight" />Flight</label>
+        </li>
+        <li>
+          <label class="center-block"
+            ><input type="radio" formControlName="power" value="x-ray vision" />X-ray vision</label
+          >
+        </li>
+        <li>
+          <label class="center-block"><input type="radio" formControlName="power" value="strength" />Strength</label>
+        </li>
+      </ul>
     </div>
-    <div class="checkbox">
+    <div class="checkbox sidekick">
       <label class="center-block"> <input type="checkbox" formControlName="sidekick" />I have a sidekick. </label>
     </div>
   </form>
 
-  <p>heroForm value: {{ heroForm.value | json }}</p>
+  <hr />
+
+  <pre><p>heroForm value: {{ heroForm.value | json }}</p></pre>
+
+  <hr />
 
   <h4>Name change log</h4>
   <div *ngFor="let name of nameChangeLog">{{ name }}</div>
+  <hr />
 
   <div class="row">
     <br />

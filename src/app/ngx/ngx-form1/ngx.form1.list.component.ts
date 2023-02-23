@@ -27,7 +27,7 @@ export class NgxForm1ListComponent implements OnInit {
     this.isLoading = true;
     this.heroes = this.heroService
       .getHeroes()
-      // Todo: error handling
+      // TODO: error handling
       .pipe(finalize(() => (this.isLoading = false)));
 
     this.selectedHero = undefined;
