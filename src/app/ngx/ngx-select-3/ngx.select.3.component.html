@@ -5,7 +5,9 @@
 <p>When items are not ready, searching will trigger backend call</p>
 <div>
   <ngx-select
+    id="#ngxSelect3"
     (keyup)="onKeyUpSearch($event)"
+    (input)="onKeyUpSearch($event)"
     (click)="onClick($event)"
     [formControl]="formControl4"
     [items]="displaying$ | async"
