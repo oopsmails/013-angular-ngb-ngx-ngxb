@@ -16,6 +16,8 @@ import { NgxSelect1Component } from './ngx-select-1/ngx.select.1.component';
 import { NgxSelect2Component } from './ngx-select-2/ngx.select.2.component';
 import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
+import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-dropdown1.component';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { NgxTestComponent } from './ngx-test/ngx.test.component';
     NgxSearchPaginationComponent,
     NgxForm1Component,
     NgxForm1ListComponent,
+    NgxSelectDropdown1Component,
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { NgxTestComponent } from './ngx-test/ngx.test.component';
     BrowserModule,
     SharedModule,
     NgxSelectModule,
+    SelectDropDownModule,
     TranslateModule.forRoot(),
     NgxRoutingModule,
     NgxPaginationModule,

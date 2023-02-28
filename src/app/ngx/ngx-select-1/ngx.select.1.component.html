@@ -21,6 +21,7 @@
     [formControl]="formControl2"
     [items]="items2$ | async"
     [noAutoComplete]="false"
+    [searchCallback]="onSearchCallback"
     optionTextField="name"
   ></ngx-select>
   Selected: {{ formControl2.value }}

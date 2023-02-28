@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { INgxSelectOption } from 'ngx-select-ex';
 import { RandomItem, SharedDataService } from 'oops-lib002';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'ngx-test',
@@ -30,7 +31,30 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
       });
     });
 
-    this.items2$ = this.sharedDataService.getRandomItems(100, 1000);
+    this.items2$ = this.sharedDataService.getRandomItems(100, 1000).pipe(
+      map((items) => {
+        items.forEach((item) => {
+          if (item.id === 8 || item.id === 10) {
+            item.desc = 'abc';
+          }
+          item.customKey = '' + item.id + '-' + item.name + '-' + item.desc;
+        });
+        return items;
+      })
+    );
+  }
+
+  onSearchCallback(search: string, item: INgxSelectOption): boolean {
+    console.log(`onSearchCallback ........... searcht = `, search);
+    console.log(`onSearchCallback ........... item = `, item);
+
+    const randomItem = <RandomItem>item.data;
+    console.log(`onSearchCallback ........... randomItem = `, randomItem);
+
+    return (
+      randomItem.name.toLowerCase().includes(search.toLowerCase()) ||
+      randomItem.desc.toLowerCase().includes(search.toLowerCase())
+    );
   }
 
   ngOnDestroy() {

@@ -106,6 +106,7 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
   }
 
   onSearchCallback(search: string, item: INgxSelectOption): boolean {
+    // working in ngx.select-1 ...
     // console.log(`onSearchCallback ........... searcht = `, search);
     // console.log(`onSearchCallback ........... item = `, item);
     if (item.value === '-1') {
