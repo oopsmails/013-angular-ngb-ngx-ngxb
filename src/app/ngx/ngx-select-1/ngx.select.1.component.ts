@@ -35,7 +35,7 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
       map((items) => {
         items.forEach((item) => {
           if (item.id === 8 || item.id === 10) {
-            item.desc = 'abc';
+            item.desc = 'abc'; // for testing onSearchCallback, if search bc or ab, should only see item8 and item10
           }
           item.customKey = '' + item.id + '-' + item.name + '-' + item.desc;
         });
@@ -45,11 +45,11 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
   }
 
   onSearchCallback(search: string, item: INgxSelectOption): boolean {
-    console.log(`onSearchCallback ........... searcht = `, search);
-    console.log(`onSearchCallback ........... item = `, item);
+    // console.log(`onSearchCallback ........... searcht = `, search);
+    // console.log(`onSearchCallback ........... item = `, item);
 
     const randomItem = <RandomItem>item.data;
-    console.log(`onSearchCallback ........... randomItem = `, randomItem);
+    // console.log(`onSearchCallback ........... randomItem = `, randomItem);
 
     return (
       randomItem.name.toLowerCase().includes(search.toLowerCase()) ||
