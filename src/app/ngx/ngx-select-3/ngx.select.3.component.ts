@@ -47,11 +47,25 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
       map((searching) => (this.searchText = searching)),
       switchMap(() => {
         console.log(`switchMap ........... this.searchText = `, this.searchText);
-        // return this.sharedDataService
-        //   .searchRandomItems(this.searchText)
-        //   .pipe(map((data) => data.resultList));
+        return this.sharedDataService.getRandomItems(30, 1000).pipe(
+          map((items) => {
+            items.forEach((item) => {
+              if (item.id === 8) {
+                item.desc = 'abc';
+              }
 
-        return this.searchRandomItemsBySearchText(this.searchText).pipe(map((data) => data.resultList));
+              item.customKey = '' + item.id + '-' + item.name + '-' + item.desc;
+            });
+
+            // return items;
+            return items.filter((item) => {
+              return (
+                item.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                item.desc.toLowerCase().includes(this.searchText.toLowerCase())
+              );
+            });
+          })
+        );
       }),
       catchError((err) => {
         console.error(err);
@@ -92,8 +106,9 @@ export class NgxSelect3Component implements OnInit, OnDestroy {
   }
 
   onSearchCallback(search: string, item: INgxSelectOption): boolean {
-    console.log(`onSearchCallback ........... searcht = `, search);
-    console.log(`onSearchCallback ........... item = `, item);
+    // working in ngx.select-1 ...
+    // console.log(`onSearchCallback ........... searcht = `, search);
+    // console.log(`onSearchCallback ........... item = `, item);
     if (item.value === '-1') {
       return true;
     }
