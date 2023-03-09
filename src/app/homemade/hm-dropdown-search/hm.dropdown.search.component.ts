@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
-  selector: 'app-test-around',
+  selector: 'app-hm-dropdown-search',
   templateUrl: './hm.dropdown.search.component.html',
   styleUrls: ['./hm.dropdown.search.component.scss'],
 })
@@ -60,9 +60,7 @@ export class HomeMadeDropdownSearchComponent implements OnInit, OnDestroy {
       this.filteredList = this.allItems.slice();
       return;
     } else {
-      this.filteredList = this.allItems.filter(
-        (item) => item.description.toLowerCase().indexOf(searchString) > -1
-      );
+      this.filteredList = this.allItems.filter((item) => item.description.toLowerCase().indexOf(searchString) > -1);
     }
     // window.scrollTo(window.scrollX, window.scrollY - 1);
     console.log('filterDropdown, this.filteredList.length: ', this.filteredList.length || '0');

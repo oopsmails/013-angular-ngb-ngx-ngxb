@@ -15,11 +15,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HmDatatable3Component } from './hm-datatable3/hm-datatable3.component';
 import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
 import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
+import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search-async2/hm.dropdown.search.async.component2';
 
 @NgModule({
   declarations: [
     HomeMadeDropdownSearchComponent,
     HomeMadeDropdownSearchAsyncComponent,
+    HomeMadeDropdownSearchAsyncComponent2,
     HomemadeComponent,
     HmSpinnerComponent,
     HmDatatable1Component,
