@@ -8,11 +8,14 @@ import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
   styleUrls: ['./test.around.component.scss'],
 })
 export class TestAroundComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'TestAroundComponent';
+
   private onDestroy$: Subject<boolean> = new Subject();
 
   allItems$: Observable<Car[]>;
-
   allItems: Car[];
+
+  selectedItem: Car;
 
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
@@ -22,12 +25,17 @@ export class TestAroundComponent implements OnInit, OnDestroy {
         items.forEach((item) => {
           item.description = item.brand + ' - ' + item.model + ' : ' + item.year;
         });
-        console.log(`ngOnInit ........... items.length = `, (items && items.length) || 0);
+        console.log(this.COMPONENT_NAME + `ngOnInit ........... items.length = `, (items && items.length) || 0);
         return items;
       })
     );
 
     this.allItems$.pipe(takeUntil(this.onDestroy$)).subscribe((items) => (this.allItems = items));
+  }
+
+  handleSelectItem($event) {
+    // console.log(this.COMPONENT_NAME + `handleSelectItem ........... $event = `, $event || 'null');
+    this.selectedItem = $event;
   }
 
   ngOnDestroy() {

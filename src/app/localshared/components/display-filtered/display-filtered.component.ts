@@ -11,7 +11,7 @@ export class DisplayFilteredComponent<T> implements OnInit {
 
   @Input('allItems') allItems: T[];
   @Input('fieldToDisplay') fieldToDisplay: string;
-  @Output() Emitter = new EventEmitter(true);
+  @Output() selectItemEmitter = new EventEmitter(true);
   // @Output('filteredItems') filteredItems: T[];
 
   private onDestroy$: Subject<boolean> = new Subject();
@@ -23,7 +23,8 @@ export class DisplayFilteredComponent<T> implements OnInit {
   }
 
   onSelectItemClick(item: T) {
-    console.log(this.COMPONENT_NAME + 'onSelectItemClick, item: ', item);
+    // console.log(this.COMPONENT_NAME + 'onSelectItemClick, emitting item: ', item);
+    this.selectItemEmitter.emit(item);
   }
 
   // ngOnChanges() {
