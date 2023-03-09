@@ -16,6 +16,7 @@ import { ChildComponent } from './pages/child/child.component';
 import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
 import { SelectModalComponent } from './pages/select-modal/select-modal.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
+import { LocalsharedModule } from '../localshared/localshared.module';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
     OopsLib001Module,
     OopsLib002Module,
     SharedModule,
+    LocalsharedModule,
     RouterModule.forChild(routes),
   ],
   exports: [],
