@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { ColumnSortedEvent } from '../models/sortable';
+import { ColumnSortedEvent } from '../../models/sortable';
 
 @Injectable()
 export class SortService {
@@ -13,5 +13,4 @@ export class SortService {
   columnSorted(event: ColumnSortedEvent) {
     this.columnSortedSource.next(event);
   }
- 
 }

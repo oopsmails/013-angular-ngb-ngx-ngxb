@@ -16,7 +16,7 @@ import { SharedModule } from 'oops-lib002';
 import { FormsModule } from '@angular/forms';
 import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 import { NgbTableComponent } from './ngb-table/ngb-table.component';
-import { NgbdSortableHeader } from '../services/sortable.directive';
+import { NgbdSortableHeader } from '../localshared/services/sortable.directive';
 import { NgbTabComponent } from './ngb-tab/ngb-tab.component';
 import { NgbTab2Component } from './ngb-tab2/ngb-tab2.component';
 

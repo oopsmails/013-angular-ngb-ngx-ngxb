@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
-import { UserDataService } from 'src/app/services/user.data.service';
+import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 @Component({
   selector: 'app-hm-datatable5',

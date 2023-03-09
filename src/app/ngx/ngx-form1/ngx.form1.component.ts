@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Address, Hero, states } from 'src/app/models/heros';
-import { HeroService } from 'src/app/services/hero.service';
+import { HeroService } from 'src/app/localshared/services/hero.service';
 
 @Component({
   selector: 'ngx-form1',
