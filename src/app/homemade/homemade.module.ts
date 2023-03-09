@@ -17,6 +17,7 @@ import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
 import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
 import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search-async2/hm.dropdown.search.async.component2';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
+import { HomeMadeSearchModalContentComponent } from './hm-search-modal/hm-search-modal-content/hm.search.modal.content.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.
     HomeMadeDropdownSearchAsyncComponent,
     HomeMadeDropdownSearchAsyncComponent2,
     HomeMadeSearchModalComponent,
+    HomeMadeSearchModalContentComponent,
     HomemadeComponent,
     HmSpinnerComponent,
     HmDatatable1Component,

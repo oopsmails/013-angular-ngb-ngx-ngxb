@@ -1,0 +1,34 @@
+<h3>Advanced Search</h3>
+Passed in passingSearchText: {{ passingSearchText || 'Empty ...' }}
+
+<hr />
+
+<div class="dropdown h-100" class="statusDropdownContainer">
+  <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
+    <input
+      type="text"
+      #searchText
+      class="w-100 p-2 searchInput"
+      placeholder="Type to search ..."
+      [ngModel]="searchValue"
+      (ngModelChange)="onKeyupSearch($event)"
+      (click)="inputOnClick()"
+    />
+
+    <ng-container *ngIf="displaying$ | async as items">
+      <div *ngIf="showItems" class="search-modal-item-list">
+        <a
+          *ngFor="let option of items; let i = index"
+          class="dropdown-item pointer"
+          [ngClass]="{ alternateBackground: i % 2 == 0 }"
+          (click)="onSelectSymbolClick(content, option)"
+        >
+          {{ option.description }}
+        </a>
+      </div>
+      <div *ngIf="showItems && items.length === 0" class="text-muted search-modal-no-item">
+        Waiting ... or No car found ......
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,31 +1,18 @@
-import { Component, ElementRef, OnDestroy, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Car, CarDataService } from 'oops-lib002';
-import {
-  catchError,
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  Observable,
-  of,
-  Subject,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs';
-import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
+import { Subject, Observable, tap, distinctUntilChanged, debounceTime, switchMap, of, map, catchError } from 'rxjs';
 
 @Component({
-  selector: 'app-hm-search-modal',
-  templateUrl: './hm.search.modal.component.html',
-  styleUrls: ['./hm.search.modal.component.scss'],
+  selector: 'app-hm-search-modal-content',
+  templateUrl: './hm.search.modal.content.component.html',
+  styleUrls: ['./hm.search.modal.content.component.scss'],
 })
-export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
-  @Output() selectOptionEmitter = new EventEmitter(true);
+export class HomeMadeSearchModalContentComponent implements OnInit {
+  @Output() contentEmitter = new EventEmitter(true);
+  private COMPONENT_NAME = 'HomeMadeSearchModalContentComponent';
 
-  private COMPONENT_NAME = 'HomeMadeSearchModalComponent';
-  linkText = SANDBOX_BACK_TO_HOME;
-  routerLinkInput = SANDBOX_HOME_LINK;
+  @Input('passingSearchText') passingSearchText;
 
   private onDestroy$: Subject<boolean> = new Subject();
 
@@ -112,7 +99,7 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
       this.openModal(content, this.selectedItem);
     } else {
       this.searchValue = option.description;
-      this.selectOptionEmitter.emit(this.selectedItem);
+      this.contentEmitter.emit(this.selectedItem);
     }
   }
 
