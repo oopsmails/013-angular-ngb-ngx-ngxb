@@ -13,6 +13,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
+import { SearchCarService } from 'src/app/localshared/services/search.car.service';
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
@@ -29,15 +30,19 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
 
   private onDestroy$: Subject<boolean> = new Subject();
 
+  placeHolder = 'Type to search ...';
   displaying$: Observable<Car[]>;
   searchText: string;
   selectedItem;
-  searchValue: string;
   showItems = false;
 
   private displayingLookup$: Subject<string> = new Subject();
 
-  constructor(private carDataService: CarDataService, private modalService: NgbModal) {}
+  constructor(
+    private carDataService: CarDataService,
+    private searchCarService: SearchCarService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit() {
     this.displaying$ = this.displayingLookup$.pipe(
@@ -55,28 +60,35 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
         return this.carDataService.getCarItems(20, 500).pipe(
           map((data) => {
             console.log(`switchMap ........... data.length = `, (data && data.length) || 0);
-            let result: Car[] = [];
-            if (data && data.length > 6) {
-              result = data.slice(0, 5);
-            } else {
-              result = data || [];
-            }
+            // let result: Car[] = [];
+            // if (data && data.length > 6) {
+            //   result = data.slice(0, 5);
+            // } else {
+            //   result = data || [];
+            // }
 
-            if (this.searchText && this.searchText.length > 0 && result.length === 0) {
-              console.log(`No item found with searchText = `, this.searchText);
-            }
+            // if (this.searchText && this.searchText.length > 0 && result.length === 0) {
+            //   console.log(`No item found with searchText = `, this.searchText);
+            // }
 
-            result.forEach((item: Car) => {
-              item.description = item.brand + ' - ' + item.model + ' : ' + item.year; // update each item here if necessary
-            });
+            // result.forEach((item: Car) => {
+            //   item.description = item.brand + ' - ' + item.model + ' : ' + item.year; // update each item here if necessary
+            // });
 
-            result = result.filter((item: Car) => {
-              return item.description.toLowerCase().includes(this.searchText);
-            });
+            // result = result.filter((item: Car) => {
+            //   return item.description.toLowerCase().includes(this.searchText);
+            // });
 
-            this.showItems = true;
-            console.log(`switchMap ........... result.length = `, (result && result.length) || 0);
-            return result;
+            // this.showItems = true;
+            // console.log(`switchMap ........... result.length = `, (result && result.length) || 0);
+            // return result;
+
+            return this.searchCarService.processItems(
+              data,
+              this.searchText,
+              100,
+              this.searchCarService.filterFunctions.descriptionContains(this.searchText)
+            );
           })
         );
       }),
@@ -93,12 +105,16 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
   onKeyupSearch(event) {
     console.log('event in onKeyupSearch -------> ', event);
     this.displayingLookup$.next(event);
+    this.showItems = true;
   }
+
+  descFilterFn = (item: Car, searchText: string) => (boolean) => {
+    return item.description.toLowerCase().includes(searchText);
+  };
 
   inputOnClick() {
     this.showItems = !this.showItems;
-    this.searchValue = '';
-    if (this.showItems == true) {
+    if (this.showItems === true) {
       setTimeout(() => {
         this.displayingLookup$.next('');
       });
@@ -111,7 +127,7 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
     if (option && option === '-1') {
       this.openModal(content, this.selectedItem);
     } else {
-      this.searchValue = option.description;
+      this.searchText = option.description;
       this.selectOptionEmitter.emit(this.selectedItem);
     }
   }
