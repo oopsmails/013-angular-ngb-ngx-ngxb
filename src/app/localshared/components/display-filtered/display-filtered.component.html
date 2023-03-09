@@ -1,0 +1,10 @@
+<div *ngIf="showItems" class="search-modal-item-list">
+  <a
+    *ngFor="let item of allItems; let i = index"
+    class="dropdown-item pointer"
+    [ngClass]="{ alternateBackground: i % 2 == 0 }"
+    (click)="onSelectItemClick(item)"
+  >
+    {{ item.description }}
+  </a>
+</div>

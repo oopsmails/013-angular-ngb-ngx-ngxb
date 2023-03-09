@@ -2,39 +2,13 @@
 
 <hr />
 
-<div class="dropdown h-100" class="statusDropdownContainer">
-  <a
-    class="btn btn-white dropdown-toggle mb-2 statusFilterDropdown h-100 flex-middle"
-    role="button"
-    id="dropdownMenuLink"
-    data-toggle="dropdown"
-    aria-haspopup="true"
-    aria-expanded="false"
-    (click)="dropdownOnClick()"
-  >
-    <span class="text-truncate">Car: {{ selectedValue ? selectedValue : 'All' }}</span>
-  </a>
+<h4>app-display-filtered</h4>
 
-  <div *ngIf="showDropdown" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
-    <input
-      type="text"
-      #searchText
-      class="w-100 p-2 searchInput"
-      [ngModel]="searchValue"
-      (ngModelChange)="filterDropdown($event)"
-    />
-    <a
-      *ngFor="let option of filteredList$ | async; let i = index"
-      class="dropdown-item pointer text-contain"
-      [ngClass]="{ alternateBackground: i % 2 == 0 }"
-      (click)="selectValue(option.description)"
-    >
-      {{ option.description }}
-    </a>
-    <div *ngIf="((filteredList$ | async) || []).length == 0" class="text-center text-muted mt-1">
-      Waiting ... or No car found ......
-    </div>
-  </div>
-</div>
+<!-- <ng-container *ngIf="allItems$ | async as allItemsAsync">
+  {{ allItems.slice(0, 2) | json }}
+  <app-display-filtered [allItems]="allItemsAsync" fieldToDisplay="description"> </app-display-filtered>
+</ng-container> -->
+
+<app-display-filtered [allItems]="allItems" fieldToDisplay="description"> </app-display-filtered>
 
 <hr />

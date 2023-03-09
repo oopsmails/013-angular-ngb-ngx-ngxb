@@ -10,12 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { HomeMadeModule } from './homemade/homemade.module';
+import { LocalsharedModule } from './localshared/localshared.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
-import { SpinnerComponent } from './components/spinner/spinner.component';
-import { LoadingInterceptor } from './services/loading.interceptor';
-import { HttpDelayInterceptor } from './services/http-delay.interceptor';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -26,6 +25,7 @@ import { HttpDelayInterceptor } from './services/http-delay.interceptor';
     OopsLib001Module,
     OopsLib002Module,
     SharedModule,
+    LocalsharedModule,
     HomeModule,
     HomeMadeModule,
     NgbTestModule,
@@ -34,7 +34,7 @@ import { HttpDelayInterceptor } from './services/http-delay.interceptor';
     BrowserAnimationsModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
-  declarations: [AppComponent, SpinnerComponent],
+  declarations: [AppComponent],
   providers: [
     // {
     //   provide: HTTP_INTERCEPTORS,
