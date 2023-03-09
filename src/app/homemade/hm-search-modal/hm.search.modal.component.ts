@@ -15,11 +15,11 @@ import {
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
-  selector: 'app-hm-dropdown-search-async2',
-  templateUrl: './hm.dropdown.search.async.component2.html',
-  styleUrls: ['./hm.dropdown.search.async.component2.scss'],
+  selector: 'app-hm-search-modal',
+  templateUrl: './hm.search.modal.component.html',
+  styleUrls: ['./hm.search.modal.component.scss'],
 })
-export class HomeMadeDropdownSearchAsyncComponent2 implements OnInit, OnDestroy {
+export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
   @ViewChild('searchText') searchTextElement: ElementRef;
 
   linkText = SANDBOX_BACK_TO_HOME;
