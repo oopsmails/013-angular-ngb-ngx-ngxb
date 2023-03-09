@@ -4,7 +4,7 @@ import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
-  selector: 'app-test-around',
+  selector: 'app-hm-dropdown-search-async',
   templateUrl: './hm.dropdown.search.async.component.html',
   styleUrls: ['./hm.dropdown.search.async.component.scss'],
 })
@@ -63,10 +63,7 @@ export class HomeMadeDropdownSearchAsyncComponent implements OnInit, OnDestroy {
       this.filteredList$ = this.allItems$.pipe(
         map((resp) => resp.slice()),
         tap((resp) =>
-          console.log(
-            'this.filteredList indropdown -------> ',
-            (resp && resp.length) || 'Something goes wrong'
-          )
+          console.log('this.filteredList indropdown -------> ', (resp && resp.length) || 'Something goes wrong')
         )
       );
     } else {
@@ -74,9 +71,7 @@ export class HomeMadeDropdownSearchAsyncComponent implements OnInit, OnDestroy {
         map((resp: Car[]) => {
           return resp.filter((item) => item.description.toLowerCase().indexOf(searchString) > -1);
         }),
-        tap((resp) =>
-          console.log('filterDropdown, this.filteredList.length: ', (resp && resp.length) || '0???')
-        )
+        tap((resp) => console.log('filterDropdown, this.filteredList.length: ', (resp && resp.length) || '0???'))
       );
     }
     // window.scrollTo(window.scrollX, window.scrollY - 1);
