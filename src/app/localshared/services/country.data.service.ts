@@ -3,7 +3,7 @@ import { Injectable, PipeTransform } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
 import { Country } from '../../models/country';
-import { COUNTRIES } from '../../data/countries.data';
+import { COUNTRIES } from '../data/countries.data';
 import { DecimalPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
 import { SortDirection } from './sortable.directive';
