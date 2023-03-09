@@ -2,8 +2,8 @@ import { DecimalPipe } from '@angular/common';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/country';
-import { CountryDataService } from 'src/app/services/country.data.service';
-import { NgbdSortableHeader, SortEvent } from 'src/app/services/sortable.directive';
+import { CountryDataService } from 'src/app/localshared/services/country.data.service';
+import { NgbdSortableHeader, SortEvent } from 'src/app/localshared/services/sortable.directive';
 
 @Component({
   selector: 'app-ngb-table',

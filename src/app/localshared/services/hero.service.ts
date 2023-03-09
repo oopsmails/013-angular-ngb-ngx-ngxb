@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
-import { Hero, heroes } from '../models/heros';
+import { Hero, heroes } from '../../models/heros';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {

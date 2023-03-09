@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavBarModel, RandomItem, SharedDataService } from 'oops-lib002';
 import { delay, Observable, Subject, takeUntil, tap, timer } from 'rxjs';
-import { LoaderService } from 'src/app/services/loader.service';
+import { LoaderService } from 'src/app/localshared/services/loader.service';
 
 @Component({
   selector: 'app-hm-spinner',
