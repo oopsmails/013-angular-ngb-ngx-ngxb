@@ -104,6 +104,10 @@ export class HomeMadeDropdownSearchAsyncComponent2 implements OnInit, OnDestroy 
     }
   }
 
+  selectValue(data) {
+    console.log('selectValue: ', data);
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();
