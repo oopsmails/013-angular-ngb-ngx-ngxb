@@ -22,22 +22,45 @@
       class="w-100 p-2 searchInput"
       placeholder="Type to search ..."
       [ngModel]="searchValue"
-      (ngModelChange)="filterDropdown($event)"
+      (ngModelChange)="onKeyupSearch($event)"
       (click)="inputOnClick()"
     />
 
     <ng-container *ngIf="displaying$ | async as items">
-      <a
-        *ngFor="let option of items; let i = index"
-        class="dropdown-item pointer text-contain"
-        [ngClass]="{ alternateBackground: i % 2 == 0 }"
-        (click)="selectValue(option.description)"
-      >
-        {{ option.description }}
-      </a>
-      <div *ngIf="showItems && items.length === 0" class="text-center text-muted mt-1">
+      <div *ngIf="showItems" class="search-modal-item-list">
+        <a
+          *ngFor="let option of items; let i = index"
+          class="dropdown-item pointer"
+          [ngClass]="{ alternateBackground: i % 2 == 0 }"
+          (click)="onSelectSymbolClick(content, option)"
+        >
+          {{ option.description }}
+        </a>
+      </div>
+      <div *ngIf="showItems && items.length === 0" class="text-muted search-modal-no-item">
         Waiting ... or No car found ......
+      </div>
+
+      <div *ngIf="showItems" class="search-modal-advanced-search">
+        <a href="#" (click)="$event.preventDefault(); onSelectSymbolClick(content, '-1')">{{
+          'Advanced Search ......' | translate
+        }}</a>
       </div>
     </ng-container>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Home Made search-modal-content</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-hm-search-modal-content [passingSearchText]="searchText"></app-hm-search-modal-content>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
