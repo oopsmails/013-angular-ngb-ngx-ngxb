@@ -28,5 +28,26 @@
 </div>
 
 <hr />
+
+<h2>ngx-select: default and trigger other dropdowns</h2>
+<p>When first dropdown selected, triggering other dropdowns</p>
+
+<section>
+  <h3>Select stock type:</h3>
+  <ngx-select [items]="stockTypeOptions" [(ngModel)]="selectedStockType" (ngModelChange)="onStockTypeChanged($event)">
+  </ngx-select>
+
+  <div *ngIf="showMarketDropdown">
+    <h3>Select market:</h3>
+    <ngx-select [items]="marketOptions" [(ngModel)]="selectedMarket" (ngModelChange)="onMarketChanged()"> </ngx-select>
+  </div>
+
+  <div *ngIf="showFundTypeDropdown">
+    <h3>Select fund type:</h3>
+    <ngx-select [items]="fundTypeOptions" [(ngModel)]="selectedFundType"> </ngx-select>
+  </div>
+</section>
+
+<hr />
 <p><a routerLink="">routerLink home</a></p>
 <app-footer></app-footer>
