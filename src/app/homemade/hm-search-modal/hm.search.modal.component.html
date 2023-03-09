@@ -18,10 +18,10 @@
   <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
     <input
       type="text"
-      #searchText
+      #searchTextInput
       class="w-100 p-2 searchInput"
-      placeholder="Type to search ..."
-      [ngModel]="searchValue"
+      placeholder="{{ placeHolder }}"
+      [ngModel]="searchText"
       (ngModelChange)="onKeyupSearch($event)"
       (click)="inputOnClick()"
     />
