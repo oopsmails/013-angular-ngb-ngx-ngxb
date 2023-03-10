@@ -17,11 +17,19 @@
 }
 
 //---------------------------------------------------
-.search-modal-no-item {
+.search-modal__no-item {
   margin-top: 10px;
   font-style: italic;
 }
 
-.search-modal-advanced-search {
+.search-modal__advanced-search {
   margin-top: 20px;
+}
+
+// div.search-modal__item-list {
+//   border: 1px solid black;
+// }
+
+.search-modal__ng-container {
+  border: 1px solid rgb(223, 216, 216);
 }

@@ -27,24 +27,26 @@
     />
 
     <ng-container *ngIf="displaying$ | async as items">
-      <div *ngIf="showItems" class="search-modal-item-list">
-        <a
-          *ngFor="let option of items; let i = index"
-          class="dropdown-item pointer"
-          [ngClass]="{ alternateBackground: i % 2 == 0 }"
-          (click)="onSelectSymbolClick(content, option)"
-        >
-          {{ option.description }}
-        </a>
-      </div>
-      <div *ngIf="showItems && items.length === 0" class="text-muted search-modal-no-item">
-        Waiting ... or No car found ......
-      </div>
+      <div class="search-modal__ng-container">
+        <div *ngIf="showItems" class="search-modal__item-list">
+          <a
+            *ngFor="let option of items; let i = index"
+            class="dropdown-item pointer"
+            [ngClass]="{ alternateBackground: i % 2 == 0 }"
+            (click)="onSelectSymbolClick(content, option)"
+          >
+            {{ option.description }}
+          </a>
+        </div>
+        <div *ngIf="showItems && items.length === 0" class="text-muted search-modal__no-item">
+          Waiting ... or No car found ......
+        </div>
 
-      <div *ngIf="showItems" class="search-modal-advanced-search">
-        <a href="#" (click)="$event.preventDefault(); onSelectSymbolClick(content, '-1')">{{
-          'Advanced Search ......' | translate
-        }}</a>
+        <div *ngIf="showItems" class="search-modal__advanced-search">
+          <a href="#" (click)="$event.preventDefault(); onSelectSymbolClick(content, '-1')">{{
+            'Advanced Search ......' | translate
+          }}</a>
+        </div>
       </div>
     </ng-container>
   </div>
