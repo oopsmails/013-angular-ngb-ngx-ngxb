@@ -20,6 +20,17 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
   public items$: Observable<RandomItem[]>;
   public items2$: Observable<RandomItem[]>;
 
+  //------------------------
+  stockTypeOptions = ['ALL', 'STOCK', 'FUND'];
+  marketOptions = ['ALL', 'CAN', 'USA'];
+  fundTypeOptions = ['ALL', 'Alpha Fund', 'Mutual Fund'];
+  selectedStockType = 'ALL';
+  selectedMarket = 'ALL';
+  selectedFundType = 'ALL';
+  showMarketDropdown = false;
+  showFundTypeDropdown = false;
+  //--------------------------
+
   constructor(private router: Router, private sharedDataService: SharedDataService) {}
 
   ngOnInit() {
@@ -56,6 +67,34 @@ export class NgxSelect1Component implements OnInit, OnDestroy {
       randomItem.desc.toLowerCase().includes(search.toLowerCase())
     );
   }
+
+  //------------------------------------
+
+  onStockTypeChanged(event) {
+    console.log(`onStockTypeChanged ........... event = `, event);
+    if (this.selectedStockType === 'ALL') {
+      this.showMarketDropdown = false;
+      this.showFundTypeDropdown = false;
+    } else if (this.selectedStockType === 'STOCK') {
+      this.showMarketDropdown = true;
+      this.showFundTypeDropdown = false;
+      this.marketOptions = ['ALL', 'CAN', 'USA'];
+    } else if (this.selectedStockType === 'FUND') {
+      this.showMarketDropdown = true;
+      this.showFundTypeDropdown = true;
+      this.marketOptions = ['ALL', 'CAN', 'USA'];
+    }
+  }
+
+  onMarketChanged() {
+    if (this.selectedMarket === 'ALL') {
+      this.fundTypeOptions = ['ALL'];
+    } else {
+      this.fundTypeOptions = ['ALL', 'Alpha Fund', 'Mutual Fund'];
+    }
+    this.selectedFundType = 'ALL';
+  }
+  //------------------------------------
 
   ngOnDestroy() {
     this.onDestroy$.next(true);
