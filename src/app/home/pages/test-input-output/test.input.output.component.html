@@ -1,0 +1,23 @@
+<h3>Hello, Test Input Output!</h3>
+
+<hr />
+
+<h4>app-display-filtered</h4>
+
+<div style="margin: 20px 0px 30px 0px">
+  <span>Selected Item: {{ selectedItem | json }}</span>
+</div>
+
+<ng-container *ngIf="allItems$ | async as allItemsAsync">
+  <!-- {{ allItems.slice(0, 2) | json }} -->
+  <app-display-filtered
+    (selectItemEmitter)="handleSelectItem($event)"
+    [allItems]="allItemsAsync"
+    fieldToDisplay="description"
+  >
+  </app-display-filtered>
+</ng-container>
+
+<!-- <app-display-filtered [allItems]="allItems" fieldToDisplay="description"> </app-display-filtered> -->
+
+<hr />

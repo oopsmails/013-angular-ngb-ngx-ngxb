@@ -17,11 +17,13 @@ import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.com
 import { SelectModalComponent } from './pages/select-modal/select-modal.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { LocalsharedModule } from '../localshared/localshared.module';
+import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'home/test-around', component: TestAroundComponent },
   { path: 'home/test-modal', component: TestModalComponent },
+  { path: 'home/test-inputoutput', component: TestInputOutputComponent },
   { path: 'home/parent', component: ParentComponent },
   { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
   { path: 'home/select-modal', component: SelectModalComponent },
@@ -37,6 +39,7 @@ const routes: Routes = [
     GetNgxSelectComponent,
     SelectModalComponent,
     TestModalContentComponent,
+    TestInputOutputComponent,
   ],
   imports: [
     CommonModule,

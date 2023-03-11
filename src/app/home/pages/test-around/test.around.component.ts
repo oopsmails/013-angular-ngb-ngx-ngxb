@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Car, CarDataService } from 'oops-lib002';
-import { map, Observable, Subject, takeUntil, tap } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CarDataService } from 'oops-lib002';
+import { map, Observable, of, Subject } from 'rxjs';
+import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
+import { Institution } from 'src/app/models/inst';
 
 @Component({
   selector: 'app-test-around',
@@ -12,30 +14,21 @@ export class TestAroundComponent implements OnInit, OnDestroy {
 
   private onDestroy$: Subject<boolean> = new Subject();
 
-  allItems$: Observable<Car[]>;
-  allItems: Car[];
-
-  selectedItem: Car;
+  insts$: Observable<Institution[]>;
+  filteredInsts$: Observable<Institution[]>;
 
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
-    this.allItems$ = this.carDataService.getCarItems(20, 200).pipe(
-      takeUntil(this.onDestroy$),
-      map((items: Car[]) => {
-        items.forEach((item) => {
-          item.description = item.brand + ' - ' + item.model + ' : ' + item.year;
+    this.insts$ = of(INSTITUTIONS);
+
+    this.filteredInsts$ = of(INSTITUTIONS).pipe(
+      map((items) => {
+        return items.filter((item) => {
+          return item.cuid.toLowerCase().includes('rbcd');
+          // return item.englishName.toLowerCase().indexOf('ops') >= 0;
         });
-        console.log(this.COMPONENT_NAME + `ngOnInit ........... items.length = `, (items && items.length) || 0);
-        return items;
       })
     );
-
-    this.allItems$.pipe(takeUntil(this.onDestroy$)).subscribe((items) => (this.allItems = items));
-  }
-
-  handleSelectItem($event) {
-    // console.log(this.COMPONENT_NAME + `handleSelectItem ........... $event = `, $event || 'null');
-    this.selectedItem = $event;
   }
 
   ngOnDestroy() {

@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService, StateService, UsState } from 'oops-lib002';
-import { Observable, Subject } from 'rxjs';
+import { filter, map, Observable, of, Subject } from 'rxjs';
+import { INSTITUTIONS } from '../localshared/data/insts.data';
+import { Institution } from '../models/inst';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,9 @@ import { Observable, Subject } from 'rxjs';
 export class HomeComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject();
   states$: Observable<UsState[]>;
+
+  insts$: Observable<Institution[]>;
+  filteredInsts$: Observable<Institution[]>;
 
   constructor(private stateService: StateService, private router: Router) {}
 
