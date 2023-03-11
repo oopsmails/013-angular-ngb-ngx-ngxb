@@ -35,15 +35,15 @@ export class HomeScrollLoadComponent implements OnInit, OnDestroy {
     //     //   items.map((item) => item.title);
     //     // })
     //   )
-    //   .subscribe((items) => {
-    //     console.log(this.COMPONENT_NAME + ', ngOnInit, items.length = ', items.length || 'null-0');
-    //     this.posts = items;
-    //   });
+    // .subscribe((items) => {
+    //   console.log(this.COMPONENT_NAME + ', ngOnInit, items.length = ', items.length || 'null-0');
+    //   this.posts = items;
+    // });
 
     console.log(this.COMPONENT_NAME + ', ngOnInit');
 
     // this.loadPosts();
-    this.loadPosts(0, 10);
+    this.loadPosts(0, 10); // start, end
   }
 
   onScroll() {
