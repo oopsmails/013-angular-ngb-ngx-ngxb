@@ -1,0 +1,13 @@
+<h3>Hello, Test Scroll Loading2!</h3>
+
+<hr />
+
+<div #itemList class="item-list" (scroll)="onScroll()">
+  <div *ngFor="let item of randomItems" class="item">
+    <h2>{{ item.id }}</h2>
+    <p>{{ item.name }}</p>
+  </div>
+  <div *ngIf="loading" class="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+</div>

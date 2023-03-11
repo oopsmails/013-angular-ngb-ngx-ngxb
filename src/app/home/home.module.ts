@@ -21,6 +21,9 @@ import { TestInputOutputComponent } from './pages/test-input-output/test.input.o
 import { HomeTable2Component } from './h-table2/h.table2.component';
 import { HomeTable1Component } from './h-table1/h.table1.component';
 import { HomeTable3Component } from './h-table3/h.table3.component';
+import { TestAroundChildComponent } from './pages/test-around/test.around.child.component';
+import { HomeScrollLoadComponent } from './h-scroll-load/h.scroll.load.component';
+import { HomeScrollLoad2Component } from './h-scroll-load2/h.scroll.load2.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,12 +36,15 @@ const routes: Routes = [
   { path: 'home/table1', component: HomeTable1Component },
   { path: 'home/table2', component: HomeTable2Component },
   { path: 'home/table3', component: HomeTable3Component },
+  { path: 'home/scroll-load', component: HomeScrollLoadComponent },
+  { path: 'home/scroll-load2', component: HomeScrollLoad2Component },
 ];
 
 @NgModule({
   declarations: [
     HomeComponent,
     TestAroundComponent,
+    TestAroundChildComponent,
     TestModalComponent,
     ParentComponent,
     ChildComponent,
@@ -49,6 +55,8 @@ const routes: Routes = [
     HomeTable1Component,
     HomeTable2Component,
     HomeTable3Component,
+    HomeScrollLoadComponent,
+    HomeScrollLoad2Component,
   ],
   imports: [
     CommonModule,
