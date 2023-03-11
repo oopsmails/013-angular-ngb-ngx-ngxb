@@ -1,8 +1,6 @@
 .table-div {
   height: 200px;
   // overflow-y: auto;
-  // padding-right: 20px;
-  /* width of the scrollbar */
 }
 
 table {
@@ -14,43 +12,37 @@ thead {
   position: sticky;
   top: 0;
   background-color: white;
-  padding-right: 18px;
-  display: inline-flex // width: calc(100% - 17px);
+  width: calc(100% - 17px);
 
-    // width: 100%;
-    // padding-right: 30px;
-    /* Assuming the scrollbar width is 17px */
+  width: 100%;
+  padding-right: 17px;
+  /* Assuming the scrollbar width is 17px */
 }
-
-// thead tr {
-//   padding-right: 18px;
-//   display: inline-flex
-// }
 
 tbody {
   height: 180px;
   /* or any fixed height you want */
   display: block;
   overflow-y: auto;
-  // padding: 0px;
+  padding: 0px;
 }
 
 /* Show the scrollbar even if there's no content */
 // tbody::before {
-//   content: "";
-//   display: block;
-//   height: 100%;
-//   width: 1px;
-// }
+  //   content: "";
+  //   display: block;
+  //   height: 100%;
+  //   width: 1px;
+  // }
 
 /* Measure the scrollbar width */
 // ::-webkit-scrollbar {
-//   width: 20px;
-// }
+  //   width: 20px;
+  // }
 
-// ::-webkit-scrollbar-thumb {
-//   background-color: #888;
-// }
+  // ::-webkit-scrollbar-thumb {
+  //   background-color: #888;
+  // }
 
 
 // thead,
