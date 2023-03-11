@@ -21,15 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.states$ = this.stateService.getUsStateCity();
-    this.insts$ = of(INSTITUTIONS).pipe(
-      map((items) => {
-        return items.filter((item) => {
-          // console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-          return item.cuid.toLowerCase().includes('rbcd');
-          // return item.englishName.toLowerCase().indexOf('ops') >= 0;
-        });
-      })
-    );
   }
 
   navToPage(page) {
