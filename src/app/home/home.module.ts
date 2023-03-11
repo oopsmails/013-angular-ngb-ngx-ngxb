@@ -18,6 +18,8 @@ import { SelectModalComponent } from './pages/select-modal/select-modal.componen
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { LocalsharedModule } from '../localshared/localshared.module';
 import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
+import { HomeTable2Component } from './h-table2/h.table2.component';
+import { HomeTable1Component } from './h-table1/h.table1.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'home/parent', component: ParentComponent },
   { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
   { path: 'home/select-modal', component: SelectModalComponent },
+  { path: 'home/table1', component: HomeTable1Component },
+  { path: 'home/table2', component: HomeTable2Component },
 ];
 
 @NgModule({
@@ -40,6 +44,8 @@ const routes: Routes = [
     SelectModalComponent,
     TestModalContentComponent,
     TestInputOutputComponent,
+    HomeTable1Component,
+    HomeTable2Component,
   ],
   imports: [
     CommonModule,

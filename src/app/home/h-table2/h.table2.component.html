@@ -1,0 +1,27 @@
+<h3>Hello, Test Table css 2!</h3>
+
+<p>thead is also with scrollbar</p>
+
+<hr />
+{{ filteredInsts$ | async | json }}
+<hr />
+
+<div class="table-container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="twenty">Institution Id</th>
+        <th class="twenty">CUID</th>
+        <th>English Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of insts$ | async">
+        <!-- <tr *ngFor="let item of filteredInsts$ | async"> -->
+        <td class="twenty">{{ item.institutionId }}</td>
+        <td class="twenty">{{ item.cuid }}</td>
+        <td>{{ item.englishName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
