@@ -1,6 +1,7 @@
 <h3>Hello, Test Table css 3!</h3>
 
-<p>thead is also with scrollbar, cannot resolve tr is too high!</p>
+<p>fixed if very few items, tr is too high and still seeing scroll bar!</p>
+<p>tbody : height: auto; with tr: height: 20px; border-bottom: 1px solid #766e6e;</p>
 
 <hr />
 {{ filteredInsts$ | async | json }}
@@ -17,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of insts.slice(0, 2)" style="height: 20px">
+        <tr *ngFor="let item of insts.slice(0, 1000)" style="height: 20px">
           <!-- <tr *ngFor="let item of filteredInsts$ | async"> -->
           <td>{{ item.institutionId }}</td>
           <td>{{ item.cuid }}</td>
