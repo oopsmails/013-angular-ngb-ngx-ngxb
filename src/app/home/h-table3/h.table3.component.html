@@ -1,0 +1,29 @@
+<h3>Hello, Test Table css 3!</h3>
+
+<p>thead is also with scrollbar, cannot resolve tr is too high!</p>
+
+<hr />
+{{ filteredInsts$ | async | json }}
+<hr />
+
+<ng-container *ngIf="insts$ | async as insts">
+  <div class="table-container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Institution Id</th>
+          <th>CUID</th>
+          <th>English Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of insts.slice(0, 2)" style="height: 20px">
+          <!-- <tr *ngFor="let item of filteredInsts$ | async"> -->
+          <td>{{ item.institutionId }}</td>
+          <td>{{ item.cuid }}</td>
+          <td>{{ item.englishName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>

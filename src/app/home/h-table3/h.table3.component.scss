@@ -1,0 +1,46 @@
+.table-container {
+  margin-top: 15px;
+  height: 220px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+tbody {
+  height: 200px;
+  overflow-y: auto;
+}
+
+tr {
+  height: 20px;
+  border-bottom: 1px solid #766e6e;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgb(236, 222, 222);
+}
+
+th:first-child {
+  width: 20%;
+}
+
+th:nth-child(2) {
+  width: 10%;
+}
+
+th:last-child {
+  width: calc(70% - 16px);
+}
