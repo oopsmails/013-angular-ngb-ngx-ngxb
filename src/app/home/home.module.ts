@@ -25,6 +25,7 @@ import { TestAroundChildComponent } from './pages/test-around/test.around.child.
 import { HomeScrollLoadComponent } from './h-scroll-load/h.scroll.load.component';
 import { HomeScrollLoad2Component } from './h-scroll-load2/h.scroll.load2.component';
 import { HomeScrollLoad3Component } from './h-scroll-load3/h.scroll.load3.component';
+import { HomeOptionsComponent } from './h-options/home.options.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'home/parent', component: ParentComponent },
   { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
   { path: 'home/select-modal', component: SelectModalComponent },
+  { path: 'home/options', component: HomeOptionsComponent },
   { path: 'home/table1', component: HomeTable1Component },
   { path: 'home/table2', component: HomeTable2Component },
   { path: 'home/table3', component: HomeTable3Component },
@@ -60,6 +62,7 @@ const routes: Routes = [
     HomeScrollLoadComponent,
     HomeScrollLoad2Component,
     HomeScrollLoad3Component,
+    HomeOptionsComponent,
   ],
   imports: [
     CommonModule,

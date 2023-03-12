@@ -37,4 +37,13 @@
       </tbody>
     </table>
   </div>
+
+  <hr />
+
+  <div class="scrollable" (scroll)="onScroll($event)">
+    <div *ngFor="let item of insts" class="item">
+      <h2>{{ item.institutionId }}</h2>
+      <p>{{ item.englishName }}</p>
+    </div>
+  </div>
 </ng-container>

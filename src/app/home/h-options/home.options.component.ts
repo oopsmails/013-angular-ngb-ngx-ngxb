@@ -6,11 +6,11 @@ import { Institution } from 'src/app/models/inst';
 
 @Component({
   selector: 'app-test-around',
-  templateUrl: './test.around.component.html',
-  styleUrls: ['./test.around.component.scss'],
+  templateUrl: './home.options.component.html',
+  styleUrls: ['./home.options.component.scss'],
 })
-export class TestAroundComponent implements OnInit, OnDestroy {
-  private COMPONENT_NAME = 'TestAroundComponent';
+export class HomeOptionsComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeOptionsComponent';
 
   private onDestroy$: Subject<boolean> = new Subject();
 
@@ -47,6 +47,29 @@ export class TestAroundComponent implements OnInit, OnDestroy {
         });
       })
     );
+  }
+
+  onScroll(event: any) {
+    // Get the scroll position of the div
+    const scrollTop = event.target.scrollTop;
+
+    // Get the previous scroll position from a previous event or default to 0
+    const previousScrollTop = this.previousScrollTop || 0;
+
+    // Determine the direction of the scroll
+    const scrollDirection = scrollTop < previousScrollTop ? 'up' : 'down';
+
+    // Save the current scroll position for the next event
+    this.previousScrollTop = scrollTop;
+
+    // Do something based on the scroll direction
+    if (scrollDirection === 'up') {
+      console.log('Scrolling up!');
+    }
+
+    if (scrollDirection === 'down') {
+      console.log('Scrolling down!');
+    }
   }
 
   onSelectOptionChange(option) {
