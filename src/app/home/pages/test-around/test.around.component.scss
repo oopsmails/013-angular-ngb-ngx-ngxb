@@ -74,3 +74,17 @@ td {
 tr:not(thead tr):hover {
   background-color: rgb(236, 222, 222);
 }
+
+
+
+
+
+.scrollable {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // max-width: 800px;
+  margin: 0 auto;
+  height: 100%; // instead of using fixed height, for controlling by maxPosts
+  overflow-y: scroll;
+}

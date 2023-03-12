@@ -24,6 +24,7 @@ import { HomeTable3Component } from './h-table3/h.table3.component';
 import { TestAroundChildComponent } from './pages/test-around/test.around.child.component';
 import { HomeScrollLoadComponent } from './h-scroll-load/h.scroll.load.component';
 import { HomeScrollLoad2Component } from './h-scroll-load2/h.scroll.load2.component';
+import { HomeScrollLoad3Component } from './h-scroll-load3/h.scroll.load3.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'home/table3', component: HomeTable3Component },
   { path: 'home/scroll-load', component: HomeScrollLoadComponent },
   { path: 'home/scroll-load2', component: HomeScrollLoad2Component },
+  { path: 'home/scroll-load3', component: HomeScrollLoad3Component },
 ];
 
 @NgModule({
@@ -57,6 +59,7 @@ const routes: Routes = [
     HomeTable3Component,
     HomeScrollLoadComponent,
     HomeScrollLoad2Component,
+    HomeScrollLoad3Component,
   ],
   imports: [
     CommonModule,

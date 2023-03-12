@@ -115,6 +115,30 @@ Copy code
 <i class="bi bi-caret-up-fill"></i>
 ```
 
+### Lazy loading, scroll loading
+
+please generate an Angular example, implement lazy loading or infinite scrolling to gradually load more items from the backend as the user scrolls down. please use "https://jsonplaceholder.typicode.com/posts" as mock backend
+
+- src\app\home\h-scroll-load\h.scroll.load.component.ts
+  GB, css, fixed height, good for scroll up NOT loading, but it is not only controlled by maxPosts, but also controlled by `scrollTop + offsetHeight >= scrollHeight`, which is used to control no loading for scrolling up.
+
+  Another issue is when initial load NOT overflow, then there is no scroll bar, thus, lazy loading cannot be triggered at all.
+
+  This may stay as is ... hard to be 100% perfect ... but trying more options in _h.scroll.load2.component.ts_.
+
+- src\app\home\h-scroll-load2\h.scroll.load2.component.ts
+
+See _Thinking on this_, and implemented.
+
+- src\app\home\h-scroll-load3\h.scroll.load3.component.ts, JUST trying around!!!
+
+  GB css, 100% height, but not good for initial load smaller or equal initial div height, i.e, no scroll bar initially, so, cannot trigger lazy loading. Tried load more initially ... but not successful ...
+
+> Thinking on this, like _h.scroll.load.component.ts_, using fixed height div and make sure load more item initially to ensure, if there more, a scroll bar showing up initially!
+> So far (20230312), _h-scroll-load2_ is a perfect version!
+> `height: 100%;` // initially, want to use this instead of using fixed height, for controlling by maxPosts, but causing so much issues.
+> Why, sometimes, ctrl + shift + i, NOT working??? all fixed by not using `height: 100%;`
+
 ## Errors
 
 ### add localize

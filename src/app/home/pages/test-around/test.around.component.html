@@ -1,1 +1,31 @@
 <h3>Hello, Test Around!</h3>
+
+<hr />
+
+<ng-container *ngIf="insts$ | async as insts">
+  <!-- <div class="table-div">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="twenty">Institution Id</th>
+        <th class="twenty">CUID</th>
+        <th>English Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of insts">
+        <td class="twenty">{{ item.institutionId }}</td>
+        <td class="twenty">{{ item.cuid }}</td>
+        <td>{{ item.englishName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+  <div class="scrollable" (scroll)="onScroll($event)">
+    <div *ngFor="let item of insts" class="item">
+      <h2>{{ item.institutionId }}</h2>
+      <p>{{ item.englishName }}</p>
+    </div>
+  </div>
+</ng-container>

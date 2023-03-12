@@ -4,19 +4,19 @@
   justify-content: space-between;
   max-width: 800px;
   margin: 0 auto;
-  height: 300px;
+  height: 200px;
   overflow-y: scroll;
 }
 
 // .item-list {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   max-width: 800px;
-//   margin: 0 auto;
-//   height: 100%; // initially, want to use this instead of using fixed height, for controlling by maxPosts, but causing so much issues.
-//   overflow-y: scroll;
-// }
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: space-between;
+  //   max-width: 800px;
+  //   margin: 0 auto;
+  //   height: 100%; // instead of using fixed height, for controlling by maxPosts
+  //   overflow-y: scroll;
+  // }
 
 .item {
   width: calc(33.33% - 10px);
