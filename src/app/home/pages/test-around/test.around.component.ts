@@ -16,6 +16,7 @@ export class TestAroundComponent implements OnInit, OnDestroy {
 
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
+  previousScrollTop: number = 0;
 
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
@@ -29,6 +30,29 @@ export class TestAroundComponent implements OnInit, OnDestroy {
         });
       })
     );
+  }
+
+  onScroll(event: any) {
+    // Get the scroll position of the div
+    const scrollTop = event.target.scrollTop;
+
+    // Get the previous scroll position from a previous event or default to 0
+    const previousScrollTop = this.previousScrollTop || 0;
+
+    // Determine the direction of the scroll
+    const scrollDirection = scrollTop < previousScrollTop ? 'up' : 'down';
+
+    // Save the current scroll position for the next event
+    this.previousScrollTop = scrollTop;
+
+    // Do something based on the scroll direction
+    if (scrollDirection === 'up') {
+      console.log('Scrolling up!');
+    }
+
+    if (scrollDirection === 'down') {
+      console.log('Scrolling down!');
+    }
   }
 
   ngOnDestroy() {

@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { CarDataService, RandomItem, SharedDataService } from 'oops-lib002';
-import { map, Observable, Subject, takeUntil, switchMap, mergeMap, tap } from 'rxjs';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { RandomItem, SharedDataService } from 'oops-lib002';
+import { Observable, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
-import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-test-around',
@@ -14,7 +12,7 @@ import { Post } from 'src/app/models/post';
  * Angular example that implements lazy loading/infinite scrolling
  * to load more items from a mock backend as the user scrolls down
  */
-export class HomeScrollLoad2Component implements OnInit, AfterViewInit, OnDestroy {
+export class HomeScrollLoad2Component implements OnInit, OnDestroy {
   private COMPONENT_NAME = 'HomeScrollLoad2Component';
 
   private onDestroy$: Subject<boolean> = new Subject();
@@ -24,6 +22,8 @@ export class HomeScrollLoad2Component implements OnInit, AfterViewInit, OnDestro
   randomItems$: Observable<RandomItem[]>;
   randomItems: RandomItem[] = [];
   maxPosts = 100;
+  eachLoadingNumber = 10;
+  previousScrollTop: number = 0;
 
   @ViewChild('itemList') itemList: ElementRef;
 
@@ -35,35 +35,38 @@ export class HomeScrollLoad2Component implements OnInit, AfterViewInit, OnDestro
     console.log(this.COMPONENT_NAME + ', ngOnInit');
     this.randomItems$ = this.sharedDataService.getRandomItems(200, 500);
 
-    this.loadItems(0, 10);
+    this.loadItems(0, this.eachLoadingNumber);
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.COMPONENT_NAME + ', ngAfterViewInit, checking heights = ');
+  onScroll(event: any) {
+    // Get the scroll position of the div
+    const scrollTop = event.target.scrollTop;
 
-    // Check if content is already larger than container height
-    const container = document.querySelector('.item-list') as HTMLElement;
-    // const element = this.itemList.nativeElement; // ALSO WORKING
-    if (container.scrollHeight > container.offsetHeight) {
-      // if (element.scrollHeight >= element.offsetHeight) {
-      this.onScroll();
+    // Get the previous scroll position from a previous event or default to 0
+    const previousScrollTop = this.previousScrollTop || 0;
+
+    // Determine the direction of the scroll
+    const scrollDirection = scrollTop < previousScrollTop ? 'up' : 'down';
+
+    // Save the current scroll position for the next event
+    this.previousScrollTop = scrollTop;
+
+    // Do something based on the scroll direction
+    if (scrollDirection === 'up') {
+      // console.log('Scrolling up!');
+    }
+
+    if (scrollDirection === 'down') {
+      // console.log('Scrolling down ............ ');
+      const start = this.randomItems.length;
+      const end = start + this.eachLoadingNumber;
+      this.loadItems(start, end);
     }
   }
 
-  onScroll() {
-    const element = this.itemList.nativeElement;
-    const scrollTop = element.scrollTop;
-    const scrollHeight = element.scrollHeight;
-    const offsetHeight = element.offsetHeight;
-
-    // if (scrollTop + offsetHeight >= scrollHeight) { // comment out for controlling by maxPosts
-    const start = this.randomItems.length;
-    const end = start + 10;
-    this.loadItems(start, end);
-    // }
-  }
-
   loadItems(start: number, end: number) {
+    // here, if initial loaded 5, and max is 100 and load 10 every time, then could end up with 105
+    // so initial load number should be the same as every time loading number.
     if (this.loading || this.randomItems.length >= this.maxPosts) {
       return;
     }
