@@ -3,6 +3,22 @@
 <hr />
 
 <ng-container *ngIf="insts$ | async as insts">
+  <div style="width: 300px">
+    <select
+      #optionSelect
+      [(ngModel)]="selectedOption"
+      (ngModelChange)="onSelectOptionChange($event)"
+      style="width: 100%"
+    >
+      <option *ngFor="let option of options" [value]="option.value">
+        <!-- {{ option.label }}<span *ngIf="selectedOption === option.value"> ({{ numberWithOption }})</span> -->
+        {{ option.label }}<span *ngIf="showingNumberOption === option.value"> ({{ numberWithOption }})</span>
+      </option>
+    </select>
+  </div>
+
+  <hr />
+
   <div class="table-div">
     <table class="table">
       <thead>

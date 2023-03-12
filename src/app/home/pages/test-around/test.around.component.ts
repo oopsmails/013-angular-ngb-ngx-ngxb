@@ -18,9 +18,26 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   filteredInsts$: Observable<Institution[]>;
   previousScrollTop: number = 0;
 
+  options = [
+    { label: 'Option 1', value: '1' },
+    { label: 'Option 2', value: '2' },
+    { label: 'Option 3', value: '3' },
+  ];
+
+  selectedOption = '1';
+  showingNumberOption = '1';
+  numberWithOption = 0;
+
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
-    this.insts$ = of(INSTITUTIONS);
+    this.insts$ = of(INSTITUTIONS).pipe(
+      map((items) => {
+        // if triggering load from backend according to selected option, then set showingNumberOption
+        this.showingNumberOption = '1'; // change to other option value if loading is based on option selection
+        this.numberWithOption = items.length;
+        return items;
+      })
+    );
 
     this.filteredInsts$ = of(INSTITUTIONS).pipe(
       map((items) => {
@@ -53,6 +70,10 @@ export class TestAroundComponent implements OnInit, OnDestroy {
     if (scrollDirection === 'down') {
       console.log('Scrolling down!');
     }
+  }
+
+  onSelectOptionChange(option) {
+    console.log('select ----------- ', option);
   }
 
   ngOnDestroy() {

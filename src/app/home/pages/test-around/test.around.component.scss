@@ -52,3 +52,12 @@ tr:not(thead tr):hover {
   height: 100%; // instead of using fixed height, for controlling by maxPosts
   overflow-y: scroll;
 }
+
+//----------------------------------------------
+
+select {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+}
