@@ -1,4 +1,4 @@
-<h3>Hello, Test Around!</h3>
+<h3>Hello, Test Select Option Dropdown!</h3>
 
 <hr />
 
@@ -13,6 +13,21 @@
       <option *ngFor="let option of options" [value]="option.value">
         <!-- {{ option.label }}<span *ngIf="selectedOption === option.value"> ({{ numberWithOption }})</span> -->
         {{ option.label }}<span *ngIf="showingNumberOption === option.value"> ({{ numberWithOption }})</span>
+      </option>
+    </select>
+  </div>
+
+  <hr />
+
+  <div style="width: 300px">
+    <select
+      #optionSelect2
+      [(ngModel)]="selectedOption2"
+      (ngModelChange)="onSelectOptionChange2($event)"
+      style="width: 100%"
+    >
+      <option *ngFor="let option of options" [ngValue]="option">
+        {{ option.label }}<span *ngIf="showingNumberOption2.value === option.value"> ({{ numberWithOption2 }})</span>
       </option>
     </select>
   </div>
