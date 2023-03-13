@@ -30,6 +30,9 @@
     <!-- the blur event is triggered before the click event when the user selects an option from the dropdown. 
     One way to solve this issue is to use the (mousedown) event instead of the (click) event for selecting options. -->
 
+    <!-- Also NOTE: preventDefault or stopPropagation will NOT work because there are more than mousedown 
+    event, e.g, click and mouseup -->
+
     <ng-container *ngIf="displaying$ | async as items">
       <div class="search-modal__ng-container">
         <div *ngIf="showItems" class="search-modal__item-list">
@@ -37,7 +40,7 @@
             *ngFor="let option of items; let i = index"
             class="dropdown-item pointer"
             [ngClass]="{ alternateBackground: i % 2 == 0 }"
-            (mousedown)="onSelectSymbolClick(content, option)"
+            (mousedown)="onSelectSymbolClick($event, content, option); $event.preventDefault()"
           >
             {{ option.description }}
           </a>
@@ -47,7 +50,7 @@
         </div>
 
         <div *ngIf="showItems" class="search-modal__advanced-search">
-          <a href="#" (click)="$event.preventDefault(); onSelectSymbolClick(content, '-1')">{{
+          <a href="#" (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()">{{
             'Advanced Search ......' | translate
           }}</a>
         </div>
