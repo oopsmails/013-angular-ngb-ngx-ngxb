@@ -134,8 +134,9 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
     this.showItems = false;
   }
 
-  onSelectSymbolClick(content, option) {
+  onSelectSymbolClick(event: MouseEvent, content, option) {
     console.log('onSelectSymbolClick .... option: ', option);
+    console.log('onSelectSymbolClick .... event: ', event);
     this.selectedItem = option;
     this.showItems = false;
     if (option && option === '-1') {
@@ -144,6 +145,8 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
       this.searchText = option.description;
       this.selectOptionEmitter.emit(this.selectedItem);
     }
+    event.stopPropagation(); // NOTE: this will NOT work because there are more than mousedown event, e.g, click and mouseup
+    event.preventDefault(); // NOTE: this will NOT work because there are more than mousedown event, e.g, click and mouseup
   }
 
   openModal(content, item) {
