@@ -134,9 +134,48 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
     this.showItems = false;
   }
 
+  /**
+   * Solutions to if select option, then don't trigger blur event.
+   * 
+   * Option 1: PREFERRED, in html, do
+   * (mousedown)="onSelectSymbolClick($event, content, option); $event.preventDefault()"
+   * (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()" 
+   * 
+   * Option 2: in component.ts
+   * onSelectSymbolClick(event: MouseEvent, content, option) {
+   *    ..............
+   *    event.preventDefault();
+   * }
+   * Note, event.stopPropagation(); will NOT work in this case, because there are more 
+   * events here other than mousedown, e.g, mouseup, mouserelease, may trigger blur event.
+   * Mouse click event is after blur event.
+   * 
+   * Option 3: May have an additional field as a flag, say optionSelected, to indicate if onSelectSymbolClick 
+   * is clicked, then in onBlue function, when seeing the flag then don't do anything.
+   * e.g,
+   * 
+   * selectOption(event: MouseEvent, option: string) {
+  this.selectedOption = option;
+  this.hideOptions();
+  this.optionSelected = true;
+  event.preventDefault();
+}
+
+onInputBlur() {
+  if (!this.optionSelected) {
+    this.hideOptions();
+  }
+  this.optionSelected = false;
+}
+   * 
+   * 
+   * @param event 
+   * @param content 
+   * @param option 
+   */
   onSelectSymbolClick(event: MouseEvent, content, option) {
     console.log('onSelectSymbolClick .... option: ', option);
-    console.log('onSelectSymbolClick .... event: ', event);
+    // console.log('onSelectSymbolClick .... event: ', event);
     this.selectedItem = option;
     this.showItems = false;
     if (option && option === '-1') {
@@ -145,8 +184,8 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
       this.searchText = option.description;
       this.selectOptionEmitter.emit(this.selectedItem);
     }
-    event.stopPropagation(); // NOTE: this will NOT work because there are more than mousedown event, e.g, click and mouseup
-    event.preventDefault(); // NOTE: this will NOT work because there are more than mousedown event, e.g, click and mouseup
+    // event.stopPropagation(); // NOTE: this will NOT work because there are more than mousedown event, e.g, click and mouseup
+    // event.preventDefault(); // working
   }
 
   openModal(content, item) {
