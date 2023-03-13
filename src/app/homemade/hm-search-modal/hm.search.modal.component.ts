@@ -121,7 +121,21 @@ export class HomeMadeSearchModalComponent implements OnInit, OnDestroy {
     }
   }
 
+  inputOnFocus() {
+    console.log('inputOnFocus ....');
+    this.showItems = true;
+    setTimeout(() => {
+      this.displayingLookup$.next('');
+    });
+  }
+
+  inputOnBlur() {
+    console.log('inputOnBlur ....');
+    this.showItems = false;
+  }
+
   onSelectSymbolClick(content, option) {
+    console.log('onSelectSymbolClick .... option: ', option);
     this.selectedItem = option;
     this.showItems = false;
     if (option && option === '-1') {

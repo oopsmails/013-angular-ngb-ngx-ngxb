@@ -92,18 +92,34 @@ export class HomeMadeDropdownSearchAsyncComponent2 implements OnInit, OnDestroy 
     this.displayingLookup$.next(e);
   }
 
-  inputOnClick() {
-    console.log('inputOnClick ');
-    this.showItems = !this.showItems;
-    if (this.showItems == true) {
-      setTimeout(() => {
-        this.displayingLookup$.next('');
-      });
-    }
+  // inputOnClick() {
+  //   console.log('inputOnClick ');
+  //   this.showItems = !this.showItems;
+  //   if (this.showItems == true) {
+  //     setTimeout(() => {
+  //       this.displayingLookup$.next('');
+  //     });
+  //   }
+  // }
+
+  inputOnFocus() {
+    console.log('inputOnFocus ');
+    this.showItems = true;
+    setTimeout(() => {
+      this.displayingLookup$.next('');
+    });
   }
 
-  selectValue(data) {
-    console.log('selectValue: ', data);
+  inputOnBlur() {
+    console.log('inputOnBlur ');
+    this.showItems = false;
+  }
+
+  selectValue(option) {
+    console.log('selectValue: ', option);
+    this.selectedItem = option;
+    this.showItems = false;
+    this.searchText = option.description;
   }
 
   ngOnDestroy() {

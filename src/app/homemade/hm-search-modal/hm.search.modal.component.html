@@ -23,8 +23,12 @@
       placeholder="{{ placeHolder }}"
       [ngModel]="searchText"
       (ngModelChange)="onKeyupSearch($event)"
-      (click)="inputOnClick()"
+      (focus)="inputOnFocus()"
+      (blur)="inputOnBlur($event)"
     />
+
+    <!-- the blur event is triggered before the click event when the user selects an option from the dropdown. 
+    One way to solve this issue is to use the (mousedown) event instead of the (click) event for selecting options. -->
 
     <ng-container *ngIf="displaying$ | async as items">
       <div class="search-modal__ng-container">
@@ -33,7 +37,7 @@
             *ngFor="let option of items; let i = index"
             class="dropdown-item pointer"
             [ngClass]="{ alternateBackground: i % 2 == 0 }"
-            (click)="onSelectSymbolClick(content, option)"
+            (mousedown)="onSelectSymbolClick(content, option)"
           >
             {{ option.description }}
           </a>
