@@ -33,6 +33,9 @@
     <!-- Also NOTE: preventDefault or stopPropagation will NOT work because there are more than mousedown 
     event, e.g, click and mouseup -->
 
+    <!-- (mousedown)="onSelectSymbolClick($event, content, option); $event.stopPropagation()" -->
+    <!-- (mousedown)="onSelectSymbolClick($event, content, option); $event.preventDefault()" -->
+
     <ng-container *ngIf="displaying$ | async as items">
       <div class="search-modal__ng-container">
         <div *ngIf="showItems" class="search-modal__item-list">
