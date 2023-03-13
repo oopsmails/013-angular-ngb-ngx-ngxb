@@ -28,6 +28,10 @@ export class HomeOptionsComponent implements OnInit, OnDestroy {
   showingNumberOption = '1';
   numberWithOption = 0;
 
+  selectedOption2 = this.options[0];
+  showingNumberOption2 = this.options[0];
+  numberWithOption2 = 0;
+
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
     this.insts$ = of(INSTITUTIONS).pipe(
@@ -35,6 +39,9 @@ export class HomeOptionsComponent implements OnInit, OnDestroy {
         // if triggering load from backend according to selected option, then set showingNumberOption
         this.showingNumberOption = '1'; // change to other option value if loading is based on option selection
         this.numberWithOption = items.length;
+
+        this.numberWithOption2 = items.length;
+        this.showingNumberOption2 = this.options[0];
         return items;
       })
     );
@@ -73,7 +80,22 @@ export class HomeOptionsComponent implements OnInit, OnDestroy {
   }
 
   onSelectOptionChange(option) {
-    console.log('select ----------- ', option);
+    console.log(this.COMPONENT_NAME + 'onSelectOptionChange ----------- ', option);
+  }
+
+  onSelectOptionChange2(option) {
+    console.log(this.COMPONENT_NAME + 'onSelectOptionChange2 ----------- ', option);
+
+    if ('1' === option.value) {
+      this.numberWithOption2 = 100;
+      this.showingNumberOption2 = this.options[0];
+    } else if ('2' === option.value) {
+      this.numberWithOption2 = 200;
+      this.showingNumberOption2 = this.options[1];
+    } else if ('3' === option.value) {
+      this.numberWithOption2 = 300;
+      this.showingNumberOption2 = this.options[2];
+    }
   }
 
   ngOnDestroy() {
