@@ -18,25 +18,30 @@
   <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
     <input
       type="text"
-      #searchText
+      #searchTextInput
       class="w-100 p-2 searchInput"
       placeholder="Type to search ..."
-      [ngModel]="searchValue"
+      [ngModel]="searchText"
       (ngModelChange)="filterDropdown($event)"
-      (click)="inputOnClick()"
+      (focus)="inputOnFocus()"
+      (blur)="inputOnBlur()"
     />
 
     <ng-container *ngIf="displaying$ | async as items">
-      <a
-        *ngFor="let option of items; let i = index"
-        class="dropdown-item pointer text-contain"
-        [ngClass]="{ alternateBackground: i % 2 == 0 }"
-        (click)="selectValue(option.description)"
-      >
-        {{ option.description }}
-      </a>
-      <div *ngIf="showItems && items.length === 0" class="text-center text-muted mt-1">
-        Waiting ... or No car found ......
+      <div class="hm-dropdown-async2__container-div">
+        <div *ngIf="showItems" class="search-modal__item-list">
+          <a
+            *ngFor="let option of items; let i = index"
+            class="dropdown-item pointer text-contain"
+            [ngClass]="{ alternateBackground: i % 2 == 0 }"
+            (mousedown)="selectValue(option)"
+          >
+            {{ option.description }}
+          </a>
+        </div>
+        <div *ngIf="showItems && items.length === 0" class="text-center text-muted mt-1">
+          Waiting ... or No car found ......
+        </div>
       </div>
     </ng-container>
   </div>
