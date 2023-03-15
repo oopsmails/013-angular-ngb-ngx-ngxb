@@ -1,8 +1,21 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedDataService, StateService, UsState } from 'oops-lib002';
-import { filter, map, Observable, of, Subject } from 'rxjs';
-import { INSTITUTIONS } from '../localshared/data/insts.data';
+import { StateService, UsState } from 'oops-lib002';
+import {
+  concatMap,
+  delay,
+  exhaustMap,
+  flatMap,
+  from,
+  map,
+  mergeMap,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs';
 import { Institution } from '../models/inst';
 
 @Component({
@@ -22,7 +35,29 @@ export class HomeComponent implements OnInit, OnDestroy {
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
 
-  constructor(private stateService: StateService, private router: Router) {}
+  constructor(private stateService: StateService, private router: Router) {
+    // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
+    const example = (operator: any) => () => {
+      from([0, 1, 2, 3, 4])
+        .pipe(
+          takeUntil(this.onDestroy$),
+          operator((x: any) => of(x).pipe(delay(500))),
+          tap({
+            next: console.log,
+            error: console.error,
+            complete: () => console.log(`${operator.name} completed`),
+          })
+        )
+        .subscribe();
+    };
+
+    // example(map)();
+    // example(flatMap)();
+    setTimeout(() => example(mergeMap)()); // get all into final result, order dosen't matter!
+    setTimeout(() => example(switchMap)()); // search, cancel previous request
+    setTimeout(() => example(exhaustMap)()); // from 0, it already gets the observable, so, after are all ignored!
+    setTimeout(() => example(concatMap)()); // getUser first, then getUserDetails in order, need to use concatMap
+  }
 
   ngOnInit() {
     this.states$ = this.stateService.getUsStateCity();

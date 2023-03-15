@@ -3,6 +3,10 @@
 //     top: 60px;
 // }
 
+.home__spanFileBackground {
+    width: 100%;
+    background-color: var(--primary-color);
+}
 
 ::ng-deep .highlighted-text {
     background-color: yellow;
