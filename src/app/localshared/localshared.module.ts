@@ -9,9 +9,10 @@ import { OopsLib002Module, SharedModule } from 'oops-lib002';
 import { DisplayFilteredComponent } from './components/display-filtered/display-filtered.component';
 import { InputSearchableComponent } from './components/input-searchable/input-searchable.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ProgressBarScrollComponent } from './components/progress-bar-scroll/progress-bar-scroll.component';
 
 @NgModule({
-  declarations: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent],
+  declarations: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent, ProgressBarScrollComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -23,6 +24,6 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     OopsLib002Module,
     SharedModule,
   ],
-  exports: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent],
+  exports: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent, ProgressBarScrollComponent],
 })
 export class LocalsharedModule {}

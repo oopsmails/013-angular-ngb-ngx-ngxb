@@ -1,3 +1,4 @@
+import { LocalsharedModule } from './../localshared/localshared.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -42,6 +43,7 @@ import { HomeMadeSearchModalContentComponent } from './hm-search-modal/hm-search
     ReactiveFormsModule,
     TranslateModule.forRoot(),
     SharedModule,
+    LocalsharedModule,
     HomeMadeRoutingModule,
   ],
   exports: [],
