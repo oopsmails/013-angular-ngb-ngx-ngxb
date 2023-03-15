@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService, StateService, UsState } from 'oops-lib002';
 import { filter, map, Observable, of, Subject } from 'rxjs';
@@ -11,7 +11,12 @@ import { Institution } from '../models/inst';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeComponent';
+
   private onDestroy$: Subject<boolean> = new Subject();
+
+  scrollProgress: number = 0;
+
   states$: Observable<UsState[]>;
 
   insts$: Observable<Institution[]>;
@@ -21,6 +26,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.states$ = this.stateService.getUsStateCity();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // console.log(this.COMPONENT_NAME + ', onScroll .................');
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    this.scrollProgress = (window.scrollY / totalHeight) * 100;
   }
 
   navToPage(page) {

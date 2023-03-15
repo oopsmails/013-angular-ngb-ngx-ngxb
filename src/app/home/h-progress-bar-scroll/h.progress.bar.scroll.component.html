@@ -1,4 +1,4 @@
-<h3>Hello, Test Around!</h3>
+<h3>Test Progress Bar on Scrolling!</h3>
 
 <hr />
 
@@ -50,7 +50,7 @@
     <div class="progress-bar" [style.width.%]="progressBarWidth"></div>
   </div>
 
-  <div class="test-around__scrolling-div" (scroll)="onScroll($event)">
+  <div class="h-progress-bar-scroll__scrolling-div" (scroll)="onScroll($event)">
     <ul>
       <li *ngFor="let item of insts.slice(0, 50)">
         {{ item.institutionId }} - {{ item.cuid }} - {{ item.englishName }}
