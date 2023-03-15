@@ -26,6 +26,7 @@ import { HomeScrollLoadComponent } from './h-scroll-load/h.scroll.load.component
 import { HomeScrollLoad2Component } from './h-scroll-load2/h.scroll.load2.component';
 import { HomeScrollLoad3Component } from './h-scroll-load3/h.scroll.load3.component';
 import { HomeOptionsComponent } from './h-options/home.options.component';
+import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'home/scroll-load', component: HomeScrollLoadComponent },
   { path: 'home/scroll-load2', component: HomeScrollLoad2Component },
   { path: 'home/scroll-load3', component: HomeScrollLoad3Component },
+  { path: 'home/progress-bar-scroll', component: HomeProgressBarScrollComponent },
 ];
 
 @NgModule({
@@ -63,6 +65,7 @@ const routes: Routes = [
     HomeScrollLoad2Component,
     HomeScrollLoad3Component,
     HomeOptionsComponent,
+    HomeProgressBarScrollComponent,
   ],
   imports: [
     CommonModule,

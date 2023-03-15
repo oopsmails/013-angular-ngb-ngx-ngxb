@@ -11,6 +11,8 @@ import { Institution } from '../models/inst';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeComponent';
+
   private onDestroy$: Subject<boolean> = new Subject();
 
   scrollProgress: number = 0;
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    // console.log(this.COMPONENT_NAME + ', onScroll .................');
     const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     this.scrollProgress = (window.scrollY / totalHeight) * 100;
   }

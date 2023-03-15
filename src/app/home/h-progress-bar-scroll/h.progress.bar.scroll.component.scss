@@ -63,10 +63,14 @@ select {
 }
 
 
-.test-around__scrolling-div {
+.h-progress-bar-scroll__scrolling-div {
   margin: 30px auto;
   height: 180px;
   overflow-y: scroll;
+}
+
+.h-progress-bar-scroll__scrolling-div ul {
+  list-style-type: none;
 }
 
 //--------------------------------------------------------

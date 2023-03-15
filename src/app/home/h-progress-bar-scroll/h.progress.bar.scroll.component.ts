@@ -1,16 +1,16 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CarDataService } from 'oops-lib002';
 import { map, Observable, of, Subject } from 'rxjs';
 import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
 import { Institution } from 'src/app/models/inst';
 
 @Component({
-  selector: 'app-test-around',
-  templateUrl: './test.around.component.html',
-  styleUrls: ['./test.around.component.scss'],
+  selector: 'h-progress-bar-scroll',
+  templateUrl: './h.progress.bar.scroll.component.html',
+  styleUrls: ['./h.progress.bar.scroll.component.scss'],
 })
-export class TestAroundComponent implements OnInit, OnDestroy {
-  private COMPONENT_NAME = 'TestAroundComponent';
+export class HomeProgressBarScrollComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeProgressBarScrollComponent';
 
   private onDestroy$: Subject<boolean> = new Subject();
 
@@ -28,11 +28,11 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   showingNumberOption = '1';
   numberWithOption = 0;
 
-  // private element: HTMLElement;
+  // private element: HTMLElement; // Zzz
   public progressBarVisible = false;
   public progressBarWidth = 0;
 
-  constructor(private carDataService: CarDataService) {}
+  constructor(private carDataService: CarDataService, private elementRef: ElementRef) {}
   ngOnInit() {
     this.insts$ = of(INSTITUTIONS).pipe(
       map((items) => {
@@ -52,7 +52,7 @@ export class TestAroundComponent implements OnInit, OnDestroy {
       })
     );
 
-    // this.element = this.elementRef.nativeElement.querySelector('.scrolling-div');
+    // this.element = this.elementRef.nativeElement.querySelector('.scrolling-div'); // Zzz
   }
 
   onSelectOptionChange(option) {
