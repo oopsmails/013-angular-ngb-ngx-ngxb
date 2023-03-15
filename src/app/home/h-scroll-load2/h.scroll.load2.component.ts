@@ -39,6 +39,7 @@ export class HomeScrollLoad2Component implements OnInit, OnDestroy {
   }
 
   onScroll(event: any) {
+    // working fine to detect scrolling up and scrolling down
     // Get the scroll position of the div
     const scrollTop = event.target.scrollTop;
 
