@@ -5,16 +5,28 @@
 <h1>Home</h1>
 <p>
   This is in 'div class="mainContainer"''. It is defined in
-  <span class="spanFileBackground">styles.scss</span>, but overriden in
-  <span class="spanFileBackground">home.component.scss</span>.
+  <span class="home__spanFileBackground">styles.scss</span>, but overriden in
+  <span class="home__spanFileBackground">home.component.scss</span>.
 </p>
 
-<h2>
+<hr />
+
+<h3>See Console log ...</h3>
+<p>
+  See console log for comparing:
+  <span class="home__spanFileBackground">mergeMap, switchMap, exhaustMap and concatMap</span>.
+</p>
+
+<hr />
+
+<h3>Testing common components</h3>
+
+<p>
   Home Tab: for testing common components in
   <i [innerHtml]="'core' | highlighter : 'core' : 'partial'"></i>
   and
   <i [innerHtml]="'shared' | highlighter : 'shared' : 'full'"></i>
-</h2>
+</p>
 <hr />
 
 <h3>Testing Around Pages</h3>

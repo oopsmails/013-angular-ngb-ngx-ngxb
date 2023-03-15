@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RandomItem, SharedDataService } from 'oops-lib002';
-import { Observable, Subject, switchMap, takeUntil, tap } from 'rxjs';
+import { concatMap, flatMap, mergeMap, Observable, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
 
 @Component({
@@ -79,7 +79,7 @@ export class HomeScrollLoad2Component implements OnInit, OnDestroy {
         tap((items) => {
           console.log(this.COMPONENT_NAME + ', loadItems, tap, items.length = ', (items && items.length) || 'null-0');
         }),
-        switchMap((items) => {
+        mergeMap((items) => {
           console.log(
             this.COMPONENT_NAME + ', loadItems, mergeMap, items.length = ',
             (items && items.length) || 'null-0'
