@@ -1,6 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Car, CarDataService } from 'oops-lib002';
-import { Observable, Subject } from 'rxjs';
+import { Component } from '@angular/core';
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
 
 @Component({
