@@ -35,6 +35,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
 
+  todoItems = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+  completedItems = ['Item 6'];
+  draggedItem: any;
+
   constructor(private stateService: StateService, private router: Router) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {
@@ -70,8 +74,70 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.scrollProgress = (window.scrollY / totalHeight) * 100;
   }
 
+  dragStart(event: any, item: any) {
+    console.log(this.COMPONENT_NAME + ', dragStart, item = ' + item);
+    this.draggedItem = item;
+  }
+
+  dragOver(event: any) {
+    event.preventDefault();
+  }
+
+  drop(event: any, target: string) {
+    event.preventDefault();
+    const index = this.todoItems.indexOf(this.draggedItem);
+    const targetArray = target === 'completed' ? this.completedItems : this.todoItems;
+    const targetIndex = Array.from(event.target.parentNode.children).indexOf(event.target);
+    if (target === 'completed') {
+      this.todoItems.splice(index, 1);
+    } else {
+      this.completedItems.splice(index, 1);
+    }
+    targetArray.splice(targetIndex, 0, this.draggedItem);
+  }
+
+  // drop(event: any, type: string) {
+  //   console.log(this.COMPONENT_NAME + ', drop, type = ' + type);
+  //   event.preventDefault();
+  //   const data = event.dataTransfer.getData('text/plain');
+  //   const target = event.target;
+  //   const targetContainer = type === 'completed' ? this.completedItems : this.todoItems;
+
+  //   if (!data || !target) {
+  //     return;
+  //   }
+
+  //   // If the source and target containers are the same, move the item instead of duplicating it
+  //   if (this.draggedItem && this.draggedItem.container === target) {
+  //     const index = this.getIndex(event.clientY, target);
+  //     const itemIndex = targetContainer.indexOf(data);
+  //     targetContainer.splice(itemIndex, 1);
+  //     targetContainer.splice(index, 0, data);
+  //     this.draggedItem.index = index;
+  //   } else {
+  //     // If the item is dropped onto the completed container, remove it from the todo-items container
+  //     if (type === 'completed') {
+  //       const itemElement = event.target.querySelector(`[draggable][data-item="${data}"]`);
+  //       if (itemElement && itemElement.parentNode) {
+  //         itemElement.parentNode.removeChild(itemElement);
+  //       }
+  //     }
+  //     targetContainer.push(data);
+  //     this.draggedItem = { container: target, index: targetContainer.length - 1 };
+  //   }
+  // }
+
+  getIndex(clientY: number, container: HTMLElement): number {
+    const children = Array.from(container.children);
+    return children.findIndex((child: HTMLElement) => {
+      const { top, bottom } = child.getBoundingClientRect();
+      const middle = (top + bottom) / 2;
+      return clientY > middle;
+    });
+  }
+
   navToPage(page) {
-    console.log('HomeComponent, navToPage, page = ' + page);
+    console.log(this.COMPONENT_NAME + ', navToPage, page = ' + page);
     this.router.navigateByUrl(page);
   }
 

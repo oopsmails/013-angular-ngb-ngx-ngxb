@@ -19,6 +19,25 @@
 
 <hr />
 
+<h3>Testing drag and drop</h3>
+
+<p>
+  Buggy till now: if
+  <span class="home__spanFileBackground" style="color: brown; background-color: yellow"
+    >in completed div, dnd again</span
+  >, then all messed up!
+</p>
+
+<section class="home__cards">
+  <div class="todo-items">
+    <div *ngFor="let item of todoItems" draggable="true" (dragstart)="dragStart($event, item)">{{ item }}</div>
+  </div>
+  <div class="completed-items" (dragover)="dragOver($event)" (drop)="drop($event, 'completed')">
+    <div *ngFor="let item of completedItems" draggable="true" (dragstart)="dragStart($event, item)">{{ item }}</div>
+  </div>
+</section>
+<hr />
+
 <h3>Testing common components</h3>
 
 <p>
