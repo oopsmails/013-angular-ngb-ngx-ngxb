@@ -11,6 +11,8 @@ import { InputSearchableComponent } from './components/input-searchable/input-se
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ProgressBarScrollComponent } from './components/progress-bar-scroll/progress-bar-scroll.component';
 import { DragAndDropFileDirective } from './directives/dnd.file.directive';
+import { DraggableDirective } from './directives/draggable.directive';
+import { DroppableDirective } from './directives/droppable.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DragAndDropFileDirective } from './directives/dnd.file.directive';
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DragAndDropFileDirective,
+    DraggableDirective,
+    DroppableDirective,
   ],
   imports: [
     CommonModule,
@@ -37,6 +41,8 @@ import { DragAndDropFileDirective } from './directives/dnd.file.directive';
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DragAndDropFileDirective,
+    DraggableDirective,
+    DroppableDirective,
   ],
 })
 export class LocalsharedModule {}
