@@ -10,9 +10,16 @@ import { DisplayFilteredComponent } from './components/display-filtered/display-
 import { InputSearchableComponent } from './components/input-searchable/input-searchable.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ProgressBarScrollComponent } from './components/progress-bar-scroll/progress-bar-scroll.component';
+import { DragAndDropFileDirective } from './directives/dnd.file.directive';
 
 @NgModule({
-  declarations: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent, ProgressBarScrollComponent],
+  declarations: [
+    SpinnerComponent,
+    InputSearchableComponent,
+    DisplayFilteredComponent,
+    ProgressBarScrollComponent,
+    DragAndDropFileDirective,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -24,6 +31,12 @@ import { ProgressBarScrollComponent } from './components/progress-bar-scroll/pro
     OopsLib002Module,
     SharedModule,
   ],
-  exports: [SpinnerComponent, InputSearchableComponent, DisplayFilteredComponent, ProgressBarScrollComponent],
+  exports: [
+    SpinnerComponent,
+    InputSearchableComponent,
+    DisplayFilteredComponent,
+    ProgressBarScrollComponent,
+    DragAndDropFileDirective,
+  ],
 })
 export class LocalsharedModule {}
