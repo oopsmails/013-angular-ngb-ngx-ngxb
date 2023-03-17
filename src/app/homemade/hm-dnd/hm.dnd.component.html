@@ -1,0 +1,16 @@
+<h3>Hello, Drag and Drop!</h3>
+<app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
+<hr />
+
+<div style="text-align: center">
+  <h4>Drag and Drop</h4>
+  <ng-container *ngFor="let dropZone of droppableObjects; let i = index">
+    <div [appDroppable]="dropZone" (onDroppableComplete)="onZoneDrop($event)">
+      <ng-container *ngFor="let draggableElement of draggableObjects[i]; let j = index">
+        <div [appDraggable]="draggableElement">
+          {{ draggableElement.data.name }}
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

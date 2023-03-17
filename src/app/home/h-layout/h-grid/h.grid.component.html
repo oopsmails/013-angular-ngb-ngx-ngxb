@@ -1,0 +1,38 @@
+<h3>Hello, Test Layout: Grid</h3>
+<app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
+<hr />
+<h4>grid-template-columns: repeat(3, 1fr);</h4>
+<section class="home-grid__cards1">
+  <div class="home-grid__cards-div"><p>Column 1</p></div>
+  <div class="home-grid__cards-div"><p>Column 2</p></div>
+  <div class="home-grid__cards-div"><p>Column 3</p></div>
+</section>
+
+<hr />
+<h4>grid-template-columns: 1fr 1fr;</h4>
+<section class="home-grid__cards2">
+  <div class="home-grid__cards-div"><p>Column 1</p></div>
+  <div class="home-grid__cards-div"><p>Column 2</p></div>
+  <div class="home-grid__cards-div"><p>Column 3</p></div>
+</section>
+
+<hr />
+<h4>grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));</h4>
+<section class="home-grid__cards3">
+  <div class="home-grid__cards-div"><p>Column 1</p></div>
+  <div class="home-grid__cards-div"><p>Column 2</p></div>
+  <div class="home-grid__cards-div"><p>Column 3</p></div>
+  <div class="home-grid__cards-div"><p>Column 4</p></div>
+  <div class="home-grid__cards-div"><p>Column 5</p></div>
+  <div class="home-grid__cards-div"><p>Column 6</p></div>
+</section>
+
+<hr />
+<h4>grid-template-areas: "header header""nav main""footer footer";</h4>
+<div class="home-grid__grid-container">
+  <header class="home-grid__header">Header</header>
+  <nav class="home-grid__nav">Nav</nav>
+  <main class="home-grid__main">Main Content</main>
+  <aside class="home-grid__aside">Aside</aside>
+  <footer class="home-grid__footer">Footer</footer>
+</div>

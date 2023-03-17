@@ -19,6 +19,43 @@
 
 <hr />
 
+<h3>Test around pipes</h3>
+date pipe:
+<p>The current date is: {{ currentDate | date : 'shortDate' }}</p>
+<p>The current time is: {{ currentDate | date : 'shortTime' }}</p>
+
+number pipe: {{ 2.3456 | number : '1.2-2' }} <br />
+
+currency pipe: {{ 2.3456 | currency : 'USD' : 'symbol' : '1.2-2' }} <br />
+
+percentage pipe: {{ 0.5 | percent : '1.2-2' }} <br />
+
+titlecase pipe, not so useful: {{ 'this is a title' | titlecase }} <br />
+
+<span class="home__spanFileBackground">KeyValuePipe:</span>
+<div *ngFor="let item of myObject | keyvalue">{{ item.key }}: {{ item.value }}</div>
+
+<hr />
+
+<h3>Testing drag and drop</h3>
+
+<p>
+  Buggy till now: if
+  <span class="home__spanFileBackground" style="color: brown; background-color: yellow"
+    >in completed div, dnd again</span
+  >, then all messed up!
+</p>
+
+<section class="home__cards">
+  <div class="todo-items">
+    <div *ngFor="let item of todoItems" draggable="true" (dragstart)="dragStart($event, item)">{{ item }}</div>
+  </div>
+  <div class="completed-items" (dragover)="dragOver($event)" (drop)="drop($event, 'completed')">
+    <div *ngFor="let item of completedItems" draggable="true" (dragstart)="dragStart($event, item)">{{ item }}</div>
+  </div>
+</section>
+<hr />
+
 <h3>Testing common components</h3>
 
 <p>
@@ -47,6 +84,8 @@
 <p><a routerLink="/home/scroll-load2">/home/scroll-load2: Test Scroll Loading2</a></p>
 <p><a routerLink="/home/scroll-load3">/home/scroll-load3: Test Scroll Loading3</a></p>
 <p><a routerLink="/home/progress-bar-scroll">/home/progress-bar-scroll: Test Progress Bar on Scrolling</a></p>
+<p><a routerLink="/home/grid">/home/grid: Layout: grid</a></p>
+<p><a routerLink="/home/flex">/home/flex: Layout: flex</a></p>
 <hr />
 
 <hr />

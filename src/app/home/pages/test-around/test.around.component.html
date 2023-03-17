@@ -51,10 +51,14 @@
   </div>
 
   <div class="test-around__scrolling-div" (scroll)="onScroll($event)">
-    <ul>
+    <!-- <ul>
       <li *ngFor="let item of insts.slice(0, 50)">
         {{ item.institutionId }} - {{ item.cuid }} - {{ item.englishName }}
       </li>
-    </ul>
+    </ul> -->
+
+    <div *ngFor="let item of insts.slice(0, 50)" style="display: list-item">
+      {{ item.institutionId }} - {{ item.cuid }} - {{ item.englishName }}
+    </div>
   </div>
 </ng-container>
