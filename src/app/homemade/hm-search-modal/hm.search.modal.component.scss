@@ -31,5 +31,15 @@
 // }
 
 .search-modal__ng-container {
+  // padding: 0;
   border: 1px solid rgb(223, 216, 216);
+  position: absolute; // don't use fixed, because cannot handle scolling
+  // width: 100%;
+  background-color: #f0f0f0;
+  z-index: 100;
+}
+
+.search-modal__to-be-covered {
+  position: relative;
+  // z-index: 99;
 }
