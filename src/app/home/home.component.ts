@@ -39,6 +39,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   completedItems = ['Item 6'];
   draggedItem: any;
 
+  currentDate: Date = new Date();
+  myObject = { name: 'John', age: 30, city: 'New York' };
+
   constructor(private stateService: StateService, private router: Router) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {

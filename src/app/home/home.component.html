@@ -19,6 +19,24 @@
 
 <hr />
 
+<h3>Test around pipes</h3>
+date pipe:
+<p>The current date is: {{ currentDate | date : 'shortDate' }}</p>
+<p>The current time is: {{ currentDate | date : 'shortTime' }}</p>
+
+number pipe: {{ 2.3456 | number : '1.2-2' }} <br />
+
+currency pipe: {{ 2.3456 | currency : 'USD' : 'symbol' : '1.2-2' }} <br />
+
+percentage pipe: {{ 0.5 | percent : '1.2-2' }} <br />
+
+titlecase pipe, not so useful: {{ 'this is a title' | titlecase }} <br />
+
+<span class="home__spanFileBackground">KeyValuePipe:</span>
+<div *ngFor="let item of myObject | keyvalue">{{ item.key }}: {{ item.value }}</div>
+
+<hr />
+
 <h3>Testing drag and drop</h3>
 
 <p>
