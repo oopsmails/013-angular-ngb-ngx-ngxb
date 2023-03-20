@@ -32,88 +32,152 @@
     -webkit-transform: rotate(135deg);
 }
 
-.arrow-solid {
-    border-color: black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
 
-.arrow-solid-right {
+// -----------------------------------------------------
+
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+    $size: $size/2;
+    $transparent: rgba($color, 0);
+    $opposite: (top:bottom, right:left, left:right, bottom:top);
+
+    content: '';
+    display: inline-block;
     width: 0;
     height: 0;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-
-    border-left: 3px solid green;
+    border: $size solid $transparent;
+    border-#{map-get($opposite, $direction)}-color: $color;
+    margin-#{$direction}: -$size/2;
 }
 
-// .arrow-solid-right {
-//     display: inline-block;
-//     width: 0;
-//     height: 0;
-//     border-top: 0.35em solid transparent;
-//     border-bottom: 0.35em solid transparent;
-//     border-right: 0.35em solid black;
-//     margin-left: 0.5rem;
-// }
-.arrow-solid-up {
+.hm__test-arrow-mixin {
+    font-size: 50px;
+
+    &::before {
+        @include triangle(right, red, 30px);
+        margin-right: 8px;
+    }
+
+    &::after {
+        @include triangle(left, purple, 60px);
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+}
+
+
+.hm__test-sortable-th {
+    font-size: 20px;
+
+    &::before {
+        @include triangle(right, blue, 20px);
+        margin-right: 8px;
+    }
+
+    &::after {
+        @include triangle(top, black, 20px);
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+}
+
+//--------------------------------------------
+
+.triangle-div {
+    height: 0px;
+    margin: 20px 0;
+}
+
+.triangle-div::after {
+    content: "";
+    display: block; // block vs inline-block?
+}
+
+.triangle-up::after {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 10px solid #555;
+
+    border-bottom: 5px solid black;
 }
 
-//----------------------------------------------------
-
-.arrow-right {
-    display: inline-block;
+.triangle-down::after {
     width: 0;
     height: 0;
-    border-top: 0.35em solid transparent;
-    border-bottom: 0.35em solid transparent;
-    border-left: 0.35em solid black;
-    margin-left: 0.5rem;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-top: 5px solid black;
 }
 
-.arrow-left {
-    display: inline-block;
+.triangle-left::after {
     width: 0;
     height: 0;
-    border-top: 0.35em solid transparent;
-    border-bottom: 0.35em solid transparent;
-    border-right: 0.35em solid black;
-    margin-right: 0.5rem;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+    border-right: 5px solid black;
 }
 
-.arrow-up {
-    display: inline-block;
+.triangle-right::after {
     width: 0;
     height: 0;
-    border-left: 0.35em solid transparent;
-    border-right: 0.35em solid transparent;
-    border-bottom: 0.35em solid black;
-    margin-top: 0.5rem;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+    border-left: 5px solid black;
 }
 
-.arrow-down {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 0.35em solid transparent;
-    border-right: 0.35em solid transparent;
-    border-top: 0.35em solid black;
-    margin-top: 0.5rem;
+//-------------------------------
+
+.good-version {
+    margin: 20px 0;
+    height: 300px;
 }
 
-//---------------------------------
-
-
-.triangle {
-    border-color: yellow blue red green;
-    border-style: solid;
-    border-width: 6px 6px 6px 6px;
+.arrow-div {
     height: 0px;
-    width: 0px;
+    margin: 20px 0;
+}
+
+.arrow-div::after {
+    content: "";
+    display: inline-block; // block?
+}
+
+.arrow-up::after {
+    // margin-left: 50px; ///* move right, to show it */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-bottom: 5px solid black;
+}
+
+.arrow-down::after {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid #f00;
+}
+
+.arrow-right::after {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-left: 60px solid green;
+}
+
+.arrow-left::after {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right: 10px solid blue;
 }

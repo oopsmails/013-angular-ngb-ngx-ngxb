@@ -1,82 +1,19 @@
 <h2>hm-datatable6 works!</h2>
 
-<div class="triangle"></div>
-
-<div style="display: inline-flex">
-  <div>arrow-right</div>
-  <div style="margin-right: 2px">
-    <span class="arrow-right"></span>
-  </div>
-</div>
-
-<div style="display: inline-flex">
-  <div>arrow-left</div>
-  <div style="margin-left: 2px">
-    <span class="arrow-left"></span>
-  </div>
-</div>
-<div style="display: inline-flex">
-  <div>arrow-up</div>
-  <div style="margin-left: 2px">
-    <span class="arrow-up"></span>
-  </div>
-</div>
-
-<div style="display: inline-flex">
-  <div>arrow-down</div>
-  <div style="margin-left: 2px">
-    <span class="arrow-down"></span>
-  </div>
-</div>
-
 <hr />
+<h4>Test Arrows</h4>
+<p>Right arrow: <i class="arrow right"></i></p>
+<p>Left arrow: <i class="arrow left"></i></p>
+<p>Up arrow: <i class="arrow up"></i></p>
+<p>Down arrow: <i class="arrow down"></i></p>
 
-<div style="display: inline-flex">
-  <div>arrow</div>
-  <div style="margin-left: 2px">
-    <span class="arrow"></span>
-  </div>
-</div>
+<div class="triangle-div triangle-up"></div>
+<div class="triangle-div triangle-down"></div>
+<div class="triangle-div triangle-left"></div>
+<div class="triangle-div triangle-right"></div>
 
-<div style="display: inline-flex">
-  <div>arrow & up</div>
-  <div style="margin-left: 2px">
-    <span class="arrow up"></span>
-  </div>
-</div>
-
-<div style="display: inline-flex">
-  <div>arrow & down</div>
-  <div style="margin-left: 2px">
-    <span class="arrow down"></span>
-  </div>
-</div>
-
-<div style="display: inline-flex">
-  <div>arrow & left</div>
-  <div style="margin-left: 2px">
-    <span class="arrow left"></span>
-  </div>
-</div>
-
-<div style="display: inline-flex">
-  <div>arrow & right</div>
-  <div style="margin-left: 2px">
-    <span class="arrow right"></span>
-  </div>
-</div>
-
-<hr />
-
-<div>arrow-solid-up</div>
-<!-- <div style="margin-left: 2px; line-height: 20px; position: relative">
-  <div class="arrow-solid-up" style="position: absolute; top: -10px"></div>
-</div> -->
-
-<div style="margin: 0px">
-  <div class="arrow-solid-up"></div>
-</div>
-
+<p>{{ sortField | json }}</p>
+<p>{{ sortOrder | json }}</p>
 <hr />
 
 <div class="filter-container">
@@ -92,9 +29,6 @@
 
   <button (click)="clearFilter()" class="btn btn-primary">Clear</button>
 </div>
-
-<p>{{ sortField | json }}</p>
-<p>{{ sortOrder | json }}</p>
 
 <table class="table">
   <thead>
