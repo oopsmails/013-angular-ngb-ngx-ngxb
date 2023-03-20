@@ -39,10 +39,9 @@
           <i class="bi bi-caret-down" *ngIf="sortField !== 'age' || sortOrder === 'asc'"></i>
         </span> -->
         <span
-          class="arrow"
           [ngClass]="{
-            up: sortField === 'age' && sortOrder === 'asc',
-            down: sortField === 'age' && sortOrder === 'desc'
+            'arrow up': sortField === 'age' && sortOrder === 'asc',
+            'arrow down': sortField === 'age' && sortOrder === 'desc'
           }"
         ></span>
       </th>

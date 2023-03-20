@@ -8,7 +8,7 @@ import { UserDataService } from 'src/app/localshared/services/user.data.service'
   styleUrls: ['./hm-datatable5.component.scss'],
 })
 export class HmDatatable5Component implements OnInit {
-  private COMPONENT_NAME = 'HmDatatable3Component';
+  private COMPONENT_NAME = 'HmDatatable5Component';
 
   users: User[] = [];
   pagedUsers: User[] = [];

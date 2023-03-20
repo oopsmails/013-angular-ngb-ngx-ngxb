@@ -3,19 +3,20 @@ import { User } from 'src/app/models/user';
 import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 @Component({
-  selector: 'app-hm-datatable4',
-  templateUrl: './hm-datatable4.component.html',
-  styleUrls: ['./hm-datatable4.component.scss'],
+  selector: 'app-hm-datatable6',
+  templateUrl: './hm-datatable6.component.html',
+  styleUrls: ['./hm-datatable6.component.scss'],
 })
-export class HmDatatable4Component implements OnInit {
-  private COMPONENT_NAME = 'HmDatatable4Component';
+export class HmDatatable6Component implements OnInit {
+  private COMPONENT_NAME = 'HmDatatable6Component';
 
   users: User[] = [];
   pagedUsers: User[] = [];
   sortedUsers: User[] = [];
 
   // filter = '';
-  sortField: string = null;
+  sortField: string;
+  // sortField: string = 'name';
   sortOrder: 'asc' | 'desc' = 'asc';
   pageSize = 4;
   currentPage = 1;
@@ -26,9 +27,11 @@ export class HmDatatable4Component implements OnInit {
   ngOnInit(): void {
     this.userDataService.getUserData().subscribe((users) => {
       this.users = users;
-      console.log(this.COMPONENT_NAME + ', sort, this.users.length = ', this.users.length);
-      this.sort('name'); // sort by name by default
+      // console.log(this.COMPONENT_NAME + ', sort, this.users.length = ', this.users.length);
+      // this.sort('name'); // sort by name by default
     });
+
+    this.sort('name');
   }
 
   reset() {
@@ -39,7 +42,7 @@ export class HmDatatable4Component implements OnInit {
   }
 
   filterUsers(): void {
-    console.log(this.COMPONENT_NAME + ', filterUsers, this.searchTerm = ', this.searchTerm);
+    // console.log(this.COMPONENT_NAME + ', filterUsers, this.searchTerm = ', this.searchTerm);
     if (!this.searchTerm || this.searchTerm.trim() === '') {
       // this.reset();
       // this.sortedUsers = this.users;
@@ -54,7 +57,7 @@ export class HmDatatable4Component implements OnInit {
         // user.username.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
-    console.log(this.COMPONENT_NAME + ', filterUsers, this.filteredUsers.length = ', this.sortedUsers.length);
+    // console.log(this.COMPONENT_NAME + ', filterUsers, this.filteredUsers.length = ', this.sortedUsers.length);
 
     // console.log(this.COMPONENT_NAME + ', filterUsers, filteredUsers.length = ', filteredUsers.length);
     // this.sortedUsers = filteredUsers;
@@ -72,12 +75,17 @@ export class HmDatatable4Component implements OnInit {
   }
 
   sort(field: string): void {
+    // console.log(this.COMPONENT_NAME + ', sort, field = ', field);
+    // console.log(this.COMPONENT_NAME + ', sort, this.sortField = ', this.sortField);
     if (this.sortField === field) {
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
       this.sortField = field;
       this.sortOrder = 'asc';
     }
+
+    // console.log(this.COMPONENT_NAME + ', sort, this.sortField = ', this.sortField);
+    // console.log(this.COMPONENT_NAME + ', sort, this.sortOrder = ', this.sortOrder);
 
     // sort the users array
     this.sortedUsers = this.users.sort((a, b) => {
@@ -91,7 +99,7 @@ export class HmDatatable4Component implements OnInit {
         return 0;
       }
     });
-    console.log(this.COMPONENT_NAME + ', sort, this.sortedUsers.length = ', this.sortedUsers.length);
+    // console.log(this.COMPONENT_NAME + ', sort, this.sortedUsers.length = ', this.sortedUsers.length);
 
     // update the pagedUsers array
     this.filterUsers(); // in filterUsers(), calling sort()???

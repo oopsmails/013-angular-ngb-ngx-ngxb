@@ -1,0 +1,156 @@
+<h2>hm-datatable6 works!</h2>
+
+<div class="triangle"></div>
+
+<div style="display: inline-flex">
+  <div>arrow-right</div>
+  <div style="margin-right: 2px">
+    <span class="arrow-right"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow-left</div>
+  <div style="margin-left: 2px">
+    <span class="arrow-left"></span>
+  </div>
+</div>
+<div style="display: inline-flex">
+  <div>arrow-up</div>
+  <div style="margin-left: 2px">
+    <span class="arrow-up"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow-down</div>
+  <div style="margin-left: 2px">
+    <span class="arrow-down"></span>
+  </div>
+</div>
+
+<hr />
+
+<div style="display: inline-flex">
+  <div>arrow</div>
+  <div style="margin-left: 2px">
+    <span class="arrow"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow & up</div>
+  <div style="margin-left: 2px">
+    <span class="arrow up"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow & down</div>
+  <div style="margin-left: 2px">
+    <span class="arrow down"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow & left</div>
+  <div style="margin-left: 2px">
+    <span class="arrow left"></span>
+  </div>
+</div>
+
+<div style="display: inline-flex">
+  <div>arrow & right</div>
+  <div style="margin-left: 2px">
+    <span class="arrow right"></span>
+  </div>
+</div>
+
+<hr />
+
+<div>arrow-solid-up</div>
+<!-- <div style="margin-left: 2px; line-height: 20px; position: relative">
+  <div class="arrow-solid-up" style="position: absolute; top: -10px"></div>
+</div> -->
+
+<div style="margin: 0px">
+  <div class="arrow-solid-up"></div>
+</div>
+
+<hr />
+
+<div class="filter-container">
+  <label for="filter">Filter:</label>
+  <input
+    type="text"
+    id="filter"
+    name="filter"
+    [(ngModel)]="searchTerm"
+    (input)="sort('name')"
+    class="form-control filter-input"
+  />
+
+  <button (click)="clearFilter()" class="btn btn-primary">Clear</button>
+</div>
+
+<p>{{ sortField | json }}</p>
+<p>{{ sortOrder | json }}</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('name')">
+        <div style="display: inline-flex">
+          <div>Name</div>
+          <div style="margin-left: 2px">
+            <div *ngIf="sortField === 'name' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+            <div *ngIf="sortField === 'name' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+          </div>
+        </div>
+      </th>
+      <th (click)="sort('age')">
+        <div style="float: left">Age</div>
+        <div style="float: right">
+          <div *ngIf="sortField === 'age' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+          <div *ngIf="sortField === 'age' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+        </div>
+      </th>
+      <th (click)="sort('email')">
+        <div style="display: inline-flex">
+          <div>Email</div>
+          <div style="margin-left: 2px">
+            <div *ngIf="sortField === 'email' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+            <div *ngIf="sortField === 'email' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pagedUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav>
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(1)">&lt;&lt; First</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(currentPage - 1)">&lt; Previous</button>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(currentPage + 1)">Next &gt;</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(totalPages)">&gt;&gt; Last</button>
+    </li>
+  </ul>
+</nav>
