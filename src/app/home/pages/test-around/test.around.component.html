@@ -1,6 +1,12 @@
 <h3>Hello, Test Around!</h3>
 
 <hr />
+<div class="h-test-around__selector-div">
+  <app-home-selector-client-1></app-home-selector-client-1>
+  <app-home-selector-client-2></app-home-selector-client-2>
+</div>
+
+<hr />
 
 <ng-container *ngIf="insts$ | async as insts">
   <div style="width: 300px">

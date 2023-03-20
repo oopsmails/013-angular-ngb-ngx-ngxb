@@ -89,3 +89,17 @@ select {
   height: 100%;
   background-color: #007bff;
 }
+
+// ------------------------
+
+.h-test-around__selector-div {
+  :host {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  app-client-1,
+  app-client-2 {
+    margin: 1rem;
+  }
+}

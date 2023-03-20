@@ -29,6 +29,9 @@ import { HomeOptionsComponent } from './h-options/home.options.component';
 import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
 import { HomeGridComponent } from './h-layout/h-grid/h.grid.component';
 import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
+import { HomeSelectorComponent } from './h-selector/home.selector.component';
+import { Client1Component } from './h-selector/h-selector-child1/client-1.component';
+import { Client2Component } from './h-selector/h-selector-child2/client-2.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -48,6 +51,7 @@ const routes: Routes = [
   { path: 'home/progress-bar-scroll', component: HomeProgressBarScrollComponent },
   { path: 'home/grid', component: HomeGridComponent },
   { path: 'home/flex', component: HomeFlexComponent },
+  { path: 'home/selector', component: HomeSelectorComponent },
 ];
 
 @NgModule({
@@ -72,6 +76,9 @@ const routes: Routes = [
     HomeProgressBarScrollComponent,
     HomeGridComponent,
     HomeFlexComponent,
+    HomeSelectorComponent,
+    Client1Component,
+    Client2Component,
   ],
   imports: [
     CommonModule,
