@@ -7,6 +7,7 @@ import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
 import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
 import { HmDatatable6Component } from './hm-datatable6/hm-datatable6.component';
 import { HmDatatable7Component } from './hm-datatable7/hm-datatable7.component';
+import { HmDatatable8Component } from './hm-datatable8/hm-datatable8.component';
 import { HomeMadeDragAndDropFileComponent } from './hm-dnd-file/hm.dnd.file.component';
 import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
 import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'hm/hm-datatable5', component: HmDatatable5Component },
   { path: 'hm/hm-datatable6', component: HmDatatable6Component },
   { path: 'hm/hm-datatable7', component: HmDatatable7Component },
+  { path: 'hm/hm-datatable8', component: HmDatatable8Component },
   { path: 'hm/hm-dnd-file', component: HomeMadeDragAndDropFileComponent },
   { path: 'hm/hm-dnd', component: HomeMadeDragAndDropComponent },
 ];

@@ -1,0 +1,141 @@
+<h2>hm-datatable8 works!</h2>
+<p>Using svgs from Bootstrap Icons as sorting arrows. But NOT npm install bootstrap-icons</p>
+<hr />
+
+<p>{{ sortField | json }}</p>
+<p>{{ sortOrder | json }}</p>
+<hr />
+
+<div class="filter-container">
+  <label for="filter">Filter:</label>
+  <input
+    type="text"
+    id="filter"
+    name="filter"
+    [(ngModel)]="searchTerm"
+    (input)="sort('name')"
+    class="form-control filter-input"
+  />
+
+  <button (click)="clearFilter()" class="btn btn-primary">Clear</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr style="height: auto; vertical-align: middle">
+      <th (click)="sort('name')">
+        <div style="display: inline-flex">
+          <div>Name</div>
+          <div
+            *ngIf="sortField === 'name' && sortOrder === 'asc'; then sortingArrowsAsc; else condition2"
+            [ngTemplateOutlet]="condition2"
+            [ngTemplateOutletContext]="{ passSortField: 'name' }"
+          ></div>
+        </div>
+      </th>
+      <th (click)="sort('age')">
+        <div style="display: inline-flex">
+          <div>Age</div>
+          <div *ngIf="sortField === 'age'">
+            <ng-container
+              [ngTemplateOutlet]="sortOrder == 'asc' ? sortingArrowsAsc : sortingArrowsDesc"
+              [ngTemplateOutletContext]="{ passSortField: sortField, passSortOrder: sortOrder }"
+            >
+            </ng-container>
+          </div>
+        </div>
+      </th>
+      <th (click)="sort('email')">
+        <div style="display: inline-flex">
+          <div>Email</div>
+          <div *ngIf="sortField === 'email'">
+            <div *ngIf="sortOrder === 'asc'">
+              <div class="top-level__div-sort-arrows" style="border: none">
+                <img src="assets/icons/bs-icons/caret-up-fill.svg" alt="test" />
+                <img src="assets/icons/bs-icons/caret-down.svg" alt="test" />
+              </div>
+            </div>
+            <div *ngIf="sortOrder === 'desc'">
+              <div class="top-level__div-sort-arrows" style="border: none">
+                <img src="assets/icons/bs-icons/caret-up.svg" alt="test" />
+                <img src="assets/icons/bs-icons/caret-down-fill.svg" alt="test" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pagedUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav>
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(1)">&lt;&lt; First</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(currentPage - 1)">&lt; Previous</button>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(currentPage + 1)">Next &gt;</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(totalPages)">&gt;&gt; Last</button>
+    </li>
+  </ul>
+</nav>
+
+<ng-template #sortingArrows let-sortOrder="asc">
+  <p>{{ sortOrder || 'aaa' | json }}</p>
+  <!-- <div *ngIf="sortField === 'email'"> -->
+  <div *ngIf="sortOrder === 'asc'">
+    <div class="top-level__div-sort-arrows" style="border: none">
+      <img src="assets/icons/bs-icons/caret-up-fill.svg" alt="test" />
+      <img src="assets/icons/bs-icons/caret-down.svg" alt="test" />
+    </div>
+  </div>
+  <div *ngIf="sortOrder === 'desc'">
+    <div class="top-level__div-sort-arrows" style="border: none">
+      <img src="assets/icons/bs-icons/caret-up.svg" alt="test" />
+      <img src="assets/icons/bs-icons/caret-down-fill.svg" alt="test" />
+    </div>
+  </div>
+  <!-- </div> -->
+</ng-template>
+
+<ng-template #sortingArrowsAsc let-passSortField="passSortField" let-passSortOrder="passSortOrder">
+  <p>{{ passSortField || 'aaa' | json }}</p>
+  <p>{{ passSortOrder || 'aaa' | json }}</p>
+  <div class="top-level__div-sort-arrows" style="border: none">
+    <img src="assets/icons/bs-icons/caret-up-fill.svg" alt="test" />
+    <img src="assets/icons/bs-icons/caret-down.svg" alt="test" />
+  </div>
+</ng-template>
+
+<ng-template #condition2 let-passSortField="passSortField" let-passSortOrder="passSortOrder">
+  <!-- <p>{{ passSortField || 'aaa' | json }}</p> -->
+  <!-- <p>aaa</p> -->
+  <div *ngIf="sortField === 'name' && sortOrder === 'desc'; then sortingArrowsDesc; else sortingArrowsEmpty"></div>
+  <!-- <div *ngIf="sortOrder === 'desc'; then sortingArrowsDesc; else sortingArrowsEmpty"></div> -->
+</ng-template>
+
+<ng-template #sortingArrowsDesc let-passSortField="passSortField" let-passSortOrder="passSortOrder">
+  <p>{{ passSortField || 'aaa' | json }}</p>
+  <p>{{ passSortOrder || 'aaa' | json }}</p>
+  <div class="top-level__div-sort-arrows" style="border: none">
+    <img src="assets/icons/bs-icons/caret-up.svg" alt="test" />
+    <img src="assets/icons/bs-icons/caret-down-fill.svg" alt="test" />
+  </div>
+</ng-template>
+
+<ng-template #sortingArrowsEmpty> </ng-template>
