@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map, Observable, of, Subject } from 'rxjs';
+import { DirectionEnum } from '../../../localshared/models/shared-model';
 
 interface Stock {
   investmentType: string;
@@ -49,6 +50,10 @@ export class HomeInvestmentListComponent implements OnInit, OnDestroy {
   ];
 
   stockForm: FormGroup;
+
+  temp: DirectionEnum;
+
+  directions: string[] = Object.values(DirectionEnum).map((value) => String(value));
 
   constructor(private fb: FormBuilder) {
     // this.createForm();

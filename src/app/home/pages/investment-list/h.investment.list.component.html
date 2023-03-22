@@ -47,3 +47,10 @@
   </div>
 </div>
 <!-- </form> -->
+
+<hr />
+
+<label for="direction-select">Select a direction:</label>
+<select id="direction-select">
+  <option *ngFor="let direction of directions" [value]="direction">{{ direction }}</option>
+</select>
