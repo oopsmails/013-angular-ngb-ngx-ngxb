@@ -87,6 +87,7 @@ Otherwise just add display: none; for sr-only. We won't remove it, because it is
 - 1: basic, sort, pagination with only Prev and Next
 - 2: sort, filter, pagination
 - 3: sort with up, down arrows, only one, big
+- 3: search input, with a down arrow, try CSS postion
 - 4: sort with up, down arrows, both are located but showing only one, show depending on sort orders
 - 4: for icons src\app\homemade\hm-datatable4\hm-datatable4.component.html, would show both, one solid and one hollow based on sorting order, NOT implemented ..., prepare for 5
 - 5: Messed up, would show both arrows, one solid and one hollow based on sorting order ... ready for TODO
