@@ -49,11 +49,12 @@ export class HomeInvestmentListComponent implements OnInit, OnDestroy {
     // },
   ];
 
-  stockForm: FormGroup;
-
-  temp: DirectionEnum;
+  // stockForm: FormGroup;
 
   directions: string[] = Object.values(DirectionEnum).map((value) => String(value));
+
+  directionEnum = DirectionEnum;
+
 
   constructor(private fb: FormBuilder) {
     // this.createForm();
@@ -75,6 +76,13 @@ export class HomeInvestmentListComponent implements OnInit, OnDestroy {
   // onSubmit() {
   //   console.log(this.stockForm.value);
   // }
+
+
+  getDirectionEnumValues() {
+    return Object.keys(this.directionEnum).filter(
+      (type) => isNaN(<any>type) && type !== 'values'
+    );
+  }
 
   addNewRow() {
     this.stocks.push({

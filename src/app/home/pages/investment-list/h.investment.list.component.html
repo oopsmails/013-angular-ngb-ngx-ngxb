@@ -54,3 +54,12 @@
 <select id="direction-select">
   <option *ngFor="let direction of directions" [value]="direction">{{ direction }}</option>
 </select>
+
+<hr />
+
+<label for="direction-select2">Select a direction:2</label>
+<select id="direction-select2">
+  <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+    {{ directionEnum[direction] }}
+  </option>
+</select>
