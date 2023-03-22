@@ -32,6 +32,7 @@ import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
 import { HomeSelectorComponent } from './h-selector/home.selector.component';
 import { Client1Component } from './h-selector/h-selector-child1/client-1.component';
 import { Client2Component } from './h-selector/h-selector-child2/client-2.component';
+import { HomeInvestmentListComponent } from './pages/investment-list/h.investment.list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'home/grid', component: HomeGridComponent },
   { path: 'home/flex', component: HomeFlexComponent },
   { path: 'home/selector', component: HomeSelectorComponent },
+  { path: 'home/investlist', component: HomeInvestmentListComponent },
 ];
 
 @NgModule({
@@ -79,6 +81,7 @@ const routes: Routes = [
     HomeSelectorComponent,
     Client1Component,
     Client2Component,
+    HomeInvestmentListComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,49 @@
+<h3>Hello, Test Investment List!</h3>
+
+<p>Testing around investment List</p>
+
+<hr />
+
+<div *ngFor="let item of stocks">
+  <div>{{ item | json }}</div>
+</div>
+
+<hr />
+
+<!-- <form [formGroup]="stockForm" (ngSubmit)="onSubmit()"> -->
+<div style="position: relative; background-color: rgb(178, 178, 232)">
+  <!-- <div style="position: static"> -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Investment Type</th>
+          <th>Security Type</th>
+          <th>Symbol</th>
+          <th>Investment Description</th>
+          <th>Investment Unit</th>
+          <th>Quantity Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of stocks; let i = index">
+          <td>
+            <select [(ngModel)]="stocks[i].investmentType">
+              <option value="in-kind">In Kind</option>
+              <option value="in-cash">In Cash</option>
+            </select>
+          </td>
+          <td><input type="text" [(ngModel)]="stocks[i].securityType" /></td>
+          <td><input type="text" [(ngModel)]="stocks[i].symbol" /></td>
+          <td><input type="text" [(ngModel)]="stocks[i].investmentDesc" /></td>
+          <td><input type="number" [(ngModel)]="stocks[i].investmentUnit" /></td>
+          <td><input type="number" [(ngModel)]="stocks[i].quantityAmt" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="position: absolute; right: 0px; bottom: 0px">
+    <button class="btn btn-primary" type="button" (click)="addNewRow()">Add New Row</button>
+  </div>
+</div>
+<!-- </form> -->
