@@ -22,13 +22,13 @@ tbody {
 }
 
 tr {
-  height: 20px;
+  // height: 20px;
   border-bottom: 1px solid #766e6e;
 }
 
-tr:last-child {
-  border-bottom: none;
-}
+// tr:last-child {
+//   border-bottom: none;
+// }
 
 // ----------------------------
 
@@ -43,9 +43,10 @@ tr:last-child {
   // margin-right: -100%;
 }
 
-.td-spec-border {
+.td-spec {
   padding: 00px;
   // outline: 1px solid black;
+  vertical-align: middle;
 }
 
 .dropdown-no-border {

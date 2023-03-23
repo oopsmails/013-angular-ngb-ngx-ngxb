@@ -1,9 +1,8 @@
-<div class="dropdown h-100" class="statusDropdownContainer">
-  <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
+<div class="statusDropdownContainer">
+  <div *ngIf="true" aria-labelledby="dropdownMenuButton">
     <input
       type="text"
       #searchTextInput
-      class="w-100 p-2 searchInput"
       placeholder="{{ placeHolder }}"
       [ngModel]="searchText"
       (ngModelChange)="onKeyupSearch($event)"
@@ -37,8 +36,6 @@
     </ng-container>
   </div>
 </div>
-
-<div class="search-modal__to-be-covered">to be covered up ....</div>
 
 <ng-template #content let-modal>
   <div class="modal-header">

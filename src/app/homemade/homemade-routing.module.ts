@@ -13,6 +13,7 @@ import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
 import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
 import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search-async2/hm.dropdown.search.async.component2';
 import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
+import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'hm/hm-datatable8', component: HmDatatable8Component },
   { path: 'hm/hm-dnd-file', component: HomeMadeDragAndDropFileComponent },
   { path: 'hm/hm-dnd', component: HomeMadeDragAndDropComponent },
+  { path: 'hm/hm-editable', component: HomeMadeEditableComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let object of objects">
+      <td>{{ object.id }}</td>
+      <td *ngIf="!editMode || editedObject !== object">{{ object.name }}</td>
+      <td *ngIf="editMode && editedObject === object">
+        <input type="text" [(ngModel)]="editedObject.name" class="form-control" />
+      </td>
+      <td *ngIf="!editMode || editedObject !== object">{{ object.city }}</td>
+      <td *ngIf="editMode && editedObject === object">
+        <select [(ngModel)]="editedObject.city" class="form-control">
+          <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+      </td>
+      <td>
+        <button (click)="enableEditMode(object)" *ngIf="!editMode" class="btn btn-primary">Edit</button>
+        <button (click)="saveObject()" *ngIf="editMode && editedObject === object" class="btn btn-success">Save</button>
+        <button (click)="cancelEdit()" *ngIf="editMode && editedObject === object" class="btn btn-danger">
+          Cancel
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngFor="let item of objects">
+  <div>{{ item | json }}</div>
+</div>
