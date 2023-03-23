@@ -48,9 +48,10 @@
     </button>
   </div>
   <div class="modal-body">
-    <!-- <app-hm-search-modal-content [passingSearchText]="searchText"></app-hm-search-modal-content> -->
-    <app-ramdom-list-search-adv></app-ramdom-list-search-adv>
-    aaa
+    <app-ramdom-list-search-adv
+      [passingSearchText]="searchText"
+      (selectedItem)="receiveSelectItem($event)"
+    ></app-ramdom-list-search-adv>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>

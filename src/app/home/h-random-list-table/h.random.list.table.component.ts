@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { RandomItem, SharedDataService } from 'oops-lib002';
+import { RandomItem, SharedDataService, Car } from 'oops-lib002';
 import { Observable, Subject } from 'rxjs';
 import { DirectionEnum } from 'src/app/localshared/models/shared-model';
 import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
@@ -59,6 +59,24 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
       customKey: '',
       type: '',
     });
+  }
+
+  onCustomKeySelected(item, idx) {
+    console.log(this.COMPONENT_NAME + ', onCustomKeySelected, item = ', item);
+    // if (item instanceof Car) {
+    //   this.editItems[idx].customKey = 'selected-' + item.id;
+    // } else if (item instanceof RandomItem) {
+    //   this.editItems[idx].customKey = 'selected-' + item.name;
+    // } else {
+    //   this.editItems[idx].customKey = 'not-selected';
+    // }
+    if (item && item.name) {
+      this.editItems[idx].customKey = 'selected-' + item.name;
+    } else if (item && item.model) {
+      this.editItems[idx].customKey = 'selected-' + item.model;
+    } else {
+      this.editItems[idx].customKey = 'not-selected';
+    }
   }
 
   ngOnDestroy() {

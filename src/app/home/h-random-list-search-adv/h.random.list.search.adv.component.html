@@ -1,9 +1,9 @@
-<h3>Hello, Test Talbe dropdown, modal!</h3>
-
-<hr />
+<div *ngIf="searchText">
+  {{ searchText }}
+</div>
 
 <ng-container *ngIf="items$ | async as items">
-  {{ items.slice(0, 2) | json }}
+  <!-- {{ items.slice(0, 2) | json }} -->
 
   <hr />
   <h3>Displaying Items:</h3>
@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of items.slice(0, 2); let i = index" style="height: 20px" (click)="onRowClick(item)">
+        <tr *ngFor="let item of items.slice(0, 5); let i = index" style="height: 20px" (click)="onRowClick(item)">
           <td>
             <select id="direction-select-{{ i }}">
               <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">

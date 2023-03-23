@@ -44,10 +44,14 @@
   <table class="table table-hover table-bordered">
     <thead>
       <tr class="bg-success">
-        <th class="fifteen">Type</th>
+        <!-- <th class="fifteen">Type</th>
         <th class="ten">Id</th>
         <th class="twenty">Name</th>
-        <th class="twenty">Desc</th>
+        <th class="twenty">Desc</th> -->
+        <th>Type</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Desc</th>
         <th>Custom Key</th>
       </tr>
     </thead>
@@ -55,16 +59,18 @@
       <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px" (click)="onEditableRowClick(item)"> -->
       <tr *ngFor="let item of editItems; let i = index" style="height: 20px">
         <td>
-          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}">
+          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}" class="dropdown-no-border">
             <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
               {{ directionEnum[direction] }}
             </option>
           </select>
         </td>
-        <td><input type="number" [(ngModel)]="editItems[i].id" /></td>
+        <td><input type="number" [(ngModel)]="editItems[i].id" [maxLength]="5" /></td>
         <td><input type="text" [(ngModel)]="editItems[i].name" /></td>
         <td><input type="text" [(ngModel)]="editItems[i].desc" /></td>
-        <td><app-ramdom-list-search></app-ramdom-list-search></td>
+        <td class="td-spec-border">
+          <app-ramdom-list-search (selectOptionEmitter)="onCustomKeySelected($event, i)"></app-ramdom-list-search>
+        </td>
       </tr>
     </tbody>
   </table>

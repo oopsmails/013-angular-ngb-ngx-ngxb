@@ -33,14 +33,22 @@ tr:last-child {
 // ----------------------------
 
 .add-new-div {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
+  // position: sticky;
+  // position: fixed;
+  position: relative;
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+  // margin-bottom: -100%;
+  // margin-right: -100%;
 }
 
-// .add-new-row {
-  //   text-decoration: underline;
-  //   font-size: 1rem;
-  //   font-weight: 400;
-  //   cursor: pointer;
-  // }
+.td-spec-border {
+  padding: 00px;
+  // outline: 1px solid black;
+}
+
+.dropdown-no-border {
+  border: none;
+  outline: none
+}
