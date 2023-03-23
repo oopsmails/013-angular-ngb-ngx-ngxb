@@ -1,0 +1,46 @@
+.table-container {
+  margin-top: 15px;
+  height: 220px;
+  overflow-y: auto;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+tbody {
+  height: auto;
+  // overflow-y: auto;
+}
+
+tr {
+  height: 20px;
+  border-bottom: 1px solid #766e6e;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+// ----------------------------
+
+.add-new-div {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+// .add-new-row {
+  //   text-decoration: underline;
+  //   font-size: 1rem;
+  //   font-weight: 400;
+  //   cursor: pointer;
+  // }

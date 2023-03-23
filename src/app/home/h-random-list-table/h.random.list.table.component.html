@@ -1,0 +1,98 @@
+<h3>Hello, Test Talbe dropdown, modal!</h3>
+
+<hr />
+
+<!-- <ng-container *ngIf="items$ | async as items">
+  {{ items.slice(0, 2) | json }}
+
+  <hr />
+  <h3>Displaying Items:</h3>
+  <div class="table-container">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="bg-success">
+          <th class="fifteen">Type</th>
+          <th class="ten">Id</th>
+          <th class="twenty">Name</th>
+          <th class="twenty">Desc</th>
+          <th>Custom Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items.slice(0, 2); let i = index" style="height: 20px" (click)="onRowClick(item)">
+          <td>
+            <select id="direction-select-{{ i }}">
+              <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+                {{ directionEnum[direction] }}
+              </option>
+            </select>
+          </td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.desc }}</td>
+          <td>{{ item.customKey }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container> -->
+
+<hr />
+<h3>Editable Items:</h3>
+
+<div class="table-container">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr class="bg-success">
+        <th class="fifteen">Type</th>
+        <th class="ten">Id</th>
+        <th class="twenty">Name</th>
+        <th class="twenty">Desc</th>
+        <th>Custom Key</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px" (click)="onEditableRowClick(item)"> -->
+      <tr *ngFor="let item of editItems; let i = index" style="height: 20px">
+        <td>
+          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}">
+            <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+              {{ directionEnum[direction] }}
+            </option>
+          </select>
+        </td>
+        <td><input type="number" [(ngModel)]="editItems[i].id" /></td>
+        <td><input type="text" [(ngModel)]="editItems[i].name" /></td>
+        <td><input type="text" [(ngModel)]="editItems[i].desc" /></td>
+        <td><app-ramdom-list-search></app-ramdom-list-search></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="add-new-div">
+    <span (click)="addNewRow()" class="top-level__link-text">Add New Row</span>
+  </div>
+
+  <div *ngFor="let item of editItems">
+    <div>{{ item | json }}</div>
+  </div>
+</div>
+
+<ng-template #customContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-home-table1></app-home-table1>
+    <!-- <app-home-table1
+      [inputCountry]="passingCountry"
+      (selectCountryEvent)="recieveSelectCountryEvent($event)"
+    ></app-home-table1> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

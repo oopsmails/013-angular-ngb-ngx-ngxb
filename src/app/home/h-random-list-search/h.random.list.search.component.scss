@@ -1,0 +1,45 @@
+.statusDropdownContainer,
+.calendarBtnContainer {
+  padding-top: 6px;
+}
+
+.statusFilterDropdown {
+  box-shadow: -2px 2px 4px 0px #888;
+  background-color: #f2f8f9;
+  border: 1px solid #d3d3d3;
+}
+
+.flex-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+//---------------------------------------------------
+.search-modal__no-item {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.search-modal__advanced-search {
+  margin-top: 20px;
+}
+
+// div.search-modal__item-list {
+//   border: 1px solid black;
+// }
+
+.search-modal__ng-container {
+  // padding: 0;
+  border: 1px solid rgb(223, 216, 216);
+  position: absolute; // don't use fixed, because cannot handle scolling
+  // width: 100%;
+  background-color: #f0f0f0;
+  z-index: 100;
+}
+
+.search-modal__to-be-covered {
+  position: relative;
+  // z-index: 99;
+}

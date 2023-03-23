@@ -33,6 +33,9 @@ import { HomeSelectorComponent } from './h-selector/home.selector.component';
 import { Client1Component } from './h-selector/h-selector-child1/client-1.component';
 import { Client2Component } from './h-selector/h-selector-child2/client-2.component';
 import { HomeInvestmentListComponent } from './pages/investment-list/h.investment.list.component';
+import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
+import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
+import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -54,6 +57,7 @@ const routes: Routes = [
   { path: 'home/flex', component: HomeFlexComponent },
   { path: 'home/selector', component: HomeSelectorComponent },
   { path: 'home/investlist', component: HomeInvestmentListComponent },
+  { path: 'home/itemlist', component: HomeRandomListTableComponent },
 ];
 
 @NgModule({
@@ -82,6 +86,9 @@ const routes: Routes = [
     Client1Component,
     Client2Component,
     HomeInvestmentListComponent,
+    HomeRandomListTableComponent,
+    HomeRandomListSearchComponent,
+    HomeRandomListSearchAdvComponent,
   ],
   imports: [
     CommonModule,

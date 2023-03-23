@@ -39,6 +39,13 @@ body {
 }
 
 
+.top-level__link-text {
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
 // --------------------------------------
 
 // .mainContainer {
@@ -53,6 +60,11 @@ body {
 
 .ten {
   width: 10%;
+  // background: turquoise
+}
+
+.fifteen {
+  width: 15%;
   // background: turquoise
 }
 
