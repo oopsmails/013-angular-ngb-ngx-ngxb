@@ -8,7 +8,7 @@
     <thead>
       <tr class="bg-success">
         <th>Type</th>
-        <th class="five">Id</th>
+        <th>Id</th>
         <th>Name</th>
         <th>Desc</th>
         <th>Custom Key</th>
@@ -19,15 +19,15 @@
       <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px"> -->
       <tr *ngFor="let item of editItems; let i = index">
         <td>
-          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}" class="dropdown-no-border">
+          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}" class="form-control">
             <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
               {{ directionEnum[direction] }}
             </option>
           </select>
         </td>
-        <td class="five"><input style="width: 30px" type="number" [(ngModel)]="editItems[i].id" [maxLength]="5" /></td>
-        <td><input style="width: 80px" type="text" [(ngModel)]="editItems[i].name" /></td>
-        <td><input style="width: 80px" type="text" [(ngModel)]="editItems[i].desc" /></td>
+        <td><input class="form-control" type="number" [(ngModel)]="editItems[i].id" [maxLength]="5" /></td>
+        <td><input class="form-control" type="text" [(ngModel)]="editItems[i].name" /></td>
+        <td><input class="form-control" type="text" [(ngModel)]="editItems[i].desc" /></td>
         <td class="td-spec">
           <app-ramdom-list-search (selectOptionEmitter)="onCustomKeySelected($event, i)"></app-ramdom-list-search>
         </td>
