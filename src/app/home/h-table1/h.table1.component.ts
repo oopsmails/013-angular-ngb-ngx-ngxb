@@ -5,7 +5,7 @@ import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
 import { Institution } from 'src/app/models/inst';
 
 @Component({
-  selector: 'app-test-around',
+  selector: 'app-home-table1',
   templateUrl: './h.table1.component.html',
   styleUrls: ['./h.table1.component.scss'],
 })

@@ -1,0 +1,59 @@
+<div class="dropdown h-100" class="statusDropdownContainer">
+  <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
+    <input
+      type="text"
+      #searchTextInput
+      class="w-100 p-2 searchInput"
+      placeholder="{{ placeHolder }}"
+      [ngModel]="searchText"
+      (ngModelChange)="onKeyupSearch($event)"
+      (focus)="inputOnFocus()"
+      (blur)="inputOnBlur($event)"
+    />
+    <ng-container *ngIf="displaying$ | async as items">
+      <div class="w-100 p-0 search-modal__ng-container">
+        <div *ngIf="showItems" class="search-modal__item-list">
+          <a
+            *ngFor="let option of items; let i = index"
+            class="dropdown-item pointer"
+            [ngClass]="{ alternateBackground: i % 2 == 0 }"
+            (mousedown)="onSelectSymbolClick($event, content, option); $event.preventDefault()"
+          >
+            {{ option.description }}
+          </a>
+        </div>
+        <div *ngIf="showItems && items.length === 0" class="text-muted search-modal__no-item">
+          Waiting ... or No car found ......
+        </div>
+
+        <div *ngIf="showItems" class="search-modal__advanced-search">
+          <span
+            class="top-level__link-text"
+            (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()"
+            >{{ 'Advanced Search ......' }}</span
+          >
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="search-modal__to-be-covered">to be covered up ....</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Home Made search-modal-content</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-ramdom-list-search-adv
+      [passingSearchText]="searchText"
+      (selectedItem)="receiveSelectItem($event)"
+    ></app-ramdom-list-search-adv>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

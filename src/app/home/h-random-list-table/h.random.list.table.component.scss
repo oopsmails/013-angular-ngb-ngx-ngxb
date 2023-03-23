@@ -1,0 +1,54 @@
+.table-container {
+  margin-top: 15px;
+  height: 220px;
+  overflow-y: auto;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+tbody {
+  height: auto;
+  // overflow-y: auto;
+}
+
+tr {
+  height: 20px;
+  border-bottom: 1px solid #766e6e;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+// ----------------------------
+
+.add-new-div {
+  // position: sticky;
+  // position: fixed;
+  position: relative;
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+  // margin-bottom: -100%;
+  // margin-right: -100%;
+}
+
+.td-spec-border {
+  padding: 00px;
+  // outline: 1px solid black;
+}
+
+.dropdown-no-border {
+  border: none;
+  outline: none
+}
