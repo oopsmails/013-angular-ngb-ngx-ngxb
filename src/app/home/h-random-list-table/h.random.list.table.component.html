@@ -28,8 +28,11 @@
         <td><input class="form-control" type="number" [(ngModel)]="editItems[i].id" [maxLength]="5" /></td>
         <td><input class="form-control" type="text" [(ngModel)]="editItems[i].name" /></td>
         <td><input class="form-control" type="text" [(ngModel)]="editItems[i].desc" /></td>
-        <td class="td-spec">
-          <app-ramdom-list-search (selectOptionEmitter)="onCustomKeySelected($event, i)"></app-ramdom-list-search>
+        <td>
+          <app-ramdom-list-search
+            class="td-spec"
+            (selectOptionEmitter)="onCustomKeySelected($event, i)"
+          ></app-ramdom-list-search>
         </td>
       </tr>
     </tbody>

@@ -129,6 +129,10 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     if (this.modalService.hasOpenModals()) {
       this.modalService.dismissAll();
     }
+    // setTimeout(() => {
+    //   this.searchText = item.name;
+    //   this.selectOptionEmitter.emit(item);
+    // });
   }
 
   ngOnDestroy() {
