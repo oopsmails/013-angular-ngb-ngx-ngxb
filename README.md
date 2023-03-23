@@ -87,9 +87,15 @@ Otherwise just add display: none; for sr-only. We won't remove it, because it is
 - 1: basic, sort, pagination with only Prev and Next
 - 2: sort, filter, pagination
 - 3: sort with up, down arrows, only one, big
+- 3: search input, with a down arrow, try CSS postion
 - 4: sort with up, down arrows, both are located but showing only one, show depending on sort orders
 - 4: for icons src\app\homemade\hm-datatable4\hm-datatable4.component.html, would show both, one solid and one hollow based on sorting order, NOT implemented ..., prepare for 5
-- 5: would show both arrows, one solid and one hollow based on sorting order ... ready for TODO
+- 5: Messed up, would show both arrows, one solid and one hollow based on sorting order ... ready for TODO
+- 6: All good for using simple arrows
+- 7: All good for using solid arrows
+- 8: All good, using svgs from Bootstrap Icons as sorting arrows. But NOT npm install bootstrap-icons.
+- 8: !!!!! A lot of things (about ngTemplateOutlet) to be tested and used in future !!!!! src\app\homemade\hm-datatable8\hm-datatable8.component.00.html
+- 8: ONLY to revise th height?? 20230320
 
 ```
 in order to use, for example, class="bi bi-caret-up-fill", what additional lib should I include?

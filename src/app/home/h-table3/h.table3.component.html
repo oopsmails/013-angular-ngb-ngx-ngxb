@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of insts.slice(0, 1000)" style="height: 20px">
+        <tr *ngFor="let item of insts.slice(0, 1000)" style="height: 20px" (click)="onRowClick(item)">
           <!-- <tr *ngFor="let item of filteredInsts$ | async"> -->
           <td>{{ item.institutionId }}</td>
           <td>{{ item.cuid }}</td>

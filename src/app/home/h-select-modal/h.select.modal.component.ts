@@ -21,10 +21,10 @@ import {
 
 @Component({
   selector: 'app-select-modal',
-  templateUrl: './select-modal.component.html',
-  styleUrls: ['./select-modal.component.scss'],
+  templateUrl: './h.select.modal.component.html',
+  styleUrls: ['./h.select.modal.component.scss'],
 })
-export class SelectModalComponent implements OnInit, OnDestroy {
+export class HomeSelectModalComponent implements OnInit, OnDestroy {
   private compmentName: string = 'SelectModalComponent';
   private onDestroy$: Subject<boolean> = new Subject();
 

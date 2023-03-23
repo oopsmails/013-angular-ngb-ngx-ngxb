@@ -21,6 +21,9 @@ import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.
 import { HomeMadeSearchModalContentComponent } from './hm-search-modal/hm-search-modal-content/hm.search.modal.content.component';
 import { HomeMadeDragAndDropFileComponent } from './hm-dnd-file/hm.dnd.file.component';
 import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
+import { HmDatatable6Component } from './hm-datatable6/hm-datatable6.component';
+import { HmDatatable7Component } from './hm-datatable7/hm-datatable7.component';
+import { HmDatatable8Component } from './hm-datatable8/hm-datatable8.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
     HmDatatable3Component,
     HmDatatable4Component,
     HmDatatable5Component,
+    HmDatatable6Component,
+    HmDatatable7Component,
+    HmDatatable8Component,
     HomeMadeDragAndDropFileComponent,
     HomeMadeDragAndDropComponent,
   ],

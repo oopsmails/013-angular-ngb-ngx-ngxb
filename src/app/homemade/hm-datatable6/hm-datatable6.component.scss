@@ -1,0 +1,183 @@
+/* Style the filter container */
+.filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+
+// -----------------------------------------------------
+
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+    $size: $size/2;
+    $transparent: rgba($color, 0);
+    $opposite: (top:bottom, right:left, left:right, bottom:top);
+
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: $size solid $transparent;
+    border-#{map-get($opposite, $direction)}-color: $color;
+    margin-#{$direction}: -$size/2;
+}
+
+.hm__test-arrow-mixin {
+    font-size: 50px;
+
+    &::before {
+        @include triangle(right, red, 30px);
+        margin-right: 8px;
+    }
+
+    &::after {
+        @include triangle(left, purple, 60px);
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+}
+
+
+.hm__test-sortable-th {
+    font-size: 20px;
+
+    &::before {
+        @include triangle(right, blue, 20px);
+        margin-right: 8px;
+    }
+
+    &::after {
+        @include triangle(top, black, 20px);
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+}
+
+//--------------------------------------------
+
+.triangle-div {
+    height: 0px;
+    margin: 20px 0;
+}
+
+.triangle-div::after {
+    content: "";
+    display: block; // block vs inline-block?
+}
+
+.triangle-up::after {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-bottom: 5px solid black;
+}
+
+.triangle-down::after {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-top: 5px solid black;
+}
+
+.triangle-left::after {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+    border-right: 5px solid black;
+}
+
+.triangle-right::after {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+    border-left: 5px solid black;
+}
+
+//-------------------------------
+
+.good-version {
+    margin: 20px 0;
+    height: 300px;
+}
+
+.arrow-div {
+    height: 0px;
+    margin: 20px 0;
+}
+
+.arrow-div::after {
+    content: "";
+    display: inline-block; // block?
+}
+
+.arrow-up::after {
+    // margin-left: 50px; ///* move right, to show it */
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-bottom: 5px solid black;
+}
+
+.arrow-down::after {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid #f00;
+}
+
+.arrow-right::after {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+
+    border-left: 60px solid green;
+}
+
+.arrow-left::after {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right: 10px solid blue;
+}

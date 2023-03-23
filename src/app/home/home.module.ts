@@ -14,7 +14,7 @@ import { TestModalComponent } from './pages/test-modal/test-modal.component';
 import { ParentComponent } from './pages/parent/parent.component';
 import { ChildComponent } from './pages/child/child.component';
 import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
-import { SelectModalComponent } from './pages/select-modal/select-modal.component';
+import { HomeSelectModalComponent } from './h-select-modal/h.select.modal.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { LocalsharedModule } from '../localshared/localshared.module';
 import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
@@ -29,6 +29,10 @@ import { HomeOptionsComponent } from './h-options/home.options.component';
 import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
 import { HomeGridComponent } from './h-layout/h-grid/h.grid.component';
 import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
+import { HomeSelectorComponent } from './h-selector/home.selector.component';
+import { Client1Component } from './h-selector/h-selector-child1/client-1.component';
+import { Client2Component } from './h-selector/h-selector-child2/client-2.component';
+import { HomeInvestmentListComponent } from './pages/investment-list/h.investment.list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,7 +41,7 @@ const routes: Routes = [
   { path: 'home/test-inputoutput', component: TestInputOutputComponent },
   { path: 'home/parent', component: ParentComponent },
   { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
-  { path: 'home/select-modal', component: SelectModalComponent },
+  { path: 'home/select-modal', component: HomeSelectModalComponent },
   { path: 'home/options', component: HomeOptionsComponent },
   { path: 'home/table1', component: HomeTable1Component },
   { path: 'home/table2', component: HomeTable2Component },
@@ -48,6 +52,8 @@ const routes: Routes = [
   { path: 'home/progress-bar-scroll', component: HomeProgressBarScrollComponent },
   { path: 'home/grid', component: HomeGridComponent },
   { path: 'home/flex', component: HomeFlexComponent },
+  { path: 'home/selector', component: HomeSelectorComponent },
+  { path: 'home/investlist', component: HomeInvestmentListComponent },
 ];
 
 @NgModule({
@@ -59,7 +65,7 @@ const routes: Routes = [
     ParentComponent,
     ChildComponent,
     GetNgxSelectComponent,
-    SelectModalComponent,
+    HomeSelectModalComponent,
     TestModalContentComponent,
     TestInputOutputComponent,
     HomeTable1Component,
@@ -72,6 +78,10 @@ const routes: Routes = [
     HomeProgressBarScrollComponent,
     HomeGridComponent,
     HomeFlexComponent,
+    HomeSelectorComponent,
+    Client1Component,
+    Client2Component,
+    HomeInvestmentListComponent,
   ],
   imports: [
     CommonModule,

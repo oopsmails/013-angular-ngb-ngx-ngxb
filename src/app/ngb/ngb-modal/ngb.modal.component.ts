@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-ngb-modal',
@@ -21,7 +22,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   ],
 })
 export class NgbModalComponent {
+  private COMPONENT_NAME = 'NgbModalComponent';
+
+  passingCountry: Country = {
+    id: 13,
+    name: 'China',
+    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
+    area: 9596960,
+    population: 1409517397,
+  };
+
   closeResult: string;
+
+  selectedCountry: Country;
 
   constructor(private modalService: NgbModal) {}
 
@@ -55,5 +68,13 @@ export class NgbModalComponent {
 
   openCustomContent(customContent) {
     this.modalService.open(customContent, { scrollable: true });
+  }
+
+  recieveSelectCountryEvent(item) {
+    console.log(this.COMPONENT_NAME + ', recieveSelectCountryEvent ....., item = ', item);
+    this.selectedCountry = item;
+    if (this.modalService.hasOpenModals()) {
+      this.modalService.dismissAll();
+    }
   }
 }

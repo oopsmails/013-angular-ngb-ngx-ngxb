@@ -31,6 +31,10 @@ export class HomeTable3Component implements OnInit, OnDestroy {
     );
   }
 
+  onRowClick(item) {
+    console.log(this.COMPONENT_NAME + ', onRowClick, item = ', item);
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();

@@ -1,6 +1,17 @@
 <h3>Hello, Test Around!</h3>
 
 <hr />
+<p>
+  If we want to send some data from parent to child, we can use @Input. But if we want to inject some html from parent
+  to child, we cannot use @Input. We need to use ng-content.
+</p>
+<test-around-child>
+  <p>This is content sent from parent without any selector</p>
+  <h4 titleText>Title from Parent</h4>
+  <p class="desc">Injecting html from parent to child</p>
+</test-around-child>
+
+<hr />
 
 <ng-container *ngIf="insts$ | async as insts">
   <div style="width: 300px">

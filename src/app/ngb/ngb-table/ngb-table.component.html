@@ -20,6 +20,8 @@
     <li>debouncing of search requests</li>
   </ul>
 
+  <p *ngIf="inputCountry">@Input: {{ inputCountry | json }}</p>
+
   <form>
     <div class="form-group form-inline">
       Full text search:
@@ -37,7 +39,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let country of countries$ | async">
+        <tr *ngFor="let country of countries$ | async" (click)="onCountryClick(country)">
           <th scope="row">{{ country.id }}</th>
           <td>
             <div class="img-wrap">

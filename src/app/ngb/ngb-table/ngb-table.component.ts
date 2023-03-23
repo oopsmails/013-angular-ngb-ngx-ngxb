@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/country';
 import { CountryDataService } from 'src/app/localshared/services/country.data.service';
@@ -13,6 +13,10 @@ import { NgbdSortableHeader, SortEvent } from 'src/app/localshared/services/sort
 })
 export class NgbTableComponent implements OnInit {
   private COMPONENT_NAME = 'NgbTableComponent';
+
+  @Input('inputCountry') inputCountry: Country;
+  @Output() selectCountryEvent = new EventEmitter(true);
+
   countries$: Observable<Country[]>;
   total$: Observable<number>;
 
@@ -37,6 +41,11 @@ export class NgbTableComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onCountryClick(item) {
+    console.log(this.COMPONENT_NAME + ', onCountryClick ....., item = ', item);
+    this.selectCountryEvent.emit(item);
+  }
 
   // sortTable(sortKey) {
   //   this.sortKey = sortKey;

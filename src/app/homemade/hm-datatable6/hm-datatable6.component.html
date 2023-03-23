@@ -1,0 +1,90 @@
+<h2>hm-datatable6 works!</h2>
+
+<hr />
+<h4>Test Arrows</h4>
+<p>Right arrow: <i class="arrow right"></i></p>
+<p>Left arrow: <i class="arrow left"></i></p>
+<p>Up arrow: <i class="arrow up"></i></p>
+<p>Down arrow: <i class="arrow down"></i></p>
+
+<div class="triangle-div triangle-up"></div>
+<div class="triangle-div triangle-down"></div>
+<div class="triangle-div triangle-left"></div>
+<div class="triangle-div triangle-right"></div>
+
+<p>{{ sortField | json }}</p>
+<p>{{ sortOrder | json }}</p>
+<hr />
+
+<div class="filter-container">
+  <label for="filter">Filter:</label>
+  <input
+    type="text"
+    id="filter"
+    name="filter"
+    [(ngModel)]="searchTerm"
+    (input)="sort('name')"
+    class="form-control filter-input"
+  />
+
+  <button (click)="clearFilter()" class="btn btn-primary">Clear</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('name')">
+        <div style="display: inline-flex">
+          <div>Name</div>
+          <div style="margin-left: 2px">
+            <div *ngIf="sortField === 'name' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+            <div *ngIf="sortField === 'name' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+          </div>
+        </div>
+      </th>
+      <th (click)="sort('age')">
+        <div style="float: left">Age</div>
+        <div style="float: right">
+          <div *ngIf="sortField === 'age' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+          <div *ngIf="sortField === 'age' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+        </div>
+      </th>
+      <th (click)="sort('email')">
+        <div style="display: inline-flex">
+          <div>Email</div>
+          <div style="margin-left: 2px">
+            <div *ngIf="sortField === 'email' && sortOrder === 'asc'"><span class="arrow up"></span></div>
+            <div *ngIf="sortField === 'email' && sortOrder === 'desc'"><span class="arrow down"></span></div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pagedUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav>
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(1)">&lt;&lt; First</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <button class="page-link" (click)="goToPage(currentPage - 1)">&lt; Previous</button>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+      <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(currentPage + 1)">Next &gt;</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == totalPages">
+      <button class="page-link" (click)="goToPage(totalPages)">&gt;&gt; Last</button>
+    </li>
+  </ul>
+</nav>
