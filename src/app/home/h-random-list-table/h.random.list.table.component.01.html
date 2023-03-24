@@ -26,7 +26,12 @@
           </select>
         </td>
         <td class="td-spec">
-          <input class="td-input-select" type="number" [(ngModel)]="editItems[i].id" [maxLength]="5" />
+          <input
+            class="td-input-select input-class-number"
+            type="number"
+            [(ngModel)]="editItems[i].id"
+            [maxLength]="5"
+          />
         </td>
         <td class="td-spec"><input class="td-input-select" type="text" [(ngModel)]="editItems[i].name" /></td>
         <td class="td-spec"><input class="td-input-select" type="text" [(ngModel)]="editItems[i].desc" /></td>

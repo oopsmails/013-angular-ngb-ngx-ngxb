@@ -47,6 +47,7 @@ tr {
   padding: 0px;
   // outline: 1px solid black;
   vertical-align: middle;
+  // text-align: center;
   border: none;
 }
 
@@ -54,15 +55,30 @@ tr {
   padding: 0;
   border: none;
   height: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-// .td-spec input {
-//   margin: 0;
-//   padding: 0;
-//   vertical-align: middle;
+// .td-input-select-width-100 {
+//   width: 100%;
+//   box-sizing: border-box;
 // }
 
 .dropdown-no-border {
   border: none;
   outline: none
+}
+
+/**
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+**/
+
+.input-class-number[type="number"]::-webkit-inner-spin-button,
+.input-class-number[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
