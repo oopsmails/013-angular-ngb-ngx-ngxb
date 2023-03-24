@@ -37,6 +37,7 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log(this.COMPONENT_NAME + ', ngOnInit');
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
+    this.addNewRow();
   }
 
   getDirectionEnumValues() {
