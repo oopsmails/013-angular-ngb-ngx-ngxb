@@ -15,6 +15,7 @@ interface RandomItemExt extends RandomItem {
   styleUrls: ['./h.random.list.search.component.scss'],
 })
 export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
+  @Input('inputItem') inputItem: any;
   @Output() selectOptionEmitter = new EventEmitter(true);
 
   private COMPONENT_NAME = 'HomeRandomListSearchComponent';
@@ -129,6 +130,10 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     if (this.modalService.hasOpenModals()) {
       this.modalService.dismissAll();
     }
+    // setTimeout(() => {
+    //   this.searchText = item.name;
+    //   this.selectOptionEmitter.emit(item);
+    // });
   }
 
   ngOnDestroy() {

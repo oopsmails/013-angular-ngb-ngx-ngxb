@@ -11,7 +11,7 @@ interface RandomItemExt extends RandomItem {
 
 @Component({
   selector: 'app-random-list-table',
-  templateUrl: './h.random.list.table.component.html',
+  templateUrl: './h.random.list.table.component.01.html',
   styleUrls: ['./h.random.list.table.component.scss'],
 })
 export class HomeRandomListTableComponent implements OnInit, OnDestroy {

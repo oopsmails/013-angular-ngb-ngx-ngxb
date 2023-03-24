@@ -1,0 +1,75 @@
+<h3>Hello, Test Talbe dropdown, modal!</h3>
+
+<hr />
+<h3>Editable Items:</h3>
+
+<div class="table-container">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr class="bg-success">
+        <th>Type</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Desc</th>
+        <th>Custom Key</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px" (click)="onEditableRowClick(item)"> -->
+      <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px"> -->
+      <tr *ngFor="let item of editItems; let i = index">
+        <td class="td-spec">
+          <select [(ngModel)]="editItems[i].type" id="direction-select-{{ i }}" class="td-input-select">
+            <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+              {{ directionEnum[direction] }}
+            </option>
+          </select>
+        </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select input-class-number"
+            type="number"
+            [(ngModel)]="editItems[i].id"
+            [maxLength]="5"
+          />
+        </td>
+        <td class="td-spec"><input class="td-input-select" type="text" [(ngModel)]="editItems[i].name" /></td>
+        <td class="td-spec"><input class="td-input-select" type="text" [(ngModel)]="editItems[i].desc" /></td>
+        <td class="td-spec">
+          <app-ramdom-list-search
+            class="td-input-select"
+            [inputItem]="inputItem"
+            (selectOptionEmitter)="onCustomKeySelected($event, i)"
+          ></app-ramdom-list-search>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="add-new-div">
+    <span (click)="addNewRow()" class="top-level__link-text">Add New Row</span>
+  </div>
+
+  <div *ngFor="let item of editItems">
+    <div>{{ item | json }}</div>
+  </div>
+</div>
+
+<ng-template #customContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-home-table1></app-home-table1>
+    <!-- <app-home-table1
+      [inputCountry]="passingCountry"
+      (selectCountryEvent)="recieveSelectCountryEvent($event)"
+    ></app-home-table1> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
