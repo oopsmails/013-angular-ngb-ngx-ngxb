@@ -33,14 +33,15 @@ tr {
 // ----------------------------
 
 .add-new-div {
-  // position: sticky;
+  position: sticky;
   // position: fixed;
-  position: relative;
+  // position: relative;
   // position: absolute;
   // bottom: 0;
   // right: 0;
   // margin-bottom: -100%;
   // margin-right: -100%;
+  padding-left: 82%;
 }
 
 .td-spec {
