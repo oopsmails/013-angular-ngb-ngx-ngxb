@@ -6,7 +6,7 @@
 }
 
 table {
-  width: 100%;
+  // width: 100%;
   border-collapse: collapse;
 }
 
@@ -47,12 +47,20 @@ tr {
   padding: 0px;
   // outline: 1px solid black;
   vertical-align: middle;
+  border: none;
 }
+
+.td-input-select {
+  padding: 0;
+  border: none;
+  height: 2.5rem;
+}
+
 // .td-spec input {
-  //   margin: 0;
-  //   padding: 0;
-  //   vertical-align: middle;
-  // }
+//   margin: 0;
+//   padding: 0;
+//   vertical-align: middle;
+// }
 
 .dropdown-no-border {
   border: none;
