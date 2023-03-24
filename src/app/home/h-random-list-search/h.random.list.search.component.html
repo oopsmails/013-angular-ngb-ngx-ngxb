@@ -12,7 +12,7 @@
     />
     <ng-container *ngIf="displaying$ | async as items">
       <div class="p-0 search-modal__ng-container">
-        <div *ngIf="showItems" class="search-modal__item-list">
+        <div *ngIf="inEditMode" class="search-modal__item-list">
           <a
             *ngFor="let option of items; let i = index"
             class="dropdown-item pointer"
@@ -22,11 +22,11 @@
             {{ option.description }}
           </a>
         </div>
-        <div *ngIf="showItems && items.length === 0" class="text-muted search-modal__no-item">
+        <div *ngIf="inEditMode && items.length === 0" class="text-muted search-modal__no-item">
           Waiting ... or No car found ......
         </div>
 
-        <div *ngIf="showItems" class="search-modal__advanced-search">
+        <div *ngIf="inEditMode" class="search-modal__advanced-search">
           <span
             class="top-level__link-text"
             (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()"

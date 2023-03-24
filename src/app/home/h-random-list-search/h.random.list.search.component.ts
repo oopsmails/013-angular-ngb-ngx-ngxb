@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Car, CarDataService, RandomItem } from 'oops-lib002';
 import { catchError, debounceTime, distinctUntilChanged, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
@@ -17,6 +17,7 @@ interface RandomItemExt extends RandomItem {
 export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   @Input('inputItem') inputItem: any;
   @Output() selectOptionEmitter = new EventEmitter(true);
+  @ViewChild('searchTextInput', { static: false }) searchTextInput: ElementRef;
 
   private COMPONENT_NAME = 'HomeRandomListSearchComponent';
   linkText = SANDBOX_BACK_TO_HOME;
@@ -28,7 +29,7 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   displaying$: Observable<Car[]>;
   searchText: string;
   selectedItem;
-  showItems = false;
+  inEditMode = false;
 
   private displayingLookup$: Subject<string> = new Subject();
 
@@ -78,7 +79,7 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   onKeyupSearch(event) {
     console.log('event in onKeyupSearch -------> ', event);
     this.displayingLookup$.next(event);
-    this.showItems = true;
+    this.inEditMode = true;
   }
 
   descFilterFn = (item: Car, searchText: string) => (boolean) => {
@@ -87,26 +88,35 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
 
   inputOnFocus() {
     console.log('inputOnFocus ....');
-    this.showItems = true;
+    if (this.inputItem && this.inputItem.customKey === '') {
+      this.inEditMode = true;
+    }
     setTimeout(() => {
-      this.displayingLookup$.next('');
+      if (this.inEditMode) {
+        this.displayingLookup$.next('');
+      }
     });
   }
 
   inputOnBlur() {
     console.log('inputOnBlur ....');
-    this.showItems = false;
+    this.inEditMode = false;
+    // this.searchText = this.inputItem.customKey;
   }
 
   onSelectSymbolClick(event: MouseEvent, content, option) {
+    // from this quick search, NOT modal
     console.log('onSelectSymbolClick .... option: ', option);
+    console.log(this.COMPONENT_NAME + 'onSelectSymbolClick, inputItem = ', this.inputItem);
     // console.log('onSelectSymbolClick .... event: ', event);
     this.selectedItem = option;
-    this.showItems = false;
+    this.inEditMode = false;
     if (option && option === '-1') {
       this.openModal(content, this.selectedItem);
     } else {
-      this.searchText = option.description;
+      // this.searchText = option.description;
+      this.inputItem.customKey = 'selected-' + option.model;
+      this.searchText = this.inputItem.customKey; // this is used to show update customKey
       this.selectOptionEmitter.emit(this.selectedItem);
     }
   }
@@ -125,15 +135,19 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   }
 
   receiveSelectItem(item) {
+    // from modal
     console.log(this.COMPONENT_NAME + ', receiveSelectItem, item =', item);
-    this.onSelectSymbolClick(null, null, item);
+    // this.onSelectSymbolClick(null, null, item); // cannot call this because need to distinguish from quick search or modal!!!
+
     if (this.modalService.hasOpenModals()) {
       this.modalService.dismissAll();
     }
-    // setTimeout(() => {
-    //   this.searchText = item.name;
-    //   this.selectOptionEmitter.emit(item);
-    // });
+
+    this.inputItem.customKey = 'selected-random-' + item.id;
+    this.searchText = this.inputItem.customKey; // this is used to show update customKey
+    this.selectedItem = item;
+    this.inEditMode = false;
+    this.selectOptionEmitter.emit(this.selectedItem);
   }
 
   ngOnDestroy() {
