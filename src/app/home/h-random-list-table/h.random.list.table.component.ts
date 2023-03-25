@@ -72,6 +72,7 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
     //   this.editItems[idx].customKey = 'not-selected';
     // }
     if (item && item.name) {
+      // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
       this.editItems[idx].customKey = 'selected-' + item.name;
     } else if (item && item.model) {
       this.editItems[idx].customKey = 'selected-' + item.model;
