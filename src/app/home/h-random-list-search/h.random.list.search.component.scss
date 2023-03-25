@@ -39,7 +39,8 @@
   position: absolute; // don't use fixed, because cannot handle scolling
   // width: 100%;
   background-color: #f0f0f0;
-  height: 100px;
+  height: 120px;
+  max-height: 150px;
   overflow: auto;
   z-index: 100;
 }
