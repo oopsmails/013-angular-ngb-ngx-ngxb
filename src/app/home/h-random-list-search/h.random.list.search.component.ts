@@ -90,6 +90,9 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     console.log('inputOnFocus ....');
     if (this.inputItem && this.inputItem.customKey === '') {
       this.inEditMode = true;
+    } else {
+      // make sure existing customKey showing
+      this.searchText = this.inputItem.customKey;
     }
     setTimeout(() => {
       if (this.inEditMode) {
@@ -143,7 +146,8 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
       this.modalService.dismissAll();
     }
 
-    this.inputItem.customKey = 'selected-random-' + item.id;
+    // this should be the same as onCustomKeySelected() in HomeRandomListTableComponent!!! in face, nned only one!
+    this.inputItem.customKey = 'selected-' + item.name;
     this.searchText = this.inputItem.customKey; // this is used to show update customKey
     this.selectedItem = item;
     this.inEditMode = false;
