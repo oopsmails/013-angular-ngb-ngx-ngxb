@@ -1,20 +1,21 @@
 .statusDropdownContainer {
   // padding-top: 6px;
   padding: 0;
+  width: 100%
 }
 
-.statusFilterDropdown {
-  box-shadow: -2px 2px 4px 0px #888;
-  background-color: #f2f8f9;
-  border: 1px solid #d3d3d3;
-}
+// .statusFilterDropdown {
+//   box-shadow: -2px 2px 4px 0px #888;
+//   background-color: #f2f8f9;
+//   border: 1px solid #d3d3d3;
+// }
 
-.flex-middle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+// .flex-middle {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+// }
 
 //---------------------------------------------------
 .search-modal__no-item {
@@ -33,13 +34,25 @@
 .search-modal__ng-container {
   // padding: 0;
   border: 1px solid rgb(223, 216, 216);
+  // border: none;
+  outline: none;
   position: absolute; // don't use fixed, because cannot handle scolling
   // width: 100%;
   background-color: #f0f0f0;
+  height: 100px;
+  overflow: auto;
   z-index: 100;
 }
 
-.search-modal__to-be-covered {
-  position: relative;
-  // z-index: 99;
+.search-modal__input-select {
+  padding: 0;
+  border: none;
+  height: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+// .search-modal__to-be-covered {
+//   position: relative;
+//   // z-index: 99;
+// }
