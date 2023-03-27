@@ -81,6 +81,10 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
     }
   }
 
+  isNameFieldDisabled(idx) {
+    return idx === 1;
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();
