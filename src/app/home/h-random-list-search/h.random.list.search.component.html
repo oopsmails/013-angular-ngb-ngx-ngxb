@@ -1,5 +1,5 @@
 <div class="statusDropdownContainer">
-  <div *ngIf="true" aria-labelledby="dropdownMenuButton">
+  <div *ngIf="true" aria-labelledby="dropdownMenuButton" style="padding: 0px">
     <!-- <input
       type="text"
       class="form-control"
@@ -22,7 +22,13 @@
       (blur)="inputOnBlur($event)"
     />
     <ng-container *ngIf="displaying$ | async as items">
-      <div *ngIf="inEditMode" class="p-0 search-modal__ng-container">
+      <div
+        *ngIf="inEditMode"
+        [ngClass]="{
+          'p-0 search-modal__ng-container': items.length <= lengthToUseLargerDiv,
+          'p-0 search-modal__ng-container-large': items.length > lengthToUseLargerDiv
+        }"
+      >
         <div *ngIf="inEditMode" class="search-modal__item-list">
           <a
             *ngFor="let option of items; let i = index"

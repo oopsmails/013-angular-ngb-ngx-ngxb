@@ -9,10 +9,17 @@
   </thead>
   <tbody>
     <tr *ngFor="let object of objects">
-      <td>{{ object.id }}</td>
-      <td *ngIf="!editMode || editedObject !== object">{{ object.name }}</td>
+      <td *ngIf="!editMode || editedObject !== object">{{ object.id }}</td>
       <td *ngIf="editMode && editedObject === object">
-        <input type="text" [(ngModel)]="editedObject.name" class="form-control" />
+        <select [(ngModel)]="editedObject.id" class="form-select">
+          <option *ngFor="let id of ids" [value]="id">{{ id }}</option>
+        </select>
+      </td>
+      <td *ngIf="!editMode || editedObject !== object">
+        <input [(ngModel)]="object.name" [disabled]="isNameFieldDisabled()" class="form-control" />
+      </td>
+      <td *ngIf="editMode && editedObject === object">
+        <input [(ngModel)]="editedObject.name" [disabled]="isNameFieldDisabled()" class="form-control" />
       </td>
       <td *ngIf="!editMode || editedObject !== object">{{ object.city }}</td>
       <td *ngIf="editMode && editedObject === object">

@@ -34,6 +34,10 @@ export class HomeMadeEditableComponent {
     this.editedObject = null;
   }
 
+  isNameFieldDisabled(): boolean {
+    return this.editedObject && this.editedObject.id === 2;
+  }
+
   saveObject() {
     this.disableEditMode();
   }

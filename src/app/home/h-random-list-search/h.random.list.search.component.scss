@@ -31,7 +31,8 @@
 //   border: 1px solid black;
 // }
 
-.search-modal__ng-container {
+.search-modal__ng-container,
+.search-modal__ng-container-large {
   // padding: 0;
   border: 1px solid rgb(223, 216, 216);
   // border: none;
@@ -39,13 +40,18 @@
   position: absolute; // don't use fixed, because cannot handle scolling
   // width: 100%;
   background-color: #f0f0f0;
-  height: 100px;
+  height: 120px;
+  // max-height: 150px;
   overflow: auto;
   z-index: 100;
 }
 
+.search-modal__ng-container-large {
+  height: 200px;
+}
+
 .search-modal__input-select {
-  padding: 0;
+  padding: 0 0 0 10px;
   border: none;
   height: 2.5rem;
   width: 100%;

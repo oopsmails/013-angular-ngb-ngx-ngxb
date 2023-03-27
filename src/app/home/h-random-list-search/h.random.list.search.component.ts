@@ -31,6 +31,8 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   selectedItem;
   inEditMode = false;
 
+  lengthToUseLargerDiv = 5;
+
   private displayingLookup$: Subject<string> = new Subject();
 
   constructor(
