@@ -11,6 +11,13 @@
 
 <hr />
 
+<h3>i18n</h3>
+<p>{{ 'greeting' | messageTranslate : { name: 'John', second: second } }}</p>
+<p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
+<p>{{ 'HOME.TITLE' | messageTranslate }}</p>
+
+<hr />
+
 <h3>See Console log ...</h3>
 <p>
   See console log for comparing:
@@ -20,8 +27,6 @@
 <hr />
 
 <h3>Testing Around Pages</h3>
-
-<hr />
 
 <p><a routerLink="/home/test-around">/home/test-around: Test Around</a></p>
 <p><a routerLink="/home/test-modal">/home/test-modal: Test Modal</a></p>
@@ -45,6 +50,7 @@
 <p><a routerLink="/home/selector">/home/selector: Using ContentChild</a></p>
 <p><a routerLink="/home/investlist">/home/investlist: Investiment List</a></p>
 <p><a routerLink="/home/itemlist">/home/itemlist: Random Item List</a></p>
+<p><a routerLink="/home/itemlist2">/home/itemlist2: Random Item List2</a></p>
 <hr />
 
 <hr />

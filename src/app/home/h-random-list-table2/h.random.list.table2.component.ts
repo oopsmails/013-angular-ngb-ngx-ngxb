@@ -1,4 +1,4 @@
-import { ColorEnum } from './../../localshared/models/shared-model';
+import { ColorEnum } from '../../localshared/models/shared-model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService, Car } from 'oops-lib002';
@@ -11,12 +11,12 @@ interface RandomItemExt extends RandomItem {
 }
 
 @Component({
-  selector: 'app-random-list-table',
-  templateUrl: './h.random.list.table.component.01.html',
-  styleUrls: ['./h.random.list.table.component.scss'],
+  selector: 'app-random-list-table2',
+  templateUrl: './h.random.list.table2.component.html',
+  styleUrls: ['./h.random.list.table2.component.scss'],
 })
-export class HomeRandomListTableComponent implements OnInit, OnDestroy {
-  private COMPONENT_NAME = 'HomeRandomListTableComponent';
+export class HomeRandomListTable2Component implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeRandomListTable2Component';
 
   private onDestroy$: Subject<boolean> = new Subject();
 
