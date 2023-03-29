@@ -1,7 +1,13 @@
 {
-    "TEST_DESCRIPTION": "en: test description in en.json, {{ interpolateParams1 }} of {{ interpolateParams2 }}",
-    "HOME": {
-        "TITLE": "Hello Angular with ngx-translate!",
-        "SELECT": "Change language"
-    }
+  "TEST_DESCRIPTION": "en: test description in en.json, {{ interpolateParams1 }} of {{ interpolateParams2 }}",
+  "HOME": {
+    "TITLE": "Hello Angular with ngx-translate!",
+    "SELECT": "Change language"
+  },
+  "greeting": "Hello in en.json, {name}! Test second veriable, {second}",
+  "farewell": "Goodbye in en.json, {name} !",
+  "HOME.RANDOM.LIST.TABLE": {
+    "TH.REMOVE": "Remove"
+  },
+  "TEST1.TEST2.TEST3": "testEn"
 }

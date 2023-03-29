@@ -1,5 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { StateService, UsState } from 'oops-lib002';
 import {
   concatMap,
@@ -42,7 +43,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentDate: Date = new Date();
   myObject = { name: 'John', age: 30, city: 'New York' };
 
-  constructor(private stateService: StateService, private router: Router) {
+  second: string = '[second from component.ts!]';
+
+  constructor(private stateService: StateService, private router: Router, private translate: TranslateService) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {
       from([0, 1, 2, 3, 4])

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
@@ -22,6 +23,7 @@ import { NgxbModule } from './ngxb/ngxb.module';
     ReactiveFormsModule,
     NgxSelectModule,
     HttpClientModule,
+    TranslateModule.forRoot(),
     OopsLib001Module,
     OopsLib002Module,
     SharedModule,

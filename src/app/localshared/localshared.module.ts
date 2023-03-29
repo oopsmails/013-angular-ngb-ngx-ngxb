@@ -13,6 +13,7 @@ import { ProgressBarScrollComponent } from './components/progress-bar-scroll/pro
 import { DragAndDropFileDirective } from './directives/dnd.file.directive';
 import { DraggableDirective } from './directives/draggable.directive';
 import { DroppableDirective } from './directives/droppable.directive';
+import { MessageTranslatePipe } from './pipe/message.translate.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DroppableDirective } from './directives/droppable.directive';
     DragAndDropFileDirective,
     DraggableDirective,
     DroppableDirective,
+    MessageTranslatePipe,
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { DroppableDirective } from './directives/droppable.directive';
     DragAndDropFileDirective,
     DraggableDirective,
     DroppableDirective,
+    MessageTranslatePipe,
   ],
 })
 export class LocalsharedModule {}

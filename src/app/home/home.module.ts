@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,6 +38,13 @@ import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.r
 import { HomeFlex2Component } from './h-layout/h-flex2/h.flex2.component';
 import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
 import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
+import { HomeRandomListTable2Component } from './h-random-list-table2/h.random.list.table2.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -63,6 +70,7 @@ const routes: Routes = [
   { path: 'home/selector', component: HomeSelectorComponent },
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
+  { path: 'home/itemlist2', component: HomeRandomListTable2Component },
 ];
 
 @NgModule({
@@ -95,6 +103,7 @@ const routes: Routes = [
     Client2Component,
     HomeInvestmentListComponent,
     HomeRandomListTableComponent,
+    HomeRandomListTable2Component,
     HomeRandomListSearchComponent,
     HomeRandomListSearchAdvComponent,
   ],
@@ -104,6 +113,13 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     NgxSelectModule,
     OopsLib001Module,
     OopsLib002Module,
