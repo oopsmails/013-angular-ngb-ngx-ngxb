@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
-// import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { TestAroundComponent } from './pages/test-around/test.around.component';
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
@@ -36,6 +35,9 @@ import { HomeInvestmentListComponent } from './pages/investment-list/h.investmen
 import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
 import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
 import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
+import { HomeFlex2Component } from './h-layout/h-flex2/h.flex2.component';
+import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
+import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -54,7 +56,10 @@ const routes: Routes = [
   { path: 'home/scroll-load3', component: HomeScrollLoad3Component },
   { path: 'home/progress-bar-scroll', component: HomeProgressBarScrollComponent },
   { path: 'home/grid', component: HomeGridComponent },
+  { path: 'home/grid2', component: HomeGrid2Component },
+  { path: 'home/grid3', component: HomeGrid3Component },
   { path: 'home/flex', component: HomeFlexComponent },
+  { path: 'home/flex2', component: HomeFlex2Component },
   { path: 'home/selector', component: HomeSelectorComponent },
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
@@ -81,7 +86,10 @@ const routes: Routes = [
     HomeOptionsComponent,
     HomeProgressBarScrollComponent,
     HomeGridComponent,
+    HomeGrid2Component,
+    HomeGrid3Component,
     HomeFlexComponent,
+    HomeFlex2Component,
     HomeSelectorComponent,
     Client1Component,
     Client2Component,
