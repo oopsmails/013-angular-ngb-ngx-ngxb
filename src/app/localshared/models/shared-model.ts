@@ -1,6 +1,14 @@
 export enum DirectionEnum {
-  Up = 'UP',
-  Down = 'DOWN',
-  Left = 'LEFT',
-  Right = 'RIGHT',
+  UP = 'Up',
+  DOWN = 'Down',
+  LEFT = 'Left',
+  RIGHT = 'Right',
+}
+
+export enum ColorEnum {
+  // Select = '',
+  RED = 'Red',
+  YELLOW = 'Yellow',
+  BLUE = 'Blue',
+  GREEN = 'Green',
 }

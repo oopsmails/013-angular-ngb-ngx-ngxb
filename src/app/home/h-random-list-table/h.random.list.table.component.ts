@@ -1,3 +1,4 @@
+import { ColorEnum } from './../../localshared/models/shared-model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService, Car } from 'oops-lib002';
@@ -27,6 +28,8 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
 
   directions: string[] = Object.values(DirectionEnum).map((value) => String(value));
   directionEnum = DirectionEnum;
+  colorSelected: string;
+  colors = Object.values(ColorEnum);
 
   constructor(
     private sharedDataService: SharedDataService,
@@ -36,6 +39,8 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log(this.COMPONENT_NAME + ', ngOnInit');
+    // this.colorSelected = null; // or undefined
+    this.colorSelected = '';
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
     this.addNewRow();
   }
@@ -50,6 +55,11 @@ export class HomeRandomListTableComponent implements OnInit, OnDestroy {
 
   onEditableRowClick(item) {
     console.log(this.COMPONENT_NAME + ', onEditableRowClick, item = ', item);
+  }
+
+  onSelectColor(event) {
+    console.log(this.COMPONENT_NAME + ', onSelectColor, event = ', event);
+    this.colorSelected = event;
   }
 
   addNewRow() {
