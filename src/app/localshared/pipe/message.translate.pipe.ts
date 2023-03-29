@@ -5,12 +5,26 @@ import fr from '../../../assets/i18n/fr.json';
 
 @Pipe({ name: 'messageTranslate', pure: false })
 export class MessageTranslatePipe implements PipeTransform {
-  constructor(private translate: TranslateService) {}
+  private data = { en, fr };
+  private currentLang = 'fr';
+
+  enFlattened = new Object();
+  frFlattened = new Object();
+
+  constructor(private translate: TranslateService) {
+    this.flatten('', this.data['en'], this.enFlattened);
+    this.flatten('', this.data['fr'], this.frFlattened);
+  }
 
   transform(key: string, args?: any): string {
-    const en = this.flatten(this.translate.getTranslation('en'));
-    const fr = this.flatten(this.translate.getTranslation('fr'));
-    const value = this.translate.currentLang === 'en' ? en[key] : fr[key];
+    // const en = this.flatten('', this.translate.getTranslation('en'), {});
+    // const fr = this.flatten('', this.translate.getTranslation('fr'), {});
+
+    // const en = this.flatten('', this.data['en'], this.enFlattened);
+    // const fr = this.flatten('', this.data['fr'], this.frFlattened);
+
+    // const value = this.translate.currentLang === 'en' ? en[key] : fr[key];
+    const value = (this.translate.currentLang === 'en' ? this.enFlattened[key] : this.frFlattened[key]) || key;
     return this.interpolate(value, args);
   }
 
@@ -24,15 +38,21 @@ export class MessageTranslatePipe implements PipeTransform {
     });
   }
 
-  flatten(obj: any, prefix = ''): any {
-    return Object.keys(obj).reduce((acc, k) => {
-      const pre = prefix.length ? prefix + '.' : '';
-      if (typeof obj[k] === 'object') {
-        Object.assign(acc, this.flatten(obj[k], pre + k));
-      } else {
-        acc[pre + k] = obj[k];
+  flatten(prefix: string, obj: any, target: any) {
+    if (!obj) {
+      return;
+    }
+    Object.getOwnPropertyNames(obj).forEach((f) => {
+      const value = obj[f];
+      if (value) {
+        const newPrefix = prefix ? prefix + '.' + f : f;
+        if (typeof value === 'string' || value instanceof String) {
+          target[newPrefix] = value;
+        } else {
+          this.flatten(newPrefix, value, target);
+        }
       }
-      return acc;
-    }, {});
+      return;
+    });
   }
 }

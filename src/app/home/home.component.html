@@ -11,6 +11,13 @@
 
 <hr />
 
+<h3>i18n</h3>
+<p>{{ 'greeting' | messageTranslate : { name: 'John', second: second } }}</p>
+<p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
+<p>{{ 'HOME.TITLE' | messageTranslate }}</p>
+
+<hr />
+
 <h3>See Console log ...</h3>
 <p>
   See console log for comparing:
@@ -20,11 +27,6 @@
 <hr />
 
 <h3>Testing Around Pages</h3>
-
-<p>{{ 'greeting' | messageTranslate : { name: 'John', second: second } }}</p>
-<p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
-
-<hr />
 
 <p><a routerLink="/home/test-around">/home/test-around: Test Around</a></p>
 <p><a routerLink="/home/test-modal">/home/test-modal: Test Modal</a></p>
