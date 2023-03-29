@@ -1,0 +1,17 @@
+.home-grid3__gallery {
+  display: grid;
+  // grid-template-columns: 300px 300px 300px;
+  // grid-template-columns: repeat(3, 300px);
+
+  // auto-fill vs, auto-fit? same, but auto-fill will always generate next in advance as soon as having enough space
+  // grid-template-columns: repeat(auto-fill, 300px);
+
+  // grid-template-columns: repeat(auto-fit, 300px); // auto-fit should be used ALWAYS.
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.home-grid3__gallery img {
+  width: 100%;
+}
