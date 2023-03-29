@@ -3,8 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import en from '../../../assets/i18n/en.json';
 import fr from '../../../assets/i18n/fr.json';
 
-@Pipe({ name: 'messageTranslate', pure: false })
-export class MessageTranslatePipe implements PipeTransform {
+@Pipe({ name: 'messageTranslate00', pure: false })
+export class MessageTranslatePipe00 implements PipeTransform {
   private data = { en, fr };
   private currentLang = 'fr';
 
