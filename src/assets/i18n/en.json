@@ -9,5 +9,14 @@
   "HOME.RANDOM.LIST.TABLE": {
     "TH.REMOVE": "Remove"
   },
-  "TEST1.TEST2.TEST3": "testEn"
+  "TEST1.TEST2.TEST3": "testEn",
+  "COLOR": {
+    "colors": {
+      "RED": "Red",
+      "YELLOW": "Yellow",
+      "BLUE": "Blue",
+      "GREEN": "Green"
+    },
+    "SELECT_COLOR": "Select a color"
+  }
 }

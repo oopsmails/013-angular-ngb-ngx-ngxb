@@ -16,6 +16,17 @@ Color EUNM:
 </select>
 
 <hr />
+
+Color EUNM from i18n json:
+
+<select [(ngModel)]="selectedColor" id="#selectedColor" class="w-50 form-control" style="padding-left: 12px">
+  <option [value]="null">{{ 'COLOR.SELECT_COLOR' | messageTranslate }}</option>
+  <option *ngFor="let color of colors" [value]="color">{{ getColorTranslation(color) }}</option>
+</select>
+
+colorSelected: {{ selectedColor | json }}
+
+<hr />
 <h3>Editable Items:</h3>
 <p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
 
@@ -77,7 +88,9 @@ Color EUNM:
             (selectOptionEmitter)="onCustomKeySelected($event, i)"
           ></app-ramdom-list-search>
         </td>
-        <td class="td-spec">X</td>
+        <td class="td-spec" style="text-align: center">
+          <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
+        </td>
       </tr>
     </tbody>
   </table>
