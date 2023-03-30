@@ -5,6 +5,8 @@ import { RandomItem, SharedDataService, Car } from 'oops-lib002';
 import { Observable, Subject } from 'rxjs';
 import { DirectionEnum } from 'src/app/localshared/models/shared-model';
 import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
+import { TranslateService } from '@ngx-translate/core';
+import { I18nService } from 'src/app/localshared/services/i18n.service';
 
 interface RandomItemExt extends RandomItem {
   type?: string;
@@ -31,23 +33,36 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
   colorSelected: string;
   colors = Object.values(ColorEnum);
 
+  public selectedColor: ColorEnum | null = null;
+  private colorTranslations: Map<ColorEnum, string> = new Map();
+
   constructor(
     private sharedDataService: SharedDataService,
-    private modalService: NgbModal,
-    private oopsPaginationService: OopsPaginationService<RandomItem>
+    private translate: TranslateService,
+    private i18nService: I18nService
   ) {}
 
   ngOnInit() {
-    // console.log(this.COMPONENT_NAME + ', ngOnInit');
-    // console.log(this.COMPONENT_NAME + ', to get value of a specific ENUM, ColorEnum.RED = ', ColorEnum.RED);
-
     const colorValue: string = 'Red';
-    // const colorEnum: ColorEnum = this.getEnumKeyFromValue(ColorEnum, colorValue);
     const colorEnum: ColorEnum = ColorEnum[colorValue];
-    // console.log(this.COMPONENT_NAME + ', to get ENUM from a string, Red, colorEnum = ', colorEnum);
 
-    // this.colorSelected = null; // or undefined
     this.colorSelected = '';
+
+    this.translate.setDefaultLang('fr');
+    this.translate.use('fr');
+    this.translate.currentLang = 'fr'; // this is used in I18nService
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, test translateService-1: ',
+      this.i18nService.getJsonValueI18n('COLOR.colors.RED')
+    );
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, test translateService-2: ',
+      this.i18nService.getJsonValueI18n('TEST_DESCRIPTION')
+    );
+    this.initializeColorTranslations();
+
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
     this.addNewRow();
   }
@@ -86,13 +101,7 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
 
   onCustomKeySelected(item, idx) {
     console.log(this.COMPONENT_NAME + ', onCustomKeySelected, item = ', item);
-    // if (item instanceof Car) {
-    //   this.editItems[idx].customKey = 'selected-' + item.id;
-    // } else if (item instanceof RandomItem) {
-    //   this.editItems[idx].customKey = 'selected-' + item.name;
-    // } else {
-    //   this.editItems[idx].customKey = 'not-selected';
-    // }
+
     if (item && item.name) {
       // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
       this.editItems[idx].customKey = 'selected-' + item.name;
@@ -126,6 +135,17 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       const secondPart = this.editItems.slice(idx + 1);
       this.editItems = firstPart.concat(secondPart);
     }
+  }
+
+  private initializeColorTranslations(): void {
+    this.colorTranslations.set(ColorEnum.RED, this.i18nService.getJsonValueI18n('COLOR.colors.RED'));
+    this.colorTranslations.set(ColorEnum.YELLOW, this.i18nService.getJsonValueI18n('COLOR.colors.YELLOW'));
+    this.colorTranslations.set(ColorEnum.BLUE, this.i18nService.getJsonValueI18n('COLOR.colors.BLUE'));
+    this.colorTranslations.set(ColorEnum.GREEN, this.i18nService.getJsonValueI18n('COLOR.colors.GREEN'));
+  }
+
+  public getColorTranslation(color: ColorEnum): string {
+    return this.colorTranslations.get(color);
   }
 
   ngOnDestroy() {
