@@ -38,13 +38,13 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log(this.COMPONENT_NAME + ', ngOnInit');
-    console.log(this.COMPONENT_NAME + ', to get value of a specific ENUM, ColorEnum.RED = ', ColorEnum.RED);
+    // console.log(this.COMPONENT_NAME + ', ngOnInit');
+    // console.log(this.COMPONENT_NAME + ', to get value of a specific ENUM, ColorEnum.RED = ', ColorEnum.RED);
 
     const colorValue: string = 'Red';
     // const colorEnum: ColorEnum = this.getEnumKeyFromValue(ColorEnum, colorValue);
     const colorEnum: ColorEnum = ColorEnum[colorValue];
-    console.log(this.COMPONENT_NAME + ', to get ENUM from a string, Red, colorEnum = ', colorEnum);
+    // console.log(this.COMPONENT_NAME + ', to get ENUM from a string, Red, colorEnum = ', colorEnum);
 
     // this.colorSelected = null; // or undefined
     this.colorSelected = '';
@@ -113,7 +113,7 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       if (this.editItems.length === 1) {
         this.editItems = [];
       } else {
-        this.editItems = this.editItems.slice(1, idx);
+        this.editItems = this.editItems.slice(1, this.editItems.length);
       }
     } else if (idx === this.editItems.length - 1) {
       if (this.editItems.length === 1) {
