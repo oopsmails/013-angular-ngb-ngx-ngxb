@@ -4,43 +4,44 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
-import { HomeComponent } from './home.component';
-import { TestAroundComponent } from './pages/test-around/test.around.component';
-import { TestModalComponent } from './pages/test-modal/test-modal.component';
-import { ParentComponent } from './pages/parent/parent.component';
-import { ChildComponent } from './pages/child/child.component';
-import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
-import { HomeSelectModalComponent } from './h-select-modal/h.select.modal.component';
-import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { LocalsharedModule } from '../localshared/localshared.module';
-import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
-import { HomeTable2Component } from './h-table2/h.table2.component';
-import { HomeTable1Component } from './h-table1/h.table1.component';
-import { HomeTable3Component } from './h-table3/h.table3.component';
-import { TestAroundChildComponent } from './pages/test-around/test.around.child.component';
+import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
+import { HomeFlex2Component } from './h-layout/h-flex2/h.flex2.component';
+import { HomeGridComponent } from './h-layout/h-grid/h.grid.component';
+import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
+import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
+import { HomeOptionsComponent } from './h-options/home.options.component';
+import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
+import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
+import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
+import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
+import { HomeRandomListTable2Component } from './h-random-list-table2/h.random.list.table2.component';
 import { HomeScrollLoadComponent } from './h-scroll-load/h.scroll.load.component';
 import { HomeScrollLoad2Component } from './h-scroll-load2/h.scroll.load2.component';
 import { HomeScrollLoad3Component } from './h-scroll-load3/h.scroll.load3.component';
-import { HomeOptionsComponent } from './h-options/home.options.component';
-import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
-import { HomeGridComponent } from './h-layout/h-grid/h.grid.component';
-import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
-import { HomeSelectorComponent } from './h-selector/home.selector.component';
+import { HomeSelectModalComponent } from './h-select-modal/h.select.modal.component';
 import { Client1Component } from './h-selector/h-selector-child1/client-1.component';
 import { Client2Component } from './h-selector/h-selector-child2/client-2.component';
+import { HomeSelectorComponent } from './h-selector/home.selector.component';
+import { HomeTable1Component } from './h-table1/h.table1.component';
+import { HomeTable2Component } from './h-table2/h.table2.component';
+import { HomeTable3Component } from './h-table3/h.table3.component';
+import { HomeTooltipComponent } from './h-tooltip/home.tooltip.component';
+import { HomeComponent } from './home.component';
+import { ChildComponent } from './pages/child/child.component';
+import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
 import { HomeInvestmentListComponent } from './pages/investment-list/h.investment.list.component';
-import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
-import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
-import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
-import { HomeFlex2Component } from './h-layout/h-flex2/h.flex2.component';
-import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
-import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
-import { HomeRandomListTable2Component } from './h-random-list-table2/h.random.list.table2.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ParentComponent } from './pages/parent/parent.component';
+import { TestAroundChildComponent } from './pages/test-around/test.around.child.component';
+import { TestAroundComponent } from './pages/test-around/test.around.component';
+import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
+import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
+import { TestModalComponent } from './pages/test-modal/test-modal.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
   { path: 'home/itemlist2', component: HomeRandomListTable2Component },
+  { path: 'home/tooltip', component: HomeTooltipComponent },
 ];
 
 @NgModule({
@@ -106,6 +108,7 @@ const routes: Routes = [
     HomeRandomListTable2Component,
     HomeRandomListSearchComponent,
     HomeRandomListSearchAdvComponent,
+    HomeTooltipComponent,
   ],
   imports: [
     CommonModule,
