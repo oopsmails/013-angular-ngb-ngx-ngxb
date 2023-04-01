@@ -12,6 +12,10 @@ export class HomeTooltip2Component implements OnInit, OnDestroy {
 
   isVisible = false;
 
+  iconTop3 = '100%';
+  iconLeft3 = '300%';
+  iconBgColor3 = 'lightgreen';
+
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {}
 
