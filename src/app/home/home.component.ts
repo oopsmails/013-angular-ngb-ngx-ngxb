@@ -45,6 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   second: string = '[second from component.ts!]';
 
+  isVisible = false;
+
   constructor(private stateService: StateService, private router: Router, private translate: TranslateService) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {

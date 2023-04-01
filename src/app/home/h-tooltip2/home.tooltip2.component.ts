@@ -3,11 +3,11 @@ import { CarDataService } from 'oops-lib002';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-tooltip',
-  templateUrl: './home.tooltip.component.html',
-  styleUrls: ['./home.tooltip.component.scss'],
+  selector: 'app-tooltip2',
+  templateUrl: './home.tooltip2.component.html',
+  styleUrls: ['./home.tooltip2.component.scss'],
 })
-export class HomeTooltipComponent implements OnInit, OnDestroy {
+export class HomeTooltip2Component implements OnInit, OnDestroy {
   @Input() content: string;
   @Input() isVisible = false;
 

@@ -32,6 +32,7 @@ import { HomeTable1Component } from './h-table1/h.table1.component';
 import { HomeTable2Component } from './h-table2/h.table2.component';
 import { HomeTable3Component } from './h-table3/h.table3.component';
 import { HomeTooltipComponent } from './h-tooltip/home.tooltip.component';
+import { HomeTooltip2Component } from './h-tooltip2/home.tooltip2.component';
 import { HomeComponent } from './home.component';
 import { ChildComponent } from './pages/child/child.component';
 import { GetNgxSelectComponent } from './pages/get-ngx-select/get-ngx-select.component';
@@ -72,7 +73,7 @@ const routes: Routes = [
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
   { path: 'home/itemlist2', component: HomeRandomListTable2Component },
-  { path: 'home/tooltip', component: HomeTooltipComponent },
+  { path: 'home/tooltip2', component: HomeTooltip2Component },
 ];
 
 @NgModule({
@@ -109,6 +110,7 @@ const routes: Routes = [
     HomeRandomListSearchComponent,
     HomeRandomListSearchAdvComponent,
     HomeTooltipComponent,
+    HomeTooltip2Component,
   ],
   imports: [
     CommonModule,
