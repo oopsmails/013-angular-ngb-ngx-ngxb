@@ -8,10 +8,9 @@ import { Subject } from 'rxjs';
   styleUrls: ['./home.tooltip2.component.scss'],
 })
 export class HomeTooltip2Component implements OnInit, OnDestroy {
-  @Input() content: string;
-  @Input() isVisible = false;
-
   private onDestroy$: Subject<boolean> = new Subject();
+
+  isVisible = false;
 
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {}

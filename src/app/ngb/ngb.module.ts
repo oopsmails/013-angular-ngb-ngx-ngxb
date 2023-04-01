@@ -2,7 +2,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbAlertModule, NgbModule, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAlertModule,
+  NgbModule,
+  NgbPaginationModule,
+  NgbTooltipModule,
+  NgbTypeaheadModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgbCarouselCycleComponent } from './ngb-carousel-cycle/ngb.carousel.cycle.component';
@@ -19,6 +25,7 @@ import { NgbTableComponent } from './ngb-table/ngb-table.component';
 import { NgbdSortableHeader } from '../localshared/services/sortable.directive';
 import { NgbTabComponent } from './ngb-tab/ngb-tab.component';
 import { NgbTab2Component } from './ngb-tab2/ngb-tab2.component';
+import { NgbTooltipComponent } from './ngb-tooltip/ngb.tooltip.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +40,7 @@ import { NgbTab2Component } from './ngb-tab2/ngb-tab2.component';
     NgbdSortableHeader,
     NgbTabComponent,
     NgbTab2Component,
+    // NgbTooltipComponent, // because of standalone
   ],
   imports: [
     CommonModule,
@@ -43,6 +51,7 @@ import { NgbTab2Component } from './ngb-tab2/ngb-tab2.component';
     NgbTypeaheadModule,
     NgbPaginationModule,
     NgbAlertModule,
+    NgbTooltipModule,
     NgbModule,
     TypeaheadModule.forRoot(),
     TranslateModule.forRoot(),

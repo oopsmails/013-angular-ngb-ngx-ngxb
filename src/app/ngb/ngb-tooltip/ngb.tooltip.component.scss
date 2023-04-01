@@ -1,0 +1,106 @@
+.question-icon1 {
+    display: inline-block;
+    position: relative;
+}
+
+.question-icon1:hover:after {
+    content: attr(title);
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+// --------------------------------------
+
+.question-icon2 {
+    display: inline-block;
+    position: relative;
+}
+
+.question-icon2:hover:after {
+    content: attr(title);
+    display: block;
+    position: absolute;
+    top: var(--icon-top, 100%);
+    left: var(--icon-left, 50%);
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: var(--backgroundColor, lightyellow);
+    color: black;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+// --------------------------------------
+
+.question-icon3 {
+    display: inline-block;
+    position: relative;
+}
+
+.question-icon3:hover:after {
+    content: attr(tooltip-text);
+    display: block;
+    position: absolute;
+    top: var(--icon-top, 100%);
+    left: var(--icon-left, 50%);
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: var(--backgroundColor, lightgreen);
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+// -----------------------------
+
+.ngb-tooltip__div-container {
+    position: relative;
+}
+
+// .ngb-tooltip__div-test4:before {
+//     content: attr(tooltip-text);
+//     position: absolute;
+//     background-color: #000;
+//     color: #fff;
+//     padding: 5px;
+//     display: none;
+// }
+
+// document.querySelector('.ngb-tooltip__div-test4').classList.add('debugging')
+// debugging in Chrome, select the element to be inspect, right click in Source panel, Force State, e.g, hover
+
+.ngb-tooltip__div-test4 {
+    position: relative;
+    width: 50%;
+}
+
+.ngb-tooltip__div-test4:before {
+    content: attr(tooltip-text);
+    position: absolute;
+    top: var(--icon-top, 100%);
+    left: var(--icon-left, 100%);
+    transform: translateX(var(-50%));
+    padding: 5px;
+    background-color: var(--backgroundColor, lightblue);
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    white-space: nowrap;
+    display: none;
+}
+
+.ngb-tooltip__div-test4:hover:before {
+    display: block;
+    // display: inline-block;
+}

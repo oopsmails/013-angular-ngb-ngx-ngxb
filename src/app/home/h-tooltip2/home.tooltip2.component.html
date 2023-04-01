@@ -1,8 +1,18 @@
-<h3>Hello, Test Tooltip!</h3>
+<h2>Hello, Test Tooltip!</h2>
+
+<h3>More examples, see src\app\ngb\ngb-tooltip\ngb.tooltip.component.html</h3>
+
+<p>Using generic component ....</p>
+
+<div (mouseenter)="isVisible = true" (mouseleave)="isVisible = false">Hover over me to see a tooltip!</div>
+<app-tooltip [content]="'This is a tooltip!'" [isVisible]="isVisible"> </app-tooltip>
 
 <hr />
 
-<p>Cannot change attr(title), attribut name to "title-test", because that is not a valid attribute.</p>
+<p>
+  Cannot change attr(title), attribut name to "title-test", because that is not a valid attribute. This could be due to
+  using ::before, need to try out with ::after!
+</p>
 
 <p>About CSS Attribute Selector</p>
 

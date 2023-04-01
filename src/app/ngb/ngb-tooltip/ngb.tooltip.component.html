@@ -1,0 +1,65 @@
+<h2>ngb/ngb-tooltip</h2>
+<hr />
+
+<p>
+  Tooltips can contain any arbitrary HTML, Angular bindings and even directives! Simply enclose desired content in a
+  <code>&lt;ng-template&gt;</code> element.
+</p>
+
+<ng-template #tipContent
+  >Hello, <b>{{ name }}</b
+  >!</ng-template
+>
+<button type="button" class="btn btn-outline-secondary" [ngbTooltip]="tipContent">
+  I've got markup and bindings in my tooltip!
+</button>
+
+<hr />
+<h3>Test 1</h3>
+
+<i class="question-icon1" title="Tooltip message">
+  <img src="assets/icons/bs-icons/question-circle.svg" alt="Question mark icon" />
+</i>
+
+<hr />
+<h3>Test 2: title is ALSO showing</h3>
+
+<i
+  class="question-icon2"
+  title="Tooltip message test2"
+  [style.--icon-top]="iconTop2"
+  [style.--icon-left]="iconLeft2"
+  [style.backgroundColor]="iconBgColor2"
+>
+  <img src="assets/icons/bs-icons/question-circle.svg" alt="Question mark icon" />
+</i>
+
+<hr />
+<h3>Test 3: custom attribute name, so that title will not take effect ....</h3>
+
+<i
+  class="question-icon3"
+  tooltip-text="Tooltip message test3"
+  [style.--icon-top]="iconTop3"
+  [style.--icon-left]="iconLeft3"
+  [style.backgroundColor]="iconBgColor3"
+>
+  <img src="assets/icons/bs-icons/question-circle.svg" alt="Question mark icon" />
+</i>
+
+<hr />
+<h3>Test 4</h3>
+
+<div class="ngb-tooltip__div-container">
+  <div
+    class="ngb-tooltip__div-test4"
+    tooltip-text="This is the tooltip text, test4"
+    [style.--icon-top]="iconTop4"
+    [style.--icon-left]="iconLeft4"
+    [style.backgroundColor]="iconBgColor4"
+  >
+    Hover over me to see the tooltip
+  </div>
+</div>
+
+<hr />
