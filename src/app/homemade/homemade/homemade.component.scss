@@ -173,3 +173,25 @@
 
     border-right: 10px solid blue;
 }
+
+//--------------------------------
+
+.circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+
+}
+
+.circle img {
+    // width: 20px;
+    // height: 20px;
+    // filter: invert(100%);
+    // color: white;
+    inset: 0;
+    margin: auto;
+}
