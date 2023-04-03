@@ -35,8 +35,8 @@
     "menu": false,
     "submenu": [
       {
-        "childtext": "Json: Search City Filter",
-        "link": "sandbox/search-city"
+        "childtext": "Go To 1: Test CSS",
+        "link": "goto/1"
       },
       {
         "childtext": "Search Plant Filter",

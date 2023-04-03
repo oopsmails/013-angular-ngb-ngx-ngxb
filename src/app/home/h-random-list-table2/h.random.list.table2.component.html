@@ -40,7 +40,7 @@ colorSelected: {{ selectedColor | json }}
         <th *ngIf="colorSelected !== 'Yellow'">Desc</th>
         <th>Custom Key</th>
         <th nowrap tabindex="0">
-          {{ 'TEST1.TEST2.TEST3' | messageTranslate }}
+          {{ 'HOME.RANDOM.LIST.TABLE.TH.REMOVE' | messageTranslate }}
         </th>
       </tr>
     </thead>
@@ -90,6 +90,10 @@ colorSelected: {{ selectedColor | json }}
         </td>
         <td class="td-spec" style="text-align: center">
           <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
+
+          <div class="h-random-list-table2__remove-img" style="padding: 0">
+            <img src="assets/images/delete_icon_white.svg" alt="delete" />
+          </div>
         </td>
       </tr>
     </tbody>

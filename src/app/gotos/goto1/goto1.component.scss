@@ -1,0 +1,66 @@
+// css border vs outline
+
+// margin-inline: auto
+
+.img-wrapper {
+    width: 20px;
+    height: 20px;
+}
+
+.img-wrapper img {
+    inset: 0;
+    margin: auto
+}
+
+
+.even-columns-flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.even-columns-flex>* {
+    flex: 1;
+}
+
+.even-columns-flex> :nth-child(2) {
+    background: lightblue;
+    padding: 2rem; // this actually also affecting the first child!! sibiling ...
+}
+
+.even-columns-grid {
+    display: grid; // if using grid, padding on one child is fine, i.e, will not affecting others.
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+
+// -----------------
+
+/**
+https://www.youtube.com/watch?v=JnTPd9G6hoY
+
+15:33 of 28:57
+
+Three levels of selectors
+
+element selector: body, p, h1 ..., low seecificity on them
+class selector: .even-columns-grid
+id selector: #id-example
+
+descendant selector: 
+
+.img-wrapper img {
+    inset: 0;
+    margin: auto
+}
+
+font, size, etc., are called typography ...
+
+*/
+
+button,
+input,
+textarea,
+select {
+    font: inherit; // 
+}
