@@ -11,6 +11,11 @@
 
 <hr />
 
+<div (mouseenter)="isVisible = true" (mouseleave)="isVisible = false">Hover over me to see a tooltip!</div>
+<app-tooltip [content]="'This is a tooltip!'" [isVisible]="isVisible"> </app-tooltip>
+
+<hr />
+
 <div class="h__img-wrap">
   <img src="assets/images/ic-file.svg" alt="test" />
 </div>
@@ -55,6 +60,7 @@
 <p><a routerLink="/home/investlist">/home/investlist: Investiment List</a></p>
 <p><a routerLink="/home/itemlist">/home/itemlist: Random Item List</a></p>
 <p><a routerLink="/home/itemlist2">/home/itemlist2: Random Item List2</a></p>
+<p><a routerLink="/home/tooltip2">/home/tooltip2: Test Around Tooltip</a></p>
 <hr />
 
 <hr />
