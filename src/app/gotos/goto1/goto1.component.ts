@@ -28,6 +28,8 @@ export class GoTo1Component implements OnInit {
   routerLinkInput = HOME_HOME_LINK;
   linkText = HOME_BACK_TO_HOME;
 
+  code1: string = '.even-columns-flex > * { flex: 100%; } ';
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -39,8 +39,8 @@
         "link": "goto/1"
       },
       {
-        "childtext": "Search Plant Filter",
-        "link": "sandbox/search-plant"
+        "childtext": "Go To 2: Test CSS",
+        "link": "goto/2"
       },
       {
         "childtext": "US States",
