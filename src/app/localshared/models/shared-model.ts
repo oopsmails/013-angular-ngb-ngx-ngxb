@@ -15,6 +15,6 @@ export enum ColorEnum {
 
 export interface TestObject {
   rank?: string;
-  enName: string;
-  frName: string;
+  enName?: string;
+  frName?: string;
 }

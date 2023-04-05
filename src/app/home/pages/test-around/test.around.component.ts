@@ -23,6 +23,10 @@ export class TestAroundComponent implements OnInit, OnDestroy {
     { enName: 'Alice', frName: 'Alice' },
     { enName: 'Robert', frName: 'Robert', rank: 'B' },
     { enName: 'Julie', frName: 'Julie' },
+    { enName: 'a' },
+    { enName: 'b' },
+    { frName: 'a' },
+    { frName: 'b' },
   ];
 
   insts$: Observable<Institution[]>;
@@ -89,6 +93,84 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   }
 
   compareFn(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      const rankCompare = a.rank.localeCompare(b.rank);
+      if (rankCompare !== 0) {
+        return rankCompare;
+      }
+    } else if (a.rank) {
+      return -1;
+    } else if (b.rank) {
+      return 1;
+    }
+
+    const aEnName = a.enName || '';
+    const bEnName = b.enName || '';
+    const enNameCompare = aEnName.localeCompare(bEnName);
+    if (enNameCompare !== 0) {
+      return enNameCompare;
+    }
+
+    const aFrName = a.frName || '';
+    const bFrName = b.frName || '';
+    return aFrName.localeCompare(bFrName);
+  }
+
+  compareFn2(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      if (a.rank < b.rank) {
+        return -1;
+      } else if (a.rank > b.rank) {
+        return 1;
+      } else {
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    } else if (a.rank && !b.rank) {
+      return -1;
+    } else if (!a.rank && b.rank) {
+      return 1;
+    } else {
+      // Both objects don't have a rank property
+      if (!a.enName && !a.frName) {
+        return 1; // a is empty, so b should come first
+      } else if (!b.enName && !b.frName) {
+        return -1; // b is empty, so a should come first
+      } else if (!a.enName && b.enName) {
+        return 1; // a is empty, so b should come first
+      } else if (!b.enName && a.enName) {
+        return -1; // b is empty, so a should come first
+      } else {
+        // Both objects have non-empty enName and/or frName properties
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    }
+  }
+
+  compareFn1(a: TestObject, b: TestObject): number {
     if (a.rank && b.rank) {
       if (a.rank < b.rank) {
         return -1;
