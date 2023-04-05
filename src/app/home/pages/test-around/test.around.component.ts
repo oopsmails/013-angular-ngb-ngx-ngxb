@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular
 import { CarDataService } from 'oops-lib002';
 import { map, Observable, of, Subject } from 'rxjs';
 import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
+import { TestObject } from 'src/app/localshared/models/shared-model';
 import { Institution } from 'src/app/models/inst';
 
 @Component({
@@ -13,6 +14,16 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   private COMPONENT_NAME = 'TestAroundComponent';
 
   private onDestroy$: Subject<boolean> = new Subject();
+
+  myArray: TestObject[] = [
+    { enName: 'John', frName: 'Jean', rank: 'A' },
+    { enName: 'Peter', frName: 'Pierre', rank: 'C' },
+    { enName: 'Sarah', frName: 'Sara', rank: 'B' },
+    { enName: 'David', frName: 'David', rank: 'A' },
+    { enName: 'Alice', frName: 'Alice' },
+    { enName: 'Robert', frName: 'Robert', rank: 'B' },
+    { enName: 'Julie', frName: 'Julie' },
+  ];
 
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
@@ -53,6 +64,8 @@ export class TestAroundComponent implements OnInit, OnDestroy {
     );
 
     // this.element = this.elementRef.nativeElement.querySelector('.scrolling-div');
+
+    this.sortArray();
   }
 
   onSelectOptionChange(option) {
@@ -73,6 +86,40 @@ export class TestAroundComponent implements OnInit, OnDestroy {
       this.progressBarVisible = false;
       this.progressBarWidth = 0;
     }
+  }
+
+  compareFn(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      if (a.rank < b.rank) {
+        return -1;
+      } else if (a.rank > b.rank) {
+        return 1;
+      } else {
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    } else if (a.rank && !b.rank) {
+      return -1;
+    } else if (!a.rank && b.rank) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortArray() {
+    this.myArray.sort(this.compareFn);
   }
 
   ngOnDestroy() {

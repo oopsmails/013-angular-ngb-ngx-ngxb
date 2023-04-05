@@ -12,3 +12,9 @@ export enum ColorEnum {
   BLUE = 'Blue',
   GREEN = 'Green',
 }
+
+export interface TestObject {
+  rank?: string;
+  enName: string;
+  frName: string;
+}
