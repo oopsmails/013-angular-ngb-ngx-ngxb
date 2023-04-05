@@ -106,14 +106,30 @@ export class TestAroundComponent implements OnInit, OnDestroy {
 
     const aEnName = a.enName || '';
     const bEnName = b.enName || '';
-    const enNameCompare = aEnName.localeCompare(bEnName);
-    if (enNameCompare !== 0) {
-      return enNameCompare;
+    if (!aEnName && !bEnName) {
+      return 0;
+    } else if (!aEnName) {
+      return 1;
+    } else if (!bEnName) {
+      return -1;
+    } else {
+      const enNameCompare = aEnName.localeCompare(bEnName);
+      if (enNameCompare !== 0) {
+        return enNameCompare;
+      }
     }
 
     const aFrName = a.frName || '';
     const bFrName = b.frName || '';
-    return aFrName.localeCompare(bFrName);
+    if (!aFrName && !bFrName) {
+      return 0;
+    } else if (!aFrName) {
+      return 1;
+    } else if (!bFrName) {
+      return -1;
+    } else {
+      return aFrName.localeCompare(bFrName);
+    }
   }
 
   compareFn2(a: TestObject, b: TestObject): number {
