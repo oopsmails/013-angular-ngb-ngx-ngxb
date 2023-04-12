@@ -37,6 +37,7 @@ colorSelected: {{ selectedColor | json }}
         <th>Type</th>
         <th>Id</th>
         <th>Name</th>
+        <th>CustomKeyLong</th>
         <th *ngIf="colorSelected !== 'Yellow'">Desc</th>
         <th>Custom Key</th>
         <th nowrap tabindex="0">
@@ -78,6 +79,14 @@ colorSelected: {{ selectedColor | json }}
             [(ngModel)]="editItems[i].name"
           />
         </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select long-text"
+            style="padding-left: 12px"
+            type="text"
+            [(ngModel)]="editItems[i].customKey"
+          />
+        </td>
         <td *ngIf="colorSelected !== 'Yellow'" class="td-spec">
           <input class="td-input-select" style="padding-left: 12px" type="text" [(ngModel)]="editItems[i].desc" />
         </td>
@@ -102,6 +111,10 @@ colorSelected: {{ selectedColor | json }}
   <div class="add-new-div">
     <span (click)="addNewRow()" class="top-level__link-text">Add New Row</span>
   </div>
+
+  <hr />
+
+  <div>{{ colorSelected | json }}</div>
 
   <div *ngFor="let item of editItems">
     <div>{{ item | json }}</div>

@@ -56,6 +56,12 @@ tr {
   // border: none;
 }
 
+.long-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .td-spec input[disabled] {
   // background-color: var(--primary-color);
   background-color: lightgray;
