@@ -70,6 +70,22 @@ export class TestAroundComponent implements OnInit, OnDestroy {
     // this.element = this.elementRef.nativeElement.querySelector('.scrolling-div');
 
     this.sortArray();
+
+    const myArray = [
+      { field1: 'value1', field2: '', field3: 'value3' },
+      { field1: '', field2: '', field3: '' },
+      { field1: 'value1', field2: 'value2', field3: '' },
+      { field1: '', field2: '', field3: 'value3' },
+      { field1: '', field2: '', field3: '' },
+    ];
+
+    // Filter out objects where all fields are empty
+    const filteredArray = myArray.filter((obj) => {
+      return !(obj.field1 === '' && obj.field2 === '' && obj.field3 === '');
+    });
+
+    // Log the filtered array to the console
+    console.log('filteredArray: ', filteredArray);
   }
 
   onSelectOptionChange(option) {
