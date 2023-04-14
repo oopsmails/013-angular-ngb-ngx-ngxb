@@ -103,3 +103,12 @@ select {
     margin: 1rem;
   }
 }
+
+// ---------------------------
+
+.ellipsis-input {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
