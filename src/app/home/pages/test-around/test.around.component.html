@@ -5,8 +5,19 @@
 {{ myArray | json }}
 
 <hr />
+<label for="inputTextId">Testing css ellipsis: </label>
+<input #inputTextId type="test" placeholder="Enter a long text here" class="ellipsis-input" />
+<hr />
 
-<input type="text" placeholder="Enter a long text here" class="ellipsis-input" />
+<label for="inputNumId">Testing input debounceTime: </label>
+<input
+  #inputNumId
+  type="number"
+  placeholder="debounceTime(500)"
+  class="ellipsis-input"
+  [(ngModel)]="inputNum"
+  (ngModelChange)="onInputNumChange($event)"
+/>
 
 <hr />
 <p>

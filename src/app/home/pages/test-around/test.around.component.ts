@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { CarDataService } from 'oops-lib002';
-import { map, Observable, of, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, of, Subject, takeUntil } from 'rxjs';
 import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
 import { TestObject } from 'src/app/localshared/models/shared-model';
 import { Institution } from 'src/app/models/inst';
@@ -47,6 +47,9 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   public progressBarVisible = false;
   public progressBarWidth = 0;
 
+  inputNum: number;
+  private inputNumSubject$ = new Subject<number>();
+
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
     this.insts$ = of(INSTITUTIONS).pipe(
@@ -86,6 +89,13 @@ export class TestAroundComponent implements OnInit, OnDestroy {
 
     // Log the filtered array to the console
     console.log('filteredArray: ', filteredArray);
+
+    this.inputNumSubject$
+      .pipe(takeUntil(this.onDestroy$), debounceTime(500), distinctUntilChanged())
+      .subscribe((inputNum) => {
+        this.inputNum = inputNum;
+        console.log('inputNumSubject$, debounceTime: 500ms');
+      });
   }
 
   onSelectOptionChange(option) {
@@ -234,6 +244,11 @@ export class TestAroundComponent implements OnInit, OnDestroy {
 
   sortArray() {
     this.myArray.sort(this.compareFn);
+  }
+
+  onInputNumChange(inNum: number) {
+    console.log('onInputNumChange ...');
+    this.inputNumSubject$.next(inNum);
   }
 
   ngOnDestroy() {
