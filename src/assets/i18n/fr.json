@@ -1,5 +1,6 @@
 {
   "TEST_DESCRIPTION": "fr: test description in fr.json, {{ interpolateParams1 }} of {{ interpolateParams2 }}",
+  "OPTION.SELECT": "Select Fr...",
   "HOME": {
     "TITLE": "Bonjour Angular avec ngx-translate !",
     "SELECT": "Changer la langue"
@@ -18,5 +19,11 @@
       "GREEN": "GreenFr"
     },
     "SELECT_COLOR": "Select a color (FR)"
+  },
+  "DIRECTION": {
+    "UP": "FrUp",
+    "DOWN": "FrDown",
+    "LEFT": "FrLeft",
+    "RIGHT": "FrRight"
   }
 }

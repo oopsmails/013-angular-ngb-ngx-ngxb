@@ -10,6 +10,7 @@ import { I18nService } from 'src/app/localshared/services/i18n.service';
 
 interface RandomItemExt extends RandomItem {
   type?: string;
+  displayType?: boolean;
 }
 
 @Component({
@@ -30,6 +31,14 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
 
   directions: string[] = Object.values(DirectionEnum).map((value) => String(value));
   directionEnum = DirectionEnum;
+  direectionOptions = [
+    { value: '', displayKey: 'OPTION.SELECT' },
+    { value: DirectionEnum[DirectionEnum.UP], displayKey: 'DIRECTION.UP' },
+    { value: DirectionEnum[DirectionEnum.DOWN], displayKey: 'DIRECTION.DOWN' },
+    { value: DirectionEnum[DirectionEnum.LEFT], displayKey: 'DIRECTION.LEFT' },
+    { value: DirectionEnum[DirectionEnum.RIGHT], displayKey: 'DIRECTION.RIGHT' },
+  ];
+
   colorSelected: string;
   colors = Object.values(ColorEnum);
 
@@ -64,6 +73,8 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
     this.initializeColorTranslations();
 
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
+
+    this.directions.push('Select ...');
     this.addNewRow();
   }
 
@@ -96,6 +107,7 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       desc: '',
       customKey: '',
       type: '',
+      displayType: true,
     });
   }
 
@@ -134,6 +146,15 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       const firstPart = this.editItems.slice(0, idx);
       const secondPart = this.editItems.slice(idx + 1);
       this.editItems = firstPart.concat(secondPart);
+    }
+  }
+
+  onTypeChange(event, idx) {
+    this.editItems[idx].type = event;
+    if (event || '' !== '') {
+      this.editItems[idx].displayType = false;
+    } else {
+      this.editItems[idx].displayType = true;
     }
   }
 

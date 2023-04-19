@@ -52,12 +52,20 @@ colorSelected: {{ selectedColor | json }}
         <td class="td-spec">
           <select
             [(ngModel)]="editItems[i].type"
+            (ngModelChange)="onTypeChange($event, i)"
             id="direction-select-{{ i }}"
             class="td-input-select"
             style="padding-left: 12px"
           >
-            <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+            <!-- <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
               {{ directionEnum[direction] }}
+            </option> -->
+
+            <option *ngIf="item.displayType" [value]="direectionOptions[0].value">
+              {{ direectionOptions[0].displayKey | messageTranslate }}
+            </option>
+            <option *ngFor="let option of direectionOptions.slice(1); let i = index" [value]="option.value">
+              {{ option.displayKey | messageTranslate }}
             </option>
           </select>
         </td>

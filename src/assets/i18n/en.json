@@ -1,5 +1,6 @@
 {
   "TEST_DESCRIPTION": "en: test description in en.json, {{ interpolateParams1 }} of {{ interpolateParams2 }}",
+  "OPTION.SELECT": "Select ...",
   "HOME": {
     "TITLE": "Hello Angular with ngx-translate!",
     "SELECT": "Change language"
@@ -18,5 +19,11 @@
       "GREEN": "Green"
     },
     "SELECT_COLOR": "Select a color"
+  },
+  "DIRECTION": {
+    "UP": "Up",
+    "DOWN": "Down",
+    "LEFT": "Left",
+    "RIGHT": "Right"
   }
 }
