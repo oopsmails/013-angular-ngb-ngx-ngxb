@@ -51,6 +51,8 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
   public selectedColor: ColorEnum | null = null;
   private colorTranslations: Map<ColorEnum, string> = new Map();
 
+  removeShouldBeDisabled: boolean = false;
+
   constructor(
     private sharedDataService: SharedDataService,
     private translate: TranslateService,
@@ -140,6 +142,7 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       type: '',
       displayType: true,
     });
+    this.removeShouldBeDisabled = this.editItems.length <= 1;
   }
 
   onCustomKeySelected(item, idx) {
@@ -183,6 +186,8 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       const secondPart = this.editItems.slice(idx + 1);
       this.editItems = firstPart.concat(secondPart);
     }
+
+    this.removeShouldBeDisabled = this.editItems.length <= 1;
   }
 
   onTypeChange(event, idx) {

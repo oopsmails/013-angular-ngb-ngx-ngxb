@@ -106,10 +106,17 @@ colorSelected: {{ selectedColor | json }}
           ></app-ramdom-list-search>
         </td>
         <td class="td-spec" style="text-align: center">
-          <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
+          <div
+            [ngStyle]="{
+              opacity: removeShouldBeDisabled ? '0.5' : '1',
+              'pointer-events': removeShouldBeDisabled ? 'none' : 'auto'
+            }"
+          >
+            <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
 
-          <div class="h-random-list-table2__remove-img" style="padding: 0">
-            <img src="assets/images/delete_icon_white.svg" alt="delete" />
+            <div class="h-random-list-table2__remove-img" style="padding: 0">
+              <img src="assets/images/delete_icon_white.svg" alt="delete" />
+            </div>
           </div>
         </td>
       </tr>
