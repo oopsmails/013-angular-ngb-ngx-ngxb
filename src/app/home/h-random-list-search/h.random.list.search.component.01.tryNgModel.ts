@@ -1,4 +1,15 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+  forwardRef,
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Car, CarDataService, RandomItem } from 'oops-lib002';
 import { catchError, debounceTime, distinctUntilChanged, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
@@ -13,8 +24,15 @@ interface RandomItemExt extends RandomItem {
   selector: 'app-ramdom-list-search',
   templateUrl: './h.random.list.search.component.html',
   styleUrls: ['./h.random.list.search.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => HomeRandomListSearchComponent),
+      multi: true,
+    },
+  ],
 })
-export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
+export class HomeRandomListSearchComponent implements ControlValueAccessor, OnInit, OnDestroy {
   @Input('inputItem') inputItem: any;
   @Output() selectOptionEmitter = new EventEmitter(true);
   @ViewChild('searchTextInput', { static: false }) searchTextInput: ElementRef;
@@ -22,6 +40,10 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   private COMPONENT_NAME = 'HomeRandomListSearchComponent';
   linkText = SANDBOX_BACK_TO_HOME;
   routerLinkInput = SANDBOX_HOME_LINK;
+
+  value: any;
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
   private onDestroy$: Subject<boolean> = new Subject();
 
@@ -107,7 +129,6 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     console.log('inputOnBlur ....');
     this.inEditMode = false;
     // this.searchText = this.inputItem.customKey;
-    this.selectOptionEmitter.emit(this.searchText);
   }
 
   onSelectSymbolClick(event: MouseEvent, content, option) {
@@ -160,5 +181,20 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();
+  }
+
+  //-------------------- for ControlValueAccessor ---------------------
+
+  writeValue(value: any) {
+    this.value = value;
+    this.onChange(value);
+  }
+
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
   }
 }

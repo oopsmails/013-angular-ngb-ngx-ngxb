@@ -145,6 +145,11 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
   onCustomKeySelected(item, idx) {
     console.log(this.COMPONENT_NAME + ', onCustomKeySelected, item = ', item);
 
+    if (typeof item === 'string') {
+      this.editItems[idx].customKey = item;
+      return;
+    }
+
     if (item && item.name) {
       // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
       this.editItems[idx].customKey = 'selected-' + item.name;
