@@ -43,6 +43,7 @@ import { TestAroundComponent } from './pages/test-around/test.around.component';
 import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
+import { HomeRandomListTable3Component } from './h-random-list-table3/h.random.list.table3.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
   { path: 'home/itemlist2', component: HomeRandomListTable2Component },
+  { path: 'home/itemlist3', component: HomeRandomListTable3Component },
   { path: 'home/tooltip2', component: HomeTooltip2Component },
 ];
 
@@ -107,6 +109,7 @@ const routes: Routes = [
     HomeInvestmentListComponent,
     HomeRandomListTableComponent,
     HomeRandomListTable2Component,
+    HomeRandomListTable3Component,
     HomeRandomListSearchComponent,
     HomeRandomListSearchAdvComponent,
     HomeTooltipComponent,
