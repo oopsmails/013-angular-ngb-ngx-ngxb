@@ -1,3 +1,5 @@
+import { RandomItem } from 'oops-lib002';
+
 export enum DirectionEnumSimple {
   UP,
   DOWN,
@@ -52,4 +54,20 @@ export interface TestObject {
   rank?: string;
   enName?: string;
   frName?: string;
+}
+
+export class RandomItemExt implements RandomItem {
+  id: number;
+  name: string;
+  // desc?: string;
+  // text?: string;
+  // price?: number;
+  // imageUrl?: string;
+  // quantity?: number;
+  // customKey?: string;
+  displayKey: string;
+
+  // getDisplayKey(): string {
+  //   return '' + this.id + this.name;
+  // }
 }

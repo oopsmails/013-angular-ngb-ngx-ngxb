@@ -43,12 +43,16 @@
         "link": "goto/2"
       },
       {
+        "childtext": "Go To 3: Test TypeScript",
+        "link": "goto/3"
+      },
+      {
         "childtext": "US States",
         "link": "sandbox/us-state"
       },
       {
-        "childtext": "Search US States",
-        "link": "sandbox/search-state"
+        "childtext": "NOT Exist",
+        "link": "sandbox/not-exist"
       }
     ]
   }
