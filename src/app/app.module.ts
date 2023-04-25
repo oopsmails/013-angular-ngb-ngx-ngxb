@@ -18,6 +18,7 @@ import { LocalsharedModule } from './localshared/localshared.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
+import { ExamplesModule } from './examples/eg.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalsharedModule,
     HomeModule,
     HomeMadeModule,
+    ExamplesModule,
     NgbTestModule,
     NgxModule,
     NgxbModule,

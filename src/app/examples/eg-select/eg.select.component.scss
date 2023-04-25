@@ -1,0 +1,190 @@
+$primary: #008a00;
+$secondary: #ffffff;
+$success: #2aafe0;
+$info: #197300;
+$warning: #ff9f16;
+$danger: #ce200d;
+
+$gray-darkest: #818897;
+
+$btn-primary-color: $primary;
+
+// ------------------------------------------------------
+
+.select-1__selectParent {
+  border: 1px blue solid;
+  width: 200px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0.2rem;
+}
+
+.select-1__selectParent-select {
+  //   text-indent: 10px; // this only for selected
+  text-overflow: '';
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 2px 5px 20px;
+  border: none;
+  //   background: transparent url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png') no-repeat;
+  background: transparent url('../../../assets/images/arrow_down_blue.svg') no-repeat;
+  background-position: right 20px center;
+  background-size: 16px 16px;
+  //   background-color: #2aafe0;
+  //   transform: rotate(45deg);
+}
+
+// .select-1__selectParent-option {
+//   padding: 0px 0px 5px 0px;
+// }
+
+// .select-1__selectParent select::before {
+//   content: '';
+//   position: absolute;
+//   width: 200%;
+//   height: 200%;
+//   top: -50%;
+//   left: -50%;
+//   z-index: -1;
+//   background: url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png') no-repeat;
+//   transform: rotate(30deg);
+// }
+
+// --------------------
+
+.select-2__select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Some browsers will not display the caret when using calc, so we put the fallback first */
+  background: url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png') white no-repeat
+    98.5% !important; /* !important used for overriding all other customisations */
+  background: url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png') white no-repeat
+    calc(100% - 10px) !important; /* Better placement regardless of input width */
+}
+/*For IE*/
+.select-2__select::-ms-expand {
+  display: none;
+}
+
+//-------------------------------------------------------
+
+.select-3__container {
+  border: 1px red solid;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  width: 150px;
+}
+
+.select-3__selectParent {
+  width: 100%;
+  overflow: hidden;
+}
+
+.select-3__arrowParent {
+  overflow: hidden;
+  padding-right: 1rem;
+}
+
+.select-3__selectParent select {
+  width: 100%;
+  appearance: none;
+  border: none;
+  font-size: 1rem;
+  padding: 2px;
+  line-height: 1.5;
+  display: block;
+}
+
+// .select-3__selectParent select {
+//   width: 100%;
+//   appearance: none;
+//   background: transparent url('http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png')
+//     no-repeat right;
+//   padding: 0 30px 0 0;
+// }
+
+// from https://www.w3schools.com/howto/howto_css_arrows.asp
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+// --------------------------------------------------
+
+.select-4__selectdiv {
+}
+
+//-------------------------------------------------
+
+a.expand-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0 2rem 0.5rem 1.25rem;
+  background-color: $gray-darkest;
+  color: $btn-primary-color;
+  border-top-right-radius: 0.35rem;
+  border-bottom-right-radius: 0.35rem;
+  font-size: 1rem;
+
+  &:hover {
+    color: $btn-primary-color;
+  }
+
+  .symbol-double-caret {
+    font-size: 1.9rem;
+    line-height: 1;
+    display: inline-block;
+    padding: 0.2rem 0.75rem 0 0.75rem;
+  }
+}
+
+a.collapse-btn {
+  background-color: $gray-darkest;
+  color: $btn-primary-color;
+  border-top-left-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  &:hover {
+    color: $btn-primary-color;
+  }
+
+  .symbol-double-caret {
+    font-size: 1.9rem;
+    line-height: 1;
+    display: inline-block;
+    padding: 0.2rem 0.75rem 0.4rem 0.75rem;
+  }
+}

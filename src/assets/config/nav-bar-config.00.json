@@ -12,8 +12,20 @@
     "submenu": []
   },
   {
-    "linkText": "Examples",
-    "parentLink": "/eg",
+    "linkText": "NGB",
+    "parentLink": "/ngb",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "NGX",
+    "parentLink": "/ngx",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "NGXB",
+    "parentLink": "/ngxb",
     "menu": false,
     "submenu": []
   },

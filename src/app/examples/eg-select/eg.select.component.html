@@ -1,0 +1,68 @@
+<h2>Example Select Arrow CSS</h2>
+
+<hr />
+
+<h3>select-1: Home Made</h3>
+<div class="select-1__selectParent">
+  <select class="select-1__selectParent-select">
+    <option class="select-1__selectParent-option" value="1">Option 1</option>
+    <option value="2">Option 2</option>
+  </select>
+</div>
+
+<hr />
+
+<h3>select-2: form-control</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <select class="form-control select-2__select">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h3>select-3: not working</h3>
+
+<div class="select-3__container">
+  <div class="select-3__selectParent">
+    <select #selectDropdown>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+  </div>
+  <div class="select-3__arrowParent" (click)="select3OnChange()"><i class="arrow down"></i></div>
+</div>
+
+<hr />
+
+<h3>select-4: normal</h3>
+<div class="select-4__selectdiv">
+  <label>
+    <select>
+      <option selected>Select Box</option>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Last long option</option>
+    </select>
+  </label>
+</div>
+<hr />
+
+<h3>Test</h3>
+<div
+  (keydown.enter)="$event.stopPropagation(); $event.preventDefault(); onEnter()"
+  *ngIf="true"
+  role="button"
+  tabindex="0"
+>
+  <a (click)="this.filterCollapsed = !this.filterCollapsed" class="expand-btn mt-3">
+    <span> This is a button </span>
+    <span class="symbol-double-caret">&#187;</span>
+  </a>
+</div>
