@@ -4,7 +4,7 @@
 <p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
 
 <hr />
-
+<h3>SVGs</h3>
 <svg class="icon" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg">
   <path
     d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
@@ -16,3 +16,11 @@
     d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
   />
 </svg>
+
+<hr />
+<h3>Test: input max 5 chars, showing message</h3>
+
+<input type="text" [(ngModel)]="myInput" (ngModelChange)="onInuputChange($event)" />
+<div *ngIf="isInputInvalid">
+  <span style="color: red">{{ tooltipMessage }}</span>
+</div>

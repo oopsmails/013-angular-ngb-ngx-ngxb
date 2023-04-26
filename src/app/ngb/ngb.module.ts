@@ -19,7 +19,7 @@ import { NgbTypeaheadSearchScrollableComponent } from './ngb-typeahead-search-sc
 import { NgbTypeaheadSearchComponent } from './ngb-typeahead-search/ngb.typeahead.search.component';
 import { NgbHomeComponent } from './ngb-home/ngb-home.component';
 import { SharedModule } from 'oops-lib002';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbSpinnerComponent } from './ngb-spinner/ngb-spinner.component';
 import { NgbTableComponent } from './ngb-table/ngb-table.component';
 import { NgbdSortableHeader } from '../localshared/services/sortable.directive';
@@ -40,11 +40,12 @@ import { NgbTooltipComponent } from './ngb-tooltip/ngb.tooltip.component';
     NgbdSortableHeader,
     NgbTabComponent,
     NgbTab2Component,
-    // NgbTooltipComponent, // because of standalone
+    NgbTooltipComponent, // because of standalone
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     SharedModule,

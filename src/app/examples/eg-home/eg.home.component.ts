@@ -10,28 +10,31 @@ import { I18nService } from 'src/app/localshared/services/i18n.service';
   styleUrls: ['./eg.home.component.scss'],
 })
 export class ExamplesHomeComponent implements OnInit, OnDestroy {
+  public static MAX_INPUT_LENGTH = 5;
+
   private onDestroy$: Subject<boolean> = new Subject();
 
-  @ViewChild('selectDropdown') selectDropdown: ElementRef;
-
-  shouldShow: boolean = true;
-  filterCollapsed: boolean = true;
+  myInput: string = '';
+  tooltipMessage: string = 'Maximum 25 characters allowed';
+  isInputInvalid: boolean = false;
 
   constructor(private router: Router, private sharedDataService: SharedDataService, private i18nService: I18nService) {}
 
   ngOnInit() {}
 
-  onEnter() {
-    console.log('onEnter ................');
-  }
+  onInuputChange(event: string) {
+    console.log('onInuputChange, event = ', event);
+    if (event.length > ExamplesHomeComponent.MAX_INPUT_LENGTH) {
+      this.isInputInvalid = true;
+      this.tooltipMessage = 'Maximum length exceeded';
 
-  // handleChange() {
-  //   console.log('handleChange ................');
-  // }
-
-  select3OnChange() {
-    console.log('select3OnClick ................');
-    this.selectDropdown.nativeElement.click();
+      setTimeout(() => {
+        this.isInputInvalid = false;
+        this.myInput = event.substring(0, ExamplesHomeComponent.MAX_INPUT_LENGTH);
+      }, 1000);
+    } else {
+      this.isInputInvalid = false;
+    }
   }
 
   navToPage(page) {
