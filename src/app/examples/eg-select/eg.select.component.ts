@@ -32,6 +32,7 @@ export class ExamplesSelectComponent implements OnInit, OnDestroy {
   select3OnChange() {
     console.log('select3OnClick ................');
     this.selectDropdown.nativeElement.click();
+    this.selectDropdown.nativeElement.open;
   }
 
   navToPage(page) {

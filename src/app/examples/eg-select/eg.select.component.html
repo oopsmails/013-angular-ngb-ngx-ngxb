@@ -28,7 +28,7 @@
 <hr />
 
 <h3>select-3: not working</h3>
-
+<p>select element is neither with a click event, nor with .open ...</p>
 <div class="select-3__container">
   <div class="select-3__selectParent">
     <select #selectDropdown>
@@ -42,16 +42,15 @@
 <hr />
 
 <h3>select-4: normal</h3>
-<div class="select-4__selectdiv">
-  <label>
-    <select>
-      <option selected>Select Box</option>
-      <option>Option 1</option>
-      <option>Option 2</option>
-      <option>Last long option</option>
-    </select>
-  </label>
+
+<div class="select-4__selectParent">
+  <select class="select-4__selectParent-select">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
 </div>
+
 <hr />
 
 <h3>Test</h3>
