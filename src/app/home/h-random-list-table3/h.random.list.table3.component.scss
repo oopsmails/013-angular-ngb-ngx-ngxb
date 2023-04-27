@@ -37,7 +37,7 @@ tr {
 // ----------------------------
 
 .add-new-div {
-  position: sticky;
+  // position: sticky;
   // position: fixed;
   // position: relative;
   // position: absolute;
@@ -45,7 +45,10 @@ tr {
   // right: 0;
   // margin-bottom: -100%;
   // margin-right: -100%;
-  padding-left: 82%;
+  // padding-left: 82%;
+
+  display: flex;
+  justify-content: end;
 }
 
 .td-spec {
