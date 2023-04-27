@@ -39,13 +39,20 @@
             {{ option.description }}
           </a>
         </div>
-        <div *ngIf="inEditMode && items.length === 0" class="text-muted search-modal__no-item">
-          Waiting ... or No car found ......
+        <div *ngIf="inEditMode && searchText === '' && items.length === 0" class="text-muted search-modal__no-item">
+          Type to search ...
+        </div>
+        <div *ngIf="inEditMode && searchText !== '' && items.length === 0" class="text-muted search-modal__no-item">
+          No match found ...
+        </div>
+        <div *ngIf="inEditMode && items.length > 3" class="text-muted search-modal__no-item" style="color: green">
+          More matches found ...
         </div>
 
         <div *ngIf="inEditMode" class="search-modal__advanced-search">
           <span
             class="top-level__link-text"
+            style="color: green"
             (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()"
             >{{ 'Advanced Search ......' }}</span
           >

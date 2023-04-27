@@ -49,7 +49,7 @@ export class NgbTooltipComponent {
   }
 
   onInuputChange(event: string) {
-    console.log('onInuputChange, event = ', event);
+    // console.log('onInuputChange, event = ', event);
     if (event.length > NgbTooltipComponent.MAX_INPUT_LENGTH) {
       this.isInputInvalid = true;
       this.tooltipMessage = 'Maximum length exceeded';
