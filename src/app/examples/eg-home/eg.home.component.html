@@ -18,9 +18,28 @@
 </svg>
 
 <hr />
-<h3>Test: input max 5 chars, showing message</h3>
+<h3>Test 1: input max 5 chars, showing message</h3>
 
-<input type="text" [(ngModel)]="myInput" (ngModelChange)="onInuputChange($event)" />
-<div *ngIf="isInputInvalid">
-  <span style="color: red">{{ tooltipMessage }}</span>
+<input type="text" [(ngModel)]="myInput01" (ngModelChange)="onInuputChange01($event)" />
+<div *ngIf="isInputInvalid01">
+  <span style="color: red">{{ tooltipMessage01 }}</span>
 </div>
+
+<hr />
+<h3>Test 2: input amount, showing message</h3>
+
+<input
+  type="text"
+  [(ngModel)]="myInput02"
+  (ngModelChange)="onInuputChange02($event)"
+  maxlength="14"
+  pattern="\d{0,11}(\.\d{0,3})?"
+/>
+<div *ngIf="isInputInvalid02">
+  <span style="color: red">{{ tooltipMessage02 }}</span>
+</div>
+
+<!-- <hr />
+<h3>Test 3: input pattern only</h3>
+
+<input type="text" pattern="^\d{1,11}(\.\d{1,3})?$" maxlength="14" /> -->
