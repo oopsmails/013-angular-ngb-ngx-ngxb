@@ -9,6 +9,7 @@ import { ColorEnum, DirectionEnumSimple, getColorEnumName } from '../../localsha
 interface RandomItemExt extends RandomItem {
   type?: string;
   displayType?: boolean;
+  descErrorMessage?: string;
 }
 
 export enum MyColorEnum {
@@ -101,6 +102,7 @@ export class HomeRandomListTable3Component implements OnInit, OnDestroy {
         customKey: '',
         type: '',
         displayType: true,
+        descErrorMessage: '',
       });
     }
 
@@ -158,6 +160,21 @@ export class HomeRandomListTable3Component implements OnInit, OnDestroy {
       this.editItems[idx].displayType = false;
     } else {
       this.editItems[idx].displayType = true;
+    }
+  }
+
+  onDescChange(event, idx) {
+    if (this.editItems[idx].desc === '') {
+      this.editItems[idx].descErrorMessage = '';
+      return;
+    }
+    // const allowed_pattern = new RegExp('^[0-9]{1,14}(\\.[0-9]{1,3})?$');
+    const allowed_pattern = new RegExp('^[0-9]{1,4}?$');
+    if (!allowed_pattern.test(this.editItems[idx].desc)) {
+      this.editItems[idx].descErrorMessage = 'Please verify your input ...';
+    } else {
+      this.editItems[idx].descErrorMessage = '';
+      // this.editItems[idx].desc = event.substring(0, event.length - 1); // should NOT do this
     }
   }
 

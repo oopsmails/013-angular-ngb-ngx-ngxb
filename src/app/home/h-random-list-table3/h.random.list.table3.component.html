@@ -85,7 +85,16 @@ Color EUNM:
           />
         </td>
         <td *ngIf="colorSelected !== 'Yellow'" class="td-spec">
-          <input class="td-input-select" style="padding-left: 12px" type="text" [(ngModel)]="editItems[i].desc" />
+          <input
+            class="td-input-select"
+            style="padding-left: 12px"
+            type="text"
+            [(ngModel)]="editItems[i].desc"
+            (ngModelChange)="onDescChange($event, i)"
+          />
+          <ng-container *ngIf="editItems[i].descErrorMessage !== ''">
+            <span style="color: red">{{ editItems[i].descErrorMessage }}</span>
+          </ng-container>
         </td>
         <td class="td-spec">
           <app-ramdom-list-search
