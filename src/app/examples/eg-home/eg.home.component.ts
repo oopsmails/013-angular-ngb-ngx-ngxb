@@ -19,8 +19,12 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   isInputInvalid01: boolean = false;
 
   myInput02: string = '';
-  tooltipMessage02: string = 'Maximum 25 characters allowed';
+  tooltipMessage02: string = '';
   isInputInvalid02: boolean = false;
+
+  myInput03: string = '';
+  tooltipMessage03: string = '';
+  isInputInvalid03: boolean = false;
 
   constructor(private router: Router, private sharedDataService: SharedDataService, private i18nService: I18nService) {}
 
@@ -76,6 +80,22 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.isInputInvalid02 = false;
         this.myInput02 = event.substring(0, this.myInput02.length - 1);
+      }, 1000);
+    }
+  }
+
+  onInuputChange03(event: string) {
+    console.log('onInuputChange, event = ', event);
+    const allowed_pattern = new RegExp('^[0-9]{1,14}(\\.[0-9]{1,3})?$');
+
+    if (!allowed_pattern.test(this.myInput03)) {
+      this.isInputInvalid03 = true;
+      this.tooltipMessage03 = 'pattern violated ...';
+    }
+    if (this.isInputInvalid03) {
+      setTimeout(() => {
+        this.isInputInvalid03 = false;
+        this.myInput03 = event.substring(0, this.myInput03.length - 1);
       }, 1000);
     }
   }

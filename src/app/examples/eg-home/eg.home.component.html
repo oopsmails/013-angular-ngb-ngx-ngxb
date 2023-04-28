@@ -39,7 +39,10 @@
   <span style="color: red">{{ tooltipMessage02 }}</span>
 </div>
 
-<!-- <hr />
+<hr />
 <h3>Test 3: input pattern only</h3>
 
-<input type="text" pattern="^\d{1,11}(\.\d{1,3})?$" maxlength="14" /> -->
+<input type="text" [(ngModel)]="myInput03" (ngModelChange)="onInuputChange03($event)" />
+<div *ngIf="isInputInvalid03">
+  <span style="color: red">{{ tooltipMessage03 }}</span>
+</div>
