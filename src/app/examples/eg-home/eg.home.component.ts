@@ -26,6 +26,10 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   tooltipMessage03: string = '';
   isInputInvalid03: boolean = false;
 
+  myInput04: string = '';
+  tooltipMessage04: string = '';
+  isInputInvalid04: boolean = false;
+
   constructor(private router: Router, private sharedDataService: SharedDataService, private i18nService: I18nService) {}
 
   ngOnInit() {}
@@ -96,6 +100,22 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.isInputInvalid03 = false;
         this.myInput03 = event.substring(0, this.myInput03.length - 1);
+      }, 1000);
+    }
+  }
+
+  onInuputChange04(event: string) {
+    console.log('onInuputChange, event = ', event);
+    const allowed_pattern = new RegExp('^[0-9]{1,5}?$');
+
+    if (!allowed_pattern.test(this.myInput04)) {
+      this.isInputInvalid04 = true;
+      this.tooltipMessage04 = 'pattern violated ...';
+    }
+    if (this.isInputInvalid04) {
+      setTimeout(() => {
+        this.isInputInvalid04 = false;
+        this.myInput04 = event.substring(0, this.myInput04.length - 1);
       }, 1000);
     }
   }

@@ -46,3 +46,11 @@
 <div *ngIf="isInputInvalid03">
   <span style="color: red">{{ tooltipMessage03 }}</span>
 </div>
+
+<hr />
+<h3>Test 4: input pattern digits only</h3>
+
+<input type="text" [(ngModel)]="myInput04" (ngModelChange)="onInuputChange04($event)" />
+<div *ngIf="isInputInvalid04">
+  <span style="color: red">{{ tooltipMessage04 }}</span>
+</div>
