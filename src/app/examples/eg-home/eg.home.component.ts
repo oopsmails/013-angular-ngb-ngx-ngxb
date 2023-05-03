@@ -106,7 +106,12 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
 
   onInuputChange04(event: string) {
     console.log('onInuputChange, event = ', event);
-    const allowed_pattern = new RegExp('^[0-9]{1,5}?$');
+    // const allowed_pattern = new RegExp('^[0-9]{1,5}?$');
+    // const allowed_pattern = new RegExp('^[0-9]*$');
+    const allowed_pattern = new RegExp(/^\d{0,5}$/);
+    // const allowed_pattern = new RegExp(/^\d+$/); // dirgit only
+    // const allowed_pattern = new RegExp(/^\d{0,5}/); // need end
+    // const allowed_pattern = new RegExp(/^\[0-9]{0,5}$/); // not working
 
     if (!allowed_pattern.test(this.myInput04)) {
       this.isInputInvalid04 = true;
