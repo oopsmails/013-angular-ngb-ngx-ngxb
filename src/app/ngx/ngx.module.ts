@@ -18,6 +18,7 @@ import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
 import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-dropdown1.component';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { NgxSelect4Component } from './ngx-select-4/ngx.select.4.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
     NgxSelect1Component,
     NgxSelect2Component,
     NgxSelect3Component,
+    NgxSelect4Component,
     NgxHomeComponent,
     NgxSearchPaginationComponent,
     NgxForm1Component,
