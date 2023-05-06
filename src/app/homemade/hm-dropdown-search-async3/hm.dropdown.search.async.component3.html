@@ -1,0 +1,36 @@
+<h3>Hello, Home Made Car Searching Dropdown 2 - Async!</h3>
+<app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
+<hr />
+
+<div class="dropdown h-100" class="statusDropdownContainer">
+  <div *ngIf="true" class="w-100 pt-0" aria-labelledby="dropdownMenuButton">
+    <input
+      type="text"
+      #searchTextInput
+      class="w-100 p-2 searchInput"
+      placeholder="Type to search ..."
+      [ngModel]="searchText"
+      (ngModelChange)="filterDropdown($event)"
+      (focus)="inputOnFocus()"
+      (blur)="inputOnBlur()"
+    />
+
+    <ng-container *ngIf="displaying$ | async as items">
+      <div class="hm-dropdown-async2__container-div">
+        <div *ngIf="showItems" class="search-modal__item-list">
+          <a
+            *ngFor="let option of items; let i = index"
+            class="dropdown-item pointer text-contain"
+            [ngClass]="{ alternateBackground: i % 2 == 0 }"
+            (mousedown)="selectValue($event, option); $event.preventDefault();"
+          >
+            {{ option.description }}
+          </a>
+        </div>
+        <div *ngIf="showItems && items.length === 0" class="text-center text-muted mt-1">
+          Waiting ... or No car found ......
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

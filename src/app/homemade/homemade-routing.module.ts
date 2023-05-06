@@ -16,11 +16,13 @@ import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdow
 import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
+import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search-async3/hm.dropdown.search.async.component3';
 
 const routes: Routes = [
   { path: 'hm/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
   { path: 'hm/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
   { path: 'hm/hm-dropdown-search-async2', component: HomeMadeDropdownSearchAsyncComponent2 },
+  { path: 'hm/hm-dropdown-search-async3', component: HomeMadeDropdownSearchAsyncComponent3 },
   { path: 'hm/hm-search-modal', component: HomeMadeSearchModalComponent },
   { path: 'hm/hm-spinner', component: HmSpinnerComponent },
   { path: 'hm/hm-datatable1', component: HmDatatable1Component },
