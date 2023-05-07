@@ -9,7 +9,7 @@
   <input
     type="text"
     #searchTextInput
-    class="w-100 hm-dropdown-async3__searchInput"
+    class="hm-dropdown-async3__searchInput"
     placeholder="Type to search ..."
     [ngModel]="searchText"
     (ngModelChange)="filterDropdown($event)"
@@ -20,7 +20,7 @@
   <ng-container *ngIf="showItems && displaying$ | async as items">
     <div class="hm-dropdown-async3__show-items-div">
       <ng-container *ngIf="items.length > 0">
-        <div class="search-modal__item-list">
+        <div class="hm-dropdown-async3__items-divt">
           <a
             *ngFor="let option of items; let i = index"
             class="dropdown-item pointer text-contain"
