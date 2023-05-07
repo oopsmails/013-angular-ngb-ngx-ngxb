@@ -1,4 +1,32 @@
-.hm-dropdown-async2__container-div {
+.hm-dropdown-async3__searchInput {
+  border: 1px solid green;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+
+.hm-dropdown-async3__container-div {
+  // position: relative;
+  position: absolute;
+  // border: 1px solid rgb(223, 216, 216);
+}
+
+.hm-dropdown-async3__show-items-div {
+  position: relative;
+  display: inline-block;
+
+  // position: absolute;
+
+  // top: 100%;
+  // left: 0;
+
+  z-index: 1000;
   padding-top: 10px;
-  border: 1px solid rgb(223, 216, 216);
+
+  border: 1px solid green;
+  background-color: #ffffff;
+  height: 200px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
