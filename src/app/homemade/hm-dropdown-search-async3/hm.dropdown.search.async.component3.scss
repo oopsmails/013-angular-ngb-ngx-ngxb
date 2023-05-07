@@ -1,21 +1,28 @@
+.hm-dropdown-async3__container-div {
+  // position: relative;
+  position: absolute;
+  border: 1px solid red;
+
+  width: 100%;
+  // width: inherit;
+  // width: 500px;
+
+  // display: flex;
+}
+
 .hm-dropdown-async3__searchInput {
   border: 1px solid green;
   height: 2.5rem;
   border-radius: 0.5rem;
+  // width: 100px;
 }
 
-
-.hm-dropdown-async3__container-div {
-  // position: relative;
-  position: absolute;
-  // border: 1px solid rgb(223, 216, 216);
-}
 
 .hm-dropdown-async3__show-items-div {
-  position: relative;
-  display: inline-block;
+  // position: relative;
+  // display: inline-block;
 
-  // position: absolute;
+  position: absolute;
 
   // top: 100%;
   // left: 0;
@@ -27,6 +34,8 @@
   background-color: #ffffff;
   height: 200px;
   width: 100%;
+  // width: 700px;
+  // width: fit-content;
   overflow-y: auto;
   overflow-x: hidden;
 }

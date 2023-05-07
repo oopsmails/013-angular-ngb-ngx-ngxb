@@ -2,39 +2,39 @@
 <app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
 <hr />
 
-<h4>Using `position: relative; display: inline-block;`</h4>
+<h4>Using `position: absolute; z-index`</h4>
 
-<div class="dropdown h-100" class="hm-dropdown-async3__cointainer">
-  <div *ngIf="true" class="w-80 pt-0" aria-labelledby="dropdownMenuButton">
-    <input
-      type="text"
-      #searchTextInput
-      class="w-100 hm-dropdown-async3__searchInput"
-      placeholder="Type to search ..."
-      [ngModel]="searchText"
-      (ngModelChange)="filterDropdown($event)"
-      (focus)="inputOnFocus()"
-      (blur)="inputOnBlur()"
-    />
+<div class="hm-dropdown-async3__container-div" ria-labelledby="search select car">
+  <!-- <div *ngIf="true" aria-labelledby="search select car"> -->
+  <input
+    type="text"
+    #searchTextInput
+    class="w-100 hm-dropdown-async3__searchInput"
+    placeholder="Type to search ..."
+    [ngModel]="searchText"
+    (ngModelChange)="filterDropdown($event)"
+    (focus)="inputOnFocus()"
+    (blur)="inputOnBlur()"
+  />
 
-    <ng-container *ngIf="showItems && displaying$ | async as items">
-      <div class="hm-dropdown-async3__show-items-div">
-        <ng-container *ngIf="items.length > 0">
-          <div class="search-modal__item-list">
-            <a
-              *ngFor="let option of items; let i = index"
-              class="dropdown-item pointer text-contain"
-              [ngClass]="{ alternateBackground: i % 2 == 0 }"
-              (mousedown)="selectValue($event, option); $event.preventDefault();"
-            >
-              {{ option.description }}
-            </a>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="items.length === 0">
-          <div class="text-center text-muted mt-1">Waiting ... or No car found ......</div>
-        </ng-container>
-      </div>
-    </ng-container>
-  </div>
+  <ng-container *ngIf="showItems && displaying$ | async as items">
+    <div class="hm-dropdown-async3__show-items-div">
+      <ng-container *ngIf="items.length > 0">
+        <div class="search-modal__item-list">
+          <a
+            *ngFor="let option of items; let i = index"
+            class="dropdown-item pointer text-contain"
+            [ngClass]="{ alternateBackground: i % 2 == 0 }"
+            (mousedown)="selectValue($event, option); $event.preventDefault();"
+          >
+            {{ option.description }}
+          </a>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="items.length === 0">
+        <div class="text-center text-muted mt-1">Waiting ... or No car found ......</div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <!-- </div> -->
 </div>
