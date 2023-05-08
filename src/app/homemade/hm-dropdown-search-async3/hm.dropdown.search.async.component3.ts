@@ -57,7 +57,11 @@ export class HomeMadeDropdownSearchAsyncComponent3 implements OnInit, OnDestroy 
 
             if (this.searchText && this.searchText.length > 0) {
               result = result.filter((item: Car) => {
-                return item.description.toLowerCase().includes(this.searchText);
+                return (
+                  item.year.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                  item.brand.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                  item.model.toLowerCase().includes(this.searchText.toLowerCase())
+                );
               });
               if (result.length === 0) {
                 console.log(`No item found with searchText = `, this.searchText);
@@ -82,7 +86,11 @@ export class HomeMadeDropdownSearchAsyncComponent3 implements OnInit, OnDestroy 
 
   filterDropdown(e) {
     console.log('e in filterDropdown -------> ', e);
-    this.displayingLookup$.next(e);
+    // this.displayingLookup$.next(e);
+    this.showItems = true;
+    setTimeout(() => {
+      this.displayingLookup$.next(e);
+    });
   }
 
   inputOnFocus() {

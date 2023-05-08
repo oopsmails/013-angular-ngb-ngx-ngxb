@@ -19,7 +19,7 @@
       <div>{{ i }} - {{ option.data.id }} - {{ option.data.name }}</div>
     </ng-container>
     <ng-container *ngIf="searchText !== '' && i < 2">
-      <div>{{ i }} - {{ option.data.id }} - {{ option.data.name }}</div>
+      <div>{{ searchText }} - {{ i }} - {{ option.data.name }}</div>
     </ng-container>
   </ng-template>
 </ngx-select>
