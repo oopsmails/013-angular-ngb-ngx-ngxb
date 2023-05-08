@@ -4,8 +4,7 @@
 
 <h4>Using `position: absolute; z-index`</h4>
 
-<div class="hm-dropdown-async3__container-div" ria-labelledby="search select car">
-  <!-- <div *ngIf="true" aria-labelledby="search select car"> -->
+<div class="hm-dropdown-async3__container-div" aria-labelledby="search select car">
   <input
     type="text"
     #searchTextInput
@@ -18,23 +17,20 @@
   />
 
   <ng-container *ngIf="showItems && displaying$ | async as items">
-    <div class="hm-dropdown-async3__show-items-div">
-      <ng-container *ngIf="items.length > 0">
-        <div class="hm-dropdown-async3__items-divt">
-          <a
-            *ngFor="let option of items; let i = index"
-            class="dropdown-item pointer text-contain"
-            [ngClass]="{ alternateBackground: i % 2 == 0 }"
-            (mousedown)="selectValue($event, option); $event.preventDefault();"
-          >
-            {{ option.description }}
-          </a>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="items.length === 0">
-        <div class="text-center text-muted mt-1">Waiting ... or No car found ......</div>
-      </ng-container>
-    </div>
+    <ng-container *ngIf="items.length > 0">
+      <div class="hm-dropdown-async3__items-div">
+        <a
+          *ngFor="let option of items; let i = index"
+          class="dropdown-item pointer text-contain"
+          [ngClass]="{ alternateBackground: i % 2 == 0 }"
+          (mousedown)="selectValue($event, option); $event.preventDefault();"
+        >
+          {{ option.description }}
+        </a>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="items.length === 0">
+      <div class="text-center text-muted mt-1 hm-dropdown-async3__no-items-div">Waiting ... or No car found ......</div>
+    </ng-container>
   </ng-container>
-  <!-- </div> -->
 </div>

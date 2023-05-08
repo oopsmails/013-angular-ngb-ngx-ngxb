@@ -9,7 +9,7 @@
   border-radius: 0.5rem;
 }
 
-.hm-dropdown-async3__show-items-div {
+.hm-dropdown-async3__items-div {
   position: absolute;
 
   z-index: 1000;
@@ -23,4 +23,7 @@
   overflow-x: hidden;
 }
 
-.hm-dropdown-async3__items-div {}
+.hm-dropdown-async3__no-items-div {
+  border: 1px solid green;
+  background-color: #ffffff;
+}
