@@ -12,12 +12,14 @@
       (blur)="inputOnBlur($event)"
     /> -->
 
+      <!-- disabled NOT needed, just for testing, can be done in Parent using ng-container with *ngIf -->
       <input
         type="text"
         class="search-modal__input-select"
         #searchTextInput
         placeholder="{{ placeHolder }}"
         [ngModel]="searchText"
+        [disabled]="inputItem.disableCustomKey"
         (ngModelChange)="onKeyupSearch($event)"
         (focus)="inputOnFocus()"
         (blur)="inputOnBlur($event)"

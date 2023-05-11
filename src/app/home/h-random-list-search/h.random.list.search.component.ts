@@ -1,7 +1,17 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Car, CarDataService, RandomItem } from 'oops-lib002';
-import { catchError, debounceTime, distinctUntilChanged, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
+import { Observable, Subject, catchError, debounceTime, distinctUntilChanged, map, of, switchMap, tap } from 'rxjs';
 import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from 'src/app/homemade/hm.constants';
 import { SearchCarService } from 'src/app/localshared/services/search.car.service';
 
@@ -76,6 +86,17 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
       // takeUntil(this.onDestroy$)
     );
     this.displayingLookup$.next('');
+
+    // NOT needed, just for testing, can be done in Parent using ng-container with *ngIf
+    if (this.inputItem.disableCustomKey) {
+      this.searchText = this.inputItem.customKey; // not working for chaning placeHolder
+      this.placeHolder = this.inputItem.customKey; // not working
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // NOT needed, just for testing, can be done in Parent using ng-container with *ngIf
+    console.log('Input object changed: ', changes.inputItem.currentValue);
   }
 
   onKeyupSearch(event) {

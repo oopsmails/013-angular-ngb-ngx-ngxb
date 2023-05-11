@@ -1,5 +1,14 @@
 <p>{{ message }}: showing in Child</p>
 
+<hr />
+
+<div>
+  <p>Input object:</p>
+  <pre>{{ inputObject | json }}</pre>
+</div>
+
+<hr />
+
 <ngx-select
   #selectComp
   [items]="randomItems$ | async"
@@ -24,12 +33,8 @@
   </div>
   <div class="modal-body">{{ selectedItem }}: ngx-select ngModel only bounding id</div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
-      Save
-    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>
 
-<button class="btn btn-outline-secondary" type="button" (click)="openDropdown($event)">
-  Open dropdown
-</button>
+<button class="btn btn-outline-secondary" type="button" (click)="openDropdown($event)">Open dropdown</button>

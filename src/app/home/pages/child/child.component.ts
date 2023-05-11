@@ -7,6 +7,7 @@ import {
   ViewChild,
   ElementRef,
   OnInit,
+  SimpleChanges,
 } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSelectComponent } from 'ngx-select-ex';
@@ -22,6 +23,7 @@ import { map, Observable } from 'rxjs';
 export class ChildComponent implements OnInit {
   private compmentName: string = 'ChildComponent';
   @Input() message: string;
+  @Input() inputObject: any;
   @Output() messageEvent = new EventEmitter<string>();
   @ViewChild('content') private content: TemplateRef<any>; // this will also work
   @ViewChild('selectComp', { static: false }) selectComp: NgxSelectComponent;
@@ -46,6 +48,10 @@ export class ChildComponent implements OnInit {
         return ret;
       })
     );
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('Input object changed', changes.inputObject.currentValue);
   }
 
   openModal(content, item) {

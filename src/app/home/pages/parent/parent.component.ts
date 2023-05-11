@@ -12,6 +12,7 @@ import { NgxSelectComponent } from 'ngx-select-ex';
 export class ParentComponent {
   private compmentName: string = 'ParentComponent';
   message = 'Hello from Parent Component!';
+  inputObject: any = { prop1: 'value1', prop2: new Date().toLocaleTimeString() };
 
   manualSearch: string;
 
@@ -22,5 +23,9 @@ export class ParentComponent {
     setTimeout(() => {
       console.log(this.compmentName, 'receivedMessage, this.selectComp =', this.selectComp);
     }, 0);
+  }
+
+  changeInputObject() {
+    this.inputObject = { prop1: 'new value1', prop2: new Date().toLocaleTimeString() };
   }
 }

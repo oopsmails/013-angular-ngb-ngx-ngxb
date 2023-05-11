@@ -10,6 +10,8 @@ interface RandomItemExt extends RandomItem {
   type?: string;
   displayTypeSelect?: boolean;
   descErrorMessage?: string;
+  disableDesc?: boolean;
+  disableCustomKey?: boolean;
 }
 
 export enum MyColorEnum {
@@ -20,10 +22,10 @@ export enum MyColorEnum {
 
 @Component({
   selector: 'app-random-list-table2',
-  templateUrl: './h.random.list.table3.component.html',
-  styleUrls: ['./h.random.list.table3.component.scss'],
+  templateUrl: './h.random.list.table4.component.html',
+  styleUrls: ['./h.random.list.table4.component.scss'],
 })
-export class HomeRandomListTable3Component implements OnInit, OnDestroy {
+export class HomeRandomListTable4Component implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject();
 
   items$: Observable<RandomItem[]>;
@@ -39,7 +41,7 @@ export class HomeRandomListTable3Component implements OnInit, OnDestroy {
     { value: DirectionEnumSimple[DirectionEnumSimple.UP], displayKey: 'DIRECTION.UP' },
     { value: DirectionEnumSimple[DirectionEnumSimple.DOWN], displayKey: 'DIRECTION.DOWN' },
     { value: DirectionEnumSimple[DirectionEnumSimple.LEFT], displayKey: 'DIRECTION.LEFT' },
-    { value: DirectionEnumSimple[DirectionEnum.RIGHT], displayKey: 'DIRECTION.RIGHT' },
+    { value: DirectionEnumSimple[DirectionEnumSimple.RIGHT], displayKey: 'DIRECTION.RIGHT' },
   ];
 
   colorSelected: string;
@@ -154,12 +156,35 @@ export class HomeRandomListTable3Component implements OnInit, OnDestroy {
     this.removeShouldBeDisabled = this.editItems.length <= 1;
   }
 
+  changeInputItem() {
+    console.log('testing changeInputItem ...');
+    this.editItems[0].customKey = new Date().toLocaleTimeString();
+  }
+
   onTypeChange(event, idx) {
     this.editItems[idx].type = event;
-    if (event !== '') {
+    // if (event !== '') {
+    //   this.editItems[idx].displayTypeSelect = false;
+    // } else {
+    //   this.editItems[idx].displayTypeSelect = true;
+    // }
+
+    if (event === 'RIGHT') {
+      this.editItems[idx].disableDesc = true;
+      this.editItems[idx].disableCustomKey = true;
+      this.editItems[idx].desc = 'From Right';
+      this.editItems[idx].customKey = 'From Right';
       this.editItems[idx].displayTypeSelect = false;
     } else {
-      this.editItems[idx].displayTypeSelect = true;
+      if (event !== '') {
+        this.editItems[idx].disableDesc = false;
+        this.editItems[idx].disableCustomKey = false;
+        this.editItems[idx].displayTypeSelect = false;
+        this.editItems[idx].desc = '';
+        this.editItems[idx].customKey = '';
+      } else {
+        this.editItems[idx].displayTypeSelect = true;
+      }
     }
   }
 

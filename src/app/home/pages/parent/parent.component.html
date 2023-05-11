@@ -1,3 +1,12 @@
 <input type="text" class="form-control" placeholder="To simulate ...." [(ngModel)]="manualSearch" />
 
-<app-child [message]="message" (messageEvent)="receivedMessage($event)"></app-child>
+<hr />
+
+<h2>To child</h2>
+
+<div>
+  <p>Parent component to child component</p>
+  <button (click)="changeInputObject()">Change input object</button>
+
+  <app-child [message]="message" [inputObject]="inputObject" (messageEvent)="receivedMessage($event)"></app-child>
+</div>
