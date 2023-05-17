@@ -9,9 +9,10 @@ import { LocalsharedModule } from './../localshared/localshared.module';
 import { ExamplesHomeComponent } from './eg-home/eg.home.component';
 import { ExamplesRoutingModule } from './eg-routing.module';
 import { ExamplesSelectComponent } from './eg-select/eg.select.component';
+import { ExamplesPatternComponent } from './eg-pattern/eg.pattern.component';
 
 @NgModule({
-  declarations: [ExamplesHomeComponent, ExamplesSelectComponent],
+  declarations: [ExamplesHomeComponent, ExamplesSelectComponent, ExamplesPatternComponent],
   imports: [
     CommonModule,
     HttpClientModule,
