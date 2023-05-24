@@ -124,11 +124,15 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     });
   }
 
-  inputOnBlur() {
-    console.log('inputOnBlur ....');
+  inputOnBlur(event) {
+    console.log('inputOnBlur ...., event = ', event.target.value);
     this.inEditMode = false;
     // this.searchText = this.inputItem.customKey;
     this.selectOptionEmitter.emit(this.searchText);
+  }
+
+  inputOnTabKeydown(event) {
+    console.log('inputOnTabKeydown ...., event = ', event.target.value);
   }
 
   onSelectSymbolClick(event: MouseEvent, content, option) {

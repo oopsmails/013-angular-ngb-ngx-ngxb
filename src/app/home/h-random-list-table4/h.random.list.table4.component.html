@@ -29,9 +29,9 @@ Color EUNM: Select Yellow, then no Desc column in table.
         <th>Type</th>
         <th>Id</th>
         <th>Name</th>
+        <th>Custom Key</th>
         <th>CustomKeyLong</th>
         <th *ngIf="colorSelected !== 'Yellow'">Desc</th>
-        <th>Custom Key</th>
         <th nowrap tabindex="0">
           {{ 'HOME.RANDOM.LIST.TABLE.TH.REMOVE' | messageTranslate }}
         </th>
@@ -80,6 +80,25 @@ Color EUNM: Select Yellow, then no Desc column in table.
           />
         </td>
         <td class="td-spec">
+          <ng-container *ngIf="editItems[i].disableCustomKey">
+            <input
+              class="td-input-select"
+              style="padding-left: 12px"
+              type="text"
+              [(ngModel)]="editItems[i].customKey"
+              [disabled]="true"
+              (ngModelChange)="onDescChange($event, i)"
+            />
+          </ng-container>
+          <ng-container *ngIf="!editItems[i].disableCustomKey">
+            <app-ramdom-list-search
+              class="td-input-select"
+              [inputItem]="item"
+              (selectOptionEmitter)="onCustomKeySelected($event, i)"
+            ></app-ramdom-list-search>
+          </ng-container>
+        </td>
+        <td class="td-spec">
           <input
             class="td-input-select long-text"
             style="padding-left: 12px"
@@ -98,25 +117,6 @@ Color EUNM: Select Yellow, then no Desc column in table.
           />
           <ng-container *ngIf="editItems[i].descErrorMessage !== ''">
             <span style="color: red">{{ editItems[i].descErrorMessage }}</span>
-          </ng-container>
-        </td>
-        <td class="td-spec">
-          <ng-container *ngIf="editItems[i].disableCustomKey">
-            <input
-              class="td-input-select"
-              style="padding-left: 12px"
-              type="text"
-              [(ngModel)]="editItems[i].customKey"
-              [disabled]="true"
-              (ngModelChange)="onDescChange($event, i)"
-            />
-          </ng-container>
-          <ng-container *ngIf="!editItems[i].disableCustomKey">
-            <app-ramdom-list-search
-              class="td-input-select"
-              [inputItem]="item"
-              (selectOptionEmitter)="onCustomKeySelected($event, i)"
-            ></app-ramdom-list-search>
           </ng-container>
         </td>
         <td class="td-spec" style="text-align: center">
