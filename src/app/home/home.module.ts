@@ -17,7 +17,7 @@ import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
 import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
 import { HomeOptionsComponent } from './h-options/home.options.component';
 import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
-import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
+import { HomeRandomListSearchModalComponent } from './h-random-list-search-modal/h.random.list.search.modal.component';
 import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
 import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
 import { HomeRandomListTable2Component } from './h-random-list-table2/h.random.list.table2.component';
@@ -114,7 +114,7 @@ const routes: Routes = [
     HomeRandomListTable3Component,
     HomeRandomListTable4Component,
     HomeRandomListSearchComponent,
-    HomeRandomListSearchAdvComponent,
+    HomeRandomListSearchModalComponent,
     HomeTooltipComponent,
     HomeTooltip2Component,
   ],
