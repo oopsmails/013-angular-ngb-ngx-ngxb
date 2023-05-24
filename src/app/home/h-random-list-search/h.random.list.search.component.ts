@@ -124,19 +124,58 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     });
   }
 
-  inputOnBlur(event) {
-    console.log('inputOnBlur ...., event = ', event.target.value);
-    this.inEditMode = false;
-    // this.searchText = this.inputItem.customKey;
-    this.selectOptionEmitter.emit(this.searchText);
+  // inputOnBlur(event) {
+  //   console.log('inputOnBlur ...., event = ', event.target.value);
+  //   this.inEditMode = false;
+  //   // this.searchText = this.inputItem.customKey;
+  //   this.selectOptionEmitter.emit(this.searchText);
+  // }
+
+  inputOnBlur(event: FocusEvent): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    // Check if the blur event is not caused by a TAB keydown event
+    if (!event.relatedTarget) {
+      console.log('inputOnBlur ...., inputValue = ', inputValue);
+      this.inEditMode = false;
+      // this.searchText = this.inputItem.customKey;
+      this.selectOptionEmitter.emit(this.searchText);
+    }
+
+    setTimeout(() => {
+      // if (this.modalService.hasOpenModals()) {
+      //   this.modalService.dismissAll();
+      // }
+      this.inEditMode = false;
+    }, 0);
   }
 
-  inputOnTabKeydown(event) {
-    console.log('inputOnTabKeydown ...., event = ', event.target.value);
-    this.selectOptionEmitter.emit({
-      eventSource: 'inputOnTabKeydown',
-      eventData: event.target.value,
-    });
+  // inputOnTabKeydown(event) {
+  //   console.log('inputOnTabKeydown ...., event = ', event.target.value);
+  //   this.selectOptionEmitter.emit({
+  //     eventSource: '[inputOnTabKeydown]',
+  //     eventData: event.target.value,
+  //   });
+  // }
+
+  onKeyDown(event: KeyboardEvent): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    console.log('inputOnTabKeydown ...., inputValue = ', inputValue);
+    if (event.key === 'Tab') {
+      this.selectOptionEmitter.emit({
+        eventSource: '[inputOnTabKeydown]',
+        eventData: inputValue,
+      });
+
+      setTimeout(() => {
+        // if (this.modalService.hasOpenModals()) {
+        //   this.modalService.dismissAll();
+        // }
+        this.inEditMode = false;
+      }, 0);
+
+      // Prevent the onblur function from being called
+      event.stopPropagation();
+    }
   }
 
   onSelectSymbolClick(event: MouseEvent, content, option) {

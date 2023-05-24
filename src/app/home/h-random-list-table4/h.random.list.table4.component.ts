@@ -112,18 +112,22 @@ export class HomeRandomListTable4Component implements OnInit, OnDestroy {
   }
 
   onCustomKeySelected(item, idx) {
-    console.log('onCustomKeySelected, item = ', item);
+    console.log('onSelectSymbolClick ...........................', item, idx);
 
     if (typeof item === 'string') {
+      console.log('1: from child inputOnBlur, item = ', item);
       this.editItems[idx].customKey = item;
       return;
     }
 
-    if (item && item.eventSource && item.eventSource === 'inputOnTabKeydown') {
-      console.log('from child onCustomKeySelected, item = ', item);
+    if (item && item.eventSource && item.eventSource === '[inputOnTabKeydown]') {
+      console.log('2: from child inputOnTabKeydown, item = ', item);
+      this.editItems[idx].customKey = item.eventData;
+      return;
     }
 
     if (item && item.name) {
+      console.log('3: from child onSelectSymbolClick, item = ', item);
       // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
       this.editItems[idx].customKey = 'selected-' + item.name;
     } else if (item && item.model) {

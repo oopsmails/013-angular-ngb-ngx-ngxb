@@ -23,7 +23,7 @@
         (ngModelChange)="onKeyupSearch($event)"
         (focus)="inputOnFocus()"
         (blur)="inputOnBlur($event)"
-        (keydown.Tab)="inputOnTabKeydown($event)"
+        (keydown)="onKeyDown($event)"
       />
       <div class="h__image-wrapper">
         <img src="assets/icons/bs-icons/search.svg" alt="search" />
