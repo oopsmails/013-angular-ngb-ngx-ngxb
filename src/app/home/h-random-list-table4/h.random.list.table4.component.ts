@@ -119,6 +119,10 @@ export class HomeRandomListTable4Component implements OnInit, OnDestroy {
       return;
     }
 
+    if (item && item.eventSource && item.eventSource === 'inputOnTabKeydown') {
+      console.log('from child onCustomKeySelected, item = ', item);
+    }
+
     if (item && item.name) {
       // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
       this.editItems[idx].customKey = 'selected-' + item.name;

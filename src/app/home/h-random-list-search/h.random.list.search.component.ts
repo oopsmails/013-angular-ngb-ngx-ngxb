@@ -133,6 +133,10 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
 
   inputOnTabKeydown(event) {
     console.log('inputOnTabKeydown ...., event = ', event.target.value);
+    this.selectOptionEmitter.emit({
+      eventSource: 'inputOnTabKeydown',
+      eventData: event.target.value,
+    });
   }
 
   onSelectSymbolClick(event: MouseEvent, content, option) {
