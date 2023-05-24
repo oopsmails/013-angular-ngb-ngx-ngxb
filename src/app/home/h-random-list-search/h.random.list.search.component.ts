@@ -141,12 +141,12 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
       this.selectOptionEmitter.emit(this.searchText);
     }
 
-    setTimeout(() => {
-      // if (this.modalService.hasOpenModals()) {
-      //   this.modalService.dismissAll();
-      // }
-      this.inEditMode = false;
-    }, 0);
+    // setTimeout(() => {
+    // if (this.modalService.hasOpenModals()) {
+    //   this.modalService.dismissAll();
+    // }
+    this.inEditMode = false;
+    // }, 0);
   }
 
   // inputOnTabKeydown(event) {
@@ -166,12 +166,12 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
         eventData: inputValue,
       });
 
-      setTimeout(() => {
-        // if (this.modalService.hasOpenModals()) {
-        //   this.modalService.dismissAll();
-        // }
-        this.inEditMode = false;
-      }, 0);
+      // setTimeout(() => {
+      // if (this.modalService.hasOpenModals()) {
+      //   this.modalService.dismissAll();
+      // }
+      this.inEditMode = false;
+      // }, 0);
 
       // Prevent the onblur function from being called
       event.stopPropagation();
