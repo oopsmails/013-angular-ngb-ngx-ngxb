@@ -12,7 +12,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../hm.constants';
+import { SANDBOX_BACK_TO_HOME, SANDBOX_HOME_LINK } from '../../hm.constants';
 
 @Component({
   selector: 'app-hm-dropdown-search-async3',
