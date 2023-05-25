@@ -1,4 +1,4 @@
-import { ColorEnum } from './../../localshared/models/shared-model';
+import { ColorEnum } from '../../localshared/models/shared-model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService, Car } from 'oops-lib002';
