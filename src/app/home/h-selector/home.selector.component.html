@@ -1,12 +1,13 @@
-<h3>Hello, Test ContentChild! not working yet, dropdown problem, source code using ngx-bootstrap</h3>
+<!-- <h3>Hello, Test ContentChild! not working yet, dropdown problem, source code using ngx-bootstrap</h3> -->
+<h3>Hello, Test ngTemplateOutlet and @ContentChild</h3>
 
-Refs:
+<!-- Refs:
 <p>https://indepth.dev/posts/1405/ngtemplateoutlet</p>
-<p>https://github.com/StephenCooper/ngTemplateOutlets</p>
+<p>https://github.com/StephenCooper/ngTemplateOutlets</p> -->
 
 <hr />
 <div class="app-selector btn-group" dropdown>
-  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle" (click)="toggleNgTemplateOutlet()">
     <ng-template #defaultSelected>
       {{ picked?.name || label }}
     </ng-template>
@@ -25,21 +26,23 @@ Refs:
     </ng-container>
   </ng-container> -->
 
-  <ul>
-    <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
-      <ng-template #defaultOption>
-        <a class="dropdown-item">
-          {{ option?.name || option }}
-        </a>
-      </ng-template>
+  <ng-container *ngIf="showNgTemplateOutlet">
+    <ul>
+      <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
+        <ng-template #defaultOption>
+          <a class="dropdown-item">
+            {{ option?.name || option }}
+          </a>
+        </ng-template>
 
-      <ng-container
-        [ngTemplateOutlet]="optionTemplateRef || defaultOption"
-        [ngTemplateOutletContext]="{ $implicit: option, index: i }"
-      >
-      </ng-container>
-    </li>
-  </ul>
+        <ng-container
+          [ngTemplateOutlet]="optionTemplateRef || defaultOption"
+          [ngTemplateOutletContext]="{ $implicit: option, index: i }"
+        >
+        </ng-container>
+      </li>
+    </ul>
+  </ng-container>
 
   <!-- <ul>
     <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
@@ -48,31 +51,17 @@ Refs:
   </ul> -->
 </div>
 
-<!-- <h4>Using `position: absolute; z-index`</h4>
-
-<div class="hm-dropdown-async3__container-div" aria-labelledby="search select car">
-  <input
-    type="text"
-    #searchTextInput
-    class="hm-dropdown-async3__searchInput"
-    placeholder="Type to search ..."
-  />
-
-  <ng-container *ngIf="showItems && displaying$ | async as items">
-    <ng-container *ngIf="items.length > 0">
-      <div class="hm-dropdown-async3__items-div">
-        <a
-          *ngFor="let option of items; let i = index"
-          class="dropdown-item pointer text-contain"
-          [ngClass]="{ alternateBackground: i % 2 == 0 }"
-          (mousedown)="selectValue($event, option); $event.preventDefault();"
-        >
-          {{ option.description }}
-        </a>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="items.length === 0">
-      <div class="text-center text-muted mt-1 hm-dropdown-async3__no-items-div">Waiting ... or No car found ......</div>
-    </ng-container>
+<!-- <div class="hm-dropdown-async3__container-div" aria-labelledby="search select car">
+  <ng-container *ngIf="showNgTemplateOutlet">
+    <div class="hm-dropdown-async3__items-div">
+      <a
+        *ngFor="let option of options; let i = index"
+        class="dropdown-item pointer text-contain"
+        [ngClass]="{ alternateBackground: i % 2 == 0 }"
+        (mousedown)="selectOption(option); $event.preventDefault()"
+      >
+        {{ option.name }}
+      </a>
+    </div>
   </ng-container>
 </div> -->

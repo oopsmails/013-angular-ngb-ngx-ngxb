@@ -22,6 +22,8 @@ export class HomeSelectorComponent<T extends { name: string }> implements OnInit
   @Output()
   selectionChanged = new EventEmitter<T>();
 
+  showNgTemplateOutlet: boolean = false;
+
   ngOnInit() {
     console.log('input options: ', this.options);
     console.log('selectedTemplateRef: ', this.selectedTemplateRef);
@@ -31,5 +33,15 @@ export class HomeSelectorComponent<T extends { name: string }> implements OnInit
   selectOption(option: T) {
     this.picked = option;
     this.selectionChanged.emit(option);
+  }
+
+  toggleNgTemplateOutlet() {
+    // if (this.showNgTemplateOutlet) {
+    //   this.showNgTemplateOutlet = false;
+    // } else {
+    //   this.showNgTemplateOutlet = true;
+    // }
+
+    this.showNgTemplateOutlet = !this.showNgTemplateOutlet;
   }
 }
