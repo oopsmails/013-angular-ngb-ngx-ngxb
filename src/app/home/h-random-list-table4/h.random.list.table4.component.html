@@ -1,0 +1,168 @@
+<h3>Hello, Test Talbe dropdown 4, modal!</h3>
+
+<p>Select RIGHT, then disable Desc and CustomKey</p>
+
+<hr />
+
+Color EUNM: Select Yellow, then no Desc column in table.
+
+<select
+  [(ngModel)]="colorSelected"
+  (ngModelChange)="onSelectColor($event)"
+  id="#colorSelected"
+  class="w-50 form-control"
+  style="padding-left: 12px"
+>
+  <option value="" disabled selected>Select ...</option>
+  <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+</select>
+
+<hr />
+<h3>Editable Items:</h3>
+<p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
+<button (click)="changeInputItem()">Change input object</button>
+
+<div class="table-container">
+  <table class="table table-hover table-bordered">
+    <thead class="h-random-list-table__thead">
+      <tr class="bg-success">
+        <th>Type</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Custom Key</th>
+        <th>CustomKeyLong</th>
+        <th *ngIf="colorSelected !== 'Yellow'">Desc</th>
+        <th nowrap tabindex="0">
+          {{ 'HOME.RANDOM.LIST.TABLE.TH.REMOVE' | messageTranslate }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px" (click)="onEditableRowClick(item)"> -->
+      <!-- <tr *ngFor="let item of editItems; let i = index" style="height: 20px"> -->
+      <tr *ngFor="let item of editItems; let i = index">
+        <td class="td-spec">
+          <select
+            [(ngModel)]="editItems[i].type"
+            (ngModelChange)="onTypeChange($event, i)"
+            id="direction-select-{{ i }}"
+            class="td-input-select"
+            style="padding-left: 12px"
+          >
+            <!-- <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+              {{ directionEnum[direction] }}
+            </option> -->
+
+            <option *ngIf="item.displayTypeSelect" [value]="direectionOptions[0].value">
+              {{ direectionOptions[0].displayKey | messageTranslate }}
+            </option>
+            <option *ngFor="let option of direectionOptions.slice(1); let i = index" [value]="option.value">
+              {{ option.displayKey | messageTranslate }}
+            </option>
+          </select>
+        </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select input-class-number"
+            style="padding-left: 12px"
+            type="number"
+            [(ngModel)]="editItems[i].id"
+            [maxLength]="5"
+          />
+        </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select"
+            style="padding-left: 12px"
+            [disabled]="isNameFieldDisabled(i)"
+            type="text"
+            [(ngModel)]="editItems[i].name"
+          />
+        </td>
+        <td class="td-spec">
+          <ng-container *ngIf="editItems[i].disableCustomKey">
+            <input
+              class="td-input-select"
+              style="padding-left: 12px"
+              type="text"
+              [(ngModel)]="editItems[i].customKey"
+              [disabled]="true"
+              (ngModelChange)="onDescChange($event, i)"
+            />
+          </ng-container>
+          <ng-container *ngIf="!editItems[i].disableCustomKey">
+            <app-ramdom-list-search
+              class="td-input-select"
+              [inputItem]="item"
+              (selectOptionEmitter)="onCustomKeySelected($event, i)"
+            ></app-ramdom-list-search>
+          </ng-container>
+        </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select long-text"
+            style="padding-left: 12px"
+            type="text"
+            [(ngModel)]="editItems[i].customKey"
+          />
+        </td>
+        <td *ngIf="colorSelected !== 'Yellow'" class="td-spec">
+          <input
+            class="td-input-select"
+            style="padding-left: 12px"
+            type="text"
+            [(ngModel)]="editItems[i].desc"
+            [disabled]="editItems[i].disableDesc"
+            (ngModelChange)="onDescChange($event, i)"
+          />
+          <ng-container *ngIf="editItems[i].descErrorMessage !== ''">
+            <span style="color: red">{{ editItems[i].descErrorMessage }}</span>
+          </ng-container>
+        </td>
+        <td class="td-spec" style="text-align: center">
+          <div
+            [ngStyle]="{
+              opacity: removeShouldBeDisabled ? '0.5' : '1',
+              'pointer-events': removeShouldBeDisabled ? 'none' : 'auto'
+            }"
+          >
+            <div class="h-random-list-table2__remove-img" style="padding: 0" (click)="onRemove(i)">
+              <img src="assets/images/delete_icon_white.svg" alt="delete" />
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="add-new-div">
+    <span (click)="addNewRow(1)" class="top-level__link-text">Add New Row</span>
+  </div>
+
+  <hr />
+
+  <div>{{ colorSelected | json }}</div>
+
+  <div *ngFor="let item of editItems">
+    <div>{{ item | json }}</div>
+  </div>
+</div>
+
+<ng-template #customContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-home-table1></app-home-table1>
+    <!-- <app-home-table1
+      [inputCountry]="passingCountry"
+      (selectCountryEvent)="recieveSelectCountryEvent($event)"
+    ></app-home-table1> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

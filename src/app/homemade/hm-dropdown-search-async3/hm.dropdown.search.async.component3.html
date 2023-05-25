@@ -1,0 +1,36 @@
+<h3>Hello, Home Made Car Searching Dropdown 3 - Async!</h3>
+<app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
+<hr />
+
+<h4>Using `position: absolute; z-index`</h4>
+
+<div class="hm-dropdown-async3__container-div" aria-labelledby="search select car">
+  <input
+    type="text"
+    #searchTextInput
+    class="hm-dropdown-async3__searchInput"
+    placeholder="Type to search ..."
+    [ngModel]="searchText"
+    (ngModelChange)="filterDropdown($event)"
+    (focus)="inputOnFocus()"
+    (blur)="inputOnBlur()"
+  />
+
+  <ng-container *ngIf="showItems && displaying$ | async as items">
+    <ng-container *ngIf="items.length > 0">
+      <div class="hm-dropdown-async3__items-div">
+        <a
+          *ngFor="let option of items; let i = index"
+          class="dropdown-item pointer text-contain"
+          [ngClass]="{ alternateBackground: i % 2 == 0 }"
+          (mousedown)="selectValue($event, option); $event.preventDefault();"
+        >
+          {{ option.description }}
+        </a>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="items.length === 0">
+      <div class="text-center text-muted mt-1 hm-dropdown-async3__no-items-div">Waiting ... or No car found ......</div>
+    </ng-container>
+  </ng-container>
+</div>

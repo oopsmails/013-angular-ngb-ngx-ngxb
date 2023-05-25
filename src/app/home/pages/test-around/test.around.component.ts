@@ -1,7 +1,8 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { CarDataService } from 'oops-lib002';
-import { map, Observable, of, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, of, Subject, takeUntil } from 'rxjs';
 import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
+import { TestObject } from 'src/app/localshared/models/shared-model';
 import { Institution } from 'src/app/models/inst';
 
 @Component({
@@ -13,6 +14,20 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   private COMPONENT_NAME = 'TestAroundComponent';
 
   private onDestroy$: Subject<boolean> = new Subject();
+
+  myArray: TestObject[] = [
+    { enName: 'John', frName: 'Jean', rank: 'A' },
+    { enName: 'Peter', frName: 'Pierre', rank: 'C' },
+    { enName: 'Sarah', frName: 'Sara', rank: 'B' },
+    { enName: 'David', frName: 'David', rank: 'A' },
+    { enName: 'Alice', frName: 'Alice' },
+    { enName: 'Robert', frName: 'Robert', rank: 'B' },
+    { enName: 'Julie', frName: 'Julie' },
+    { enName: 'a' },
+    { enName: 'b' },
+    { frName: 'a' },
+    { frName: 'b' },
+  ];
 
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
@@ -31,6 +46,9 @@ export class TestAroundComponent implements OnInit, OnDestroy {
   // private element: HTMLElement;
   public progressBarVisible = false;
   public progressBarWidth = 0;
+
+  inputNum: number;
+  private inputNumSubject$ = new Subject<number>();
 
   constructor(private carDataService: CarDataService) {}
   ngOnInit() {
@@ -53,6 +71,31 @@ export class TestAroundComponent implements OnInit, OnDestroy {
     );
 
     // this.element = this.elementRef.nativeElement.querySelector('.scrolling-div');
+
+    this.sortArray();
+
+    const myArray = [
+      { field1: 'value1', field2: '', field3: 'value3' },
+      { field1: '', field2: '', field3: '' },
+      { field1: 'value1', field2: 'value2', field3: '' },
+      { field1: '', field2: '', field3: 'value3' },
+      { field1: '', field2: '', field3: '' },
+    ];
+
+    // Filter out objects where all fields are empty
+    const filteredArray = myArray.filter((obj) => {
+      return !(obj.field1 === '' && obj.field2 === '' && obj.field3 === '');
+    });
+
+    // Log the filtered array to the console
+    console.log('filteredArray: ', filteredArray);
+
+    this.inputNumSubject$
+      .pipe(takeUntil(this.onDestroy$), debounceTime(500), distinctUntilChanged())
+      .subscribe((inputNum) => {
+        this.inputNum = inputNum;
+        console.log('inputNumSubject$, debounceTime: 500ms');
+      });
   }
 
   onSelectOptionChange(option) {
@@ -73,6 +116,139 @@ export class TestAroundComponent implements OnInit, OnDestroy {
       this.progressBarVisible = false;
       this.progressBarWidth = 0;
     }
+  }
+
+  compareFn(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      const rankCompare = a.rank.localeCompare(b.rank);
+      if (rankCompare !== 0) {
+        return rankCompare;
+      }
+    } else if (a.rank) {
+      return -1;
+    } else if (b.rank) {
+      return 1;
+    }
+
+    const aEnName = a.enName || '';
+    const bEnName = b.enName || '';
+    if (!aEnName && !bEnName) {
+      return 0;
+    } else if (!aEnName) {
+      return 1;
+    } else if (!bEnName) {
+      return -1;
+    } else {
+      const enNameCompare = aEnName.localeCompare(bEnName);
+      if (enNameCompare !== 0) {
+        return enNameCompare;
+      }
+    }
+
+    const aFrName = a.frName || '';
+    const bFrName = b.frName || '';
+    if (!aFrName && !bFrName) {
+      return 0;
+    } else if (!aFrName) {
+      return 1;
+    } else if (!bFrName) {
+      return -1;
+    } else {
+      return aFrName.localeCompare(bFrName);
+    }
+  }
+
+  compareFn2(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      if (a.rank < b.rank) {
+        return -1;
+      } else if (a.rank > b.rank) {
+        return 1;
+      } else {
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    } else if (a.rank && !b.rank) {
+      return -1;
+    } else if (!a.rank && b.rank) {
+      return 1;
+    } else {
+      // Both objects don't have a rank property
+      if (!a.enName && !a.frName) {
+        return 1; // a is empty, so b should come first
+      } else if (!b.enName && !b.frName) {
+        return -1; // b is empty, so a should come first
+      } else if (!a.enName && b.enName) {
+        return 1; // a is empty, so b should come first
+      } else if (!b.enName && a.enName) {
+        return -1; // b is empty, so a should come first
+      } else {
+        // Both objects have non-empty enName and/or frName properties
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    }
+  }
+
+  compareFn1(a: TestObject, b: TestObject): number {
+    if (a.rank && b.rank) {
+      if (a.rank < b.rank) {
+        return -1;
+      } else if (a.rank > b.rank) {
+        return 1;
+      } else {
+        if (a.enName < b.enName) {
+          return -1;
+        } else if (a.enName > b.enName) {
+          return 1;
+        } else {
+          if (a.frName < b.frName) {
+            return -1;
+          } else if (a.frName > b.frName) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      }
+    } else if (a.rank && !b.rank) {
+      return -1;
+    } else if (!a.rank && b.rank) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  sortArray() {
+    this.myArray.sort(this.compareFn);
+  }
+
+  onInputNumChange(inNum: number) {
+    console.log('onInputNumChange ...');
+    this.inputNumSubject$.next(inNum);
   }
 
   ngOnDestroy() {

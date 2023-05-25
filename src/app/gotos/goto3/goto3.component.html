@@ -1,0 +1,21 @@
+<h2>Hello, Go To 3: Test Around TypeScript!</h2>
+<!-- <app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle> -->
+<hr />
+
+<h3>Taking Notes for TypeScript: Using Spread Operator</h3>
+
+<hr />
+
+<div *ngFor="let item of items$ | async">
+  <code>{{ item | json }}</code
+  ><br />
+</div>
+
+<hr />
+
+<h3>Subscribed items below: .........</h3>
+
+<div *ngFor="let item of items">
+  <code>{{ item | json }}</code
+  ><br />
+</div>

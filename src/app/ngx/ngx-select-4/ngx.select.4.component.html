@@ -1,0 +1,29 @@
+<h1>Ngx Test</h1>
+
+<hr />
+<ngx-select [items]="items" [(ngModel)]="selectedItem" (keyup)="inputKeyUp($event.target.value, $event)">
+  {{ items.length }}
+  <!-- <ng-template let-option let-i="index">
+    <div>{{ i }} - {{ option.data.id }} - {{ option.data.name }}</div>
+  </ng-template> -->
+
+  <ng-template let-i="index" let-text="searchText" let-option ngx-select-option>
+    <!-- <div>{{ i }} - {{ option.data.id }} - {{ option.data.name }}</div> -->
+    <!-- <div>{{ searchText }} - {{ i }} - {{ option.data.id }} - {{ option.data.name }}</div> -->
+    <!-- <div *ngIf="searchText !== '' && i < 2">
+      {{ searchText }} - {{ i }} - {{ option.data.id }} - {{ option.data.name }}
+    </div> -->
+    <!-- <div *ngIf="i < 2">{{ option.data.name }}</div> -->
+
+    <ng-container *ngIf="searchText === ''">
+      <div>{{ i }} - {{ option.data.id }} - {{ option.data.name }}</div>
+    </ng-container>
+    <ng-container *ngIf="searchText !== '' && i < 2">
+      <div>{{ searchText }} - {{ i }} - {{ option.data.name }}</div>
+    </ng-container>
+  </ng-template>
+</ngx-select>
+
+<hr />
+<p><a routerLink="">routerLink home</a></p>
+<app-footer></app-footer>

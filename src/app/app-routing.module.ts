@@ -6,6 +6,7 @@ import { HomemadeComponent } from './homemade/homemade/homemade.component';
 import { NgbHomeComponent } from './ngb/ngb-home/ngb-home.component';
 import { NgxHomeComponent } from './ngx/ngx-home/ngx-home.component';
 import { NgxbHomeComponent } from './ngxb/ngxb-home/ngxb-home.component';
+import { ExamplesHomeComponent } from './examples/eg-home/eg.home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'ngb', component: NgbHomeComponent },
   { path: 'ngx', component: NgxHomeComponent },
   { path: 'ngxb', component: NgxbHomeComponent },
+  { path: 'eg', component: ExamplesHomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 @NgModule({

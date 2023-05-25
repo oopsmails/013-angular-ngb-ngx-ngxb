@@ -4,12 +4,12 @@ import { Observable, Subject } from 'rxjs';
 import { DirectionEnum } from 'src/app/localshared/models/shared-model';
 
 @Component({
-  selector: 'app-ramdom-list-search-adv',
-  templateUrl: './h.random.list.search.adv.component.html',
-  styleUrls: ['./h.random.list.search.adv.component.scss'],
+  selector: 'app-ramdom-list-search-modal',
+  templateUrl: './h.random.list.search.modal.component.html',
+  styleUrls: ['./h.random.list.search.modal.component.scss'],
 })
-export class HomeRandomListSearchAdvComponent implements OnInit, OnDestroy {
-  private COMPONENT_NAME = 'HomeRandomListSearchAdvComponent';
+export class HomeRandomListSearchModalComponent implements OnInit, OnDestroy {
+  private COMPONENT_NAME = 'HomeRandomListSearchModalComponent';
 
   private onDestroy$: Subject<boolean> = new Subject();
 

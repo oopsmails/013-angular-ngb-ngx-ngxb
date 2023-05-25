@@ -1,4 +1,4 @@
-import { ColorEnum } from '../../localshared/models/shared-model';
+import { ColorEnum, DirectionEnumSimple, getColorEnumName } from '../../localshared/models/shared-model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RandomItem, SharedDataService, Car } from 'oops-lib002';
@@ -10,6 +10,13 @@ import { I18nService } from 'src/app/localshared/services/i18n.service';
 
 interface RandomItemExt extends RandomItem {
   type?: string;
+  displayType?: boolean;
+}
+
+export enum MyColorEnum {
+  RED,
+  GREEN,
+  BLUE,
 }
 
 @Component({
@@ -28,13 +35,23 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
 
   editItems: RandomItemExt[] = [];
 
-  directions: string[] = Object.values(DirectionEnum).map((value) => String(value));
-  directionEnum = DirectionEnum;
+  directions: string[] = Object.values(DirectionEnumSimple).map((value) => String(value));
+  directionEnumSimple = DirectionEnumSimple;
+  direectionOptions = [
+    { value: '', displayKey: 'OPTION.SELECT' },
+    { value: DirectionEnumSimple[DirectionEnumSimple.UP], displayKey: 'DIRECTION.UP' },
+    { value: DirectionEnumSimple[DirectionEnumSimple.DOWN], displayKey: 'DIRECTION.DOWN' },
+    { value: DirectionEnumSimple[DirectionEnumSimple.LEFT], displayKey: 'DIRECTION.LEFT' },
+    { value: DirectionEnumSimple[DirectionEnum.RIGHT], displayKey: 'DIRECTION.RIGHT' },
+  ];
+
   colorSelected: string;
   colors = Object.values(ColorEnum);
 
   public selectedColor: ColorEnum | null = null;
   private colorTranslations: Map<ColorEnum, string> = new Map();
+
+  removeShouldBeDisabled: boolean = false;
 
   constructor(
     private sharedDataService: SharedDataService,
@@ -61,14 +78,41 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       this.COMPONENT_NAME + ', ngOnInit, test translateService-2: ',
       this.i18nService.getJsonValueI18n('TEST_DESCRIPTION')
     );
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, Enum to string, only simple: DirectionEnumSimple[DirectionEnumSimple.DOWN] = ',
+      DirectionEnumSimple[DirectionEnumSimple.DOWN]
+    );
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, Enum to string: String(DirectionEnumSimple.UP) = ',
+      String(DirectionEnumSimple.UP)
+    );
+
+    const myColor = MyColorEnum.RED;
+
+    console.log(this.COMPONENT_NAME + ', ngOnInit, Enum to string: myColor.toString() = ', myColor.toString());
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, Enum to string, only simple: MyColorEnum[MyColorEnum.RED] = ',
+      MyColorEnum[MyColorEnum.RED]
+    );
+
+    console.log(
+      this.COMPONENT_NAME + ', ngOnInit, Enum to string: getColorEnumName(ColorEnum.GREEN) = ',
+      getColorEnumName(ColorEnum.GREEN)
+    );
+
     this.initializeColorTranslations();
 
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
+
+    this.directions.push('Select ...');
     this.addNewRow();
   }
 
   getDirectionEnumValues() {
-    return Object.keys(this.directionEnum).filter((type) => isNaN(<any>type) && type !== 'values');
+    return Object.keys(this.directionEnumSimple).filter((type) => isNaN(<any>type) && type !== 'values');
   }
 
   getEnumKeyFromValue(enumObj: any, value: string): string | undefined {
@@ -96,11 +140,18 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       desc: '',
       customKey: '',
       type: '',
+      displayType: true,
     });
+    this.removeShouldBeDisabled = this.editItems.length <= 1;
   }
 
   onCustomKeySelected(item, idx) {
     console.log(this.COMPONENT_NAME + ', onCustomKeySelected, item = ', item);
+
+    if (typeof item === 'string') {
+      this.editItems[idx].customKey = item;
+      return;
+    }
 
     if (item && item.name) {
       // this should be the same as receiveSelectItem() in HomeRandomListSearchComponent!!! in face, need only one!!!
@@ -134,6 +185,17 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
       const firstPart = this.editItems.slice(0, idx);
       const secondPart = this.editItems.slice(idx + 1);
       this.editItems = firstPart.concat(secondPart);
+    }
+
+    this.removeShouldBeDisabled = this.editItems.length <= 1;
+  }
+
+  onTypeChange(event, idx) {
+    this.editItems[idx].type = event;
+    if (event || '' !== '') {
+      this.editItems[idx].displayType = false;
+    } else {
+      this.editItems[idx].displayType = true;
     }
   }
 

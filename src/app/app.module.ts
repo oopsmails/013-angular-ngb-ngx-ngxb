@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,18 +11,21 @@ import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GoToRoutingModule } from './gotos/goto-routing.module';
 import { HomeModule } from './home/home.module';
 import { HomeMadeModule } from './homemade/homemade.module';
 import { LocalsharedModule } from './localshared/localshared.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
+import { ExamplesModule } from './examples/eg.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -42,10 +46,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalsharedModule,
     HomeModule,
     HomeMadeModule,
+    ExamplesModule,
     NgbTestModule,
     NgxModule,
     NgxbModule,
     BrowserAnimationsModule,
+    GoToRoutingModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
   declarations: [AppComponent],

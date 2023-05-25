@@ -89,7 +89,10 @@ export class HomeMadeDropdownSearchAsyncComponent2 implements OnInit, OnDestroy 
 
   filterDropdown(e) {
     console.log('e in filterDropdown -------> ', e);
-    this.displayingLookup$.next(e);
+    this.showItems = true;
+    setTimeout(() => {
+      this.displayingLookup$.next(e);
+    });
   }
 
   // inputOnClick() {

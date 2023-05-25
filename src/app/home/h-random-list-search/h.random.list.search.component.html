@@ -1,6 +1,7 @@
 <div class="statusDropdownContainer">
   <div *ngIf="true" aria-labelledby="dropdownMenuButton" style="padding: 0px">
-    <!-- <input
+    <div class="h__search-box">
+      <!-- <input
       type="text"
       class="form-control"
       #searchTextInput
@@ -11,16 +12,24 @@
       (blur)="inputOnBlur($event)"
     /> -->
 
-    <input
-      type="text"
-      class="search-modal__input-select"
-      #searchTextInput
-      placeholder="{{ placeHolder }}"
-      [ngModel]="searchText"
-      (ngModelChange)="onKeyupSearch($event)"
-      (focus)="inputOnFocus()"
-      (blur)="inputOnBlur($event)"
-    />
+      <!-- disabled NOT needed, just for testing, can be done in Parent using ng-container with *ngIf -->
+      <input
+        type="text"
+        class="search-modal__input-select"
+        #searchTextInput
+        placeholder="{{ placeHolder }}"
+        [ngModel]="searchText"
+        [disabled]="inputItem.disableCustomKey"
+        (ngModelChange)="onKeyupSearch($event)"
+        (focus)="inputOnFocus()"
+        (blur)="inputOnBlur($event)"
+        (keydown)="onKeyDown($event)"
+      />
+      <div class="h__image-wrapper">
+        <img src="assets/icons/bs-icons/search.svg" alt="search" />
+        <!-- <img src="assets/images/search-glasses.png" alt="search" /> -->
+      </div>
+    </div>
     <ng-container *ngIf="displaying$ | async as items">
       <div
         *ngIf="inEditMode"
@@ -39,13 +48,24 @@
             {{ option.description }}
           </a>
         </div>
-        <div *ngIf="inEditMode && items.length === 0" class="text-muted search-modal__no-item">
-          Waiting ... or No car found ......
+        <div *ngIf="inEditMode && searchText === '' && items.length === 0" class="text-muted search-modal__no-item">
+          Type to search ...
+        </div>
+        <div *ngIf="inEditMode && searchText !== '' && items.length === 0" class="text-muted search-modal__no-item">
+          No match found ...
+        </div>
+        <div
+          *ngIf="inEditMode && items.length > 3"
+          class="text-muted search-modal__no-item"
+          style="color: var(--bs-green)"
+        >
+          More matches found ...
         </div>
 
         <div *ngIf="inEditMode" class="search-modal__advanced-search">
           <span
             class="top-level__link-text"
+            style="color: var(--bs-green)"
             (mousedown)="onSelectSymbolClick($event, content, '-1'); $event.preventDefault()"
             >{{ 'Advanced Search ......' }}</span
           >
@@ -63,10 +83,10 @@
     </button>
   </div>
   <div class="modal-body">
-    <app-ramdom-list-search-adv
+    <app-ramdom-list-search-modal
       [passingSearchText]="searchText"
       (selectedItem)="receiveSelectItem($event)"
-    ></app-ramdom-list-search-adv>
+    ></app-ramdom-list-search-modal>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>

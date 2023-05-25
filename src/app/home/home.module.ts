@@ -17,7 +17,7 @@ import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
 import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
 import { HomeOptionsComponent } from './h-options/home.options.component';
 import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
-import { HomeRandomListSearchAdvComponent } from './h-random-list-search-adv/h.random.list.search.adv.component';
+import { HomeRandomListSearchModalComponent } from './h-random-list-search-modal/h.random.list.search.modal.component';
 import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
 import { HomeRandomListTableComponent } from './h-random-list-table/h.random.list.table.component';
 import { HomeRandomListTable2Component } from './h-random-list-table2/h.random.list.table2.component';
@@ -43,6 +43,8 @@ import { TestAroundComponent } from './pages/test-around/test.around.component';
 import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
+import { HomeRandomListTable3Component } from './h-random-list-table3/h.random.list.table3.component';
+import { HomeRandomListTable4Component } from './h-random-list-table4/h.random.list.table4.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,6 +75,8 @@ const routes: Routes = [
   { path: 'home/investlist', component: HomeInvestmentListComponent },
   { path: 'home/itemlist', component: HomeRandomListTableComponent },
   { path: 'home/itemlist2', component: HomeRandomListTable2Component },
+  { path: 'home/itemlist3', component: HomeRandomListTable3Component },
+  { path: 'home/itemlist4', component: HomeRandomListTable4Component },
   { path: 'home/tooltip2', component: HomeTooltip2Component },
 ];
 
@@ -107,8 +111,10 @@ const routes: Routes = [
     HomeInvestmentListComponent,
     HomeRandomListTableComponent,
     HomeRandomListTable2Component,
+    HomeRandomListTable3Component,
+    HomeRandomListTable4Component,
     HomeRandomListSearchComponent,
-    HomeRandomListSearchAdvComponent,
+    HomeRandomListSearchModalComponent,
     HomeTooltipComponent,
     HomeTooltip2Component,
   ],

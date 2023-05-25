@@ -1,3 +1,13 @@
+.hm__home-hm-search3 {
+    border: 1px solid blue;
+    width: 700px;
+    // width: minmax(max(700px, 50%));
+    // width: min(700px, 100%);
+    // display: flex;
+}
+
+//-----------------------------------------------------
+
 .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;

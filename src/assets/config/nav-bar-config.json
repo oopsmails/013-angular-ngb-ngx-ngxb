@@ -12,20 +12,8 @@
     "submenu": []
   },
   {
-    "linkText": "NGB",
-    "parentLink": "/ngb",
-    "menu": false,
-    "submenu": []
-  },
-  {
-    "linkText": "NGX",
-    "parentLink": "/ngx",
-    "menu": false,
-    "submenu": []
-  },
-  {
-    "linkText": "NGXB",
-    "parentLink": "/ngxb",
+    "linkText": "Examples",
+    "parentLink": "/eg",
     "menu": false,
     "submenu": []
   },
@@ -35,20 +23,36 @@
     "menu": false,
     "submenu": [
       {
-        "childtext": "Json: Search City Filter",
-        "link": "sandbox/search-city"
+        "childtext": "NGB",
+        "link": "/ngb"
       },
       {
-        "childtext": "Search Plant Filter",
-        "link": "sandbox/search-plant"
+        "childtext": "NGX",
+        "link": "/ngx"
+      },
+      {
+        "childtext": "NGXB",
+        "link": "/ngxb"
+      },
+      {
+        "childtext": "Go To 1: Test CSS",
+        "link": "goto/1"
+      },
+      {
+        "childtext": "Go To 2: Test CSS",
+        "link": "goto/2"
+      },
+      {
+        "childtext": "Go To 3: Test TypeScript",
+        "link": "goto/3"
       },
       {
         "childtext": "US States",
         "link": "sandbox/us-state"
       },
       {
-        "childtext": "Search US States",
-        "link": "sandbox/search-state"
+        "childtext": "NOT Exist",
+        "link": "sandbox/not-exist"
       }
     ]
   }

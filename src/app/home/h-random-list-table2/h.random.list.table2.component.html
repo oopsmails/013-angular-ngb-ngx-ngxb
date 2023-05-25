@@ -37,10 +37,11 @@ colorSelected: {{ selectedColor | json }}
         <th>Type</th>
         <th>Id</th>
         <th>Name</th>
+        <th>CustomKeyLong</th>
         <th *ngIf="colorSelected !== 'Yellow'">Desc</th>
         <th>Custom Key</th>
         <th nowrap tabindex="0">
-          {{ 'TEST1.TEST2.TEST3' | messageTranslate }}
+          {{ 'HOME.RANDOM.LIST.TABLE.TH.REMOVE' | messageTranslate }}
         </th>
       </tr>
     </thead>
@@ -51,12 +52,20 @@ colorSelected: {{ selectedColor | json }}
         <td class="td-spec">
           <select
             [(ngModel)]="editItems[i].type"
+            (ngModelChange)="onTypeChange($event, i)"
             id="direction-select-{{ i }}"
             class="td-input-select"
             style="padding-left: 12px"
           >
-            <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
+            <!-- <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
               {{ directionEnum[direction] }}
+            </option> -->
+
+            <option *ngIf="item.displayType" [value]="direectionOptions[0].value">
+              {{ direectionOptions[0].displayKey | messageTranslate }}
+            </option>
+            <option *ngFor="let option of direectionOptions.slice(1); let i = index" [value]="option.value">
+              {{ option.displayKey | messageTranslate }}
             </option>
           </select>
         </td>
@@ -78,6 +87,14 @@ colorSelected: {{ selectedColor | json }}
             [(ngModel)]="editItems[i].name"
           />
         </td>
+        <td class="td-spec">
+          <input
+            class="td-input-select long-text"
+            style="padding-left: 12px"
+            type="text"
+            [(ngModel)]="editItems[i].customKey"
+          />
+        </td>
         <td *ngIf="colorSelected !== 'Yellow'" class="td-spec">
           <input class="td-input-select" style="padding-left: 12px" type="text" [(ngModel)]="editItems[i].desc" />
         </td>
@@ -89,7 +106,18 @@ colorSelected: {{ selectedColor | json }}
           ></app-ramdom-list-search>
         </td>
         <td class="td-spec" style="text-align: center">
-          <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
+          <div
+            [ngStyle]="{
+              opacity: removeShouldBeDisabled ? '0.5' : '1',
+              'pointer-events': removeShouldBeDisabled ? 'none' : 'auto'
+            }"
+          >
+            <div class="h-random-list-table2__remove-row" (click)="onRemove(i)">X</div>
+
+            <div class="h-random-list-table2__remove-img" style="padding: 0">
+              <img src="assets/images/delete_icon_white.svg" alt="delete" />
+            </div>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -98,6 +126,10 @@ colorSelected: {{ selectedColor | json }}
   <div class="add-new-div">
     <span (click)="addNewRow()" class="top-level__link-text">Add New Row</span>
   </div>
+
+  <hr />
+
+  <div>{{ colorSelected | json }}</div>
 
   <div *ngFor="let item of editItems">
     <div>{{ item | json }}</div>

@@ -1,0 +1,57 @@
+<h2>Example Home</h2>
+
+<hr />
+<p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
+<p><a routerLink="/eg/pattern">/eg/pattern: Pattern Test</a></p>
+
+<hr />
+<h3>SVGs</h3>
+<svg class="icon" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
+  />
+</svg>
+<!-- Example usage with custom fill color -->
+<svg class="icon" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg" style="--icon-color: red">
+  <path
+    d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
+  />
+</svg>
+
+<hr />
+<h3>Test 1: input max 5 chars, showing message</h3>
+
+<input type="text" [(ngModel)]="myInput01" (ngModelChange)="onInuputChange01($event)" />
+<div *ngIf="isInputInvalid01">
+  <span style="color: red">{{ tooltipMessage01 }}</span>
+</div>
+
+<hr />
+<h3>Test 2: input amount, showing message</h3>
+
+<input
+  type="text"
+  [(ngModel)]="myInput02"
+  (ngModelChange)="onInuputChange02($event)"
+  maxlength="14"
+  pattern="\d{0,11}(\.\d{0,3})?"
+/>
+<div *ngIf="isInputInvalid02">
+  <span style="color: red">{{ tooltipMessage02 }}</span>
+</div>
+
+<hr />
+<h3>Test 3: input pattern only</h3>
+
+<input type="text" [(ngModel)]="myInput03" (ngModelChange)="onInuputChange03($event)" />
+<div *ngIf="isInputInvalid03">
+  <span style="color: red">{{ tooltipMessage03 }}</span>
+</div>
+
+<hr />
+<h3>Test 4: input pattern digits only</h3>
+
+<input type="text" [(ngModel)]="myInput04" (ngModelChange)="onInuputChange04($event)" />
+<div *ngIf="isInputInvalid04">
+  <span style="color: red">{{ tooltipMessage04 }}</span>
+</div>

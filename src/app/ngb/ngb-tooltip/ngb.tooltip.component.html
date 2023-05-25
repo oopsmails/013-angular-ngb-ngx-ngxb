@@ -63,3 +63,31 @@
 </div>
 
 <hr />
+<h3>Test 5: input max 5 chars, showing message</h3>
+
+<!-- <input type="text" [(ngModel)]="myInput" maxlength="25" [ngbTooltip]="tooltipMessage" #inputElem="ngModel" />
+<div *ngIf="inputElem.errors?.maxlength">
+  <small class="form-text text-danger">{{ tooltipMessage }}</small>
+</div>
+
+<hr /> -->
+
+<!-- <input type="text" [(ngModel)]="myInput" maxlength="5" (input)="onInput($event)" /> -->
+<!-- <input type="text" [(ngModel)]="myInput" (input)="onInput($event)" />
+<div *ngIf="isInputInvalid" ngbTooltip="Max 5 characters" [ngbTooltipAnimation]="false" #tooltip="ngbTooltip"></div> -->
+
+<!-- <input type="text" [(ngModel)]="myInput" (ngModelChange)="onInuputChange($event)" (input)="onInputDivMessage($event)" /> -->
+<input type="text" [(ngModel)]="myInput" (ngModelChange)="onInuputChange($event)" />
+<div *ngIf="isInputInvalid">
+  <span style="color: red">{{ tooltipMessage }}</span>
+</div>
+
+<hr />
+
+<input
+  type="text"
+  [(ngModel)]="myInput"
+  (input)="onInput($event)"
+  [ngbTooltip]="tooltipMessage"
+  [class.is-invalid]="isInputInvalid"
+/>

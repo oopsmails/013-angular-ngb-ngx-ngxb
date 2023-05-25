@@ -1,0 +1,71 @@
+[
+  {
+    "linkText": "Home",
+    "parentLink": "",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "Home Made",
+    "parentLink": "/hm",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "NGB",
+    "parentLink": "/ngb",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "NGX",
+    "parentLink": "/ngx",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "NGXB",
+    "parentLink": "/ngxb",
+    "menu": false,
+    "submenu": []
+  },
+  {
+    "linkText": "Goto",
+    "parentLink": "",
+    "menu": false,
+    "submenu": [
+      {
+        "childtext": "NGB",
+        "link": "/ngb"
+      },
+      {
+        "childtext": "NGX",
+        "link": "/ngx"
+      },
+      {
+        "childtext": "NGXB",
+        "link": "/ngxb"
+      },
+      {
+        "childtext": "Go To 1: Test CSS",
+        "link": "goto/1"
+      },
+      {
+        "childtext": "Go To 2: Test CSS",
+        "link": "goto/2"
+      },
+      {
+        "childtext": "Go To 3: Test TypeScript",
+        "link": "goto/3"
+      },
+      {
+        "childtext": "US States",
+        "link": "sandbox/us-state"
+      },
+      {
+        "childtext": "NOT Exist",
+        "link": "sandbox/not-exist"
+      }
+    ]
+  }
+]

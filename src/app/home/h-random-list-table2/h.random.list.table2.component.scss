@@ -56,6 +56,12 @@ tr {
   // border: none;
 }
 
+.long-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .td-spec input[disabled] {
   // background-color: var(--primary-color);
   background-color: lightgray;
@@ -103,6 +109,26 @@ tr {
 }
 
 
+.h-random-list-table2__remove-img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+
+}
+
+.h-random-list-table2__remove-img img {
+  // width: 20px;
+  // height: 20px;
+  // filter: invert(100%);
+  // color: white;
+  padding: 0;
+  inset: 0;
+  margin: auto;
+}
 
 .dropdown-no-border {
   border: none;

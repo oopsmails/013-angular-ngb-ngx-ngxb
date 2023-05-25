@@ -3,7 +3,7 @@
 <hr />
 <h2>ngx-select: items NOT ready</h2>
 <p>When items are not ready, searching will trigger backend call</p>
-<div>
+<div style="text-decoration: line-through; font-weight: bold">
   <ngx-select
     id="#ngxSelect3"
     (keyup)="onKeyUpSearch($event)"
@@ -15,6 +15,8 @@
     [placeholder]="placeholderStr"
     [searchCallback]="onSearchCallback"
     optionTextField="name"
+    dropDownMenuOtherClasses="['selectd-item']"
+    ngClass="selectd-item"
   ></ngx-select>
   Selected: {{ formControl4.value }}
 </div>

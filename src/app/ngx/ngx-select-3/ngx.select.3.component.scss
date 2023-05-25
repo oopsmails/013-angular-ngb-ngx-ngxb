@@ -15,3 +15,39 @@
 ::ng-deep .highlighted-text {
     background-color: yellow;
 }
+
+// .selectd-item {
+    //     font-weight: bold;
+    // }
+
+    // ::ng-deep .selectd-item {
+    //     font-weight: bold;
+    // }
+
+    // .ngx-select__selected span {
+    //     font-weight: bold;
+    // }
+
+    // .ngx-select__selected-single {
+    //     span {
+    //         font-weight: bold;
+    //     }
+    // }
+
+    // .ngx-select__search,
+    // .ngx-select__selected-single {
+    //     font-weight: bold;
+    // }
+
+    // .ngx-select__search>input {
+    //     font-weight: bold;
+    // }
+
+    // .ngx-select__selected-single span {
+    //     font-weight: bold;
+    // }
+
+
+::ng-deep .ngx-select__selected-single span {
+    font-weight: bold;
+}

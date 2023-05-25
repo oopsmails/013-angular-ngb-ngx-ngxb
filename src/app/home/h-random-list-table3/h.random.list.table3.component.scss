@@ -1,0 +1,153 @@
+.table-container {
+  margin-top: 15px;
+  // height: 220px;
+  // overflow-y: auto;
+  position: relative;
+}
+
+table {
+  // width: 100%;
+  border-collapse: collapse;
+}
+
+.h-random-list-table__thead {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+tbody {
+  height: auto;
+  // overflow-y: auto;
+}
+
+.h-random-list-table__thead th {
+  padding-left: 12px;
+}
+
+tr {
+  // height: 20px;
+  border-bottom: 1px solid #766e6e;
+}
+
+// tr:last-child {
+//   border-bottom: none;
+// }
+
+// ----------------------------
+
+.add-new-div {
+  // position: sticky;
+  // position: fixed;
+  // position: relative;
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+  // margin-bottom: -100%;
+  // margin-right: -100%;
+  // padding-left: 82%;
+
+  display: flex;
+  justify-content: end;
+}
+
+.td-spec {
+  padding: 0px;
+  // outline: 1px solid black;
+  vertical-align: middle;
+  // text-align: center;
+  // border: none;
+}
+
+.long-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.td-spec input[disabled] {
+  // background-color: var(--primary-color);
+  background-color: lightgray;
+}
+
+.td-input-select {
+  padding: 0;
+  // padding: 0 0 0 15px;
+  border: none;
+  height: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// .td-input option {
+//   padding: 0 0 0 15px;
+// }
+
+// .td-input-select-width-100 {
+//   width: 100%;
+//   box-sizing: border-box;
+// }
+
+
+.h-random-list-table2__remove-row {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0 1px 0 0;
+}
+
+.h-random-list-table2__remove-row:hover {
+  background-color: darkred;
+}
+
+
+.h-random-list-table2__remove-img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+
+}
+
+.h-random-list-table2__remove-img img {
+  // width: 20px;
+  // height: 20px;
+  // filter: invert(100%);
+  // color: white;
+  padding: 0;
+  inset: 0;
+  margin: auto;
+}
+
+.dropdown-no-border {
+  border: none;
+  outline: none
+}
+
+/**
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+**/
+
+.input-class-number[type="number"]::-webkit-inner-spin-button,
+.input-class-number[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

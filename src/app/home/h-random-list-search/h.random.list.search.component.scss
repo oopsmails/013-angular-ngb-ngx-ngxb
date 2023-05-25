@@ -4,27 +4,57 @@
   width: 100%
 }
 
-// .statusFilterDropdown {
-//   box-shadow: -2px 2px 4px 0px #888;
-//   background-color: #f2f8f9;
-//   border: 1px solid #d3d3d3;
-// }
+//---------------------------------------------------
 
-// .flex-middle {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   text-align: center;
-// }
+.h__search-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0 0;
+}
+
+
+.h__image-wrapper {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  // border: 1px solid red;
+}
+
+.h__image-wrapper img {
+  padding: 10px 5px 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+//---------------------------------------------------
+
+.h__image-wrapper-bk {
+  padding: 0 5px 0 0;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid red;
+}
+
+.h__image-wrapper-bk img {
+  width: 100%;
+  height: 100%;
+}
+
 
 //---------------------------------------------------
 .search-modal__no-item {
   margin-top: 10px;
   font-style: italic;
+  text-align: center;
 }
 
 .search-modal__advanced-search {
   margin-top: 20px;
+  text-align: center;
 }
 
 // div.search-modal__item-list {
@@ -58,7 +88,6 @@
   box-sizing: border-box;
 }
 
-// .search-modal__to-be-covered {
-//   position: relative;
-//   // z-index: 99;
-// }
+.search-modal__input-select[disabled] {
+  background-color: rgb(134, 16, 16);
+}

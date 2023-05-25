@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of items.slice(0, 5); let i = index" style="height: 20px" (click)="onRowClick(item)">
+        <tr *ngFor="let item of items.slice(0, 5); let i = index" style="height: 20px">
           <td>
             <select id="direction-select-{{ i }}">
               <option *ngFor="let direction of getDirectionEnumValues()" [value]="direction">
@@ -27,10 +27,10 @@
               </option>
             </select>
           </td>
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.desc }}</td>
-          <td>{{ item.customKey }}</td>
+          <td (click)="onRowClick(item)">{{ item.id }}</td>
+          <td (click)="onRowClick(item)">{{ item.name }}</td>
+          <td (click)="onRowClick(item)">{{ item.desc }}</td>
+          <td (click)="onRowClick(item)">{{ item.customKey }}</td>
         </tr>
       </tbody>
     </table>
