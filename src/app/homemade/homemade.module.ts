@@ -10,20 +10,20 @@ import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdow
 import { HomeMadeRoutingModule } from './homemade-routing.module';
 import { HomemadeComponent } from './homemade/homemade.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
-import { HmDatatable1Component } from './hm-datatable1/hm-datatable1.component';
-import { HmDatatable2Component } from './hm-datatable2/hm-datatable2.component';
+import { HmDatatable1Component } from './hm-datatable/hm-datatable1/hm-datatable1.component';
+import { HmDatatable2Component } from './hm-datatable/hm-datatable2/hm-datatable2.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HmDatatable3Component } from './hm-datatable3/hm-datatable3.component';
-import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
-import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
+import { HmDatatable3Component } from './hm-datatable/hm-datatable3/hm-datatable3.component';
+import { HmDatatable4Component } from './hm-datatable/hm-datatable4/hm-datatable4.component';
+import { HmDatatable5Component } from './hm-datatable/hm-datatable5/hm-datatable5.component';
 import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search-async2/hm.dropdown.search.async.component2';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
 import { HomeMadeSearchModalContentComponent } from './hm-search-modal/hm-search-modal-content/hm.search.modal.content.component';
 import { HomeMadeDragAndDropFileComponent } from './hm-dnd-file/hm.dnd.file.component';
 import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
-import { HmDatatable6Component } from './hm-datatable6/hm-datatable6.component';
-import { HmDatatable7Component } from './hm-datatable7/hm-datatable7.component';
-import { HmDatatable8Component } from './hm-datatable8/hm-datatable8.component';
+import { HmDatatable6Component } from './hm-datatable/hm-datatable6/hm-datatable6.component';
+import { HmDatatable7Component } from './hm-datatable/hm-datatable7/hm-datatable7.component';
+import { HmDatatable8Component } from './hm-datatable/hm-datatable8/hm-datatable8.component';
 import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search-async3/hm.dropdown.search.async.component3';
 
