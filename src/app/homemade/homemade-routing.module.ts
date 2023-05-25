@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HmDatatable1Component } from './hm-datatable1/hm-datatable1.component';
-import { HmDatatable2Component } from './hm-datatable2/hm-datatable2.component';
-import { HmDatatable3Component } from './hm-datatable3/hm-datatable3.component';
-import { HmDatatable4Component } from './hm-datatable4/hm-datatable4.component';
-import { HmDatatable5Component } from './hm-datatable5/hm-datatable5.component';
-import { HmDatatable6Component } from './hm-datatable6/hm-datatable6.component';
-import { HmDatatable7Component } from './hm-datatable7/hm-datatable7.component';
-import { HmDatatable8Component } from './hm-datatable8/hm-datatable8.component';
+import { HmDatatable1Component } from './hm-datatable/hm-datatable1/hm-datatable1.component';
+import { HmDatatable2Component } from './hm-datatable/hm-datatable2/hm-datatable2.component';
+import { HmDatatable3Component } from './hm-datatable/hm-datatable3/hm-datatable3.component';
+import { HmDatatable4Component } from './hm-datatable/hm-datatable4/hm-datatable4.component';
+import { HmDatatable5Component } from './hm-datatable/hm-datatable5/hm-datatable5.component';
+import { HmDatatable6Component } from './hm-datatable/hm-datatable6/hm-datatable6.component';
+import { HmDatatable7Component } from './hm-datatable/hm-datatable7/hm-datatable7.component';
+import { HmDatatable8Component } from './hm-datatable/hm-datatable8/hm-datatable8.component';
 import { HomeMadeDragAndDropFileComponent } from './hm-dnd-file/hm.dnd.file.component';
 import { HomeMadeDragAndDropComponent } from './hm-dnd/hm.dnd.component';
-import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search-async/hm.dropdown.search.async.component';
-import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search-async2/hm.dropdown.search.async.component2';
-import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm.dropdown.search.component';
+import { HomeMadeDropdownSearchAsyncComponent } from './hm-dropdown-search/hm-dropdown-search-async1/hm.dropdown.search.async.component';
+import { HomeMadeDropdownSearchAsyncComponent2 } from './hm-dropdown-search/hm-dropdown-search-async2/hm.dropdown.search.async.component2';
+import { HomeMadeDropdownSearchComponent } from './hm-dropdown-search/hm-dropdown-search1/hm.dropdown.search.component';
 import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
-import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search-async3/hm.dropdown.search.async.component3';
+import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search/hm-dropdown-search-async3/hm.dropdown.search.async.component3';
 
 const routes: Routes = [
   { path: 'hm/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },

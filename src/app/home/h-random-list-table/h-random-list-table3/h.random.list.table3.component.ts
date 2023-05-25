@@ -1,16 +1,15 @@
-import { ColorEnum, DirectionEnumSimple, getColorEnumName } from '../../localshared/models/shared-model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { RandomItem, SharedDataService, Car } from 'oops-lib002';
+import { TranslateService } from '@ngx-translate/core';
+import { RandomItem, SharedDataService } from 'oops-lib002';
 import { Observable, Subject } from 'rxjs';
 import { DirectionEnum } from 'src/app/localshared/models/shared-model';
-import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
-import { TranslateService } from '@ngx-translate/core';
 import { I18nService } from 'src/app/localshared/services/i18n.service';
+import { ColorEnum, DirectionEnumSimple, getColorEnumName } from '../../../localshared/models/shared-model';
 
 interface RandomItemExt extends RandomItem {
   type?: string;
-  displayType?: boolean;
+  displayTypeSelect?: boolean;
+  descErrorMessage?: string;
 }
 
 export enum MyColorEnum {
@@ -21,12 +20,10 @@ export enum MyColorEnum {
 
 @Component({
   selector: 'app-random-list-table2',
-  templateUrl: './h.random.list.table2.component.html',
-  styleUrls: ['./h.random.list.table2.component.scss'],
+  templateUrl: './h.random.list.table3.component.html',
+  styleUrls: ['./h.random.list.table3.component.scss'],
 })
-export class HomeRandomListTable2Component implements OnInit, OnDestroy {
-  private COMPONENT_NAME = 'HomeRandomListTable2Component';
-
+export class HomeRandomListTable3Component implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject();
 
   items$: Observable<RandomItem[]>;
@@ -61,54 +58,17 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     const colorValue: string = 'Red';
-    const colorEnum: ColorEnum = ColorEnum[colorValue];
 
     this.colorSelected = '';
 
-    this.translate.setDefaultLang('fr');
-    this.translate.use('fr');
-    this.translate.currentLang = 'fr'; // this is used in I18nService
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, test translateService-1: ',
-      this.i18nService.getJsonValueI18n('COLOR.colors.RED')
-    );
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, test translateService-2: ',
-      this.i18nService.getJsonValueI18n('TEST_DESCRIPTION')
-    );
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, Enum to string, only simple: DirectionEnumSimple[DirectionEnumSimple.DOWN] = ',
-      DirectionEnumSimple[DirectionEnumSimple.DOWN]
-    );
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, Enum to string: String(DirectionEnumSimple.UP) = ',
-      String(DirectionEnumSimple.UP)
-    );
-
     const myColor = MyColorEnum.RED;
-
-    console.log(this.COMPONENT_NAME + ', ngOnInit, Enum to string: myColor.toString() = ', myColor.toString());
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, Enum to string, only simple: MyColorEnum[MyColorEnum.RED] = ',
-      MyColorEnum[MyColorEnum.RED]
-    );
-
-    console.log(
-      this.COMPONENT_NAME + ', ngOnInit, Enum to string: getColorEnumName(ColorEnum.GREEN) = ',
-      getColorEnumName(ColorEnum.GREEN)
-    );
 
     this.initializeColorTranslations();
 
     this.items$ = this.sharedDataService.getRandomItems(30, 500);
 
     this.directions.push('Select ...');
-    this.addNewRow();
+    this.addNewRow(5);
   }
 
   getDirectionEnumValues() {
@@ -121,32 +81,36 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
   }
 
   onRowClick(item) {
-    console.log(this.COMPONENT_NAME + ', onRowClick, item = ', item);
+    console.log('onRowClick, item = ', item);
   }
 
   onEditableRowClick(item) {
-    console.log(this.COMPONENT_NAME + ', onEditableRowClick, item = ', item);
+    console.log('onEditableRowClick, item = ', item);
   }
 
   onSelectColor(event) {
-    console.log(this.COMPONENT_NAME + ', onSelectColor, event = ', event);
+    console.log('onSelectColor, event = ', event);
     this.colorSelected = event;
   }
 
-  addNewRow() {
-    this.editItems.push({
-      id: null,
-      name: '',
-      desc: '',
-      customKey: '',
-      type: '',
-      displayType: true,
-    });
+  addNewRow(numOfRows: number) {
+    for (let i = 0; i < numOfRows; i++) {
+      this.editItems.push({
+        id: null,
+        name: '',
+        desc: '',
+        customKey: '',
+        type: '',
+        displayTypeSelect: true,
+        descErrorMessage: '',
+      });
+    }
+
     this.removeShouldBeDisabled = this.editItems.length <= 1;
   }
 
   onCustomKeySelected(item, idx) {
-    console.log(this.COMPONENT_NAME + ', onCustomKeySelected, item = ', item);
+    console.log('onCustomKeySelected, item = ', item);
 
     if (typeof item === 'string') {
       this.editItems[idx].customKey = item;
@@ -192,10 +156,25 @@ export class HomeRandomListTable2Component implements OnInit, OnDestroy {
 
   onTypeChange(event, idx) {
     this.editItems[idx].type = event;
-    if (event || '' !== '') {
-      this.editItems[idx].displayType = false;
+    if (event !== '') {
+      this.editItems[idx].displayTypeSelect = false;
     } else {
-      this.editItems[idx].displayType = true;
+      this.editItems[idx].displayTypeSelect = true;
+    }
+  }
+
+  onDescChange(event, idx) {
+    if (this.editItems[idx].desc === '') {
+      this.editItems[idx].descErrorMessage = '';
+      return;
+    }
+    // const allowed_pattern = new RegExp('^[0-9]{1,14}(\\.[0-9]{1,3})?$');
+    const allowed_pattern = new RegExp('^[0-9]{1,4}?$');
+    if (!allowed_pattern.test(this.editItems[idx].desc)) {
+      this.editItems[idx].descErrorMessage = 'Please verify your input ...';
+    } else {
+      this.editItems[idx].descErrorMessage = '';
+      // this.editItems[idx].desc = event.substring(0, event.length - 1); // should NOT do this
     }
   }
 
