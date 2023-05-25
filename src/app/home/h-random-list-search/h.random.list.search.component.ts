@@ -136,7 +136,7 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
     // Check if the blur event is not caused by a TAB keydown event
     if (!event.relatedTarget) {
       console.log('inputOnBlur ...., inputValue = ', inputValue);
-      this.inEditMode = false;
+      // this.inEditMode = false;
       // this.searchText = this.inputItem.customKey;
       this.selectOptionEmitter.emit(this.searchText);
     }
