@@ -1,4 +1,4 @@
-<h3>Hello, Test ContentChild! not working yet</h3>
+<h3>Hello, Test ContentChild! not working yet, dropdown problem, source code using ngx-bootstrap</h3>
 
 Refs:
 <p>https://indepth.dev/posts/1405/ngtemplateoutlet</p>
@@ -19,7 +19,13 @@ Refs:
     <span class="caret"></span>
   </button>
 
-  <ul *dropdownMenu class="dropdown-menu">
+  <!-- <ng-container *ngIf="options">
+    <ng-container *ngFor="let option of options; let i = index">
+      <ng-template *ngTemplateOutlet="optionTemplateRef; context: { $implicit: option, index: i }"></ng-template>
+    </ng-container>
+  </ng-container> -->
+
+  <!-- <ul *dropdownMenu class="dropdown-menu">
     <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
       <ng-template #defaultOption>
         <a class="dropdown-item">
@@ -32,6 +38,12 @@ Refs:
         [ngTemplateOutletContext]="{ $implicit: option, index: i }"
       >
       </ng-container>
+    </li>
+  </ul> -->
+
+  <ul class="dropdown-menu">
+    <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
+      {{ option?.name || option }}
     </li>
   </ul>
 </div>

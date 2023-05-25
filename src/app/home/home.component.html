@@ -37,6 +37,16 @@
 
 <hr />
 
+<app-home-selector-client-1></app-home-selector-client-1>
+<app-home-selector-client-2></app-home-selector-client-2>
+
+<hr />
+
+<ng-template #myTemplate> (from Template) World! </ng-template>
+
+Hello <ng-container [ngTemplateOutlet]="myTemplate"></ng-container>
+<hr />
+
 <h3>Testing Around Pages</h3>
 
 <p><a routerLink="/home/test-around">/home/test-around: Test Around</a></p>

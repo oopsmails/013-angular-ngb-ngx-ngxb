@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faSkullCrossbones, faSwimmer } from '@fortawesome/free-solid-svg-icons';
+// import { faSkullCrossbones, faSwimmer } from '@fortawesome/free-solid-svg-icons';
 
 export interface Shark {
   name: string;

@@ -1,8 +1,4 @@
-import { Component, ContentChild, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
-import { CarDataService } from 'oops-lib002';
-import { map, Observable, of, Subject } from 'rxjs';
-import { INSTITUTIONS } from 'src/app/localshared/data/insts.data';
-import { Institution } from 'src/app/models/inst';
+import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-selector',
@@ -10,13 +6,10 @@ import { Institution } from 'src/app/models/inst';
   styleUrls: ['./home.selector.component.scss'],
 })
 export class HomeSelectorComponent<T extends { name: string }> implements OnInit {
-  private COMPONENT_NAME = 'HomeSelectorComponent';
-
   picked: T;
 
   @Input()
   label: string;
-
   @Input()
   options: T[];
 
@@ -30,7 +23,9 @@ export class HomeSelectorComponent<T extends { name: string }> implements OnInit
   selectionChanged = new EventEmitter<T>();
 
   ngOnInit() {
-    console.log(this.COMPONENT_NAME + ', ngOnInit, options = ', this.options);
+    console.log('input options: ', this.options);
+    console.log('selectedTemplateRef: ', this.selectedTemplateRef);
+    console.log('optionTemplateRef: ', this.optionTemplateRef);
   }
 
   selectOption(option: T) {
