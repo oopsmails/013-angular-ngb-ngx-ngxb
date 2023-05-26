@@ -1,9 +1,24 @@
 <!-- <h3>Hello, Test ContentChild! not working yet, dropdown problem, source code using ngx-bootstrap</h3> -->
 <h3>Hello, Test ngTemplateOutlet and @ContentChild</h3>
 
-<!-- Refs:
+Refs:
 <p>https://indepth.dev/posts/1405/ngtemplateoutlet</p>
-<p>https://github.com/StephenCooper/ngTemplateOutlets</p> -->
+<p>
+  Note: can also use @ContentChild to pass the template into your component, but will make it harder to share templates
+  across multiple component instances
+</p>
+<p>https://github.com/StephenCooper/ngTemplateOutlets</p>
+
+<p>https://www.youtube.com/watch?v=vfPVdJ2oQlM</p>
+<p>https://github.com/oopsmails/043-angular-template-outlet-example</p>
+
+<!-- <p>
+  You can also use @ContentChild to pass the template into your component. This forces the template to be defined within
+  the `app-selector>` which may be preferred *if* you have a lot of Input properties. However, this does make it harder
+  to share templates across multiple component instances. See this
+  [Stackblitz](https://stackblitz.com/edit/ngtemplateoutletcontext?file=src%2Fapp%2Fmy-selector%2Fmy-selector.component.ts)
+  for an example.
+</p> -->
 
 <hr />
 <div class="app-selector btn-group" dropdown>
