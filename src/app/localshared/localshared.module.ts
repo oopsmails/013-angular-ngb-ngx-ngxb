@@ -14,6 +14,7 @@ import { DragAndDropFileDirective } from './directives/dnd.file.directive';
 import { DraggableDirective } from './directives/draggable.directive';
 import { DroppableDirective } from './directives/droppable.directive';
 import { MessageTranslatePipe } from './pipe/message.translate.pipe';
+import { DisplayStringPipe } from './pipe/display.string.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MessageTranslatePipe } from './pipe/message.translate.pipe';
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    DisplayStringPipe,
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { MessageTranslatePipe } from './pipe/message.translate.pipe';
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    DisplayStringPipe,
   ],
 })
 export class LocalsharedModule {}

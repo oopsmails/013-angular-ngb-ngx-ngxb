@@ -30,6 +30,15 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   tooltipMessage04: string = '';
   isInputInvalid04: boolean = false;
 
+  myInput05: number = 11.0;
+  tooltipMessage05: string = '';
+  isInputInvalid05: boolean = false;
+
+  selectedLanguage: 'EN' | 'FR' = 'EN';
+  myInput06: string = '';
+  tooltipMessage06: string = '';
+  isInputInvalid06: boolean = false;
+
   constructor(private router: Router, private sharedDataService: SharedDataService, private i18nService: I18nService) {}
 
   ngOnInit() {}
@@ -122,6 +131,39 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
         this.isInputInvalid04 = false;
         this.myInput04 = event.substring(0, this.myInput04.length - 1);
       }, 1000);
+    }
+  }
+
+  onInuputChange05(event: string) {
+    console.log('onInuputChange05, event = ', event);
+  }
+
+  onInuputChange06(event: string) {
+    console.log('onInuputChange06, event = ', event);
+
+    // Regular expression patterns for EN and FR formats
+    const enPattern = /^\d{0,9}(\.\d{0,3})?$/; // EN pattern: up to 9 digits, optional decimal point, up to 3 decimal places
+    const frPattern = /^\d{0,9}(\,\d{0,3})?$/; // FR pattern: up to 9 digits, optional decimal point (comma), up to 3 decimal places
+
+    let pattern: RegExp;
+
+    if (this.selectedLanguage === 'EN') {
+      pattern = enPattern;
+    } else {
+      pattern = frPattern;
+    }
+
+    // Validate the input against the selected language pattern
+    if (!pattern.test(event)) {
+      this.tooltipMessage06 = 'pattern test failed ...';
+      this.isInputInvalid06 = true;
+    }
+
+    if (this.isInputInvalid06) {
+      setTimeout(() => {
+        this.isInputInvalid06 = false;
+        this.myInput06 = event.substring(0, this.myInput06.length - 1);
+      }, 500);
     }
   }
 
