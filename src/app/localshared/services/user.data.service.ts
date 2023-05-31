@@ -5,6 +5,8 @@ import { USERS_DATA } from '../data/users.data';
 
 @Injectable({ providedIn: 'root' })
 export class UserDataService {
+  currentLanguage: string = 'EN';
+
   //   getUserData(delayInMs?: number): Observable<User[]> {
   //     let delay = 0;
   //     if (delayInMs) {

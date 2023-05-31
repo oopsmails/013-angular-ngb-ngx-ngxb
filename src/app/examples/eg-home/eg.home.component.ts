@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SharedDataService } from 'oops-lib002';
 import { Subject } from 'rxjs';
 import { I18nService } from 'src/app/localshared/services/i18n.service';
+import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 @Component({
   selector: 'app-home',
@@ -39,7 +40,17 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   tooltipMessage06: string = '';
   isInputInvalid06: boolean = false;
 
-  constructor(private router: Router, private sharedDataService: SharedDataService, private i18nService: I18nService) {}
+  myInput07: string = '11.00';
+  myInputNum07: number = 11.0;
+  tooltipMessage07: string = '';
+  isInputInvalid07: boolean = false;
+
+  constructor(
+    private router: Router,
+    private sharedDataService: SharedDataService,
+    private i18nService: I18nService,
+    private userDataService: UserDataService
+  ) {}
 
   ngOnInit() {}
 
@@ -142,16 +153,18 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
     console.log('onInuputChange06, event = ', event);
 
     // Regular expression patterns for EN and FR formats
-    const enPattern = /^\d{0,9}(\.\d{0,3})?$/; // EN pattern: up to 9 digits, optional decimal point, up to 3 decimal places
-    const frPattern = /^\d{0,9}(\,\d{0,3})?$/; // FR pattern: up to 9 digits, optional decimal point (comma), up to 3 decimal places
+    // const enPattern = /^\d{0,9}(\.\d{0,3})?$/; // EN pattern: up to 9 digits, optional decimal point, up to 3 decimal places
+    // const frPattern = /^\d{0,9}(\,\d{0,3})?$/; // FR pattern: up to 9 digits, optional decimal point (comma), up to 3 decimal places
 
-    let pattern: RegExp;
+    // let pattern: RegExp;
 
-    if (this.selectedLanguage === 'EN') {
-      pattern = enPattern;
-    } else {
-      pattern = frPattern;
-    }
+    // if (this.selectedLanguage === 'EN') {
+    //   pattern = enPattern;
+    // } else {
+    //   pattern = frPattern;
+    // }
+
+    const pattern = this.getValidatePattern();
 
     // Validate the input against the selected language pattern
     if (!pattern.test(event)) {
@@ -165,6 +178,54 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
         this.myInput06 = event.substring(0, this.myInput06.length - 1);
       }, 500);
     }
+  }
+
+  onInuputChange07(event: string) {
+    console.log('onInuputChange07, event = ', event);
+
+    // const pattern = new RegExp(/^\d{0,5}$/);
+    const pattern = this.getValidatePattern();
+
+    if (!pattern.test(this.myInput07)) {
+      this.isInputInvalid07 = true;
+      this.tooltipMessage07 = 'pattern violated 1 ...';
+    } else {
+      const fixedInput = this.myInput07.replace(/,/g, '.');
+      const inputNumber = parseFloat(fixedInput);
+      if (isNaN(inputNumber) || inputNumber === 0) {
+        this.isInputInvalid07 = true;
+        this.tooltipMessage07 = 'pattern violated 2 ...';
+      } else {
+        this.myInputNum07 = inputNumber;
+      }
+    }
+
+    if (this.isInputInvalid07) {
+      setTimeout(() => {
+        this.isInputInvalid07 = false;
+        this.myInput07 = event.substring(0, this.myInput07.length - 1);
+      }, 500);
+    }
+  }
+
+  onSelectedLanguageChange(event: string) {
+    console.log('onSelectedLanguageChange, event = ', event);
+    this.userDataService.currentLanguage = event;
+  }
+
+  private getValidatePattern(): RegExp {
+    const enPattern = /^\d{0,3}(\.\d{0,2})?$/; // EN pattern: up to 9 digits, optional decimal point, up to 3 decimal places
+    const frPattern = /^\d{0,3}(\,\d{0,2})?$/; // FR pattern: up to 9 digits, optional decimal point (comma), up to 3 decimal places
+
+    let pattern: RegExp;
+
+    if (this.userDataService.currentLanguage === 'EN') {
+      pattern = enPattern;
+    } else {
+      pattern = frPattern;
+    }
+
+    return pattern;
   }
 
   navToPage(page) {
