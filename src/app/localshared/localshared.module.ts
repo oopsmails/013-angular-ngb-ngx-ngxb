@@ -15,6 +15,8 @@ import { DraggableDirective } from './directives/draggable.directive';
 import { DroppableDirective } from './directives/droppable.directive';
 import { MessageTranslatePipe } from './pipe/message.translate.pipe';
 import { DisplayStringPipe } from './pipe/display.string.pipe';
+import { AmtPatternDirective } from './directives/amt.pattern.directive';
+import { FloatPatternDirective } from './directives/float.pattern.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { DisplayStringPipe } from './pipe/display.string.pipe';
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DragAndDropFileDirective,
+    AmtPatternDirective,
+    FloatPatternDirective,
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
@@ -45,6 +49,8 @@ import { DisplayStringPipe } from './pipe/display.string.pipe';
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DragAndDropFileDirective,
+    AmtPatternDirective,
+    FloatPatternDirective,
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,

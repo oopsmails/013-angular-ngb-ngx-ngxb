@@ -92,3 +92,10 @@
 </div>
 <p>myInput07: {{ myInput07 }}</p>
 <p>myInputNum07: {{ myInputNum07 }}</p>
+
+<hr />
+<h3>Test 8: directive, floatPattern</h3>
+<input type="text" floatPattern [maxDigitsBeforeDecimal]="5" [maxDigitsAfterDecimal]="3" [(ngModel)]="myInput08" />
+<div *ngIf="isInputInvalid08">
+  <span style="color: red">{{ tooltipMessage08 }}</span>
+</div>

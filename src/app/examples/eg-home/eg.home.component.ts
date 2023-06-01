@@ -45,6 +45,10 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   tooltipMessage07: string = '';
   isInputInvalid07: boolean = false;
 
+  myInput08: number = 11.0;
+  tooltipMessage08: string = '';
+  isInputInvalid08: boolean = false;
+
   constructor(
     private router: Router,
     private sharedDataService: SharedDataService,
