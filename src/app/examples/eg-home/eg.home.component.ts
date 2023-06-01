@@ -45,7 +45,7 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   tooltipMessage07: string = '';
   isInputInvalid07: boolean = false;
 
-  myInput08: number = 11.0;
+  myInput08: number = 1111.0;
   tooltipMessage08: string = '';
   isInputInvalid08: boolean = false;
 
