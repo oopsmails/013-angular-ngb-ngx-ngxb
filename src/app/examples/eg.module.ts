@@ -10,9 +10,15 @@ import { ExamplesHomeComponent } from './eg-home/eg.home.component';
 import { ExamplesRoutingModule } from './eg-routing.module';
 import { ExamplesSelectComponent } from './eg-select/eg.select.component';
 import { ExamplesPatternComponent } from './eg-pattern/eg.pattern.component';
+import { ExampleInputValidateComponent } from './eg-input-validate/eg.input.validate.component';
 
 @NgModule({
-  declarations: [ExamplesHomeComponent, ExamplesSelectComponent, ExamplesPatternComponent],
+  declarations: [
+    ExamplesHomeComponent,
+    ExamplesSelectComponent,
+    ExamplesPatternComponent,
+    ExampleInputValidateComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
