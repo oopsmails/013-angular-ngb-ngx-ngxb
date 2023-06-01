@@ -76,7 +76,14 @@
 
 <hr />
 <h3>Test 8: directive, floatPattern, v1, v2, v3</h3>
-<input type="text" floatPattern [maxDigitsBeforeDecimal]="5" [maxDigitsAfterDecimal]="2" [(ngModel)]="myInput08" />
+<input
+  type="text"
+  floatPattern
+  [maxDigitsBeforeDecimal]="5"
+  [maxDigitsAfterDecimal]="2"
+  [errorMessageSelector]="'floatPattern__error-message-custom'"
+  [(ngModel)]="myInput08"
+/>
 <div *ngIf="isInputInvalid08">
   <span style="color: red">{{ tooltipMessage08 }}</span>
 </div>
