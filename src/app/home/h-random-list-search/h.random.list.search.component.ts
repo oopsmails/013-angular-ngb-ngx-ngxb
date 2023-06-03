@@ -173,6 +173,9 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
       this.inEditMode = false;
       // }, 0);
 
+      // Just for testing, if using this, TAB will NOT go to next field
+      // event.preventDefault();
+
       // Prevent the onblur function from being called
       event.stopPropagation();
     }
