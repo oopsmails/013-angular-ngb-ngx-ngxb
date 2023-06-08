@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { I18nService } from 'src/app/localshared/services/i18n.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-eg-select',
   templateUrl: './eg.select.component.html',
   styleUrls: ['./eg.select.component.scss'],
 })
