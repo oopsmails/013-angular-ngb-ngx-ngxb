@@ -27,3 +27,13 @@
   </ul>
   <div class="selected-address" *ngIf="selectedBranch && selectedAddress">Selected Address: {{ selectedAddress }}</div>
 </div>
+
+<hr />
+
+<div>
+  <ul>
+    <li *ngFor="let branch of branches" (mouseenter)="onMouseEnter(branch)" (mouseleave)="onMouseLeave(branch)">
+      <a>{{ branch.branchName }}</a>
+    </li>
+  </ul>
+</div>

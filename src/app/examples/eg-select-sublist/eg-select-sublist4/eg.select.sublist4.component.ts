@@ -69,4 +69,18 @@ export class ExamplesSelectSublist4Component implements OnInit {
     this.selectedAddress = address;
     clearTimeout(this.sublistTimeout);
   }
+
+  //-----------------------------------------------------
+
+  onMouseEnter(item: any) {
+    // Handle the hover event when the mouse enters the list item
+    console.log('Mouse entered:', item.branchName);
+    // You can perform any specific actions here
+  }
+
+  onMouseLeave(item: any) {
+    // Handle the hover event when the mouse leaves the list item
+    console.log('Mouse left:', item.branchName);
+    // You can perform any specific actions here
+  }
 }
