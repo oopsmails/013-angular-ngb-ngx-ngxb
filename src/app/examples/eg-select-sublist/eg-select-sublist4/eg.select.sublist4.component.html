@@ -9,11 +9,15 @@
     {{ selectedBranch?.branchName || 'Select Branch' }}
   </button>
   <ul class="dropdown-menu" [class.show]="toggleDropdown">
-    <li *ngFor="let branch of branches">
-      <a (click)="onSelect(branch)">
-        <span class="branch-name">{{ branch.branchName }}</span>
-        <span class="branch-fax">{{ branch.branchFaxNumber }}</span>
-      </a>
+    <li
+      *ngFor="let branch of branches"
+      (click)="onSelect(branch)"
+      (mouseenter)="showSublist(branch)"
+      (mouseleave)="hideSublist()"
+    >
+      <span class="branch-name">{{ branch.branchName }}</span
+      ><br />
+      <span class="branch-fax">{{ branch.branchFaxNumber }}</span>
       <ul class="sublist" *ngIf="branch.showSublist">
         <li *ngFor="let address of branch.branchAddress" class="branch-address" (click)="selectAddress(address)">
           {{ address }}
