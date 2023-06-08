@@ -6,12 +6,14 @@ import { ExampleInputValidateComponent } from './eg-input-validate/eg.input.vali
 import { ExamplesSelectSublist1Component } from './eg-select-sublist/eg-select-sublist1/eg.select.sublist1.component';
 import { ExamplesSelectSublist2Component } from './eg-select-sublist/eg-select-sublist2/eg.select.sublist2.component';
 import { ExamplesSelectSublist3Component } from './eg-select-sublist/eg-select-sublist3/eg.select.sublist3.component';
+import { ExamplesSelectSublist4Component } from './eg-select-sublist/eg-select-sublist4/eg.select.sublist4.component';
 
 const routes: Routes = [
   { path: 'eg/select', component: ExamplesSelectComponent },
   { path: 'eg/selectsublist1', component: ExamplesSelectSublist1Component },
   { path: 'eg/selectsublist2', component: ExamplesSelectSublist2Component },
   { path: 'eg/selectsublist3', component: ExamplesSelectSublist3Component },
+  { path: 'eg/selectsublist4', component: ExamplesSelectSublist4Component },
   { path: 'eg/pattern', component: ExamplesPatternComponent },
   { path: 'eg/inputvalidate', component: ExampleInputValidateComponent },
 ];
