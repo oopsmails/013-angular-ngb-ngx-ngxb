@@ -12,13 +12,13 @@ import { NgxForm1ListComponent } from './ngx-form1/ngx.form1.list.component';
 import { NgxHomeComponent } from './ngx-home/ngx-home.component';
 import { NgxRoutingModule } from './ngx-routing.module';
 import { NgxSearchPaginationComponent } from './ngx-search-pagination/ngx-search-pagination.component';
-import { NgxSelect1Component } from './ngx-select-1/ngx.select.1.component';
-import { NgxSelect2Component } from './ngx-select-2/ngx.select.2.component';
-import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
+import { NgxSelect1Component } from './ngx-select/ngx-select-1/ngx.select.1.component';
+import { NgxSelect2Component } from './ngx-select/ngx-select-2/ngx.select.2.component';
+import { NgxSelect3Component } from './ngx-select/ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
 import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-dropdown1.component';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { NgxSelect4Component } from './ngx-select-4/ngx.select.4.component';
+import { NgxSelect4Component } from './ngx-select/ngx-select-4/ngx.select.4.component';
 
 @NgModule({
   declarations: [
