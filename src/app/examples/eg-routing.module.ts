@@ -7,6 +7,7 @@ import { ExamplesSelectSublist1Component } from './eg-select-sublist/eg-select-s
 import { ExamplesSelectSublist2Component } from './eg-select-sublist/eg-select-sublist2/eg.select.sublist2.component';
 import { ExamplesSelectSublist3Component } from './eg-select-sublist/eg-select-sublist3/eg.select.sublist3.component';
 import { ExamplesSelectSublist4Component } from './eg-select-sublist/eg-select-sublist4/eg.select.sublist4.component';
+import { ExamplesSelectSublist5Component } from './eg-select-sublist/eg-select-sublist5/eg.select.sublist5.component';
 
 const routes: Routes = [
   { path: 'eg/select', component: ExamplesSelectComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'eg/selectsublist2', component: ExamplesSelectSublist2Component },
   { path: 'eg/selectsublist3', component: ExamplesSelectSublist3Component },
   { path: 'eg/selectsublist4', component: ExamplesSelectSublist4Component },
+  { path: 'eg/selectsublist5', component: ExamplesSelectSublist5Component },
   { path: 'eg/pattern', component: ExamplesPatternComponent },
   { path: 'eg/inputvalidate', component: ExampleInputValidateComponent },
 ];

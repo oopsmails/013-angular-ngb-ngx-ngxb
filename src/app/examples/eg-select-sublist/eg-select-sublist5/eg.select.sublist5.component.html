@@ -1,0 +1,24 @@
+<h2>Example Select Hover Update Inputs</h2>
+
+<hr />
+
+<h3>Select Branch</h3>
+
+<div class="container">
+  <div class="dropdown">
+    <app-dropdown-hover
+      [itemList]="branchList"
+      (itemHovering)="onBranchHovering($event)"
+      (itemSelected)="onBranchSelected($event)"
+    ></app-dropdown-hover>
+  </div>
+
+  <div class="content" *ngIf="selectedBranch">
+    <input type="text" [(ngModel)]="selectedBranch.address.streetNumber" placeholder="Street Number" />
+    <input type="text" [(ngModel)]="selectedBranch.address.streetName" placeholder="Street Name" />
+    <input type="text" [(ngModel)]="selectedBranch.address.city" placeholder="City" />
+    <input type="text" [(ngModel)]="selectedBranch.address.province" placeholder="Province" />
+    <input type="text" [(ngModel)]="selectedBranch.address.country" placeholder="Country" />
+    <input type="text" [(ngModel)]="selectedBranch.address.postalCode" placeholder="Postal Code" />
+  </div>
+</div>

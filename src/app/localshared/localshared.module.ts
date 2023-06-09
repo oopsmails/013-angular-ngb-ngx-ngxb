@@ -17,6 +17,7 @@ import { MessageTranslatePipe } from './pipe/message.translate.pipe';
 import { DisplayStringPipe } from './pipe/display.string.pipe';
 import { AmtPatternDirective } from './directives/amt.pattern.directive';
 import { FloatPatternDirective } from './directives/float.pattern.directive';
+import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hover.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FloatPatternDirective } from './directives/float.pattern.directive';
     InputSearchableComponent,
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
+    DropDownHoverComponent,
     DragAndDropFileDirective,
     AmtPatternDirective,
     FloatPatternDirective,
@@ -48,6 +50,7 @@ import { FloatPatternDirective } from './directives/float.pattern.directive';
     InputSearchableComponent,
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
+    DropDownHoverComponent,
     DragAndDropFileDirective,
     AmtPatternDirective,
     FloatPatternDirective,

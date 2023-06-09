@@ -1,0 +1,10 @@
+<div class="dropdow-hover__dropdown">
+  <button class="dropdow-hover__dropdown-toggle" (click)="toggleDropdown()">
+    {{ selectedItem?.name || 'Select Item' }}
+  </button>
+  <ul class="dropdow-hover__dropdown-menu" [class.show]="isDropdownOpen">
+    <li *ngFor="let item of itemList" (mouseenter)="onItemHover(item)" (click)="onItemSelected(item)">
+      {{ item.name }}
+    </li>
+  </ul>
+</div>
