@@ -11,6 +11,7 @@ import { NgxSelect3Component } from './ngx-select/ngx-select-3/ngx.select.3.comp
 import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-dropdown1.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
 import { NgxSelect4Component } from './ngx-select/ngx-select-4/ngx.select.4.component';
+import { NgxSelect5Component } from './ngx-select/ngx-select-5/ngx.select.5.component';
 
 const routes: Routes = [
   { path: 'ngx/ngx-test', component: NgxTestComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'ngx/ngx-select-2', component: NgxSelect2Component },
   { path: 'ngx/ngx-select-3', component: NgxSelect3Component },
   { path: 'ngx/ngx-select-4', component: NgxSelect4Component },
+  { path: 'ngx/ngx-select-5', component: NgxSelect5Component },
   { path: 'ngx/ngx-search-gitrepos', component: NgxSearchPaginationComponent },
   { path: 'ngx/ngx-form1', component: NgxForm1ListComponent },
   { path: 'ngx/ngx-select-dropdown1', component: NgxSelectDropdown1Component },
