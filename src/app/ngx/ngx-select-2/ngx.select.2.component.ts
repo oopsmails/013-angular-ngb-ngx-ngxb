@@ -31,8 +31,8 @@ export class NgxSelect2Component implements OnInit, OnDestroy {
   };
 
   //
-  onMouseOver($event) {
-    console.log(`onMouseOver ........... $event.target.value = `, $event.target.value);
+  onMouseOver(option) {
+    console.log(`onMouseOver ........... option.data = `, option.data);
   }
 
   onKeyUp($event) {

@@ -1,17 +1,26 @@
-.mainContainer {
-    padding-top: 10px; // for demo
-
-    p {
-        font-family: "Poppins", sans-serif;
-        padding: 10px;
-    }
-
-    .spanFileBackground {
-        width: 100%;
-        background-color: var(--primary-color);
-    }
+.eg-select-sublist6__container {
+    position: relative;
 }
 
-::ng-deep .highlighted-text {
-    background-color: yellow;
+.eg-select-sublist6__dropdown {
+    position: relative;
+    z-index: 1;
+}
+
+.eg-select-sublist6__content {
+    position: relative;
+    z-index: 0;
+    transition: transform 0.3s ease;
+}
+
+.pushed-down {
+    transform: translateY(130px);
+}
+
+// ---------------------------------
+
+::ng-deep .custom-dropdown {
+    background-color: lightblue;
+    max-height: 100px !important;
+    z-index: 0 !important;
 }

@@ -1,4 +1,4 @@
-<h1>Ngx Test</h1>
+<h1>ngx-select Test 2</h1>
 
 <hr />
 <h2>ngx-select: items cached ready, refreshing by Timer</h2>
@@ -14,7 +14,7 @@
     autoClearSearch="true"
   >
     <ng-template let-option let-text="name" ngx-select-option ngx-select-option-selected>
-      <div (mouseover)="onMouseOver($event)" title="{{ option.data.name }}">
+      <div (mouseover)="onMouseOver(option)" title="{{ option.data.name }}">
         {{ option.data.id }} - {{ option.data.name }}
       </div>
     </ng-template>
