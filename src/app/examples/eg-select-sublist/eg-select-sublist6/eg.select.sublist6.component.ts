@@ -8,11 +8,11 @@ interface Branch {
 }
 
 @Component({
-  selector: 'app-eg-select-sublist5',
-  templateUrl: './eg.select.sublist5.component.html',
-  styleUrls: ['./eg.select.sublist5.component.scss'],
+  selector: 'app-eg-select-sublist6',
+  templateUrl: './eg.select.sublist6.component.html',
+  styleUrls: ['./eg.select.sublist6.component.scss'],
 })
-export class ExamplesSelectSublist5Component implements OnInit {
+export class ExamplesSelectSublist6Component implements OnInit {
   itemList: any[] = [];
 
   isDropdownOpen = false;
