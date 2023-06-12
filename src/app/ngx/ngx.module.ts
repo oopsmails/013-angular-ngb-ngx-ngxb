@@ -20,6 +20,7 @@ import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-d
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { NgxSelect4Component } from './ngx-select/ngx-select-4/ngx.select.4.component';
 import { NgxSelect5Component } from './ngx-select/ngx-select-5/ngx.select.5.component';
+import { NgxSelect6Component } from './ngx-select/ngx-select6/ngx-select6.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgxSelect5Component } from './ngx-select/ngx-select-5/ngx.select.5.comp
     NgxForm1Component,
     NgxForm1ListComponent,
     NgxSelectDropdown1Component,
+    NgxSelect6Component,
   ],
   imports: [
     CommonModule,

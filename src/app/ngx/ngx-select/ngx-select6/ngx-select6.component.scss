@@ -1,0 +1,32 @@
+.ngx-select6__container {
+    border: solid 1px red;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 40px;
+}
+
+.ngx-select6__dropdown {
+    position: relative;
+    z-index: 1;
+}
+
+.ngx-select6__content {
+    position: relative;
+    z-index: 0;
+    transition: transform 0.3s ease;
+}
+
+.pushed-down {
+    transform: translateY(130px);
+}
+
+// ---------------------------------
+
+::ng-deep .custom-dropdown {
+    background-color: lightblue;
+    max-height: 100px !important;
+    z-index: 0 !important;
+}

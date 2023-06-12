@@ -1,5 +1,14 @@
 # angular-ngb-ngx-ngxb
 
+## How to use ng command within this workspace
+
+```
+alias ng="./node_modules/.bin/ng"
+
+```
+
+## Issues
+
 ```
 10% building 3/3 modules 0 active(node:37268) [DEP0111] DeprecationWarning: Access to process.binding('http_parser') is deprecated.
 (Use `node --trace-deprecation ...` to show where the warning was created)
@@ -20,8 +29,6 @@ yarn upgrade @prisma/client
 
 "prisma": "^4.7.1",
 ```
-
-## Issues
 
 ### Extra "?? results available" showing on page for NGB typeahead
 

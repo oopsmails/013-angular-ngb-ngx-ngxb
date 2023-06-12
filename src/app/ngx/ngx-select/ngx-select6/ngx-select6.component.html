@@ -1,0 +1,43 @@
+<h1>Ngx Select 06</h1>
+
+<hr />
+<h2>ngx-select: from 5, playaround layout</h2>
+<p>
+  Hovering items, showing json below. Donot use ngModel, otherwise, when hovering item after selected, it dissapears.
+</p>
+<div class="ngx-select6__container">
+  <div class="ngx-select6__dropdown">
+    <ngx-select
+      [items]="items$ | async"
+      [(ngModel)]="searchText"
+      (click)="toggleDropdown()"
+      [placeholder]="'Type and search ...'"
+      style="background-color: blue"
+      dropDownMenuOtherClasses="custom-dropdown"
+    >
+      <ng-template let-option let-text="name" ngx-select-option ngx-select-option-selected>
+        <div
+          (mouseenter)="onItemHover(option); $event.stopPropagation(); $event.preventDefault()"
+          (click)="onItemSelected(option)"
+          title="{{ option.data.name }}"
+        >
+          {{ option.data.id }} - {{ option.data.name }}
+        </div>
+      </ng-template>
+
+      <ng-template ngx-select-option-not-found> Nothing found </ng-template>
+    </ngx-select>
+  </div>
+
+  <ng-container *ngIf="selectedItem">
+    <div class="ngx-select6__content">Selected: {{ selectedItem | json }}</div>
+  </ng-container>
+</div>
+
+<hr />
+
+<div class="content-container">
+  <ng-container *ngIf="selectedItem">
+    <div class="ngx-select6__content">Selected: {{ selectedItem | json }}</div>
+  </ng-container>
+</div>
