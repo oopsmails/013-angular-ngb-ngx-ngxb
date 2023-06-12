@@ -220,7 +220,7 @@ export class HomeRandomListSearchComponent implements OnInit, OnDestroy {
       this.modalService.dismissAll();
     }
 
-    // this should be the same as onCustomKeySelected() in HomeRandomListTableComponent!!! in face, nned only one!
+    // this should be the same as onCustomKeySelected() in HomeRandomListTableComponent! in fact, nned only one!
     this.inputItem.customKey = 'selected-' + item.name;
     this.searchText = this.inputItem.customKey; // this is used to show update customKey
     this.selectedItem = item;

@@ -1,3 +1,12 @@
+// * {
+//     margin: 0;
+//     padding: 0 0 0 0px;
+//     box-sizing: border-box;
+//     font-family: "Poppins", sans-serif;
+//     // font-family: Arial, Helvetica, sans-serif;
+// }
+
+
 .ngx-select6__container {
     border: solid 1px red;
     position: relative;
@@ -24,6 +33,12 @@
 }
 
 // ---------------------------------
+
+
+// ::ng-deep ngx-select-choices {
+    //     border: solid 1px blue;
+    //     height: 0 !important;
+    // }
 
 ::ng-deep .custom-dropdown {
     background-color: lightblue;
