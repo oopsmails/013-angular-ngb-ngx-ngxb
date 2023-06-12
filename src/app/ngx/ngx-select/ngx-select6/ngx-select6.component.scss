@@ -1,6 +1,6 @@
 // * {
 //     margin: 0;
-//     padding: 0 0 0 0px;
+//     padding: 0 0 0 5px; <--------------------------- initially, this is in styles.scss, messing things up!
 //     box-sizing: border-box;
 //     font-family: "Poppins", sans-serif;
 //     // font-family: Arial, Helvetica, sans-serif;
@@ -34,15 +34,9 @@
 
 // ---------------------------------
 
-
-// ::ng-deep ngx-select-choices {
-    //     border: solid 1px blue;
-    //     height: 0 !important;
-    // }
-
 ::ng-deep .custom-dropdown {
     background-color: lightblue;
     max-height: 100px !important;
-    position: relative !important;
-    z-index: 0 !important;
+    position: relative !important; // Using this will push the content below the dropdown down to shwo instesd of covering it!!! 
+    // z-index: 0 !important; // this is not usefull ???
 }
