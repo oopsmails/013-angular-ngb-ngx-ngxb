@@ -34,7 +34,9 @@
 
 // ---------------------------------
 
-::ng-deep .custom-dropdown {
+// need to use dropDownMenuOtherClasses="custom-dropdown" for <ngx-select>
+// ::ng-deep .custom-dropdown {
+::ng-deep .ngx-select__choices {
     background-color: lightblue;
     max-height: 100px !important;
     position: relative !important; // Using this will push the content below the dropdown down to shwo instesd of covering it!!! 
