@@ -28,5 +28,6 @@
 ::ng-deep .custom-dropdown {
     background-color: lightblue;
     max-height: 100px !important;
+    position: relative !important;
     z-index: 0 !important;
 }

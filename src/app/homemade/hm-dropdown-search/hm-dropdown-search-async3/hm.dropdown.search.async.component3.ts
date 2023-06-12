@@ -93,12 +93,31 @@ export class HomeMadeDropdownSearchAsyncComponent3 implements OnInit, OnDestroy 
     });
   }
 
+  //(focus)="inputOnFocus(); $event.stopPropagation(); $event.preventDefault();"
   inputOnFocus() {
     console.log('inputOnFocus ');
     this.showItems = true;
-    setTimeout(() => {
-      this.displayingLookup$.next('');
-    });
+    if (this.showItems) {
+      setTimeout(() => {
+        this.displayingLookup$.next('');
+      });
+    }
+  }
+
+  //    (click)="inputOnClick(); $event.stopPropagation(); $event.preventDefault();"
+  inputOnClick() {
+    console.log('inputOnClick ');
+    if (!this.showItems) {
+      this.showItems = true;
+    } else {
+      this.showItems = !this.showItems;
+    }
+
+    if (this.showItems) {
+      setTimeout(() => {
+        this.displayingLookup$.next('');
+      });
+    }
   }
 
   inputOnBlur() {

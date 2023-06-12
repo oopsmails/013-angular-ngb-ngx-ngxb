@@ -12,7 +12,8 @@
     placeholder="Type to search ..."
     [ngModel]="searchText"
     (ngModelChange)="filterDropdown($event)"
-    (focus)="inputOnFocus()"
+    (focus)="inputOnFocus();"
+    (click)="inputOnClick(); $event.stopPropagation(); $event.preventDefault();"
     (blur)="inputOnBlur()"
   />
 
