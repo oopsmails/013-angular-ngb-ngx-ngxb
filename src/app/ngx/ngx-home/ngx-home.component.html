@@ -30,11 +30,13 @@
 
 <hr />
 
-<div class="container">
-  <div class="dropdown-wrapper">
+<div class="ngx-home__select6-container">
+  <div class="ngx-home__select6-dropdown-wrapper">
     <app-ngx-select6></app-ngx-select6>
   </div>
-  <div class="content">
+  <div class="ngx-home__select6-content">
     <span>I don't want this to be covered!</span>
   </div>
 </div>
+
+<ngx-select [items]="items$ | async" [placeholder]="'Type and search ...'"></ngx-select>
