@@ -1,0 +1,50 @@
+<h1>Ngx Select 07</h1>
+
+<hr />
+<h2>ngx-select: test using item component</h2>
+<p>Using items, display and search separately.</p>
+<p>
+  <span class="top-level__highlighted-blue" style="display: block">Only name and desc are searchable!</span><br />
+  <span class="top-level__highlighted-yellow" style="font-weight: 600">
+    !!! because imageUrl and text are NOT added in customKey, which is used as optionTextField="customKey" in html, they
+    are NOT considered as search criteria!!!</span
+  >
+</p>
+<div class="ngx-select7__container">
+  <div class="ngx-select7__dropdown">
+    <ngx-select
+      id="ngx-sleect7"
+      [items]="items$ | async"
+      [(ngModel)]="searchText"
+      (click)="toggleDropdown()"
+      [placeholder]="'Type and search ...'"
+      style="background-color: blue"
+      dropDownMenuOtherClasses="custom-dropdown"
+      optionTextField="customKey"
+      optionValueField="customKey"
+    >
+      <ng-template let-option ngx-select-option ngx-select-option-selected>
+        <app-ngx-select7-item [option]="option" (selectedOption)="onSelectedOption($event)"> </app-ngx-select7-item>
+        <!-- <app-ngx-select7-item [option]="option"> </app-ngx-select7-item> -->
+      </ng-template>
+
+      <ng-template ngx-select-option-not-found> Nothing found </ng-template>
+    </ngx-select>
+  </div>
+
+  <ng-container *ngIf="selectedItem">
+    <div class="ngx-select7__content">Selected: {{ selectedItem | json }}</div>
+  </ng-container>
+</div>
+
+<hr />
+
+<div class="content-container">
+  <ng-container *ngIf="selectedItem">
+    <div class="ngx-select7__content">Selected: {{ selectedItem | json }}</div>
+
+    <span style="font-weight: 600"
+      >If don't want this to be covered! See `position: relative !important;` in scss.</span
+    >
+  </ng-container>
+</div>

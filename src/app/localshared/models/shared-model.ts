@@ -71,3 +71,9 @@ export class RandomItemExt implements RandomItem {
   //   return '' + this.id + this.name;
   // }
 }
+
+export class EmitEventData {
+  eventSource: string = '';
+  eventData: any;
+  eventJson?: string = '';
+}
