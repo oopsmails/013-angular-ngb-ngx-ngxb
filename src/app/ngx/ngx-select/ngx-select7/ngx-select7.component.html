@@ -48,3 +48,22 @@
     >
   </ng-container>
 </div>
+
+<hr />
+
+<!-- <span id="ngx-sleect7-icon" class="ngx-select__toggle-buttons"> -->
+<span>
+  <i class="dropdown-toggle"></i>
+  <!-- <i class="ngx-select__toggle-caret caret"></i> -->
+</span>
+
+<hr />
+
+<ngx-select
+  id="ngx-sleect7-1"
+  [items]="items$ | async"
+  [placeholder]="'Type and search ...'"
+  optionTextField="customKey"
+  optionValueField="customKey"
+>
+</ngx-select>

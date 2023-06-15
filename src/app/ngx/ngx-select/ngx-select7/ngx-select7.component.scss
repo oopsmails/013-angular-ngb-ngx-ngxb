@@ -23,7 +23,7 @@
     transform: translateY(130px);
 }
 
-// ---------------------------------
+// ------------------- #ngx-sleect7 ----------------------------
 
 // need to use dropDownMenuOtherClasses="custom-dropdown" for <ngx-select>
 // ::ng-deep .custom-dropdown {
@@ -32,4 +32,55 @@
     max-height: 200px !important;
     position: relative !important; // Using this will push the content below the dropdown down to shwo instesd of covering it!!! 
     // z-index: 0 !important; // this is not usefull ???
+}
+
+// ------------------- arrow icon only ----------------------------
+
+.dropdown-toggle {
+    // padding: 10px;
+    background-color: #f0f0f0;
+    outline: 1px solid red;
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    text-overflow: '';
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px 2px 5px 20px;
+    border: none;
+    background: transparent url('../../../../assets/images/arrow_down_blue.svg') no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
+}
+
+// ------------------- #ngx-sleect7-1 ----------------------------
+
+::ng-deep #ngx-sleect7-1 .ngx-select__choices {
+    background-color: lightgreen;
+    max-height: 200px !important;
+    position: relative !important;
+}
+
+
+::ng-deep #ngx-sleect7-1 .dropdown-toggle {
+    // padding: 10px;
+    background-color: #f0f0f0;
+    outline: 1px solid #ccc;
+    cursor: pointer;
+}
+
+
+::ng-deep #ngx-sleect7-1 .dropdown-toggle::after {
+    text-overflow: '';
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px 2px 5px 20px;
+    border: none;
+    background: transparent url('../../../../assets/images/arrow_down_blue.svg') no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
 }

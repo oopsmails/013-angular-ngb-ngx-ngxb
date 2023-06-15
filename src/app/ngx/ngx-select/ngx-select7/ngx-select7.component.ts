@@ -115,6 +115,8 @@ export class NgxSelect7Component implements OnInit, OnDestroy {
     }
   }
 
+  //-----------------------
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();

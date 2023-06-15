@@ -26,6 +26,7 @@ import { HmDatatable7Component } from './hm-datatable/hm-datatable7/hm-datatable
 import { HmDatatable8Component } from './hm-datatable/hm-datatable8/hm-datatable8.component';
 import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search/hm-dropdown-search-async3/hm.dropdown.search.async.component3';
+import { HmDropdownSearch2Component } from './hm-dropdown-search/hm-dropdown-search2/hm-dropdown-search2.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search/hm-d
     HomeMadeDragAndDropFileComponent,
     HomeMadeDragAndDropComponent,
     HomeMadeEditableComponent,
+    HmDropdownSearch2Component,
   ],
   imports: [
     CommonModule,
