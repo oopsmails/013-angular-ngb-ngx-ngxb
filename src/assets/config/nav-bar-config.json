@@ -35,6 +35,10 @@
         "link": "/ngxb"
       },
       {
+        "childtext": "Html & CSS",
+        "link": "goto/htmlcss"
+      },
+      {
         "childtext": "Go To 1: Test CSS",
         "link": "goto/1"
       },
@@ -45,10 +49,6 @@
       {
         "childtext": "Go To 3: Test TypeScript",
         "link": "goto/3"
-      },
-      {
-        "childtext": "Html & CSS",
-        "link": "goto/htmlcss"
       },
       {
         "childtext": "NOT Exist",
