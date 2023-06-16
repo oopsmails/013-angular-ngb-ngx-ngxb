@@ -1,3 +1,12 @@
+$ff-ss: 'Unica One';
+$ff-s: 'Vollkorn';
+
+$clr-red: #c31;
+$clr-black: rgba(black, 1);
+$clr-gray: rgba(black, .7);
+
+
+
 .container {
   width: min(90%, 1000px);
   margin-inline: auto;
@@ -41,11 +50,11 @@ h2 {
   gap: 2rem;
 }
 
-.even-columns-flex > * {
+.even-columns-flex>* {
   flex: 1;
 }
 
-.even-columns-flex > :nth-child(2) {
+.even-columns-flex> :nth-child(2) {
   background: lightblue;
   padding: 2rem; // this actually also affecting the first child!! sibiling ...
 }
@@ -85,4 +94,91 @@ input,
 textarea,
 select {
   font: inherit; //
+}
+
+
+// =============================================
+
+.section-container {
+  background: lightgray;
+  text-align: left;
+  padding: 2em 2em 1em 3em;
+  margin-top: 2em;
+
+  counter-reset: counter-name;
+
+  // p,
+  code::after {
+    content: '';
+    display: block;
+    margin-bottom: 5em;
+  }
+}
+
+
+.section {
+  position: relative;
+  counter-increment: section-counter;
+  padding: 0em 0em 0em 2em;
+}
+
+.section::before {
+  content: counter(section-counter);
+  position: absolute;
+  left: -1.5em;
+  top: -.5em;
+  background: white;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid lightgrey;
+  color: lightgrey;
+  box-sizing: border-box;
+}
+
+// ========================= test-text ====================================
+
+.container-body {
+  font-size: 1rem;
+  text-align: center;
+  font-family: $ff-s;
+  line-height: 1.4;
+  color: $clr-gray;
+}
+
+.test-text-center-vw-1 {
+  text-align: center;
+}
+
+.test-text-center-vw-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.test-text-center-vw-2::before,
+.test-text-center-vw-2::after {
+  content: '';
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.test-text-center-vw-2::before {
+  background: red;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+.test-text-center-vw-2::after {
+  height: 101%;
+  background: white;
+  left: -.1em;
+  right: -.1em;
+  z-index: -1;
 }

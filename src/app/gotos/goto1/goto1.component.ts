@@ -29,6 +29,8 @@ export class GoTo1Component implements OnInit {
   linkText = HOME_BACK_TO_HOME;
 
   code1: string = '.even-columns-flex > * { flex: 100%; } ';
+  code2: string =
+    'h1::before {    background: $clr-red;    width: 100vw;    left: 50%;    transform: translateX(-50%);    z-index: -2;}';
 
   constructor() {}
 
