@@ -77,3 +77,9 @@ export class EmitEventData {
   eventData: any;
   eventJson?: string = '';
 }
+
+export class PageNavBean {
+  url: string = '';
+  title: any;
+  desc: string = '';
+}

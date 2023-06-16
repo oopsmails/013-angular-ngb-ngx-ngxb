@@ -48,11 +48,11 @@
       },
       {
         "childtext": "Html & CSS",
-        "link": "sandbox/htmlcss"
+        "link": "goto/htmlcss"
       },
       {
         "childtext": "NOT Exist",
-        "link": "sandbox/not-exist"
+        "link": "goto/not-exist"
       }
     ]
   }

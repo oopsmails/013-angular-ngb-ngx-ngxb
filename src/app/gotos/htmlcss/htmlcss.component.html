@@ -1,0 +1,10 @@
+<h1>Html & CSS Test Pages</h1>
+
+<hr />
+
+<div *ngFor="let item of pageNavBeans">
+  <h3>{{ item.title }}</h3>
+  <p>
+    <a routerLink="{{ item.url }}">{{ item.url }}:{{ item.desc }}</a>
+  </p>
+</div>
