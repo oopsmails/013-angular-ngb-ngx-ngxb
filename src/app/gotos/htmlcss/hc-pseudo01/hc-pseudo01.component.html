@@ -8,7 +8,27 @@
 
 <pre>
     <code>
-        a[data-tool-tip] &#123; position: relative &#125;
+        <span class="highlight-yellow">a[data-tool-tip]</span> &#123;
+            position: relative;
+        &#125;
+        
+        a[data-tool-tip]::after &#123;
+            <span class="highlight-yellow">content: attr(data-tool-tip);</span>
+            display: block;
+            position: absolute;
+            background-color: $clr-gray;
+            padding: 1em 3em;
+            color: white;
+            border-radius: 5px;
+            font-size: .8em;
+            bottom: 0;
+            left: 0;
+            white-space: nowrap;
+            transform: scale(0);
+            transition:
+                transform ease-out 150ms,
+                bottom ease-out 150ms;
+        &#125;
     </code>
   </pre>
 

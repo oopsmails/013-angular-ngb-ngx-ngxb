@@ -4,8 +4,11 @@
 <h2>ngx-select: test using item component</h2>
 <p>Using items, display and search separately.</p>
 <p>
-  <span class="top-level__highlighted-blue" style="display: block">Only name and desc are searchable!</span><br />
-  <span class="top-level__highlighted-yellow" style="font-weight: 600">
+  <span class="empty-line-after" style="background-color: lightblue">Only name and desc are searchable!</span>
+
+  <span class="highlight-primary empty-line-after">Only name and desc are searchable!</span>
+
+  <span class="highlight-yellow" style="font-weight: 600; display: block">
     !!! because imageUrl and text are NOT added in customKey, which is used as optionTextField="customKey" in html, they
     are NOT considered as search criteria!!!</span
   >
