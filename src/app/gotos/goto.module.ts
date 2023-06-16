@@ -28,4 +28,4 @@ const routes: Routes = [
   declarations: [GoTo3Component],
   exports: [RouterModule],
 })
-export class GoToRoutingModule {}
+export class GoToModule {}
