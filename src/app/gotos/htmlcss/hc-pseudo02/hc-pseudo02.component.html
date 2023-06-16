@@ -1,0 +1,46 @@
+<div class="not-related">
+  <h1>CSS Pseudo: Before and After</h1>
+
+  <p>Ref: https://www.youtube.com/watch?v=djbtPnNmc0I</p>
+
+  <p>CSS Before and After pseudo elements explained - part three: as design elements</p>
+
+  <p>5:52 of 22:04 CSS, make a <span class="highlight-blue">real center</span> horizontally</p>
+
+  <pre>
+        <code>
+            h1::before  &#123;
+                background: $clr-red;
+                width: 100vw;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: -2;
+            &#125;
+        </code>
+    </pre>
+</div>
+
+<hr />
+
+<h1 class="intro">Here is a generic heading</h1>
+
+<div class="container">
+  <div class="card">
+    <img src="//unsplash.it/400/400" alt="" class="card__img" />
+    <div class="card__text">
+      <h3 class="card__title">Card title</h3>
+      <p class="card__body">And here is some text</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="//unsplash.it/401/401" alt="" class="card__img" />
+    <div class="card__text">
+      <h3 class="card__title">Card title</h3>
+      <p class="card__body">And here is some text</p>
+    </div>
+  </div>
+</div>
+
+<p class="source">
+  Hover effect inspired by <a href="https://tympanus.net/Development/HoverEffectIdeas/">this codrops article</a>
+</p>

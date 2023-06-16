@@ -143,6 +143,7 @@ a[href^="http"]::after {
 
 .counters ol {
     list-style: none;
+    // counter-reset: ordered-list; // try comment out for testing
 }
 
 .counters li::before {
