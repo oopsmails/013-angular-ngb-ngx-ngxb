@@ -17,5 +17,11 @@ export class HtmlcssComponent implements OnInit {
     pageNavBean.title = 'Home';
     pageNavBean.desc = 'Back to Home';
     this.pageNavBeans.push(pageNavBean);
+
+    pageNavBean = new PageNavBean();
+    pageNavBean.url = '/goto/hc/hc-pseudo01';
+    pageNavBean.title = 'CSS Pseudo';
+    pageNavBean.desc = 'CSS Pseudo: Before and After';
+    this.pageNavBeans.push(pageNavBean);
   }
 }
