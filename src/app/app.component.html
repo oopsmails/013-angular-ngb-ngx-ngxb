@@ -1,8 +1,16 @@
 <div class="app-root__container">
   <nav-bar-example></nav-bar-example>
+
   <app-spinner></app-spinner>
+
+  <div style="position: fixed; left: 50%; transform: translateX(-50%)">
+    <span id="datetime" style="font-size: 20px; font-weight: 600; color: green"></span>
+  </div>
+
   <div class="navbar-fix-place-holder"></div>
+
   <router-outlet></router-outlet>
+
   <!-- app-footer is always at bottom -->
   <app-footer></app-footer>
 </div>
