@@ -1,0 +1,9 @@
+<h2>HTML Home</h2>
+
+<hr />
+<div *ngFor="let item of pageNavBeans">
+  <h3>{{ item.title }}</h3>
+  <p>
+    <a routerLink="{{ item.url }}">{{ item.url }}: {{ item.desc }}</a>
+  </p>
+</div>

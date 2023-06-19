@@ -15,6 +15,7 @@ import { ExamplesModule } from './examples/eg.module';
 import { GoToModule } from './gotos/goto.module';
 import { HomeModule } from './home/home.module';
 import { HomeMadeModule } from './homemade/homemade.module';
+import { HtmlModule } from './html/html.module';
 import { LocalsharedModule } from './localshared/localshared.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalsharedModule,
     HomeModule,
     HomeMadeModule,
+    HtmlModule,
     ExamplesModule,
     NgbTestModule,
     NgxModule,
