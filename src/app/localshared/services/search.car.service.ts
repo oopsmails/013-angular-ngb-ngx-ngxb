@@ -20,7 +20,7 @@ export class SearchCarService {
 
   constructor(private carDataService: CarDataService) {}
 
-  // NOTE: this Subject only used for src\app\homemade\hm-search-modal\hm-search-modal-content\hm.search.modal.content.component.ts!!!
+  // NOTE: this Subject only used for src\app\homemade\hm-search-modal\hm-search-modal-content\hm.search.modal.content.component.ts!
   // otherwise, could submit twice, unless change to ReplaySubject??? but, might not be good practice.
 
   // getDisplayingLookup(searchTextIn: string) {

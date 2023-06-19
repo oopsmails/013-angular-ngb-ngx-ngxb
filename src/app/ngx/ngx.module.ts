@@ -12,13 +12,17 @@ import { NgxForm1ListComponent } from './ngx-form1/ngx.form1.list.component';
 import { NgxHomeComponent } from './ngx-home/ngx-home.component';
 import { NgxRoutingModule } from './ngx-routing.module';
 import { NgxSearchPaginationComponent } from './ngx-search-pagination/ngx-search-pagination.component';
-import { NgxSelect1Component } from './ngx-select-1/ngx.select.1.component';
-import { NgxSelect2Component } from './ngx-select-2/ngx.select.2.component';
-import { NgxSelect3Component } from './ngx-select-3/ngx.select.3.component';
+import { NgxSelect1Component } from './ngx-select/ngx-select-1/ngx.select.1.component';
+import { NgxSelect2Component } from './ngx-select/ngx-select-2/ngx.select.2.component';
+import { NgxSelect3Component } from './ngx-select/ngx-select-3/ngx.select.3.component';
 import { NgxTestComponent } from './ngx-test/ngx.test.component';
 import { NgxSelectDropdown1Component } from './ngx-select-dropdown1/ngx-select-dropdown1.component';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { NgxSelect4Component } from './ngx-select-4/ngx.select.4.component';
+import { NgxSelect4Component } from './ngx-select/ngx-select-4/ngx.select.4.component';
+import { NgxSelect5Component } from './ngx-select/ngx-select-5/ngx.select.5.component';
+import { NgxSelect6Component } from './ngx-select/ngx-select6/ngx-select6.component';
+import { NgxSelect7Component } from './ngx-select/ngx-select7/ngx-select7.component';
+import { NgxSelect7ItemComponent } from './ngx-select/ngx-select7-item/ngx-select7-item.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,15 @@ import { NgxSelect4Component } from './ngx-select-4/ngx.select.4.component';
     NgxSelect2Component,
     NgxSelect3Component,
     NgxSelect4Component,
+    NgxSelect5Component,
     NgxHomeComponent,
     NgxSearchPaginationComponent,
     NgxForm1Component,
     NgxForm1ListComponent,
     NgxSelectDropdown1Component,
+    NgxSelect6Component,
+    NgxSelect7Component,
+    NgxSelect7ItemComponent,
   ],
   imports: [
     CommonModule,

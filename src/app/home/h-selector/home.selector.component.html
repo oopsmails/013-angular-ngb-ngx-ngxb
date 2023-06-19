@@ -1,12 +1,29 @@
-<h3>Hello, Test ContentChild! not working yet</h3>
+<!-- <h3>Hello, Test ContentChild! not working yet, dropdown problem, source code using ngx-bootstrap</h3> -->
+<h3>Hello, Test ngTemplateOutlet and @ContentChild</h3>
 
 Refs:
 <p>https://indepth.dev/posts/1405/ngtemplateoutlet</p>
+<p>
+  <span style="font-weight: bold">Note:</span> can also use @ContentChild to pass the template into your component, but
+  will make it harder to share templates across multiple component instances
+</p>
 <p>https://github.com/StephenCooper/ngTemplateOutlets</p>
+
+<p>https://www.youtube.com/watch?v=vfPVdJ2oQlM</p>
+<p>https://github.com/oopsmails/043-angular-template-outlet-example</p>
+<p><span style="font-weight: bold">Note:</span> [ngTemplateOutletInjector]="injector"</p>
+
+<!-- <p>
+  You can also use @ContentChild to pass the template into your component. This forces the template to be defined within
+  the `app-selector>` which may be preferred *if* you have a lot of Input properties. However, this does make it harder
+  to share templates across multiple component instances. See this
+  [Stackblitz](https://stackblitz.com/edit/ngtemplateoutletcontext?file=src%2Fapp%2Fmy-selector%2Fmy-selector.component.ts)
+  for an example.
+</p> -->
 
 <hr />
 <div class="app-selector btn-group" dropdown>
-  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle" (click)="toggleNgTemplateOutlet()">
     <ng-template #defaultSelected>
       {{ picked?.name || label }}
     </ng-template>
@@ -19,19 +36,48 @@ Refs:
     <span class="caret"></span>
   </button>
 
-  <ul *dropdownMenu class="dropdown-menu">
-    <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
-      <ng-template #defaultOption>
-        <a class="dropdown-item">
-          {{ option?.name || option }}
-        </a>
-      </ng-template>
+  <!-- <ng-container *ngIf="options">
+    <ng-container *ngFor="let option of options; let i = index">
+      <ng-template *ngTemplateOutlet="optionTemplateRef; context: { $implicit: option, index: i }"></ng-template>
+    </ng-container>
+  </ng-container> -->
 
-      <ng-container
-        [ngTemplateOutlet]="optionTemplateRef || defaultOption"
-        [ngTemplateOutletContext]="{ $implicit: option, index: i }"
-      >
-      </ng-container>
+  <ng-container *ngIf="showNgTemplateOutlet">
+    <ul>
+      <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
+        <ng-template #defaultOption>
+          <a class="dropdown-item">
+            {{ option?.name || option }}
+          </a>
+        </ng-template>
+
+        <ng-container
+          [ngTemplateOutlet]="optionTemplateRef || defaultOption"
+          [ngTemplateOutletContext]="{ $implicit: option, index: i }"
+        >
+        </ng-container>
+      </li>
+    </ul>
+  </ng-container>
+
+  <!-- <ul>
+    <li *ngFor="let option of options; index as i" (click)="selectOption(option)">
+      {{ option?.name || option }}
     </li>
-  </ul>
+  </ul> -->
 </div>
+
+<!-- <div class="hm-dropdown-async3__container-div" aria-labelledby="search select car">
+  <ng-container *ngIf="showNgTemplateOutlet">
+    <div class="hm-dropdown-async3__items-div">
+      <a
+        *ngFor="let option of options; let i = index"
+        class="dropdown-item pointer text-contain"
+        [ngClass]="{ alternateBackground: i % 2 == 0 }"
+        (mousedown)="selectOption(option); $event.preventDefault()"
+      >
+        {{ option.name }}
+      </a>
+    </div>
+  </ng-container>
+</div> -->

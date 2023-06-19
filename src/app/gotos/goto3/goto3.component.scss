@@ -43,7 +43,7 @@ p {
     top: $top;
 
     border: $size solid transparent;
-    border-#{$side}-color: $color; // <------------------------------- intorplation here!!!
+    border-#{$side}-color: $color; // <------------------------------- intorplation here!
   }
 }
 
@@ -228,7 +228,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.grid-ish > * {
+.grid-ish>* {
   // flex: 1 1 33%;
   flex: 1 1 10em;
 }
@@ -239,13 +239,13 @@ h1 {
   // gap: 1em;
 }
 
-.content-sidebar > *:nth-child(1) {
+.content-sidebar>*:nth-child(1) {
   flex: 1 1 70%;
   min-width: 30ch; // <-------------------- overriding 70%
   // max-width: ???;
 }
 
-.content-sidebar > *:nth-child(2) {
+.content-sidebar>*:nth-child(2) {
   flex: 1 1 30%;
   min-width: 15ch;
 }
@@ -254,14 +254,14 @@ h1 {
 
 // https://www.youtube.com/watch?v=GHUNtbW22V8, Each loops with SCSS - how to loop through lists and maps
 
-$link-colors: (
-  youtube: #016e8d,
+$link-colors: (youtube: #016e8d,
   articles: #ffac83,
   community: #3f78c9,
   courses: #49c4a3,
 );
 
-@each $name, $color in $link-colors {
+@each $name,
+$color in $link-colors {
   .link--#{$name} {
     color: $color;
     font-weight: bold;

@@ -3,3 +3,32 @@
   height: 20px;
   fill: var(--icon-color, #616161);
 }
+
+// --------------------------------
+
+.select-1__selectParent {
+  border: 1px blue solid;
+  width: 200px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0.2rem;
+}
+
+.select-1__selectParent-select {
+  text-overflow: '';
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 2px 5px 10px;
+  border: none;
+  background: transparent url('../../../assets/images/arrow_down_blue.svg') no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+}
+
+
+.floatPattern__error-message {
+  font-style: italic;
+  color: red;
+}

@@ -15,5 +15,23 @@
 
   <body>
     <app-root></app-root>
+    <script>
+      function updateDateTime() {
+        var now = new Date();
+
+        var year = now.getFullYear();
+        var month = (now.getMonth() + 1).toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+        var hour = now.getHours().toString().padStart(2, '0');
+        var minute = now.getMinutes().toString().padStart(2, '0');
+        var second = now.getSeconds().toString().padStart(2, '0');
+
+        var datetime = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+
+        document.getElementById('datetime').innerHTML = datetime;
+      }
+
+      setInterval(updateDateTime, 1000); // Update every second
+    </script>
   </body>
 </html>

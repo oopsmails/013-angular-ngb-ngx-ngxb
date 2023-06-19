@@ -1,31 +1,37 @@
-<h1>Ngx Test</h1>
+<h1>Ngx Test 01, 20230609, pure test</h1>
 
 <hr />
-<h2>ngx-select: items ready</h2>
-<p>When items are ready, searching will not trigger backend call, highlighted automatically</p>
-<div>
-  <ngx-select
-    [formControl]="formControl"
-    [items]="items$ | async"
-    [noAutoComplete]="false"
-    optionTextField="name"
-  ></ngx-select>
-  Selected: {{ formControl.value }}
+<h2>ngx-select: hover items</h2>
+<p>
+  Hovering items, showing json below. Donot use ngModel, otherwise, when hovering item after selected, it dissapears.
+</p>
+<div class="eg-select-sublist6__container">
+  <div class="eg-select-sublist6__dropdown">
+    <ngx-select
+      [items]="items$ | async"
+      [(ngModel)]="searchText"
+      (click)="toggleDropdown()"
+      [placeholder]="'Type and search ...'"
+      style="background-color: blue"
+      dropDownMenuOtherClasses="custom-dropdown"
+    >
+      <ng-template let-option let-text="name" ngx-select-option ngx-select-option-selected>
+        <div
+          (mouseenter)="onItemHover(option); $event.stopPropagation(); $event.preventDefault()"
+          (click)="onItemSelected(option)"
+          title="{{ option.data.name }}"
+        >
+          {{ option.data.id }} - {{ option.data.name }}
+        </div>
+      </ng-template>
+
+      <ng-template ngx-select-option-not-found> Nothing found </ng-template>
+    </ngx-select>
+  </div>
+
+  <ng-container *ngIf="selectedItem">
+    <div class="eg-select-sublist6__content" [ngClass]="{ 'pushed-down': isDropdownOpen }">
+      Selected: {{ selectedItem | json }}
+    </div>
+  </ng-container>
 </div>
-
-<hr />
-<h2>ngx-select: items NOT ready</h2>
-<p>When items are not ready, searching will trigger backend call</p>
-<div>
-  <ngx-select
-    [formControl]="formControl"
-    [items]="items$ | async"
-    [noAutoComplete]="false"
-    optionTextField="name"
-  ></ngx-select>
-  Selected: {{ formControl.value }}
-</div>
-
-<hr />
-<p><a routerLink="">routerLink home</a></p>
-<app-footer></app-footer>

@@ -1,0 +1,62 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+li {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+li:hover {
+  background-color: #f5f5f5;
+}
+
+.sublist {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #f5f5f5;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+li:hover .sublist {
+  display: block;
+}
+
+.branch-name {
+  font-weight: bold;
+}
+
+.branch-fax {
+  font-size: smaller;
+}
+
+.branch-address {
+  font-size: smaller;
+  margin-top: 5px;
+}

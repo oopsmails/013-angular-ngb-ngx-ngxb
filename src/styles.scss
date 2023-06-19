@@ -2,9 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
-  padding: 0 0 0 5px;
+  padding: 0;
+  // padding: 0 0 0 5px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   // font-family: Arial, Helvetica, sans-serif;
@@ -45,6 +48,68 @@ body {
   font-weight: 400;
   cursor: pointer;
 }
+
+//--------------------------------- highlight --------------------------------------
+$highlight-colors: (yellow: #ffc107,
+  blue: #007bff,
+  red: #dc3545,
+  lightblue: lightblue,
+  primary: var(--primary-color));
+
+// Define the mixin to generate the highlight class
+@mixin highlight($color) {
+  .highlight-#{$color} {
+    background-color: map-get($highlight-colors, $color);
+    color: black;
+    // padding: 0.1rem; // don't use this, otherwise, when highlighting with empty-line-after, there is an extra line!
+  }
+}
+
+// Loop through the highlight colors map to generate the highlight classes dynamically
+@each $color,
+$value in $highlight-colors {
+  @include highlight($color);
+}
+
+// .top-level__highlighted-blue {
+//   background-color: #007bff;
+//   color: #fff;
+// }
+
+// .top-level__highlighted-yellow {
+//   background-color: yellow;
+// }
+
+// .hightlight {
+//   background-color: yellow;
+// }
+
+.blue600 {
+  color: blue;
+  font-weight: 600;
+}
+
+
+//--------------------------------- empty line --------------------------------------
+
+// Usage: <div class="empty-line"></div>
+.empty-line {
+  margin-bottom: 1em;
+}
+
+
+// Usage: <p class="empty-line">This is some text.</p>
+.empty-line-before::before {
+  content: '';
+  display: block;
+}
+
+.empty-line-after::after {
+  content: '';
+  display: block;
+  height: 1em;
+}
+
 
 // --------------------------------------
 

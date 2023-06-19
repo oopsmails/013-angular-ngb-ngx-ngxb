@@ -71,3 +71,15 @@ export class RandomItemExt implements RandomItem {
   //   return '' + this.id + this.name;
   // }
 }
+
+export class EmitEventData {
+  eventSource: string = '';
+  eventData: any;
+  eventJson?: string = '';
+}
+
+export class PageNavBean {
+  url: string = '';
+  title: any;
+  desc: string = '';
+}

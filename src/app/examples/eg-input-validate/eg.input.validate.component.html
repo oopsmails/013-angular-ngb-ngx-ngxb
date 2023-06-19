@@ -1,0 +1,89 @@
+<h2>Input Validation Tests</h2>
+
+<h3>Test 1: input max 5 chars, showing message</h3>
+
+<input type="text" [(ngModel)]="myInput01" (ngModelChange)="onInuputChange01($event)" />
+<div *ngIf="isInputInvalid01">
+  <span style="color: red">{{ tooltipMessage01 }}</span>
+</div>
+
+<hr />
+<h3>Test 2: input amount, showing message</h3>
+
+<input
+  type="text"
+  [(ngModel)]="myInput02"
+  (ngModelChange)="onInuputChange02($event)"
+  maxlength="14"
+  pattern="\d{0,11}(\.\d{0,3})?"
+/>
+<div *ngIf="isInputInvalid02">
+  <span style="color: red">{{ tooltipMessage02 }}</span>
+</div>
+
+<hr />
+<h3>Test 3: input pattern only</h3>
+
+<input type="text" [(ngModel)]="myInput03" (ngModelChange)="onInuputChange03($event)" />
+<div *ngIf="isInputInvalid03">
+  <span style="color: red">{{ tooltipMessage03 }}</span>
+</div>
+
+<hr />
+<h3>Test 4: input pattern digits only</h3>
+
+<input type="text" [(ngModel)]="myInput04" (ngModelChange)="onInuputChange04($event)" />
+<div *ngIf="isInputInvalid04">
+  <span style="color: red">{{ tooltipMessage04 }}</span>
+</div>
+
+<hr />
+<h3>Test 5: input decimal, 11.00 changed to 11</h3>
+
+<input type="text" [(ngModel)]="myInput05" (ngModelChange)="onInuputChange05($event)" />
+
+<hr />
+
+<h3>Select Lanugage</h3>
+<div class="select-1__selectParent">
+  <select
+    class="select-1__selectParent-select"
+    [(ngModel)]="selectedLanguage"
+    (ngModelChange)="onSelectedLanguageChange($event)"
+  >
+    <option class="select-1__selectParent-option" value="EN">English</option>
+    <option value="FR">French</option>
+  </select>
+</div>
+
+<hr />
+<h3>Test 6: Amount input validation on Language</h3>
+
+<input type="text" [(ngModel)]="myInput06" name="amount06" required (ngModelChange)="onInuputChange06($event)" />
+<div *ngIf="isInputInvalid06">
+  <span style="color: red">{{ tooltipMessage06 }}</span>
+</div>
+
+<hr />
+<h3>Test 7: Amount input</h3>
+
+<input type="text" [(ngModel)]="myInput07" name="amount07" required (ngModelChange)="onInuputChange07($event)" />
+<div *ngIf="isInputInvalid07">
+  <span style="color: red">{{ tooltipMessage07 }}</span>
+</div>
+<p>myInput07: {{ myInput07 }}</p>
+<p>myInputNum07: {{ myInputNum07 }}</p>
+
+<hr />
+<h3>Test 8: directive, floatPattern, v1, v2, v3</h3>
+<input
+  type="text"
+  floatPattern
+  [maxDigitsBeforeDecimal]="5"
+  [maxDigitsAfterDecimal]="2"
+  [errorMessageSelector]="'floatPattern__error-message-custom'"
+  [(ngModel)]="myInput08"
+/>
+<div *ngIf="isInputInvalid08">
+  <span style="color: red">{{ tooltipMessage08 }}</span>
+</div>

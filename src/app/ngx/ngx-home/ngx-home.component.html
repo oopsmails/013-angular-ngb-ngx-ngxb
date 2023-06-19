@@ -13,6 +13,14 @@
 <p><a routerLink="/ngx/ngx-select-3">/ngx/ngx-select-3: ngx-select, search when keyup</a></p>
 <h3>ngx-select-4</h3>
 <p><a routerLink="/ngx/ngx-select-4">/ngx/ngx-select-4: ngx-select, filtered length</a></p>
+<h3>ngx-select-5</h3>
+<p><a routerLink="/ngx/ngx-select-5">/ngx/ngx-select-5: ngx-select, hover items</a></p>
+<h3>ngx-select6</h3>
+<p><a routerLink="/ngx/ngx-select6">/ngx/ngx-select6: from ngx-select-5, playaround layout</a></p>
+
+<h3>ngx-select7</h3>
+<p><a routerLink="/ngx/ngx-select7">/ngx/ngx-select7: ngx-select, using item component</a></p>
+
 <h3>ngx-search-gitrepos</h3>
 <p>
   <a routerLink="/ngx/ngx-search-gitrepos"> /ngx/ngx-search-gitrepos: search github repos with pagination </a>
@@ -23,3 +31,16 @@
 <p>
   <a routerLink="/ngx/ngx-select-dropdown1">/ngx/ngx-select-dropdown1: ngx-select-dropdown1, ngx-select-dropdown1</a>
 </p>
+
+<hr />
+
+<div class="ngx-home__select6-container">
+  <div class="ngx-home__select6-dropdown-wrapper">
+    <app-ngx-select6></app-ngx-select6>
+  </div>
+  <div class="ngx-home__select6-content">
+    <span>I don't want this to be covered!</span>
+  </div>
+</div>
+
+<ngx-select [items]="items$ | async" [placeholder]="'Type and search ...'"></ngx-select>

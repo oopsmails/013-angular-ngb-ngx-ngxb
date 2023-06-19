@@ -35,6 +35,10 @@
         "link": "/ngxb"
       },
       {
+        "childtext": "Html & CSS",
+        "link": "goto/htmlcss"
+      },
+      {
         "childtext": "Go To 1: Test CSS",
         "link": "goto/1"
       },
@@ -47,12 +51,8 @@
         "link": "goto/3"
       },
       {
-        "childtext": "US States",
-        "link": "sandbox/us-state"
-      },
-      {
         "childtext": "NOT Exist",
-        "link": "sandbox/not-exist"
+        "link": "goto/not-exist"
       }
     ]
   }

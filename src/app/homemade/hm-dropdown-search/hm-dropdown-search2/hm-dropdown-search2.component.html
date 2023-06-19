@@ -1,0 +1,42 @@
+<h3>Home Made Search Dropdown, CSS test</h3>
+<app-back-angle [linkText]="linkText" [routerLinkInput]="routerLinkInput"></app-back-angle>
+<hr />
+
+<div class="form-group row">
+  <div class="col-xl-8">
+    <div class="eg-pattern__container">
+      <div class="eg-pattern__input-container form-control">
+        <input type="text" class="eg-pattern__search-input" [(ngModel)]="inputText" maxlength="14" />
+
+        <div class="eg-pattern__select_arrow">
+          <img alt="drop down" src="assets/images/arrow_down_blue.svg" height="15px" width="15px" />
+        </div>
+      </div>
+
+      <div class="eg-pattern__show-items-container">
+        <a
+          *ngFor="let item of displayingItems; let i = index"
+          class="dropdown-item pointer text-contain"
+          [ngClass]="{ alternateBackground: i % 2 == 0 }"
+          (mousedown)="$event.preventDefault()"
+        >
+          <span>{{ item }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Test Below</h2>
+
+<span class="eg-pattern__toggle-buttons">
+  <a class="eg-pattern__clear btn btn-sm btn-link" *ngIf="true">
+    <i class="eg-pattern__clear-icon"></i>
+  </a>
+  <i class="dropdown-toggle"></i>
+  <i class="eg-pattern__toggle-caret caret"></i>
+</span>
+
+<div *ngIf="true">
+  <span style="color: red">{{ inputText }}</span>
+</div>

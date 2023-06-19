@@ -10,7 +10,8 @@
 }
 
 .hm-dropdown-async3__items-div {
-  position: absolute;
+  position: absolute; // if want to cover the div below!!!
+  // position: relative; // if want to push down div below instead of covering it!!!
 
   z-index: 1000;
   padding-top: 10px;

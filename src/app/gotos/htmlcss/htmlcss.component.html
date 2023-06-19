@@ -1,0 +1,16 @@
+<h1>Html & CSS Test Pages</h1>
+
+<hr />
+
+<span class="highlight-yellow">Highlighted text</span>
+<span class="highlight-blue">Highlighted text</span>
+<span class="highlight-red">Highlighted text</span>
+
+<hr />
+
+<div *ngFor="let item of pageNavBeans">
+  <h3>{{ item.title }}</h3>
+  <p>
+    <a routerLink="{{ item.url }}">{{ item.url }}: {{ item.desc }}</a>
+  </p>
+</div>

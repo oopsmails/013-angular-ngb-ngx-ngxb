@@ -1,0 +1,30 @@
+<h2>Example Select Hover Update Inputs 6</h2>
+
+<hr />
+
+<h3>Select Branch</h3>
+
+<div class="eg-select-sublist6__container">
+  <div class="eg-select-sublist6__dropdown">
+    <button class="form-control dropdown-toggle" (click)="toggleDropdown()">
+      {{ selectedItem?.name || 'Select Item' }}
+    </button>
+
+    <ng-container *ngIf="isDropdownOpen">
+      <ul class="eg-select-sublist6__dropdown-menu">
+        <li *ngFor="let item of itemList" (mouseenter)="onItemHover(item)" (click)="onItemSelected(item)">
+          {{ item.name }}
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+
+  <div class="eg-select-sublist6__content" [ngClass]="{ 'pushed-down': isDropdownOpen }" *ngIf="selectedItem">
+    <input type="text" [(ngModel)]="selectedItem.address.streetNumber" placeholder="Street Number" />
+    <input type="text" [(ngModel)]="selectedItem.address.streetName" placeholder="Street Name" />
+    <input type="text" [(ngModel)]="selectedItem.address.city" placeholder="City" />
+    <input type="text" [(ngModel)]="selectedItem.address.province" placeholder="Province" />
+    <input type="text" [(ngModel)]="selectedItem.address.country" placeholder="Country" />
+    <input type="text" [(ngModel)]="selectedItem.address.postalCode" placeholder="Postal Code" />
+  </div>
+</div>

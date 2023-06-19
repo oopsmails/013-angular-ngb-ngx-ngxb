@@ -2,7 +2,14 @@
 
 <hr />
 <p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
+<p><a routerLink="/eg/selectsublist1">/eg/selectsublist1: Hover Open Sublist 1, prepare</a></p>
+<p><a routerLink="/eg/selectsublist2">/eg/selectsublist2: Hover Open Sublist 2</a></p>
+<p><a routerLink="/eg/selectsublist3">/eg/selectsublist3: Hover Open Sublist 3, end of chatGPT</a></p>
+<p><a routerLink="/eg/selectsublist4">/eg/selectsublist4: Hover Open Sublist 4</a></p>
+<p><a routerLink="/eg/selectsublist5">/eg/selectsublist5: Hover Update Inputs 5</a></p>
+<p><a routerLink="/eg/selectsublist6">/eg/selectsublist6: Hover Update Inputs 6</a></p>
 <p><a routerLink="/eg/pattern">/eg/pattern: Pattern Test</a></p>
+<p><a routerLink="/eg/inputvalidate">/eg/inputvalidate: Input Validation Tests</a></p>
 
 <hr />
 <h3>SVGs</h3>
@@ -19,39 +26,19 @@
 </svg>
 
 <hr />
-<h3>Test 1: input max 5 chars, showing message</h3>
 
-<input type="text" [(ngModel)]="myInput01" (ngModelChange)="onInuputChange01($event)" />
-<div *ngIf="isInputInvalid01">
-  <span style="color: red">{{ tooltipMessage01 }}</span>
+<h3>Select Lanugage</h3>
+<div class="select-1__selectParent">
+  <select
+    class="select-1__selectParent-select"
+    [(ngModel)]="selectedLanguage"
+    (ngModelChange)="onSelectedLanguageChange($event)"
+  >
+    <option class="select-1__selectParent-option" value="EN">English</option>
+    <option value="FR">French</option>
+  </select>
 </div>
 
 <hr />
-<h3>Test 2: input amount, showing message</h3>
 
-<input
-  type="text"
-  [(ngModel)]="myInput02"
-  (ngModelChange)="onInuputChange02($event)"
-  maxlength="14"
-  pattern="\d{0,11}(\.\d{0,3})?"
-/>
-<div *ngIf="isInputInvalid02">
-  <span style="color: red">{{ tooltipMessage02 }}</span>
-</div>
-
-<hr />
-<h3>Test 3: input pattern only</h3>
-
-<input type="text" [(ngModel)]="myInput03" (ngModelChange)="onInuputChange03($event)" />
-<div *ngIf="isInputInvalid03">
-  <span style="color: red">{{ tooltipMessage03 }}</span>
-</div>
-
-<hr />
-<h3>Test 4: input pattern digits only</h3>
-
-<input type="text" [(ngModel)]="myInput04" (ngModelChange)="onInuputChange04($event)" />
-<div *ngIf="isInputInvalid04">
-  <span style="color: red">{{ tooltipMessage04 }}</span>
-</div>
+<app-eg-highlisht></app-eg-highlisht>

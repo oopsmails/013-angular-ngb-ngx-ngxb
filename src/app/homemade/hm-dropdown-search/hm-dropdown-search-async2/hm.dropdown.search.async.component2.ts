@@ -123,7 +123,7 @@ export class HomeMadeDropdownSearchAsyncComponent2 implements OnInit, OnDestroy 
     this.selectedItem = option;
     this.showItems = false;
     this.searchText = option.description;
-    // event.preventDefault(); // see comments in src\app\homemade\hm-search-modal\hm.search.modal.component.ts!!!
+    // event.preventDefault(); // see comments in src\app\homemade\hm-search-modal\hm.search.modal.component.ts!
   }
 
   ngOnDestroy() {

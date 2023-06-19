@@ -1,0 +1,18 @@
+<h2>Example Select Hover Open Sublist</h2>
+
+<hr />
+
+<h3>Select Branch</h3>
+
+<div class="dropdown">
+  <button class="dropdown-toggle" type="button" (click)="toggleMenu()">
+    {{ selectedBranch?.branchName || 'Select Branch' }}
+  </button>
+  <ul class="dropdown-menu" [class.show]="toggleDropdown">
+    <li *ngFor="let branch of branches" (click)="onSelect(branch)">
+      <span class="branch-name">{{ branch.branchName }}</span
+      ><br />
+      <span class="branch-fax">{{ branch.branchFaxNumber }}</span>
+    </li>
+  </ul>
+</div>

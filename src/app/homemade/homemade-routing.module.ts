@@ -17,9 +17,11 @@ import { HomeMadeEditableComponent } from './hm-editable/hm.editable.component';
 import { HomeMadeSearchModalComponent } from './hm-search-modal/hm.search.modal.component';
 import { HmSpinnerComponent } from './hm-spinner/hm-spinner.component';
 import { HomeMadeDropdownSearchAsyncComponent3 } from './hm-dropdown-search/hm-dropdown-search-async3/hm.dropdown.search.async.component3';
+import { HmDropdownSearch2Component } from './hm-dropdown-search/hm-dropdown-search2/hm-dropdown-search2.component';
 
 const routes: Routes = [
   { path: 'hm/hm-dropdown-search', component: HomeMadeDropdownSearchComponent },
+  { path: 'hm/hm-dropdown-search2', component: HmDropdownSearch2Component },
   { path: 'hm/hm-dropdown-search-async', component: HomeMadeDropdownSearchAsyncComponent },
   { path: 'hm/hm-dropdown-search-async2', component: HomeMadeDropdownSearchAsyncComponent2 },
   { path: 'hm/hm-dropdown-search-async3', component: HomeMadeDropdownSearchAsyncComponent3 },

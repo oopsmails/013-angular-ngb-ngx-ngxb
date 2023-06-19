@@ -1,0 +1,41 @@
+<h2>Example Select Hover Open Sublist</h2>
+
+<hr />
+
+<h3>Select Branch</h3>
+
+<div class="dropdown">
+  <button class="dropdown-toggle" type="button" (click)="toggleMenu()">
+    {{ selectedBranch?.branchName || 'Select Branch' }}
+  </button>
+  <ul class="dropdown-menu" [class.show]="toggleDropdown">
+    <li
+      *ngFor="let branch of branches"
+      (click)="onSelect(branch)"
+      (mouseenter)="showSublist(branch)"
+      (mouseleave)="hideSublist()"
+    >
+      <span class="branch-name">{{ branch.branchName }}</span
+      ><br />
+      <span class="branch-fax">{{ branch.branchFaxNumber }}</span>
+      <ul class="sublist" *ngIf="branch.showSublist">
+        <li *ngFor="let address of branch.branchAddress" class="branch-address" (click)="selectAddress(address)">
+          {{ address }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="selected-address" *ngIf="selectedBranch && selectedAddress">Selected Address: {{ selectedAddress }}</div>
+</div>
+
+<hr />
+
+<h3>mouseenter, mouseleave (catch hover in component.ts)</h3>
+
+<div>
+  <ul>
+    <li *ngFor="let branch of branches" (mouseenter)="onMouseEnter(branch)" (mouseleave)="onMouseLeave(branch)">
+      <a>{{ branch.branchName }}</a>
+    </li>
+  </ul>
+</div>

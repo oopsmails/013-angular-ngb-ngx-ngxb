@@ -1,0 +1,26 @@
+<div
+  class="ngx-select7-item__container"
+  (mouseenter)="itemHover(option.data); $event.stopPropagation(); $event.preventDefault()"
+  (click)="itemSelected(option.data)"
+  title="{{ option.data.name }}"
+>
+  <span class="ngx-select7-item__title" placement="top" container="body">
+    {{ option.data.id }}
+  </span>
+
+  <span class="ngx-select7-item__subtext">
+    {{ option.data.name }}
+  </span>
+
+  <span class="ngx-select7-item__subtext">
+    {{ option.data.desc }}
+  </span>
+
+  <span class="ngx-select7-item__subtext">
+    {{ option.data.imageUrl }}
+  </span>
+
+  <span class="ngx-select7-item__subtext">
+    {{ option.data.text }}
+  </span>
+</div>

@@ -7,11 +7,17 @@ import { OopsLib002Module, SharedModule } from 'oops-lib002';
 import { GoTo1Component } from './goto1/goto1.component';
 import { GoTo2Component } from './goto2/goto2.component';
 import { GoTo3Component } from './goto3/goto3.component';
+import { HtmlcssComponent } from './htmlcss/htmlcss.component';
+import { HcPseudo01Component } from './htmlcss/hc-pseudo01/hc-pseudo01.component';
+import { HcPseudo02Component } from './htmlcss/hc-pseudo02/hc-pseudo02.component';
 
 const routes: Routes = [
   { path: 'goto/1', component: GoTo1Component },
   { path: 'goto/2', component: GoTo2Component },
   { path: 'goto/3', component: GoTo3Component },
+  { path: 'goto/htmlcss', component: HtmlcssComponent },
+  { path: 'goto/hc/hc-pseudo01', component: HcPseudo01Component },
+  { path: 'goto/hc/hc-pseudo02', component: HcPseudo02Component },
 ];
 @NgModule({
   imports: [
@@ -25,7 +31,7 @@ const routes: Routes = [
     // LocalsharedModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [GoTo3Component],
+  declarations: [GoTo3Component, HtmlcssComponent, HcPseudo01Component, HcPseudo02Component],
   exports: [RouterModule],
 })
-export class GoToRoutingModule {}
+export class GoToModule {}
