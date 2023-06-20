@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-html-test',
   templateUrl: './html-test.component.html',
-  styleUrls: ['./html-test.component.scss']
+  styleUrls: ['./html-test.component.scss'],
 })
 export class HtmlTestComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
