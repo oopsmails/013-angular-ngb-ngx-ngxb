@@ -12,6 +12,12 @@
     "submenu": []
   },
   {
+    "linkText": "HTML",
+    "parentLink": "/html",
+    "menu": false,
+    "submenu": []
+  },
+  {
     "linkText": "Examples",
     "parentLink": "/eg",
     "menu": false,

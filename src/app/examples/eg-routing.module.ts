@@ -25,4 +25,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ExamplesRoutingModule {}
+export class ExamplesRoutingModule {
+  static routes = routes;
+}
