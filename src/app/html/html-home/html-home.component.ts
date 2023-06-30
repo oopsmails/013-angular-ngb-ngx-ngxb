@@ -17,5 +17,11 @@ export class HtmlHomeComponent implements OnInit {
     pageNavBean.title = 'Html and CSS Testing';
     pageNavBean.desc = 'Pure Tesing Page';
     this.pageNavBeans.push(pageNavBean);
+
+    pageNavBean = new PageNavBean();
+    pageNavBean.url = '/html/cards';
+    pageNavBean.title = 'Movable Stacked Card Row in CSS';
+    pageNavBean.desc = 'Movable Stacked Card Row in CSS';
+    this.pageNavBeans.push(pageNavBean);
   }
 }

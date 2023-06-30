@@ -1,0 +1,44 @@
+:root {
+    --distance: -4rem;
+    --main-padding: 5px;
+}
+
+.container-body {
+    background: #777;
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+
+.cards {
+    display: flex;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 4px 4px 12px 12px rgba(black, 0.7);
+    transition: 0.2s;
+    // transform: translateY(-1rem);
+}
+
+.card:not(:first-child) {
+    margin-left: -4rem;
+    // margin-left: var(--distance); // not working???
+}
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-1rem);
+    z-index: 100;
+}
+
+.card:hover~.card,
+.card:focus-within~.card {
+    // background: red;
+    transform: translateX(4rem);
+}

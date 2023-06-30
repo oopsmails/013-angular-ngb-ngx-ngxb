@@ -5,6 +5,8 @@
 ```
 alias ng="./node_modules/.bin/ng"
 
+ng g c html/html-cards
+
 ```
 
 ## Issues
