@@ -1,9 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { Component, OnDestroy, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService } from 'oops-lib002';
 import { Subject } from 'rxjs';
 import { I18nService } from 'src/app/localshared/services/i18n.service';
 import { UserDataService } from 'src/app/localshared/services/user.data.service';
+
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeEn from '@angular/common/locales/en';
 
 @Component({
   selector: 'app-home',
@@ -17,18 +22,48 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
 
   selectedLanguage: 'EN' | 'FR' = 'EN';
 
+  numArray: number[] = [];
+
+  @Inject(LOCALE_ID) localeId: string;
+
   constructor(
     private router: Router,
+    private decimalPipe: DecimalPipe,
     private sharedDataService: SharedDataService,
     private i18nService: I18nService,
     private userDataService: UserDataService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.numArray.push(3.14159265359);
+  }
 
   onSelectedLanguageChange(event: string) {
     console.log('onSelectedLanguageChange, event = ', event);
     this.userDataService.currentLanguage = event;
+    let localeVar = this.userDataService.currentLanguage === 'EN' ? 'en' : 'fr';
+    this.setLocale(localeVar);
+
+    // this.getRoundNumber()
+  }
+
+  setLocale(locale: string) {
+    this.localeId = locale;
+    registerLocaleData(locale === 'fr' ? localeFr : localeEn, locale);
+    console.log('localeId: ', this.localeId);
+  }
+
+  getRoundNumber(num: number, locale?: string): string | null {
+    // console.log('localeId: ', this.localeId);
+
+    // let roundRules = '1.0-2';
+    let roundRules = '4.1-3';
+    let localRules = 'fr';
+
+    // return this.decimalPipe.transform(num, roundRules) ?? '0';
+    // return this.decimalPipe.transform(num, roundRules, localRules) ?? '0';
+    // return this.decimalPipe.transform(num, roundRules, this.localeId) ?? '0';
+    return this.decimalPipe.transform(num, roundRules, locale) ?? '0';
   }
 
   navToPage(page) {

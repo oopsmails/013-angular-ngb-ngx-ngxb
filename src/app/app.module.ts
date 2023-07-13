@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe, registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +20,13 @@ import { LocalsharedModule } from './localshared/localshared.module';
 import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
+
+import localeEn from '@angular/common/locales/en';
+import localeDe from '@angular/common/locales/de';
+import localeFr from '@angular/common/locales/fr';
+// registerLocaleData(localeDe);
+registerLocaleData(localeFr);
+// registerLocaleData(localeEn);
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -58,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [AppComponent],
   providers: [
+    DecimalPipe,
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: LoadingInterceptor,

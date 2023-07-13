@@ -1,6 +1,59 @@
 <h2>Example Home</h2>
 
 <hr />
+
+<h3>Select Lanugage</h3>
+<div class="select-1__selectParent">
+  <select
+    class="select-1__selectParent-select"
+    [(ngModel)]="selectedLanguage"
+    (ngModelChange)="onSelectedLanguageChange($event)"
+  >
+    <option class="select-1__selectParent-option" value="EN">English</option>
+    <option value="FR">French</option>
+  </select>
+</div>
+
+<p *ngIf="localeId === 'fr'">Bonjour!</p>
+<p *ngIf="localeId === 'en'">Hello!</p>
+
+<hr />
+<p>Tesing DecimalPipe</p>
+<div *ngFor="let num of numArray">
+  <p>==================================</p>
+  <p>
+    No specified formatting:
+    {{ num | number }}
+    <!--output: '3.142'-->
+  </p>
+
+  <p>
+    With digitsInfo parameter specified and locale en:
+    {{ num | number : '4.1-5' : 'en' }}
+    <!--output: '0,003.14159'-->
+  </p>
+
+  <p>
+    With digitsInfo and locale parameters specified, fr:
+    {{ num | number : '4.1-5' : 'fr' }}
+    <!--output: '0 003,14159'-->
+  </p>
+
+  <p>
+    Dynamically set digitsInfo and locale:
+    {{ num | number : '4.1-5' : localeId }}
+    <!--output: '0 003,14159'-->
+  </p>
+
+  <p>
+    Test around:
+    {{ getRoundNumber(num) }}
+  </p>
+
+  {{ localeId | json }}
+</div>
+
+<hr />
 <p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
 <p><a routerLink="/eg/selectsublist1">/eg/selectsublist1: Hover Open Sublist 1, prepare</a></p>
 <p><a routerLink="/eg/selectsublist2">/eg/selectsublist2: Hover Open Sublist 2</a></p>
@@ -24,20 +77,6 @@
     d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
   />
 </svg>
-
-<hr />
-
-<h3>Select Lanugage</h3>
-<div class="select-1__selectParent">
-  <select
-    class="select-1__selectParent-select"
-    [(ngModel)]="selectedLanguage"
-    (ngModelChange)="onSelectedLanguageChange($event)"
-  >
-    <option class="select-1__selectParent-option" value="EN">English</option>
-    <option value="FR">French</option>
-  </select>
-</div>
 
 <hr />
 

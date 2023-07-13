@@ -1,9 +1,10 @@
 <div class="app-root__container">
-  <ng-container *ngIf="shouldDisplayHeader()">
-    <nav-bar-example></nav-bar-example>
+  <!-- shouldDisplayHeader is called infinite times!!!??? -->
+  <!-- <ng-container *ngIf="shouldDisplayHeader()"> -->
+  <nav-bar-example></nav-bar-example>
 
-    <app-spinner></app-spinner>
-  </ng-container>
+  <app-spinner></app-spinner>
+  <!-- </ng-container> -->
 
   <div style="position: fixed; left: 50%; transform: translateX(-50%)">
     <span id="datetime" style="font-size: 20px; font-weight: 600; color: black"></span>

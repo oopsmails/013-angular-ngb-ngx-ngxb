@@ -39,6 +39,6 @@
 
 .card:hover~.card,
 .card:focus-within~.card {
-    // background: red;
+    background: red;
     transform: translateX(4rem);
 }
