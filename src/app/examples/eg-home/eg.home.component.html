@@ -54,6 +54,24 @@
 </div>
 
 <hr />
+
+<h3>ExpressionChangedAfterItHasBeenCheckedError</h3>
+
+Solutions:
+<ul>
+  <li>1. Refactor AfterViewInit lifecycl hook</li>
+  <li>2. Use ChangeDetectorRef manually</li>
+  <li>3. Make getters idempotent</li>
+  <li>4. Make the update async (last resort), using setTimeout or Promise</li>
+</ul>
+
+<p>[Debugging] Expression has changed after it was checked: https://www.youtube.com/watch?v=O47uUnJjbJc</p>
+<p>Example in video, if ParentComponent and ChildComponent, consider using SharedService</p>
+
+<div>{{ myProperty }}</div>
+<button (click)="updateProperty()">Update Property</button>
+
+<hr />
 <p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
 <p><a routerLink="/eg/selectsublist1">/eg/selectsublist1: Hover Open Sublist 1, prepare</a></p>
 <p><a routerLink="/eg/selectsublist2">/eg/selectsublist2: Hover Open Sublist 2</a></p>

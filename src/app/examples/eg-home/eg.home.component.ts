@@ -24,6 +24,8 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
 
   numArray: number[] = [];
 
+  myProperty: string = 'Initial Value';
+
   @Inject(LOCALE_ID) localeId: string;
 
   constructor(
@@ -36,6 +38,19 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.numArray.push(3.14159265359);
+
+    // this.updateProperty();
+  }
+
+  ngAfterViewInit() {
+    // Simulating a property update after the view has been fully initialized
+    // This will cause "ExpressionChangedAfterItHasBeenCheckedError"
+    this.updateProperty();
+  }
+
+  updateProperty() {
+    // Updating the property value after the view has been initialized
+    this.myProperty = 'Updated Value';
   }
 
   onSelectedLanguageChange(event: string) {
