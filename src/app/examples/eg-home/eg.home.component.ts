@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, OnDestroy, OnInit, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, LOCALE_ID, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService } from 'oops-lib002';
 import { Subject } from 'rxjs';
@@ -33,12 +33,14 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
     private decimalPipe: DecimalPipe,
     private sharedDataService: SharedDataService,
     private i18nService: I18nService,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     this.numArray.push(3.14159265359);
 
+    // fix #1
     // this.updateProperty();
   }
 
@@ -51,6 +53,14 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   updateProperty() {
     // Updating the property value after the view has been initialized
     this.myProperty = 'Updated Value';
+
+    // fix #2,
+    setTimeout(() => {
+      // Updating the property value outside the change detection cycle
+      this.myProperty = 'Updated Value';
+      // Trigger manual change detection
+      this.cdr.detectChanges();
+    }, 0);
   }
 
   onSelectedLanguageChange(event: string) {
