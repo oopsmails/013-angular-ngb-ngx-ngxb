@@ -26,7 +26,18 @@ export class ParentComponent implements OnInit {
 
   constructor(private userDataService: UserDataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const array = [1, 2, 3, 4, 5];
+    const idx = -6;
+
+    // if (idx >= 0 && idx < array.length) {
+    //   array.splice(idx, 1); // Removes the element at the specified index
+    // }
+
+    array.splice(idx, 1); // No element will be removed because the index is -1
+
+    console.log(array);
+  }
 
   receivedMessage(event) {
     console.log(this.compmentName, 'receivedMessage, event =', event);
