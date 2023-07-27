@@ -45,6 +45,7 @@ import { TestModalContentComponent } from './pages/test-modal/test-modal-content
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
 import { HomeRandomListTable3Component } from './h-random-list-table/h-random-list-table3/h.random.list.table3.component';
 import { HomeRandomListTable4Component } from './h-random-list-table/h-random-list-table4/h.random.list.table4.component';
+import { HPipeCustomComponent } from './h-pipe/h-custom/h.pipe.custom/h.pipe.custom.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -78,6 +79,7 @@ const routes: Routes = [
   { path: 'home/itemlist3', component: HomeRandomListTable3Component },
   { path: 'home/itemlist4', component: HomeRandomListTable4Component },
   { path: 'home/tooltip2', component: HomeTooltip2Component },
+  { path: 'home/custompipe', component: HPipeCustomComponent },
 ];
 
 @NgModule({
@@ -117,6 +119,7 @@ const routes: Routes = [
     HomeRandomListSearchModalComponent,
     HomeTooltipComponent,
     HomeTooltip2Component,
+    HPipeCustomComponent,
   ],
   imports: [
     CommonModule,

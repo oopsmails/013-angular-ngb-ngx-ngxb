@@ -18,6 +18,7 @@ import { DisplayStringPipe } from './pipe/display.string.pipe';
 import { AmtPatternDirective } from './directives/amt.pattern.directive';
 import { FloatPatternDirective } from './directives/float.pattern.directive';
 import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hover.component';
+import { CustomPipe } from './pipe/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hov
     DroppableDirective,
     MessageTranslatePipe,
     DisplayStringPipe,
+    CustomPipe,
   ],
   imports: [
     CommonModule,
@@ -58,6 +60,7 @@ import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hov
     DroppableDirective,
     MessageTranslatePipe,
     DisplayStringPipe,
+    CustomPipe,
   ],
 })
 export class LocalsharedModule {}
