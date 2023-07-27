@@ -1,10 +1,12 @@
-import { Observable, of } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user';
 import { USERS_DATA } from '../data/users.data';
 
 @Injectable({ providedIn: 'root' })
 export class UserDataService {
+  public currentLocale$: Subject<string> = new Subject();
+
   currentLanguage: string = 'EN';
 
   //   getUserData(delayInMs?: number): Observable<User[]> {
