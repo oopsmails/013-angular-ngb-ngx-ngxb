@@ -3,8 +3,10 @@
 <!-- <input type="text" [(ngModel)]="myValue | customPipe" (ngModelChange)="onInputChange($event)" /> -->
 
 <!-- Using the custom pipe for display purposes -->
-<input type="text" [ngModel]="myValueDisplay" (ngModelChange)="onInputChange($event)" />
+<!-- <input type="text" [ngModel]="myValue" (ngModelChange)="onInputChange($event)" /> -->
+<input type="text" [(ngModel)]="myValue" (ngModelChange)="onInputChange($event)" />
 
 <hr />
+<p>myValueTransformed: {{ myValueTransformed }}</p>
 
-{{ myValue }}
+<p>myValueParsed: {{ myValueParsed }}</p>

@@ -9,16 +9,21 @@ import { CustomPipe } from 'src/app/localshared/pipe/custom.pipe';
 })
 export class HPipeCustomComponent implements OnInit {
   myValue = 'aaa';
-  myValueDisplay: any;
+  myValueTransformed: any;
+  myValueParsed: any;
 
   constructor(private customPipe: CustomPipe) {}
 
   ngOnInit(): void {
-    this.myValueDisplay = this.customPipe.transform(this.myValue);
+    this.myValueTransformed = this.customPipe.transform(this.myValue);
+    this.myValueParsed = this.customPipe.parse(this.myValue);
   }
 
   onInputChange(newValue: any) {
     // Apply the pipe's 'parse' method (if defined) to transform the value back
-    this.myValue = this.customPipe.parse(newValue);
+    // this.myValue = this.customPipe.parse(newValue);
+
+    this.myValueTransformed = this.customPipe.transform(this.myValue);
+    this.myValueParsed = this.customPipe.parse(this.myValue);
   }
 }
