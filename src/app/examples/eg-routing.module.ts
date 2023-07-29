@@ -9,6 +9,7 @@ import { ExamplesSelectSublist3Component } from './eg-select-sublist/eg-select-s
 import { ExamplesSelectSublist4Component } from './eg-select-sublist/eg-select-sublist4/eg.select.sublist4.component';
 import { ExamplesSelectSublist5Component } from './eg-select-sublist/eg-select-sublist5/eg.select.sublist5.component';
 import { ExamplesSelectSublist6Component } from './eg-select-sublist/eg-select-sublist6/eg.select.sublist6.component';
+import { EgSaving01Component } from './eg-saving/eg.saving.01/eg.saving.01.component';
 
 const routes: Routes = [
   { path: 'eg/select', component: ExamplesSelectComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'eg/selectsublist6', component: ExamplesSelectSublist6Component },
   { path: 'eg/pattern', component: ExamplesPatternComponent },
   { path: 'eg/inputvalidate', component: ExampleInputValidateComponent },
+  { path: 'eg/saving01', component: EgSaving01Component },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

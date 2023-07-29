@@ -83,6 +83,14 @@ Solutions:
 <p><a routerLink="/eg/inputvalidate">/eg/inputvalidate: Input Validation Tests</a></p>
 
 <hr />
+<div *ngFor="let item of pageNavBeans">
+  <h3>{{ item.title }}</h3>
+  <p>
+    <a routerLink="{{ item.url }}">{{ item.url }}: {{ item.desc }}</a>
+  </p>
+</div>
+
+<hr />
 <h3>SVGs</h3>
 <svg class="icon" viewBox="0 0 11 7" xmlns="http://www.w3.org/2000/svg">
   <path

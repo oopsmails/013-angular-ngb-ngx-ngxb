@@ -9,6 +9,7 @@ import { UserDataService } from 'src/app/localshared/services/user.data.service'
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
+import { PageNavBean } from 'src/app/localshared/models/shared-model';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,8 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   public static MAX_INPUT_LENGTH = 5;
 
   private onDestroy$: Subject<boolean> = new Subject();
+
+  pageNavBeans: PageNavBean[] = [];
 
   selectedLanguage: 'EN' | 'FR' = 'EN';
 
@@ -38,6 +41,12 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    let pageNavBean = new PageNavBean();
+    pageNavBean.url = '/eg/saving01';
+    pageNavBean.title = 'Test Saving Race Condition 01';
+    pageNavBean.desc = 'Test Saving';
+    this.pageNavBeans.push(pageNavBean);
+
     this.numArray.push(3.14159265359);
 
     // fix #1
