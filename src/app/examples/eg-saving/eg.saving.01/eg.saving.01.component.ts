@@ -22,9 +22,13 @@ export class EgSaving01Component implements OnInit {
       // Perform the input validation and saving to the backend using concatMap
       this.validateAndSaveToBackend(item)
         .pipe(
-          concatMap(() => {
+          // concatMap(() => { // if returning void, to keep continue the sequence
+          //   this.isSaving = false;
+          //   return of(null); // Return an empty observable to continue the sequence
+          // }),
+          concatMap((items) => {
             this.isSaving = false;
-            return of(null); // Return an empty observable to continue the sequence
+            return items; // Return an empty observable to continue the sequence
           }),
           catchError((error) => {
             console.error('Error during input validation and saving:', error);
@@ -42,11 +46,11 @@ export class EgSaving01Component implements OnInit {
     // Validate the input and perform the saving to the backend
     // Example: Make an HTTP request to validate and save data to the backend
     // return this.http.post('backend-url', item);
-    console.log('validateAndSaveToBackend, passed in item: ', item);
+    console.log('validateAndSaveToBackend, passed in item.target.value: ', item.target.value);
     return this.sharedDataService.getRandomItems(5, 3000);
   }
 
-  onSaveRadio(item: any) {
+  onSaveRadio(item: any): RandomItem[] {
     if (!this.isSaving) {
       // Perform the radio button selection saving to the backend using tap
       // this.http
@@ -59,6 +63,7 @@ export class EgSaving01Component implements OnInit {
       //   )
       //   .subscribe();
 
+      let result: RandomItem[] = [];
       this.sharedDataService
         .getRandomItems(5, 3000)
         .pipe(
@@ -69,7 +74,10 @@ export class EgSaving01Component implements OnInit {
         )
         .subscribe((items) => {
           console.log('should be 2222222222222222, onSaveRadio subscribe ....', items);
+          result = items;
         });
+
+      return result;
     }
   }
 }
