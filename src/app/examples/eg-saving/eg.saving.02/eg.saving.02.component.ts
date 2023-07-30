@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedDataService, RandomItem } from 'oops-lib002';
-import { concatMap, catchError, of, Observable } from 'rxjs';
+import { concatMap, catchError, of, Observable, defer, takeUntil, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-eg.saving.02',
@@ -8,6 +8,8 @@ import { concatMap, catchError, of, Observable } from 'rxjs';
   styleUrls: ['./eg.saving.02.component.scss'],
 })
 export class EgSaving02Component implements OnInit {
+  private onDestroy$: Subject<boolean> = new Subject();
+
   isSaving = false; // Flag to track if a save operation is in progress
   inputValue = '';
 
@@ -21,14 +23,24 @@ export class EgSaving02Component implements OnInit {
       console.log('################ 1. isSaving ....', this.isSaving);
 
       // Wrap the validateAndSaveToBackend logic in a new Observable
-      const validateObsFromV1 = new Observable<void>((observer) => {
+      const validateObsV1 = new Observable<void>((observer) => {
         // Perform the input validation and saving to the backend
         // Example: Make an HTTP request to validate and save data to the backend
-        this.validateAndSaveToBackendV1(item).subscribe({
+        this.validateAndSaveToBackendObservable(item).subscribe({
           next: (v) => console.log(v),
           error: (e) => console.error(e),
           complete: () => console.info('complete'),
         });
+      });
+
+      // Create a new observable using defer to wrap the validateAndSaveToBackend logic
+      const validateObsV2 = defer(() => {
+        // Perform the input validation and saving to the backend (without returning any observable)
+        // Example: Make an HTTP request here
+        this.validateAndSaveToBackend(item);
+
+        // Return an empty observable to continue the sequence
+        return of(null);
       });
 
       // const validateObs = of(this.validateAndSaveToBackend(item));
@@ -44,6 +56,7 @@ export class EgSaving02Component implements OnInit {
 
       validateObs
         .pipe(
+          takeUntil(this.onDestroy$),
           concatMap(() => {
             this.isSaving = false;
             console.log('################ 2. isSaving ....', this.isSaving);
@@ -64,14 +77,17 @@ export class EgSaving02Component implements OnInit {
     console.log('validateAndSaveToBackend, passed in item.target.value: ', item.target.value);
     // if already subscribed
     let result: RandomItem[] = [];
-    this.sharedDataService.getRandomItems(5, 5000).subscribe((items) => {
-      console.log('should be 11111111111, onSaveBlurAndRadio subscribe ....', items);
-      result = items;
-    });
+    this.sharedDataService
+      .getRandomItems(5, 2000)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((items) => {
+        console.log('should be 11111111111, onSaveBlurAndRadio subscribe ....', items);
+        result = items;
+      });
     return result;
   }
 
-  validateAndSaveToBackendV1(item: any): Observable<RandomItem[]> {
+  validateAndSaveToBackendObservable(item: any): Observable<RandomItem[]> {
     // Validate the input and perform the saving to the backend
     // Example: Make an HTTP request to validate and save data to the backend
     // return this.http.post('backend-url', item);
@@ -83,8 +99,9 @@ export class EgSaving02Component implements OnInit {
     if (!this.isSaving) {
       let result: RandomItem[] = [];
       this.sharedDataService
-        .getRandomItems(5, 3000)
+        .getRandomItems(5, 1000)
         .pipe(
+          takeUntil(this.onDestroy$),
           catchError((error) => {
             console.error('Error during radio button selection saving:', error);
             return of(null);

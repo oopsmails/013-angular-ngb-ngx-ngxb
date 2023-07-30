@@ -1,0 +1,13 @@
+<h2>eg.saving.03, using defer</h2>
+
+<p>no, I meant for method validateAndSaveToBackend, it is returning any instead of Observable-any- ...</p>
+
+<div>
+  <label for="inputField">Input Field:</label>
+  <input type="text" id="inputField" [(ngModel)]="inputValue" (blur)="onSaveBlurAndRadio($event)" />
+</div>
+
+<div>
+  <label for="radioButton">Radio Button:</label>
+  <input type="radio" id="radioButton" name="radioGroup" (change)="onSaveRadio($event)" [disabled]="isSaving" />
+</div>

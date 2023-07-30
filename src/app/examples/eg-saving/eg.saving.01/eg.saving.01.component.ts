@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RandomItem, SharedDataService } from 'oops-lib002';
-import { concatMap, of, catchError, Observable } from 'rxjs';
+import { concatMap, of, catchError, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-eg.saving.01',
@@ -8,6 +8,8 @@ import { concatMap, of, catchError, Observable } from 'rxjs';
   styleUrls: ['./eg.saving.01.component.scss'],
 })
 export class EgSaving01Component implements OnInit {
+  private onDestroy$: Subject<boolean> = new Subject();
+
   isSaving = false; // Flag to track if a save operation is in progress
   inputValue = '';
 
@@ -47,7 +49,7 @@ export class EgSaving01Component implements OnInit {
     // Example: Make an HTTP request to validate and save data to the backend
     // return this.http.post('backend-url', item);
     console.log('validateAndSaveToBackend, passed in item.target.value: ', item.target.value);
-    return this.sharedDataService.getRandomItems(5, 5000);
+    return this.sharedDataService.getRandomItems(5, 2000);
   }
 
   onSaveRadio(item: any): RandomItem[] {
@@ -65,7 +67,7 @@ export class EgSaving01Component implements OnInit {
 
       let result: RandomItem[] = [];
       this.sharedDataService
-        .getRandomItems(5, 3000)
+        .getRandomItems(5, 1000)
         .pipe(
           catchError((error) => {
             console.error('Error during radio button selection saving:', error);
