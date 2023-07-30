@@ -47,6 +47,12 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
     pageNavBean.desc = 'Test Saving';
     this.pageNavBeans.push(pageNavBean);
 
+    pageNavBean = new PageNavBean();
+    pageNavBean.url = '/eg/saving02';
+    pageNavBean.title = 'Test Saving Race Condition 02';
+    pageNavBean.desc = 'Test Saving';
+    this.pageNavBeans.push(pageNavBean);
+
     this.numArray.push(3.14159265359);
 
     // fix #1

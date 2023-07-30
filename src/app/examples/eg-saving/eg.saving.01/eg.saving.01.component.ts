@@ -47,7 +47,7 @@ export class EgSaving01Component implements OnInit {
     // Example: Make an HTTP request to validate and save data to the backend
     // return this.http.post('backend-url', item);
     console.log('validateAndSaveToBackend, passed in item.target.value: ', item.target.value);
-    return this.sharedDataService.getRandomItems(5, 3000);
+    return this.sharedDataService.getRandomItems(5, 5000);
   }
 
   onSaveRadio(item: any): RandomItem[] {

@@ -19,6 +19,7 @@ import { ExamplesSelectSublist5Component } from './eg-select-sublist/eg-select-s
 import { ExamplesSelectSublist6Component } from './eg-select-sublist/eg-select-sublist6/eg.select.sublist6.component';
 import { EgHighlishtComponent } from './eg-highlisht/eg-highlisht.component';
 import { EgSaving01Component } from './eg-saving/eg.saving.01/eg.saving.01.component';
+import { EgSaving02Component } from './eg-saving/eg.saving.02/eg.saving.02.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EgSaving01Component } from './eg-saving/eg.saving.01/eg.saving.01.compo
     ExamplesSelectSublist6Component,
     EgHighlishtComponent,
     EgSaving01Component,
+    EgSaving02Component,
   ],
   imports: [
     CommonModule,
