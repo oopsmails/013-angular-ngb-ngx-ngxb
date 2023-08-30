@@ -23,5 +23,14 @@ export class HtmlHomeComponent implements OnInit {
     pageNavBean.title = 'Movable Stacked Card Row in CSS';
     pageNavBean.desc = 'Movable Stacked Card Row in CSS';
     this.pageNavBeans.push(pageNavBean);
+
+    this.seeIfRevisit('from ngOnInit ...');
+  }
+
+  seeIfRevisit(from: string): string {
+    const result = new Date().toLocaleTimeString();
+    console.log('3. from ...', from, ' ... timestamp: ', result);
+
+    return result;
   }
 }
