@@ -19,6 +19,7 @@ import { AmtPatternDirective } from './directives/amt.pattern.directive';
 import { FloatPatternDirective } from './directives/float.pattern.directive';
 import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hover.component';
 import { CustomPipe } from './pipe/custom.pipe';
+import { InputSaveComponent } from './components/input-save/input-save.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CustomPipe } from './pipe/custom.pipe';
     MessageTranslatePipe,
     DisplayStringPipe,
     CustomPipe,
+    InputSaveComponent,
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,7 @@ import { CustomPipe } from './pipe/custom.pipe';
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DropDownHoverComponent,
+    InputSaveComponent,
     DragAndDropFileDirective,
     AmtPatternDirective,
     FloatPatternDirective,

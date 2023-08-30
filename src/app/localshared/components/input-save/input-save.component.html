@@ -1,0 +1,21 @@
+<p>input-save works!</p>
+
+<!-- <input type="text" [(ngModel)]="inputModel" /> -->
+
+<textarea [(ngModel)]="inputModel"></textarea>
+
+<button (click)="saveInput($event)">Save Input</button>
+
+<hr />
+<ul>
+  <li *ngFor="let item of customers$ | async">
+    {{ item.name }}
+  </li>
+</ul>
+
+<hr />
+<ul>
+  <li *ngFor="let item of customers">
+    {{ item.name }}
+  </li>
+</ul>

@@ -83,3 +83,9 @@ export class PageNavBean {
   title: any;
   desc: string = '';
 }
+
+export class Customer {
+  customerId: number;
+  name: string = '';
+  age: number;
+}
