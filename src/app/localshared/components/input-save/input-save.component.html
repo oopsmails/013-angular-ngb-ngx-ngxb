@@ -1,11 +1,18 @@
 <p>input-save works!</p>
+<p>this is testing how to preserve "angular textarea line break"</p>
 
 <!-- <input type="text" [(ngModel)]="inputModel" /> -->
 
-<textarea [(ngModel)]="inputModel"></textarea>
+<!-- <textarea [(ngModel)]="inputModel"></textarea> -->
+<!-- <textarea [ngModel]="inputModel | lineBreak" (ngModelChange)="inputModel = $event"></textarea> -->
 
-<button (click)="saveInput($event)">Save Input</button>
+<textarea [innerText]="inputModel" (change)="textOnChange($event)"></textarea>
+<br />
+<!-- <button (click)="saveInput($event)">Save Input</button> -->
+<button (click)="displayUpdatedText()">Display Updated Input</button>
+<br />
 
+<textarea [ngModel]="inputModel"></textarea>
 <hr />
 
 {{ inputModel | json }}

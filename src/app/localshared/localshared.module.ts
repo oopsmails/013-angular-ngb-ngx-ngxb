@@ -20,6 +20,7 @@ import { FloatPatternDirective } from './directives/float.pattern.directive';
 import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hover.component';
 import { CustomPipe } from './pipe/custom.pipe';
 import { InputSaveComponent } from './components/input-save/input-save.component';
+import { LineBreakPipe } from './pipe/line-break.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { InputSaveComponent } from './components/input-save/input-save.component
     DisplayStringPipe,
     CustomPipe,
     InputSaveComponent,
+    LineBreakPipe,
   ],
   imports: [
     CommonModule,
@@ -64,6 +66,7 @@ import { InputSaveComponent } from './components/input-save/input-save.component
     MessageTranslatePipe,
     DisplayStringPipe,
     CustomPipe,
+    LineBreakPipe,
   ],
 })
 export class LocalsharedModule {}

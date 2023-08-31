@@ -18,10 +18,9 @@ export class InputSaveComponent implements OnInit, OnDestroy {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.customers$ = this.httpClient
-      .get('http://localhost:8080/customers')
-      .pipe(tap((resp: Customer[]) => console.log('........ length = ', resp.length))) as Observable<Customer[]>;
-
+    // this.customers$ = this.httpClient
+    //   .get('http://localhost:8080/customers')
+    //   .pipe(tap((resp: Customer[]) => console.log('........ length = ', resp.length))) as Observable<Customer[]>;
     // this.httpClient
     //   .get('http://localhost:8080/customers')
     //   .pipe(
@@ -50,6 +49,16 @@ export class InputSaveComponent implements OnInit, OnDestroy {
       .subscribe((resp) => {
         console.log('2. returning ... ', resp);
       });
+  }
+
+  textOnChange(event) {
+    console.log('textOnChange event: ', event);
+    this.inputModel = event.target.value;
+    console.log('textOnChange inputModel: ', this.inputModel);
+  }
+
+  displayUpdatedText() {
+    this.inputModel = 'a\nchanged';
   }
 
   ngOnDestroy(): void {
