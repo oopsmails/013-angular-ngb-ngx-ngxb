@@ -7,6 +7,9 @@
 <button (click)="saveInput($event)">Save Input</button>
 
 <hr />
+
+{{ inputModel | json }}
+
 <ul>
   <li *ngFor="let item of customers$ | async">
     {{ item.name }}

@@ -41,11 +41,12 @@ export class InputSaveComponent implements OnInit, OnDestroy {
     console.log('saving event: ', event);
     console.log('saving inputModel: ', this.inputModel);
 
-    const body = '{ "firstName": "John\n","lastName": "Doe-' + this.inputModel + '", "age": 138 }';
+    // const body = '{ "firstName": "John\n","lastName": "Doe-' + this.inputModel + '", "age": 138 }';
+    const body = this.inputModel;
 
     this.httpClient
-      .get('http://localhost:8080/customers/test/1408')
-      .pipe(tap((resp) => console.log('1. returning ... ', resp)))
+      .put('http://localhost:8080/customers/test/1408', body)
+      .pipe(tap((resp) => console.log('1. returning ... ', JSON.stringify(resp))))
       .subscribe((resp) => {
         console.log('2. returning ... ', resp);
       });
