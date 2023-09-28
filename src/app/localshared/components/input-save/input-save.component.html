@@ -6,13 +6,13 @@
 <!-- <textarea [(ngModel)]="inputModel"></textarea> -->
 <!-- <textarea [ngModel]="inputModel | lineBreak" (ngModelChange)="inputModel = $event"></textarea> -->
 
-<textarea [innerText]="inputModel" (change)="textOnChange($event)"></textarea>
+<textarea aria-label="innerText" [innerText]="inputModel" (change)="textOnChange($event)"></textarea>
 <br />
 <!-- <button (click)="saveInput($event)">Save Input</button> -->
 <button (click)="displayUpdatedText()">Display Updated Input</button>
 <br />
 
-<textarea [ngModel]="inputModel"></textarea>
+<textarea aria-label="ngModel" [ngModel]="inputModel"></textarea>
 <hr />
 
 {{ inputModel | json }}
