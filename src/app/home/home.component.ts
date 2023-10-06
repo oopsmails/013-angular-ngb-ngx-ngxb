@@ -47,6 +47,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   isVisible = false;
 
+  originalString1 = 'This \\\three backslashes is a \n sample string with  backslashes.';
+  originalString2 = 'This \\\\three backslashes is a \\n sample string with \\ backslashes.';
+  stringWithDoubleBackslashes1 = '';
+  stringWithDoubleBackslashes2 = '';
+
   constructor(private stateService: StateService, private router: Router, private translate: TranslateService) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {
@@ -73,6 +78,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.states$ = this.stateService.getUsStateCity();
+
+    this.stringWithDoubleBackslashes1 = this.originalString1.replace(/\\/g, '\\\\');
+    this.stringWithDoubleBackslashes2 = this.originalString2.replace(/\\/g, '\\\\');
+
+    console.log(this.stringWithDoubleBackslashes1);
+    console.log(this.stringWithDoubleBackslashes2);
   }
 
   @HostListener('window:scroll', [])
