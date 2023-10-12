@@ -13,6 +13,10 @@
 </p>
 <p>Odd number of backslashes after replace: {{ stringWithDoubleBackslashes1 }}</p>
 <p>Even number of backslashes after replace: {{ stringWithDoubleBackslashes2 }}</p>
+<p>
+  <input [ngModel]="institution.englishName" (ngModelChange)="onModelChange($event)" />
+</p>
+<p>institution.englishName: {{ institution.englishName }}</p>
 
 <hr />
 <p>Lorem usage: `p*8>lorem` ...</p>

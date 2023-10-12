@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
 
+  institution: Institution = new Institution();
+
   todoItems = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
   completedItems = ['Item 6'];
   draggedItem: any;
@@ -51,6 +53,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   originalString2 = 'This \\\\three backslashes is a \\n sample string with \\ backslashes.';
   stringWithDoubleBackslashes1 = '';
   stringWithDoubleBackslashes2 = '';
+
+  stringfield = '';
 
   constructor(private stateService: StateService, private router: Router, private translate: TranslateService) {
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
@@ -153,6 +157,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       const middle = (top + bottom) / 2;
       return clientY > middle;
     });
+  }
+
+  onModelChange(inString: string) {
+    return (this.institution.englishName = inString.replace(/\\/g, '\\\\'));
   }
 
   navToPage(page) {
