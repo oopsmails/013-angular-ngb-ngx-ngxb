@@ -89,3 +89,9 @@ export class Customer {
   name: string = '';
   age: number;
 }
+
+export class Product {
+  id: number;
+  name: string = '';
+  version: number;
+}

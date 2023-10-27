@@ -12,6 +12,7 @@ import { ExamplesSelectSublist6Component } from './eg-select-sublist/eg-select-s
 import { EgSaving01Component } from './eg-saving/eg.saving.01/eg.saving.01.component';
 import { EgSaving02Component } from './eg-saving/eg.saving.02/eg.saving.02.component';
 import { EgSaving03Component } from './eg-saving/eg.saving.03/eg.saving.03.component';
+import { EgSaving04Component } from './eg-saving/eg.saving.04/eg.saving.04.component';
 
 const routes: Routes = [
   { path: 'eg/select', component: ExamplesSelectComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'eg/saving01', component: EgSaving01Component },
   { path: 'eg/saving02', component: EgSaving02Component },
   { path: 'eg/saving03', component: EgSaving03Component },
+  { path: 'eg/saving04', component: EgSaving04Component },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

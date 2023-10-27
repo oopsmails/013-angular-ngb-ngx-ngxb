@@ -1,0 +1,20 @@
+<p>eg.saving.04 works!</p>
+
+<p>product$: {{ product$ | async | json }}</p>
+
+<hr />
+
+<div *ngIf="product">
+  <label for="inputField">Input Field:</label>
+  <input type="text" id="inputField" [(ngModel)]="product.name" />
+
+  <br />
+  <label for="inputField2">Input Field2:</label>
+  <input type="text" id="inputField2" [(ngModel)]="product.name" />
+</div>
+
+<button (click)="triggerMultipleCalls()">Update Property</button>
+
+<hr />
+
+<p>product: {{ product | json }}</p>

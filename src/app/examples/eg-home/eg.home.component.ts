@@ -2,7 +2,7 @@ import { DecimalPipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, Inject, LOCALE_ID, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService } from 'oops-lib002';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, debounceTime, switchMap } from 'rxjs';
 import { I18nService } from 'src/app/localshared/services/i18n.service';
 import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
@@ -30,6 +30,8 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   myProperty: string = 'Initial Value';
 
   @Inject(LOCALE_ID) localeId: string;
+
+  private dataSubject = new BehaviorSubject<string>('Initial Data');
 
   constructor(
     private router: Router,
@@ -59,6 +61,12 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
     pageNavBean.desc = 'Test Saving';
     this.pageNavBeans.push(pageNavBean);
 
+    pageNavBean = new PageNavBean();
+    pageNavBean.url = '/eg/saving04';
+    pageNavBean.title = 'Test Saving Race Condition 04';
+    pageNavBean.desc = 'Test Saving';
+    this.pageNavBeans.push(pageNavBean);
+
     this.numArray.push(3.14159265359);
 
     // fix #1
@@ -69,6 +77,28 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
     // Simulating a property update after the view has been fully initialized
     // This will cause "ExpressionChangedAfterItHasBeenCheckedError"
     this.updateProperty();
+  }
+
+  updateData(newData: string): Observable<any> {
+    return this.dataSubject.pipe(
+      debounceTime(500),
+      switchMap(() => {
+        // Simulate an external data source, e.g., an HTTP call
+        return this.getDataFromExternalSource(newData);
+      })
+    );
+  }
+
+  private getDataFromExternalSource(newData: string): Observable<any> {
+    // Simulate fetching data from an external source (e.g., HTTP call)
+    // Replace this with your actual data source
+    return new Observable((observer) => {
+      // Simulate a delay
+      setTimeout(() => {
+        observer.next(`Data from external source: ${newData}`);
+        observer.complete();
+      }, 1000);
+    });
   }
 
   updateProperty() {
