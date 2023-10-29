@@ -1,4 +1,9 @@
-<p>eg.saving.04 works!</p>
+<h2>eg.saving.04, to reproduct optimistic locking problem</h2>
+
+<p>
+  working with
+  spring-boot-simples/spring-boot-exception-handling/src/main/java/com/oopsmails/exceptionhandling/product/controller/ProductController.java
+</p>
 
 <p>product$: {{ product$ | async | json }}</p>
 
@@ -13,7 +18,17 @@
   <input type="text" id="inputField2" [(ngModel)]="product.name" />
 </div>
 
-<button (click)="triggerMultipleCalls()">Update Property</button>
+<p>
+  To reproduce: Change input field, then click on button. In component, it will trigger saving twice. The
+  ObjectOptimisticLockingFailureException will not happen at first time because still be with correct version. But, when
+  doing change and click button second time, the ObjectOptimisticLockingFailureException will happen. If put another GET
+  after the first saving, then issue resolved.
+</p>
+<button (click)="triggerMultipleCalls()">Update with optimistic locking Exception</button>
+
+<hr />
+
+<button (click)="saveDataPublic2(product)">Update correctly ???</button>
 
 <hr />
 

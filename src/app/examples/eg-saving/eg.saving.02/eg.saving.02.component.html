@@ -1,9 +1,11 @@
-<h2>eg.saving.02, NOT working!</h2>
+<h2>eg.saving.02, NOT working! ... if without isSaving</h2>
 
 <p>
   in above example, 01, if validateAndSaveToBackend is not returning Observable, i.e, it is already subscribe ... what
   should I do? because we cannot use concatMap directly ...
 </p>
+
+<p>using $event.stopPropagation(); $event.preventDefault(); still not working</p>
 
 <div>
   <label for="inputField">Input Field:</label>
@@ -12,5 +14,36 @@
 
 <div>
   <label for="radioButton">Radio Button:</label>
-  <input type="radio" id="radioButton" name="radioGroup" (change)="onSaveRadio($event)" [disabled]="isSaving" />
+  <input
+    type="radio"
+    id="radioButton"
+    name="radioGroup"
+    (change)="$event.stopPropagation(); $event.preventDefault(); onSaveRadio($event)"
+    [disabled]="isSaving"
+  />
+</div>
+
+<hr />
+
+<p>Still, not working!</p>
+
+<div>
+  <label for="inputField">Input Field 2:</label>
+  <input
+    type="text"
+    [(ngModel)]="inputValue2"
+    (blur)="onSaveBlurAndRadio2($event)"
+    #inputField2
+    (click)="preventRadioChange()"
+  />
+</div>
+
+<div>
+  <label for="radioButton">Radio Button:</label>
+  <input
+    type="radio"
+    id="radioButton2"
+    name="radioGroup2"
+    (change)="$event.stopPropagation(); $event.preventDefault(); onSaveRadio2($event)"
+  />
 </div>

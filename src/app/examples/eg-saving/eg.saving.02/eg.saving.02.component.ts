@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SharedDataService, RandomItem } from 'oops-lib002';
 import { concatMap, catchError, of, Observable, defer, takeUntil, Subject } from 'rxjs';
 
@@ -12,6 +12,7 @@ export class EgSaving02Component implements OnInit {
 
   isSaving = false; // Flag to track if a save operation is in progress
   inputValue = '';
+  inputValue2 = '';
 
   constructor(private sharedDataService: SharedDataService) {}
 
@@ -114,6 +115,53 @@ export class EgSaving02Component implements OnInit {
 
       return result;
     }
+  }
+
+  //----------------------------------------------------------------------
+
+  onSaveBlurAndRadio2(item: any) {
+    let result: RandomItem[] = [];
+    this.sharedDataService
+      .getRandomItems(5, 1000)
+      .pipe(
+        takeUntil(this.onDestroy$),
+        catchError((error) => {
+          console.error('Error during radio button selection saving:', error);
+          return of(null);
+        })
+      )
+      .subscribe((items) => {
+        console.log('should be 111111111111111111, onSaveRadio subscribe ....', items);
+        result = items;
+      });
+
+    return result;
+  }
+
+  onSaveRadio2(item: any): RandomItem[] {
+    let result: RandomItem[] = [];
+    this.sharedDataService
+      .getRandomItems(5, 1000)
+      .pipe(
+        takeUntil(this.onDestroy$),
+        catchError((error) => {
+          console.error('Error during radio button selection saving:', error);
+          return of(null);
+        })
+      )
+      .subscribe((items) => {
+        console.log('should be 2222222222222222, onSaveRadio subscribe ....', items);
+        result = items;
+      });
+
+    return result;
+  }
+
+  @ViewChild('inputField2') inputField: ElementRef;
+
+  preventRadioChange() {
+    // Prevent the radio button's change event when input is blurred
+    this.inputField.nativeElement.blur();
   }
 }
 

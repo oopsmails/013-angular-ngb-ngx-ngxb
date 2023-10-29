@@ -20,6 +20,7 @@ export class EgSaving03Component implements OnInit {
   ngOnInit(): void {}
 
   onSaveBlurAndRadio(item: any) {
+    console.log('1. input field onBlur should be triggered first');
     if (!this.isSaving) {
       this.isSaving = true;
 
@@ -63,6 +64,7 @@ export class EgSaving03Component implements OnInit {
   }
 
   onSaveRadio(item: any): RandomItem[] {
+    console.log('2. onClick of radio button should be triggered after input onBlur');
     console.log('################ onSaveRadio isSaving ....', this.isSaving);
     if (!this.isSaving) {
       let result: RandomItem[] = [];
@@ -77,6 +79,28 @@ export class EgSaving03Component implements OnInit {
         )
         .subscribe((items) => {
           console.log('should be 2222222222222222, onSaveRadio subscribe ....', items);
+          result = items;
+        });
+
+      return result;
+    }
+  }
+
+  onSaveImg(item: any): RandomItem[] {
+    console.log('################ onSaveImg isSaving ....', this.isSaving);
+    if (!this.isSaving) {
+      let result: RandomItem[] = [];
+      this.sharedDataService
+        .getRandomItems(5, 1000)
+        .pipe(
+          takeUntil(this.onDestroy$),
+          catchError((error) => {
+            console.error('Error during radio button selection saving:', error);
+            return of(null);
+          })
+        )
+        .subscribe((items) => {
+          console.log('should be 3333333333, onSaveImg subscribe ....', items);
           result = items;
         });
 

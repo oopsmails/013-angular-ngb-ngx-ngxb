@@ -11,3 +11,26 @@
   <label for="radioButton">Radio Button:</label>
   <input type="radio" id="radioButton" name="radioGroup" (change)="onSaveRadio($event)" [disabled]="isSaving" />
 </div>
+
+<hr />
+
+<p>
+  Without disabled="isSaving", will be issue ... but now, 'if (!this.isSaving)' is used as a guard for this issue. So,
+  still working fine.
+</p>
+
+<div>
+  <label for="inputField">Input Field:</label>
+  <input type="text" id="inputField" [(ngModel)]="inputValue" (blur)="onSaveBlurAndRadio($event)" />
+</div>
+
+<div>
+  <label for="radioButton">Radio Button:</label>
+  <input type="radio" id="radioButton" name="radioGroup" (change)="onSaveRadio($event)" />
+</div>
+
+<hr />
+
+<div class="h__image-wrapper">
+  <img src="assets/icons/bs-icons/search.svg" alt="search" (click)="onSaveImg($event)" />
+</div>
