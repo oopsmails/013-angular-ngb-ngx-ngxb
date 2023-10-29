@@ -82,7 +82,7 @@ export class EgSaving02Component implements OnInit {
       .getRandomItems(5, 2000)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((items) => {
-        console.log('should be 11111111111, onSaveBlurAndRadio subscribe ....', items);
+        console.log('should be 1. from onSaveBlurAndRadio, validateAndSaveToBackend subscribe ....', items);
         result = items;
       });
     return result;
@@ -96,7 +96,7 @@ export class EgSaving02Component implements OnInit {
     return this.sharedDataService.getRandomItems(5, 3000);
   }
 
-  onSaveRadio(item: any): RandomItem[] {
+  checkboxOnChangeSave(item: any): RandomItem[] {
     if (!this.isSaving) {
       let result: RandomItem[] = [];
       this.sharedDataService
@@ -104,12 +104,12 @@ export class EgSaving02Component implements OnInit {
         .pipe(
           takeUntil(this.onDestroy$),
           catchError((error) => {
-            console.error('Error during radio button selection saving:', error);
+            console.error('Error during checkboxOnChangeSave saving:', error);
             return of(null);
           })
         )
         .subscribe((items) => {
-          console.log('should be 2222222222222222, onSaveRadio subscribe ....', items);
+          console.log('should be 2. from checkboxOnChangeSave subscribe ....', items);
           result = items;
         });
 
@@ -119,7 +119,7 @@ export class EgSaving02Component implements OnInit {
 
   //----------------------------------------------------------------------
 
-  onSaveBlurAndRadio2(item: any) {
+  inputOnBlurSave2(item: any) {
     let result: RandomItem[] = [];
     this.sharedDataService
       .getRandomItems(5, 1000)
@@ -138,7 +138,7 @@ export class EgSaving02Component implements OnInit {
     return result;
   }
 
-  onSaveRadio2(item: any): RandomItem[] {
+  checkboxOnChangeSave2(item: any): RandomItem[] {
     let result: RandomItem[] = [];
     this.sharedDataService
       .getRandomItems(5, 1000)
