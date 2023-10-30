@@ -19,14 +19,20 @@ export class EgSaving04Component implements OnInit, OnDestroy {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.product$ = this.productService.getProductById(1);
+    this.product$ = this.productService.getProductById(1).pipe(
+      takeUntil(this.onDestroy$),
+      catchError((error) => {
+        console.error('Error during getProductById:', error);
+        return of(null);
+      })
+    );
 
     this.productService
       .getProductById(1)
       .pipe(
         takeUntil(this.onDestroy$),
         catchError((error) => {
-          console.error('Error during radio button selection saving:', error);
+          console.error('Error during getProductById:', error);
           return of(null);
         })
       )

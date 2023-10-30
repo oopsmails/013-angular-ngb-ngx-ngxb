@@ -93,5 +93,6 @@ export class Customer {
 export class Product {
   id: number;
   name: string = '';
+  onlineOnly: boolean = false;
   version: number;
 }

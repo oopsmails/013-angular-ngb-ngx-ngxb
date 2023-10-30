@@ -3,6 +3,7 @@
 <p>
   working with
   spring-boot-simples/spring-boot-exception-handling/src/main/java/com/oopsmails/exceptionhandling/product/controller/ProductController.java
+  Note: don't use try / catch to reproduce ObjectOptimisticLockingFailureException, @SneakyThrows added
 </p>
 
 <p>product$: {{ product$ | async | json }}</p>
@@ -21,8 +22,9 @@
 <p>
   To reproduce: Change input field, then click on button. In component, it will trigger saving twice. The
   ObjectOptimisticLockingFailureException will not happen at first time because still be with correct version. But, when
-  doing change and click button second time, the ObjectOptimisticLockingFailureException will happen. If put another GET
-  after the first saving, then issue resolved.
+  doing change and click button
+  <span class="home__spanFileBackground" style="color: brown; background-color: yellow">second time</span>, the
+  ObjectOptimisticLockingFailureException will happen. If put another GET after the first saving, then issue resolved.
 </p>
 <button (click)="triggerMultipleCalls()">Update with optimistic locking Exception</button>
 

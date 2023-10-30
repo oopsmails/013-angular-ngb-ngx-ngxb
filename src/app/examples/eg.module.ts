@@ -22,6 +22,7 @@ import { EgSaving01Component } from './eg-saving/eg.saving.01/eg.saving.01.compo
 import { EgSaving02Component } from './eg-saving/eg.saving.02/eg.saving.02.component';
 import { EgSaving03Component } from './eg-saving/eg.saving.03/eg.saving.03.component';
 import { EgSaving04Component } from './eg-saving/eg.saving.04/eg.saving.04.component';
+import { EgSaving05Component } from './eg-saving/eg.saving.05/eg.saving.05.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EgSaving04Component } from './eg-saving/eg.saving.04/eg.saving.04.compo
     EgSaving02Component,
     EgSaving03Component,
     EgSaving04Component,
+    EgSaving05Component,
   ],
   imports: [
     CommonModule,
