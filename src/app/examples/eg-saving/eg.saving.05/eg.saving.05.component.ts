@@ -66,7 +66,7 @@ export class EgSaving05Component implements OnInit, OnDestroy {
         })
       )
       .subscribe((response) => {
-        this.product = response;
+        this.product = response; // if without this, not trigger error ... but console showing old version
         console.log(`Product updated successfully ${fromMethod}: ${JSON.stringify(response)}`);
       });
   }
