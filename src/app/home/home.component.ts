@@ -168,6 +168,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl(page);
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event: Event) {
+    // Handle the unload event here
+    console.log('Browser is closing or navigating away.');
+    // You can perform cleanup or other tasks before the browser closes
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next(true);
     this.onDestroy$.complete();
