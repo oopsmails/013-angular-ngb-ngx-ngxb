@@ -21,10 +21,7 @@ import { NgbTestModule } from './ngb/ngb.module';
 import { NgxModule } from './ngx/ngx.module';
 import { NgxbModule } from './ngxb/ngxb.module';
 
-import localeEn from '@angular/common/locales/en';
-import localeDe from '@angular/common/locales/de';
 import localeFr from '@angular/common/locales/fr';
-import { RootMessageTranslatePipe } from './rootpipe/root.message.translate.pipe';
 // registerLocaleData(localeDe);
 registerLocaleData(localeFr);
 // registerLocaleData(localeEn);
@@ -33,8 +30,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [RootMessageTranslatePipe, AppComponent],
-  exports: [RootMessageTranslatePipe],
   imports: [
     CommonModule,
     BrowserModule,
@@ -66,7 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     GoToModule,
     AppRoutingModule, // need to be at last, otherwise NotFoundComponent is at front
   ],
-
+  declarations: [AppComponent],
+  exports: [],
   providers: [
     DecimalPipe,
     // RootMessageTranslatePipe,

@@ -2,7 +2,7 @@ import { I18nService } from 'src/app/localshared/services/i18n.service';
 import { Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-@Pipe({ name: 'rootMessageTranslate', pure: false })
+@Pipe({ name: 'rootMessageTranslate', pure: false, standalone: true })
 export class RootMessageTranslatePipe implements PipeTransform {
   constructor(private translate: TranslateService, private i18nService: I18nService) {}
 

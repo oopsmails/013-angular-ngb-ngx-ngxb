@@ -46,6 +46,8 @@ import { TestModalComponent } from './pages/test-modal/test-modal.component';
 import { HomeRandomListTable3Component } from './h-random-list-table/h-random-list-table3/h.random.list.table3.component';
 import { HomeRandomListTable4Component } from './h-random-list-table/h-random-list-table4/h.random.list.table4.component';
 import { HPipeCustomComponent } from './h-pipe/h-custom/h.pipe.custom/h.pipe.custom.component';
+import { RootMessageTranslatePipe } from '../rootpipe/root.message.translate.pipe';
+import { RootEmptyPipe } from '../rootpipe/root.empty.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -139,6 +141,8 @@ const routes: Routes = [
     OopsLib002Module,
     SharedModule,
     LocalsharedModule,
+    RootEmptyPipe,
+    RootMessageTranslatePipe,
     RouterModule.forChild(routes),
   ],
   exports: [HomeComponent],
