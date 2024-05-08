@@ -82,6 +82,7 @@ export class ExamplesHomeComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     // Simulating a property update after the view has been fully initialized
     // This will cause "ExpressionChangedAfterItHasBeenCheckedError"
+    // NG0100: Expression has changed after it was checked
     this.updateProperty();
   }
 
