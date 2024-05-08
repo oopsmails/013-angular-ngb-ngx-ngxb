@@ -141,6 +141,6 @@ const routes: Routes = [
     LocalsharedModule,
     RouterModule.forChild(routes),
   ],
-  exports: [],
+  exports: [HomeComponent],
 })
 export class HomeModule {}

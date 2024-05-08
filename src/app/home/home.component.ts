@@ -165,7 +165,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   navToPage(page) {
     console.log(this.COMPONENT_NAME + ', navToPage, page = ' + page);
-    this.router.navigateByUrl(page);
+    // this.router.navigateByUrl(page);
+
+    this.router.navigate([page], { skipLocationChange: true });
   }
 
   @HostListener('window:beforeunload', ['$event'])

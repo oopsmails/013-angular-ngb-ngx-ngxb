@@ -21,6 +21,7 @@ import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hov
 import { CustomPipe } from './pipe/custom.pipe';
 import { InputSaveComponent } from './components/input-save/input-save.component';
 import { LineBreakPipe } from './pipe/line-break.pipe';
+// import { RootMessageTranslatePipe } from '../rootpipe/root.message.translate.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LineBreakPipe } from './pipe/line-break.pipe';
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    // RootMessageTranslatePipe,
     DisplayStringPipe,
     CustomPipe,
     InputSaveComponent,
@@ -64,6 +66,7 @@ import { LineBreakPipe } from './pipe/line-break.pipe';
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    // RootMessageTranslatePipe,
     DisplayStringPipe,
     CustomPipe,
     LineBreakPipe,

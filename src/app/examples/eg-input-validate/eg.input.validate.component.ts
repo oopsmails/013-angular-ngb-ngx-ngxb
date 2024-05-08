@@ -233,7 +233,8 @@ export class ExampleInputValidateComponent implements OnInit, OnDestroy {
   }
 
   navToPage(page) {
-    this.router.navigateByUrl(page);
+    // this.router.navigateByUrl(page);
+    this.router.navigate([page], { skipLocationChange: true });
   }
 
   ngOnDestroy() {
