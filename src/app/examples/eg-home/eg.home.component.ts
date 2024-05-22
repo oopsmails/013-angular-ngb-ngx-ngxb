@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, OnDestroy, OnInit, Inject, LOCALE_ID, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedDataService } from 'oops-lib002';
 import { BehaviorSubject, Observable, Subject, debounceTime, switchMap } from 'rxjs';
@@ -7,8 +7,8 @@ import { I18nService } from 'src/app/localshared/services/i18n.service';
 import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
+import localeFr from '@angular/common/locales/fr';
 import { PageNavBean } from 'src/app/localshared/models/shared-model';
 
 @Component({

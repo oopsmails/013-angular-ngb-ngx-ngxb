@@ -9,18 +9,24 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxSelectModule } from 'ngx-select-ex';
 import { OopsLib001Module } from 'oops-lib001';
 import { OopsLib002Module, SharedModule } from 'oops-lib002';
+import { NavigationGuard } from '../localshared/guards/navigation.guard';
 import { LocalsharedModule } from '../localshared/localshared.module';
+import { RootEmptyPipe } from '../rootpipe/root.empty.pipe';
+import { RootMessageTranslatePipe } from '../rootpipe/root.message.translate.pipe';
 import { HomeFlexComponent } from './h-layout/h-flex/h.flex.component';
 import { HomeFlex2Component } from './h-layout/h-flex2/h.flex2.component';
 import { HomeGridComponent } from './h-layout/h-grid/h.grid.component';
 import { HomeGrid2Component } from './h-layout/h-grid2/h.grid2.component';
 import { HomeGrid3Component } from './h-layout/h-grid3/h.grid3.component';
 import { HomeOptionsComponent } from './h-options/home.options.component';
+import { HPipeCustomComponent } from './h-pipe/h-custom/h.pipe.custom/h.pipe.custom.component';
 import { HomeProgressBarScrollComponent } from './h-progress-bar-scroll/h.progress.bar.scroll.component';
 import { HomeRandomListSearchModalComponent } from './h-random-list-search-modal/h.random.list.search.modal.component';
 import { HomeRandomListSearchComponent } from './h-random-list-search/h.random.list.search.component';
 import { HomeRandomListTableComponent } from './h-random-list-table/h-random-list-table1/h.random.list.table.component';
 import { HomeRandomListTable2Component } from './h-random-list-table/h-random-list-table2/h.random.list.table2.component';
+import { HomeRandomListTable3Component } from './h-random-list-table/h-random-list-table3/h.random.list.table3.component';
+import { HomeRandomListTable4Component } from './h-random-list-table/h-random-list-table4/h.random.list.table4.component';
 import { HomeScrollLoadComponent } from './h-scroll-load/h-scroll-load1/h.scroll.load.component';
 import { HomeScrollLoad2Component } from './h-scroll-load/h-scroll-load2/h.scroll.load2.component';
 import { HomeScrollLoad3Component } from './h-scroll-load/h-scroll-load3/h.scroll.load3.component';
@@ -43,11 +49,6 @@ import { TestAroundComponent } from './pages/test-around/test.around.component';
 import { TestInputOutputComponent } from './pages/test-input-output/test.input.output.component';
 import { TestModalContentComponent } from './pages/test-modal/test-modal-content/test-modal-content.component';
 import { TestModalComponent } from './pages/test-modal/test-modal.component';
-import { HomeRandomListTable3Component } from './h-random-list-table/h-random-list-table3/h.random.list.table3.component';
-import { HomeRandomListTable4Component } from './h-random-list-table/h-random-list-table4/h.random.list.table4.component';
-import { HPipeCustomComponent } from './h-pipe/h-custom/h.pipe.custom/h.pipe.custom.component';
-import { RootMessageTranslatePipe } from '../rootpipe/root.message.translate.pipe';
-import { RootEmptyPipe } from '../rootpipe/root.empty.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -58,7 +59,7 @@ const routes: Routes = [
   { path: 'home/test-around', component: TestAroundComponent },
   { path: 'home/test-modal', component: TestModalComponent },
   { path: 'home/test-inputoutput', component: TestInputOutputComponent },
-  { path: 'home/parent', component: ParentComponent },
+  { path: 'home/parent', component: ParentComponent, canActivate: [NavigationGuard] },
   { path: 'home/get-ngx-select', component: GetNgxSelectComponent },
   { path: 'home/select-modal', component: HomeSelectModalComponent },
   { path: 'home/options', component: HomeOptionsComponent },
@@ -147,4 +148,4 @@ const routes: Routes = [
   ],
   exports: [HomeComponent],
 })
-export class HomeModule {}
+export class HomeModule { }
