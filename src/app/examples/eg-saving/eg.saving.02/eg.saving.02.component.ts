@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { SharedDataService, RandomItem } from 'oops-lib002';
-import { concatMap, catchError, of, Observable, defer, takeUntil, Subject } from 'rxjs';
+import { RandomItem, SharedDataService } from 'oops-lib002';
+import { Observable, Subject, catchError, concatMap, defer, of, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-eg.saving.02',
@@ -14,9 +14,9 @@ export class EgSaving02Component implements OnInit {
   inputValue = '';
   inputValue2 = '';
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor(private sharedDataService: SharedDataService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSaveBlurAndRadio(item: any) {
     if (!this.isSaving) {
@@ -57,7 +57,6 @@ export class EgSaving02Component implements OnInit {
 
       validateObs
         .pipe(
-          takeUntil(this.onDestroy$),
           concatMap(() => {
             this.isSaving = false;
             console.log('################ 2. isSaving ....', this.isSaving);
@@ -68,7 +67,8 @@ export class EgSaving02Component implements OnInit {
             this.isSaving = false;
             console.log('################ 2 error. isSaving ....', this.isSaving);
             return of(null); // Return an empty observable to continue the sequence
-          })
+          }),
+          takeUntil(this.onDestroy$),
         )
         .subscribe();
     }

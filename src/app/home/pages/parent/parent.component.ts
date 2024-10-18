@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxSelectComponent } from 'ngx-select-ex';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class ParentComponent implements OnInit {
 
   selectedLanguage: 'EN' | 'FR' = 'EN';
 
-  constructor(private userDataService: UserDataService) {}
+  constructor(private userDataService: UserDataService) { }
 
   ngOnInit() {
     const array = [1, 2, 3, 4, 5];

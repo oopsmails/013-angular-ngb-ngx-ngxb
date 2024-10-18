@@ -1,6 +1,6 @@
 import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { RandomItem, SharedDataService } from 'oops-lib002';
-import { mergeMap, Observable, Subject, switchMap, takeUntil, tap } from 'rxjs';
+import { mergeMap, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { OopsPaginationService } from 'src/app/localshared/services/oops.pagination.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class HomeScrollLoad3Component implements OnInit, AfterViewInit, AfterVie
   constructor(
     private sharedDataService: SharedDataService,
     private oopsPaginationService: OopsPaginationService<RandomItem>
-  ) {}
+  ) { }
   ngOnInit() {
     console.log(this.COMPONENT_NAME + ', ngOnInit');
     this.randomItems$ = this.sharedDataService.getRandomItems(200, 500);
@@ -52,7 +52,7 @@ export class HomeScrollLoad3Component implements OnInit, AfterViewInit, AfterVie
     this.checkAndLoad();
   }
 
-  ngAfterViewChecked(): void {}
+  ngAfterViewChecked(): void { }
 
   checkAndLoad() {
     console.log(this.COMPONENT_NAME + ', checkAndLoad, checking heights = ');
@@ -99,7 +99,6 @@ export class HomeScrollLoad3Component implements OnInit, AfterViewInit, AfterVie
     this.loading = true;
     this.randomItems$
       .pipe(
-        takeUntil(this.onDestroy$),
         tap((items) => {
           console.log(this.COMPONENT_NAME + ', loadItems, tap, items.length = ', (items && items.length) || 'null-0');
         }),
@@ -109,7 +108,8 @@ export class HomeScrollLoad3Component implements OnInit, AfterViewInit, AfterVie
             (items && items.length) || 'null-0'
           );
           return this.oopsPaginationService.getRangedItems(items, start, end);
-        })
+        }),
+        takeUntil(this.onDestroy$),
       )
       .subscribe((items) => {
         console.log(this.COMPONENT_NAME + ', loadItems, items.length = ', (items && items.length) || 'null-0');

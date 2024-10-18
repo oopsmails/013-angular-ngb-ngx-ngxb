@@ -35,17 +35,18 @@ export class NgbTypeaheadFilterComponent implements OnInit, OnDestroy {
     return result == 0 ? (a.year > b.year ? 1 : b.year > a.year ? -1 : 0) : result;
   };
 
-  constructor(private carDataService: CarDataService) {}
-  ngOnInit() {}
+  constructor(private carDataService: CarDataService) { }
+  ngOnInit() { }
 
   searchCar: OperatorFunction<string, readonly Car[]> = (text$: Observable<string>) =>
     text$.pipe(
+      // takeUntil(this.onDestroy$),
       debounceTime(300),
       distinctUntilChanged(),
       tap(() => (this.searching = true)),
       switchMap((term) =>
         this.carDataService.getCarItems(50).pipe(
-          takeUntil(this.onDestroy$),
+          // takeUntil(this.onDestroy$),
           map((items: Car[]) => {
             items.forEach((item) => {
               item.description = item.brand + ' - ' + item.model + ' : ' + item.year;
@@ -71,7 +72,8 @@ export class NgbTypeaheadFilterComponent implements OnInit, OnDestroy {
           })
         )
       ),
-      tap(() => (this.searching = false))
+      tap(() => (this.searching = false)),
+      takeUntil(this.onDestroy$)
     );
 
   resultFormatter = (result: Car) => result.brand;
