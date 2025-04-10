@@ -8,11 +8,13 @@ import {
   ElementRef,
   OnInit,
   SimpleChanges,
+  OnChanges,
 } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSelectComponent } from 'ngx-select-ex';
 import { RandomItem, SharedDataService } from 'oops-lib002';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject, takeUntil } from 'rxjs';
+import { UserDataService } from 'src/app/localshared/services/user.data.service';
 
 @Component({
   selector: 'app-child',
@@ -20,8 +22,10 @@ import { map, Observable } from 'rxjs';
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.scss'],
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnChanges {
   private compmentName: string = 'ChildComponent';
+  private onDestroy$: Subject<boolean> = new Subject();
+
   @Input() message: string;
   @Input() inputObject: any;
   @Output() messageEvent = new EventEmitter<string>();
@@ -34,7 +38,14 @@ export class ChildComponent implements OnInit {
   moreItem: RandomItem = { id: -1, name: 'More items ...' };
   selectedItem = -1;
 
-  constructor(private sharedDataService: SharedDataService, private modalService: NgbModal) {
+  currentLocale: string = '';
+  localeControlValue: string = 'aaa';
+
+  constructor(
+    private userDataService: UserDataService,
+    private sharedDataService: SharedDataService,
+    private modalService: NgbModal
+  ) {
     // setTimeout(() => {
     //   this.messageEvent.emit(this.message);
     // }, 1000);
@@ -48,10 +59,25 @@ export class ChildComponent implements OnInit {
         return ret;
       })
     );
+
+    this.userDataService.currentLocale$.pipe(takeUntil(this.onDestroy$)).subscribe((curLoc) => {
+      this.currentLocale = curLoc;
+      this.updateLocaleControlValue();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Input object changed', changes.inputObject.currentValue);
+    console.log('ngOnChanges: ', changes.inputObject.currentValue);
+    this.updateLocaleControlValue();
+  }
+
+  updateLocaleControlValue() {
+    console.log('updateLocaleControlValue: ', this.currentLocale);
+    if ('EN' === this.currentLocale.toUpperCase()) {
+      this.localeControlValue = 'EEEEEE';
+    } else if ('FR' === this.currentLocale.toUpperCase()) {
+      this.localeControlValue = 'FFFFFF';
+    }
   }
 
   openModal(content, item) {

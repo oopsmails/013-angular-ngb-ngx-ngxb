@@ -1,0 +1,67 @@
+<h2>eg.saving.02, trying to trigger ONLY ONE saving event, NOT working!</h2>
+
+<p>
+  in above example, 01, if validateAndSaveToBackend is not returning Observable, i.e, it is already subscribe ... what
+  should I do? because we cannot use concatMap directly ...
+</p>
+
+<p>using $event.stopPropagation(); $event.preventDefault(); still not working</p>
+
+<div>
+  <label for="inputField1">Input Field:</label>
+  <input
+    type="text"
+    id="inputField1"
+    [(ngModel)]="inputValue"
+    (blur)="$event.stopPropagation(); $event.preventDefault(); onSaveBlurAndRadio($event)"
+  />
+</div>
+
+<div>
+  <label for="checkbox1">Check Box:</label>
+  <input
+    type="checkbox"
+    id="checkbox1"
+    name="checkboxGroup2"
+    (change)="$event.stopPropagation(); $event.preventDefault(); checkboxOnChangeSave($event)"
+  />
+</div>
+
+<hr />
+
+<p>Continue trying .... still, not working!</p>
+<p>
+  20231029: Looks like impossible .... because even the focus is in input, the checkbox is still clickable anyways ...
+  Unless, when focus is in input, the checkbox is disabled ... but it is NOT a generic solution!
+</p>
+
+<!-- <div>
+  <label for="inputField">Input Field 2:</label>
+  <input
+    type="text"
+    [(ngModel)]="inputValue2"
+    (blur)="onSaveBlurAndRadio2($event)"
+    #inputField2
+    (click)="preventRadioChange()"
+  />
+</div> -->
+
+<div>
+  <label for="inputField">Input Field 2:</label>
+  <input
+    type="text"
+    [(ngModel)]="inputValue2"
+    (blur)="$event.stopPropagation(); $event.preventDefault(); inputOnBlurSave2($event)"
+    #inputField2
+  />
+</div>
+
+<div>
+  <label for="checkbox2">>Check Box:</label>
+  <input
+    type="checkbox"
+    id="checkbox2"
+    name="checkboxGroup2"
+    (change)="$event.stopPropagation(); $event.preventDefault(); checkboxOnChangeSave2($event)"
+  />
+</div>

@@ -3,20 +3,19 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { StateService, UsState } from 'oops-lib002';
 import {
+  Observable,
+  Subject,
   concatMap,
   delay,
   exhaustMap,
-  flatMap,
   from,
-  map,
   mergeMap,
-  Observable,
   of,
-  Subject,
   switchMap,
   takeUntil,
-  tap,
+  tap
 } from 'rxjs';
+import { NavigationService } from '../localshared/services/navigation.service';
 import { Institution } from '../models/inst';
 
 @Component({
@@ -36,6 +35,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   insts$: Observable<Institution[]>;
   filteredInsts$: Observable<Institution[]>;
 
+  institution: Institution = new Institution();
+
   todoItems = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
   completedItems = ['Item 6'];
   draggedItem: any;
@@ -47,7 +48,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   isVisible = false;
 
-  constructor(private stateService: StateService, private router: Router, private translate: TranslateService) {
+  originalString1 = 'This \\\three backslashes is a \n sample string with  backslashes.';
+  originalString2 = 'This \\\\three backslashes is a \\n sample string with \\ backslashes.';
+  stringWithDoubleBackslashes1 = '';
+  stringWithDoubleBackslashes2 = '';
+
+  stringfield = '';
+
+  constructor(private stateService: StateService,
+    private router: Router,
+    private translate: TranslateService,
+    private navigationService: NavigationService) {
+
     // https://www.youtube.com/watch?v=2zJRw3Cl_Vs&list=RDCMUCssWuTdNCWN4RSF3wHzzjMw&index=12
     const example = (operator: any) => () => {
       from([0, 1, 2, 3, 4])
@@ -73,6 +85,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.states$ = this.stateService.getUsStateCity();
+
+    this.stringWithDoubleBackslashes1 = this.originalString1.replace(/\\/g, '\\\\');
+    this.stringWithDoubleBackslashes2 = this.originalString2.replace(/\\/g, '\\\\');
+
+    console.log(this.stringWithDoubleBackslashes1);
+    console.log(this.stringWithDoubleBackslashes2);
   }
 
   @HostListener('window:scroll', [])
@@ -144,10 +162,29 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
+  onModelChange(inString: string) {
+    return (this.institution.englishName = inString.replace(/\\/g, '\\\\'));
+  }
+
   navToPage(page) {
     console.log(this.COMPONENT_NAME + ', navToPage, page = ' + page);
-    this.router.navigateByUrl(page);
+    // this.router.navigateByUrl(page);
+
+    this.router.navigate([page], { skipLocationChange: true });
   }
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event: Event) {
+    // Handle the unload event here
+    console.log('Browser is closing or navigating away.');
+    // You can perform cleanup or other tasks before the browser closes
+  }
+
+  goToHomeParent() {
+    this.navigationService.setFromLinkClick(true);
+    this.router.navigate(['/home/parent']);
+  }
+
 
   ngOnDestroy() {
     this.onDestroy$.next(true);

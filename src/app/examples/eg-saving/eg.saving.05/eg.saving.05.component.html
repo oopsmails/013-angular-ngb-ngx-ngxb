@@ -1,0 +1,47 @@
+<h2>eg.saving.05, no optimistic locking problem? why?</h2>
+
+<p>
+  working with
+  spring-boot-simples/spring-boot-exception-handling/src/main/java/com/oopsmails/exceptionhandling/product/controller/ProductController.java
+</p>
+
+<p>product$: {{ product$ | async | json }}</p>
+
+<hr />
+
+<div *ngIf="product">
+  <div>
+    <label for="inputField1">Input Field:</label>
+    <input
+      type="text"
+      id="inputField1"
+      [(ngModel)]="product.name"
+      (blur)="$event.stopPropagation(); $event.preventDefault(); inputOnBlurSave($event)"
+    />
+  </div>
+
+  <div>
+    <label for="inputField1">Input Field:</label>
+    <input
+      type="text"
+      id="inputField2"
+      [(ngModel)]="product.name"
+      (blur)="$event.stopPropagation(); $event.preventDefault(); inputOnBlurSave($event)"
+    />
+  </div>
+
+  <div>
+    <label for="checkbox1">Check Box (onlineOnly):</label>
+    <input
+      type="checkbox"
+      id="checkbox1"
+      name="checkboxGroup2"
+      [(ngModel)]="product.onlineOnly"
+      (ngModelChange)="checkboxClickSave()"
+    />
+  </div>
+</div>
+
+<hr />
+
+<p>product: {{ product | json }}</p>

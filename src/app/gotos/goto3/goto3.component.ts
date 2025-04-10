@@ -28,11 +28,22 @@ export class GoTo3Component implements OnInit, OnDestroy {
     });
 
     setTimeout(() => {
+      console.log('1. empty ??? .... ', this.items.length);
       this.items.forEach((item: RandomItemExt) => {
         console.log('adding .... '); /// never here ...
         item.displayKey = 'abcd';
       });
     });
+
+    console.log('2. empty ...., but before 1. empty', this.items.length);
+
+    this.seeIfEmpty(this.items, 'ngOnInit, setTimeout');
+  }
+
+  seeIfEmpty(items: RandomItemExt[], from: string): number {
+    console.log('3. from .... ', from, ' length: ', this.items.length);
+
+    return this.items.length;
   }
 
   ngOnDestroy() {

@@ -9,9 +9,10 @@ import { LocalsharedModule } from '../localshared/localshared.module';
 import { HtmlHomeComponent } from './html-home/html-home.component';
 import { HtmlRoutingModule } from './html-routing.module';
 import { HtmlTestComponent } from './html-test/html-test.component';
+import { HtmlCardsComponent } from './html-cards/html-cards.component';
 
 @NgModule({
-  declarations: [HtmlHomeComponent, HtmlTestComponent],
+  declarations: [HtmlHomeComponent, HtmlTestComponent, HtmlCardsComponent],
   imports: [
     CommonModule,
     HttpClientModule,

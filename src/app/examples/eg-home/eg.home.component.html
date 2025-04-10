@@ -1,7 +1,83 @@
 <h2>Example Home</h2>
 
 <hr />
+
+<h3>Select Lanugage</h3>
+<div class="select-1__selectParent">
+  <select
+    class="select-1__selectParent-select"
+    [(ngModel)]="selectedLanguage"
+    (ngModelChange)="onSelectedLanguageChange($event)"
+  >
+    <option class="select-1__selectParent-option" value="EN">English</option>
+    <option value="FR">French</option>
+  </select>
+</div>
+
+<p *ngIf="localeId === 'fr'">Bonjour!</p>
+<p *ngIf="localeId === 'en'">Hello!</p>
+
+<hr />
+<p>Tesing DecimalPipe</p>
+<div *ngFor="let num of numArray">
+  <p>==================================</p>
+  <p>
+    No specified formatting:
+    {{ num | number }}
+    <!--output: '3.142'-->
+  </p>
+
+  <p>
+    With digitsInfo parameter specified and locale en:
+    {{ num | number : '4.1-5' : 'en' }}
+    <!--output: '0,003.14159'-->
+  </p>
+
+  <p>
+    With digitsInfo and locale parameters specified, fr:
+    {{ num | number : '4.1-5' : 'fr' }}
+    <!--output: '0 003,14159'-->
+  </p>
+
+  <p>
+    Dynamically set digitsInfo and locale:
+    {{ num | number : '4.1-5' : localeId }}
+    <!--output: '0 003,14159'-->
+  </p>
+
+  <p>
+    Test around:
+    {{ getRoundNumber(num) }}
+  </p>
+
+  {{ localeId | json }}
+</div>
+
+<hr />
+
+<h3>ExpressionChangedAfterItHasBeenCheckedError</h3>
+
+Solutions:
+<ul>
+  <li>1. Refactor AfterViewInit lifecycl hook</li>
+  <li>2. Use ChangeDetectorRef manually</li>
+  <li>3. Make getters idempotent</li>
+  <li>4. Make the update async (last resort), using setTimeout or Promise</li>
+</ul>
+
+<p>[Debugging] Expression has changed after it was checked: https://www.youtube.com/watch?v=O47uUnJjbJc</p>
+<p>Example in video, if ParentComponent and ChildComponent, consider using SharedService</p>
+
+<div>{{ myProperty }}</div>
+<button (click)="updateProperty()">Update Property</button>
+
+<hr />
 <p><a routerLink="/eg/select">/eg/select: Making Select Arrow CSS</a></p>
+<p>
+  <a [routerLink]="['/eg/select']" [skipLocationChange]="true"
+    >/eg/select: Making Select Arrow CSS, skipLocationChange</a
+  >
+</p>
 <p><a routerLink="/eg/selectsublist1">/eg/selectsublist1: Hover Open Sublist 1, prepare</a></p>
 <p><a routerLink="/eg/selectsublist2">/eg/selectsublist2: Hover Open Sublist 2</a></p>
 <p><a routerLink="/eg/selectsublist3">/eg/selectsublist3: Hover Open Sublist 3, end of chatGPT</a></p>
@@ -10,6 +86,14 @@
 <p><a routerLink="/eg/selectsublist6">/eg/selectsublist6: Hover Update Inputs 6</a></p>
 <p><a routerLink="/eg/pattern">/eg/pattern: Pattern Test</a></p>
 <p><a routerLink="/eg/inputvalidate">/eg/inputvalidate: Input Validation Tests</a></p>
+
+<hr />
+<div *ngFor="let item of pageNavBeans">
+  <h3>{{ item.title }}</h3>
+  <p>
+    <a routerLink="{{ item.url }}">{{ item.url }}: {{ item.desc }}</a>
+  </p>
+</div>
 
 <hr />
 <h3>SVGs</h3>
@@ -24,20 +108,6 @@
     d="M5.97513 6.23668L0.966797 1.23901L2.02646 0.177011L5.97413 4.11634L9.9378 0.152344L10.9985 1.21301L5.97513 6.23668Z"
   />
 </svg>
-
-<hr />
-
-<h3>Select Lanugage</h3>
-<div class="select-1__selectParent">
-  <select
-    class="select-1__selectParent-select"
-    [(ngModel)]="selectedLanguage"
-    (ngModelChange)="onSelectedLanguageChange($event)"
-  >
-    <option class="select-1__selectParent-option" value="EN">English</option>
-    <option value="FR">French</option>
-  </select>
-</div>
 
 <hr />
 

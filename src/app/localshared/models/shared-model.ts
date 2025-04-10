@@ -83,3 +83,16 @@ export class PageNavBean {
   title: any;
   desc: string = '';
 }
+
+export class Customer {
+  customerId: number;
+  name: string = '';
+  age: number;
+}
+
+export class Product {
+  id: number;
+  name: string = '';
+  onlineOnly: boolean = false;
+  version: number;
+}

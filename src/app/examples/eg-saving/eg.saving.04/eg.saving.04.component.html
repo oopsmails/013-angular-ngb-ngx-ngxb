@@ -1,0 +1,37 @@
+<h2>eg.saving.04, to reproduct optimistic locking problem</h2>
+
+<p>
+  working with
+  spring-boot-simples/spring-boot-exception-handling/src/main/java/com/oopsmails/exceptionhandling/product/controller/ProductController.java
+  Note: don't use try / catch to reproduce ObjectOptimisticLockingFailureException, @SneakyThrows added
+</p>
+
+<p>product$: {{ product$ | async | json }}</p>
+
+<hr />
+
+<div *ngIf="product">
+  <label for="inputField">Input Field:</label>
+  <input type="text" id="inputField" [(ngModel)]="product.name" />
+
+  <br />
+  <label for="inputField2">Input Field2:</label>
+  <input type="text" id="inputField2" [(ngModel)]="product.name" />
+</div>
+
+<p>
+  To reproduce: Change input field, then click on button. In component, it will trigger saving twice. The
+  ObjectOptimisticLockingFailureException will not happen at first time because still be with correct version. But, when
+  doing change and click button
+  <span class="home__spanFileBackground" style="color: brown; background-color: yellow">second time</span>, the
+  ObjectOptimisticLockingFailureException will happen. If put another GET after the first saving, then issue resolved.
+</p>
+<button (click)="triggerMultipleCalls()">Update with optimistic locking Exception</button>
+
+<hr />
+
+<button (click)="saveDataPublic2(product)">Update correctly ???</button>
+
+<hr />
+
+<p>product: {{ product | json }}</p>

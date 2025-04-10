@@ -37,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // Add any additional logic here to determine if the header should be displayed
     // return currentRoute !== 'html';
 
+    // why this is showing infinite times!!!???
     console.log('calling multiple time? currentPath: ', currentPath);
 
     return true;

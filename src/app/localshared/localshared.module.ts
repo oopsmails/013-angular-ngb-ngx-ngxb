@@ -18,6 +18,10 @@ import { DisplayStringPipe } from './pipe/display.string.pipe';
 import { AmtPatternDirective } from './directives/amt.pattern.directive';
 import { FloatPatternDirective } from './directives/float.pattern.directive';
 import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hover.component';
+import { CustomPipe } from './pipe/custom.pipe';
+import { InputSaveComponent } from './components/input-save/input-save.component';
+import { LineBreakPipe } from './pipe/line-break.pipe';
+// import { RootMessageTranslatePipe } from '../rootpipe/root.message.translate.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hov
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    // RootMessageTranslatePipe,
     DisplayStringPipe,
+    CustomPipe,
+    InputSaveComponent,
+    LineBreakPipe,
   ],
   imports: [
     CommonModule,
@@ -51,13 +59,17 @@ import { DropDownHoverComponent } from './components/dropdown-hover/dropdown-hov
     DisplayFilteredComponent,
     ProgressBarScrollComponent,
     DropDownHoverComponent,
+    InputSaveComponent,
     DragAndDropFileDirective,
     AmtPatternDirective,
     FloatPatternDirective,
     DraggableDirective,
     DroppableDirective,
     MessageTranslatePipe,
+    // RootMessageTranslatePipe,
     DisplayStringPipe,
+    CustomPipe,
+    LineBreakPipe,
   ],
 })
 export class LocalsharedModule {}

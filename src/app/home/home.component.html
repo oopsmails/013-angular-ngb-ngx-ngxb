@@ -3,6 +3,22 @@
 <!-- </div> -->
 
 <h1>Home</h1>
+<app-input-save></app-input-save>
+
+<hr />
+<h3>Test Replace Backslashes</h3>
+<p>
+  In summary, this replace function will turn odd number of backslashes into plus one even number of backslashes, and
+  will not do anything if it is already even number of backslashes
+</p>
+<p>Odd number of backslashes after replace: {{ stringWithDoubleBackslashes1 }}</p>
+<p>Even number of backslashes after replace: {{ stringWithDoubleBackslashes2 }}</p>
+<p>
+  <input [ngModel]="institution.englishName" (ngModelChange)="onModelChange($event)" />
+</p>
+<p>institution.englishName: {{ institution.englishName }}</p>
+
+<hr />
 <p>Lorem usage: `p*8>lorem` ...</p>
 
 <p>
@@ -24,8 +40,12 @@
 
 <h3>i18n</h3>
 <p>{{ 'greeting' | messageTranslate : { name: 'John', second: second } }}</p>
+<p>{{ 'greeting' | rootMessageTranslate : { name: 'John', second: second } }} : using rootMessageTranslate</p>
 <p>{{ 'farewell' | messageTranslate : { name: 'Jane' } }}</p>
 <p>{{ 'HOME.TITLE' | messageTranslate }}</p>
+
+<p>{{ 'not empty rootEmptyPipe not chaning this' | messageTranslate | rootEmptyPipe }}</p>
+<p>{{ '' | messageTranslate | rootEmptyPipe }}</p>
 
 <hr />
 
@@ -54,7 +74,10 @@ Hello <ng-container [ngTemplateOutlet]="myTemplate"></ng-container>
 <p><a routerLink="/home/test-around">/home/test-around: Test Around</a></p>
 <p><a routerLink="/home/test-modal">/home/test-modal: Test Modal</a></p>
 <p><a routerLink="/home/test-inputoutput">/home/test-inputoutput: Test Input Output</a></p>
-<p><a routerLink="/home/parent">/home/parent: Test Parent/Child</a></p>
+
+<p>NOT WORKING: NavigationGuard, <a routerLink="/home/parent">/home/parent: Test Parent/Child</a></p>
+<p><button (click)="goToHomeParent()">Go to Home/Parent</button></p>
+
 <p><a routerLink="/home/get-ngx-select">/home/get-ngx-select: Test get-ngx-select</a></p>
 <p><a routerLink="/home/select-modal">/home/select-modal: Test Ngx Select with Ngb Modal</a></p>
 <p><a routerLink="/home/options">/home/options: Test Select Option Dropdown</a></p>
@@ -77,6 +100,7 @@ Hello <ng-container [ngTemplateOutlet]="myTemplate"></ng-container>
 <p><a routerLink="/home/itemlist3">/home/itemlist3: Random Item List3, GB</a></p>
 <p><a routerLink="/home/itemlist4">/home/itemlist4: Random Item List4</a></p>
 <p><a routerLink="/home/tooltip2">/home/tooltip2: Test Around Tooltip</a></p>
+<p><a routerLink="/home/custompipe">/home/custompipe: Test Around Custom Pipe</a></p>
 <hr />
 
 <hr />
