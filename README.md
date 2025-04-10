@@ -1,5 +1,16 @@
 # angular-ngb-ngx-ngxb
 
+## History Log:
+
+### 20250410: 
+
+- merge from 20230220-dev-datatable to dev
+- create 20240410-removelib branch from dev, to remove following in package.json
+  > "oops-lib001": "github:oopsmails/001-oopsmails-angular-lib-test-dist#master-v14",
+
+  > "oops-lib002": "github:oopsmails/002-oopsmails-angular-lib-dist#master-v14",
+
+
 ## How to use ng command within this workspace
 
 ```
